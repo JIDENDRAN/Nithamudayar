@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment Variables & Secrets
+.env
+**/.env
+.env*.local
+
+# Build outputs
+dist/
+**/dist/
+dist-ssr/
+**/dist-ssr/
+
+# Authentication & Logs
+baileys_auth/
+**/baileys_auth/
+whatsapp_auth/
+**/whatsapp_auth/
+*.log
+**/*.log
+logs/
+**/logs/
+
+# Uploads
+best/best-be/uploads/*
+!best/best-be/uploads/.gitkeep
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

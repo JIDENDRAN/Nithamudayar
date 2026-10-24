@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+/* ─── NITHAMUDAYAR BRAND DESIGN TOKENS ───────────────────── */
+:root {
+  --brand-espresso: #342521;
+  --brand-espresso-dark: #241815;
+  --brand-espresso-light: #44322d;
+  --brand-divider: #352925;
+  --brand-gold: #D4AF37;
+  --brand-gold-bright: #F3C64F;
+  --brand-gold-light: #FCF6BA;
+  --brand-gold-dark: #AA771C;
+  --brand-card: #5B6767;
+  --brand-card-dark: #485252;
+  --brand-charcoal: #1E1E1E;
+  --brand-surface: #FDFBF7;
+  --brand-whatsapp: #25D366;
+  
+  --forest: #342521;
+  --forest-dark: #241815;
+  --forest-mid: #44322d;
+  --forest-light: #5B6767;
+  --cream: #FAF8F5;
+  --cream-dark: #ede5d5;
+  --gold: #D4AF37;
+  --gold-light: #FCF6BA;
+  --gold-bright: #F3C64F;
+  --text-dark: #1E1E1E;
+  --text-medium: #4a4a4a;
+  --text-light: #8a8a8a;
+}
+
+@theme {
+  --color-brand-espresso: #342521;
+  --color-brand-espresso-dark: #241815;
+  --color-brand-espresso-light: #44322d;
+  --color-brand-divider: #352925;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-bright: #F3C64F;
+  --color-brand-gold-light: #FCF6BA;
+  --color-brand-gold-dark: #AA771C;
+  --color-brand-card: #5B6767;
+  --color-brand-card-dark: #485252;
+  --color-brand-charcoal: #1E1E1E;
+  --color-brand-surface: #FDFBF7;
+  --color-brand-whatsapp: #25D366;
+
+  --font-sans: 'Plus Jakarta Sans', Inter, sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+/* ─── BASE ───────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+body {
+  background-color: #FDFBF7;
+  color: #1E1E1E;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #FAF8F5; }
+::-webkit-scrollbar-thumb { background: #44322d; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #AA771C; }
+
+/* ─── ANIMATIONS & KEYFRAMES ─────────────────────────────── */
+@keyframes rotate-glow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.08); }
+}
+
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes route-flow {
+  0% { stroke-dashoffset: 56; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer-sweep 3s ease-in-out infinite;
+}
+
+.animate-route-flow {
+  animation: route-flow 2.2s linear infinite;
+}
+
+/* ─── MOVING GOLDEN GLOW BORDER EFFECT ───────────────────── */
+.glow-border-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 2px;
+  background-color: #E5E7EB;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-border-card::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 65deg,
+    #AA771C 100deg,
+    #D4AF37 130deg,
+    #FCF6BA 150deg,
+    #543220 170deg,
+    transparent 210deg
+  );
+  animation: rotate-glow 4s linear infinite;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.glow-border-card:hover {
+  box-shadow: 0 12px 28px -6px rgba(212, 175, 55, 0.3), 0 8px 12px -4px rgba(84, 50, 32, 0.25);
+  transform: translateY(-3px);
+}
+
+.glow-border-card-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: #FAF8F5;
+  border-radius: calc(1rem - 2px);
+  padding: clamp(0.85rem, 2.5vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ─── GOLD GRADIENTS & BUTTONS ───────────────────────────── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 50%, #B45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-shine {
+  background: linear-gradient(90deg, #F9D976 0%, #E9B642 30%, #FFF4D0 50%, #D4AF37 70%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #F6D365 0%, #D4AF37 50%, #AA771C 100%);
+  color: #241815;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #FFE58F 0%, #E5B83B 50%, #B38728 100%);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ─── LUXURY TOUR CARD ANIMATION ─────────────────────────── */
+.tour-card {
+  position: relative;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.tour-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 24px 40px -12px rgba(212, 175, 55, 0.24), 0 12px 20px -8px rgba(53, 32, 22, 0.12);
+}
+
+.tour-card .shimmer-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, #FCF6BA, #AA771C, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 20;
+}
+
+.tour-card:hover .shimmer-line {
+  opacity: 1;
+}
+
+.tour-card .image-zoom {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tour-card:hover .image-zoom {
+  transform: scale(1.08);
+}
+
+/* ─── 3D FLIP CARD SYSTEM FOR TOUR PACKAGES ──────────────── */
+.flip-card-perspective {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flip-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flip-card-front:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 16px 32px -8px rgba(212, 175, 55, 0.2), 0 8px 16px -6px rgba(53, 32, 22, 0.1);
+}
+
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  background-color: #FAF8F5;
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 16px 32px -8px rgba(212, 175, 55, 0.2), 0 8px 16px -6px rgba(53, 32, 22, 0.1);
+}
+
+/* ─── COMMERCIAL FLEET SHOWROOM CARDS ────────────────────── */
+.fleet-showroom-card {
+  position: relative;
+  background: #271a17;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.fleet-showroom-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 20px 35px -10px rgba(212, 175, 55, 0.22), 0 10px 20px -5px rgba(0, 0, 0, 0.6);
+}
+
+.fleet-showroom-card .fleet-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, #FCF6BA, #AA771C, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 20;
+}
+
+.fleet-showroom-card:hover .fleet-shimmer {
+  opacity: 1;
+}
+
+.fleet-stage {
+  position: relative;
+  background: radial-gradient(circle at 50% 60%, rgba(212, 175, 55, 0.14) 0%, rgba(30, 18, 15, 0.9) 55%, #140b09 100%);
+  overflow: hidden;
+}
+
+.fleet-car-image {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.6));
+}
+
+.fleet-showroom-card:hover .fleet-car-image {
+  transform: translateY(-8px) scale(1.05);
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.8));
+}
+
+.fleet-ground-shadow {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+}
+
+.fleet-showroom-card:hover .fleet-ground-shadow {
+  transform: scale(0.85);
+  opacity: 0.45;
+}
+
+/* ─── UIVERSE DESTINATION EXPANDING CARDS ─────────────────── */
+.uiverse-destination-container {
+  width: 100%;
+  height: 570px;
+  border-radius: 1rem;
+  background: #1a100e;
+  display: flex;
+  gap: 8px;
+  padding: 0.6rem;
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.12);
+  overflow: hidden;
+}
+
+.uiverse-destination-item {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 0.65rem;
+  transition: flex 0.55s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  background: #241815;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uiverse-destination-item:hover,
+.uiverse-destination-item.is-expanded {
+  flex: 4.8;
+  border-color: #D4AF37;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.uiverse-destination-item .collapsed-label {
+  min-width: 14em;
+  padding: 0.5em;
+  text-align: center;
+  transform: rotate(-90deg);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  color: #F8E7A2;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  position: absolute;
+  z-index: 15;
+  pointer-events: none;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 0 16px rgba(0, 0, 0, 0.9);
+}
+
+.uiverse-destination-item:hover .collapsed-label,
+.uiverse-destination-item.is-expanded .collapsed-label {
+  transform: rotate(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.uiverse-destination-item .expanded-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease 0.15s, visibility 0.45s ease 0.15s;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  z-index: 20;
+  background: linear-gradient(to top, rgba(18, 10, 8, 0.95) 0%, rgba(24, 14, 12, 0.75) 50%, rgba(18, 10, 8, 0.85) 100%);
+}
+
+.uiverse-destination-item:hover .expanded-content,
+.uiverse-destination-item.is-expanded .expanded-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .uiverse-destination-container {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    gap: 8px;
+    padding: 0.5rem;
+  }
+
+  .uiverse-destination-item {
+    height: 54px;
+    min-height: 54px;
+    flex: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .uiverse-destination-item.is-expanded {
+    height: auto;
+    min-height: auto;
+    flex: none;
+  }
+
+  .uiverse-destination-item .collapsed-label {
+    transform: none;
+    min-width: auto;
+    font-size: 0.85rem;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.1em;
+  }
+
+  .uiverse-destination-item.is-expanded .collapsed-label {
+    display: none;
+    opacity: 0;
+  }
+
+  .uiverse-destination-item .expanded-content {
+    position: relative;
+    inset: auto;
+    padding: 1.15rem 1rem;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    min-height: auto;
+  }
+
+  .uiverse-destination-item.is-expanded .expanded-content {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+}
