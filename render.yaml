@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: nithamudayar-backend
+    runtime: node
+    plan: free
+    rootDir: best/best-be
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: DATABASE_URL
+        sync: false

@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd best/best-fe && npm install && npm run build",
+  "outputDirectory": "best/best-fe/dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

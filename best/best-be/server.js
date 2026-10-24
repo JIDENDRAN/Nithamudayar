@@ -101,6 +101,20 @@ app.get('/api/uploaded-files', async (req, res) => {
   }
 });
 
+// Root & Health check routes for Render
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'Nithamudayar Tours and Travels API',
+    database: 'Neon PostgreSQL',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 const PORT = process.env.PORT || 5000;
 
 process.on('exit', (code) => {

@@ -1,0 +1,10 @@
+{
+  "name": "nithamudayar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nithamudayar Tours and Travels monorepo",
+  "scripts": {
+    "build": "npm --prefix best/best-fe run build",
+    "start": "npm --prefix best/best-be start"
+  }
+}
