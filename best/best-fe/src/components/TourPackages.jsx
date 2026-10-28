@@ -123,8 +123,8 @@ export default function TourPackages({ onSelectPackage }) {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute top-3 right-3 bg-[#241815]/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-md">
-                  {pkg.price}
+                <div className="absolute top-3 right-3 bg-[#241815]/90 text-[#FCF6BA] text-xs font-bold px-3 py-1 rounded-md">
+                  {pkg.duration}
                 </div>
               </div>
 

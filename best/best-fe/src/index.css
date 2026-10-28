@@ -283,9 +283,10 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   transform: rotateY(180deg);
-  background-color: #FAF8F5;
+  background-color: #241815;
   border: 1.5px solid rgba(212, 175, 55, 0.45);
   box-shadow: 0 16px 32px -8px rgba(212, 175, 55, 0.2), 0 8px 16px -6px rgba(53, 32, 22, 0.1);
+  color: #ffffff;
 }
 
 /* ─── COMMERCIAL FLEET SHOWROOM CARDS ────────────────────── */

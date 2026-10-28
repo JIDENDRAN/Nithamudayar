@@ -348,9 +348,8 @@ export default function HomePage({ onOpenBooking }) {
                     <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-end justify-between text-white">
                       <span className="text-[11px] font-bold truncate pr-2">{pkg.location || 'South India'}</span>
                       <div className="text-right shrink-0">
-                        <span className="text-[8px] uppercase tracking-wider text-brand-gold-light font-bold block">Package Amt</span>
-                        <span className="text-xs font-extrabold text-white bg-black/70 border border-brand-gold/40 px-2 py-0.5 rounded backdrop-blur-xs block shadow-xs">
-                          {pkg.price}
+                        <span className="text-[10px] font-bold text-[#FCF6BA] bg-black/75 border border-brand-gold/40 px-2.5 py-0.5 rounded backdrop-blur-xs block shadow-xs">
+                          {pkg.places ? pkg.places.split(/[,•\n]+/).filter(Boolean).length : 5} Places
                         </span>
                       </div>
                     </div>

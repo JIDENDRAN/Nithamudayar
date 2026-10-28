@@ -394,13 +394,13 @@ export default function PackagesPage({ onOpenBooking }) {
                 Explore South India Tour Packages
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-2xl">
-                All tour circuits feature transparent all-inclusive package pricing covering dedicated AC vehicle, chauffeur, fuel, interstate toll, and driver allowance.
+                Explore curated circuits covering major heritage sites, temples, hill stations, and coastal destinations across Tamil Nadu and South India with dedicated AC vehicle and verified chauffeur.
               </p>
             </div>
 
             <div className="flex items-center gap-2 text-xs font-semibold text-brand-gold-dark bg-white border border-brand-gold/40 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg shadow-2xs shrink-0 whitespace-nowrap">
               <Sparkles className="w-4 h-4 text-brand-gold-dark shrink-0" />
-              <span>Direct Database Integration • Editable via Admin</span>
+              <span>Customizable Itineraries • Verified Chauffeurs</span>
             </div>
           </div>
 
@@ -457,7 +457,7 @@ export default function PackagesPage({ onOpenBooking }) {
                           </span>
                         </div>
 
-                        {/* Bottom Tag & Price on Image */}
+                        {/* Bottom Tag & Place Details on Image */}
                         <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white">
                           <div className="min-w-0 pr-2">
                             <span className="text-[10px] font-semibold text-brand-gold-light uppercase tracking-wider block truncate">
@@ -468,9 +468,8 @@ export default function PackagesPage({ onOpenBooking }) {
                             </span>
                           </div>
                           <div className="text-right shrink-0">
-                            <span className="text-[9px] uppercase tracking-wider text-brand-gold-light font-bold block">Package Amt</span>
-                            <span className="text-sm sm:text-base font-extrabold text-white bg-black/70 border border-brand-gold/40 px-2.5 py-0.5 rounded-lg backdrop-blur-xs block shadow-sm">
-                              {pkg.price}
+                            <span className="text-[10px] font-bold text-[#FCF6BA] bg-black/75 border border-brand-gold/40 px-2.5 py-1 rounded-lg backdrop-blur-xs block shadow-sm">
+                              {pkg.highlights.length} Places Covered
                             </span>
                           </div>
                         </div>
@@ -500,10 +499,10 @@ export default function PackagesPage({ onOpenBooking }) {
                           <div className="flex items-center justify-between mb-2">
                             <span className="text-[11px] font-bold text-neutral-700 uppercase tracking-wider flex items-center gap-1">
                               <MapPin className="w-3.5 h-3.5 text-brand-gold-dark" />
-                              All Covered Places ({pkg.highlights.length}):
+                              Covered Destinations ({pkg.highlights.length}):
                             </span>
-                            <span className="text-[10px] text-brand-gold-dark font-bold bg-brand-gold/10 px-2 py-0.5 rounded-full">
-                              All-Inclusive
+                            <span className="text-[10px] text-brand-gold-dark font-bold bg-brand-gold/10 px-2.5 py-0.5 rounded-full">
+                              Place Details
                             </span>
                           </div>
                           <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto pr-1">
@@ -548,19 +547,22 @@ export default function PackagesPage({ onOpenBooking }) {
                   </div>
 
                   {/* BACK SIDE (Detailed Itinerary) */}
-                  <div className="flip-card-back bg-[#241815] border border-brand-gold/40 text-white rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+                  <div 
+                    className="flip-card-back !bg-[#241815] border-2 border-brand-gold/50 text-white rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-2xl"
+                    style={{ backgroundColor: '#241815', color: '#ffffff' }}
+                  >
                     <div>
                       {/* Back Header */}
-                      <div className="flex items-center justify-between border-b border-brand-gold/20 pb-3 mb-4">
+                      <div className="flex items-center justify-between border-b border-brand-gold/30 pb-3 mb-4">
                         <div>
-                          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">
+                          <span className="text-[11px] font-extrabold text-[#D4AF37] uppercase tracking-wider block">
                             Circuit Details
                           </span>
-                          <h4 className="text-sm sm:text-base font-bold font-heading text-white line-clamp-1">
+                          <h4 className="text-base sm:text-lg font-black font-heading text-white line-clamp-1 mt-0.5">
                             {pkg.title}
                           </h4>
                         </div>
-                        <span className="text-[10px] text-neutral-400 bg-white/10 px-2 py-0.5 rounded-full shrink-0">
+                        <span className="text-xs text-neutral-200 bg-white/10 hover:bg-white/20 border border-white/20 px-2.5 py-1 rounded-full shrink-0 font-semibold cursor-pointer transition-colors">
                           ↺ Flip Back
                         </span>
                       </div>
@@ -568,43 +570,44 @@ export default function PackagesPage({ onOpenBooking }) {
                       {/* Complete Covered Places List */}
                       <div className="space-y-2 mb-4">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-brand-gold-light uppercase tracking-wider block">
-                            Places Covered & Highlights ({pkg.highlights.length}):
+                          <span className="text-xs sm:text-sm font-bold text-[#FCF6BA] uppercase tracking-wider flex items-center gap-1.5">
+                            <MapPin className="w-4 h-4 text-brand-gold" />
+                            <span>Places Covered ({pkg.highlights.length}):</span>
                           </span>
-                          <span className="text-xs font-extrabold text-brand-gold bg-black/40 px-2 py-0.5 rounded border border-brand-gold/30">
-                            {pkg.price}
+                          <span className="text-[11px] font-bold text-[#241815] bg-[#D4AF37] px-2.5 py-0.5 rounded-full shadow-sm font-heading">
+                            {pkg.duration}
                           </span>
                         </div>
-                        <ul className="space-y-1.5 text-xs text-neutral-200 max-h-52 overflow-y-auto pr-1">
+                        <ul className="space-y-1.5 text-xs text-white max-h-52 overflow-y-auto pr-1">
                           {pkg.highlights.map((h, i) => (
-                            <li key={i} className="flex items-start gap-2 bg-white/5 p-1.5 rounded-lg border border-white/5">
-                              <span className="w-4 h-4 rounded-full bg-brand-gold/20 text-brand-gold font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                            <li key={i} className="flex items-center gap-2.5 bg-[#31201b] hover:bg-[#3d2822] p-2 rounded-lg border border-brand-gold/30 hover:border-brand-gold/60 transition-colors">
+                              <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#FCF6BA] to-[#BF953F] text-[#241815] font-black text-[11px] flex items-center justify-center shrink-0 shadow-xs">
                                 {i + 1}
                               </span>
-                              <span className="leading-snug">{h}</span>
+                              <span className="text-white font-bold text-xs sm:text-sm leading-snug">{h}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
                       {/* Package Inclusions */}
-                      <div className="bg-[#18110f] border border-brand-gold/20 rounded-xl p-3 text-[11px] text-neutral-300">
-                        <span className="text-brand-gold font-bold block mb-0.5">Package Inclusions:</span>
-                        {pkg.includes}
+                      <div className="bg-[#18110f] border border-brand-gold/35 rounded-xl p-3 text-xs">
+                        <span className="text-[#D4AF37] font-bold block mb-1">Package Inclusions:</span>
+                        <p className="text-neutral-200 leading-relaxed text-[11px]">{pkg.includes}</p>
                       </div>
                     </div>
 
                     {/* Book Now Button on Back of Card */}
-                    <div className="pt-4 border-t border-brand-gold/20 flex items-center gap-2">
+                    <div className="pt-4 border-t border-brand-gold/30 flex items-center gap-2">
                       <button
                         onClick={(e) => {
                           e.stopPropagation(); // prevent flip when clicking button
                           onOpenBooking({ title: pkg.title, packageType: pkg.title, city: pkg.city });
                         }}
-                        className="w-full btn-gold py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95 transition-all"
+                        className="w-full btn-gold py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:scale-[1.02] active:scale-98 transition-all"
                       >
                         <span>Reserve This Circuit</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
                   </div>
