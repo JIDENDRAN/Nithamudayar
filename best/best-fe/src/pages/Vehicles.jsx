@@ -359,8 +359,8 @@ export default function FleetPage({ onOpenBooking }) {
             ))}
           </div>
 
-          {/* Showroom Animated Fleet Grid: 2 Columns Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Showroom Animated Fleet Grid: 2 Columns on Desktop, Single Column on Mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {(fleetFilter === 'all' ? fleet : fleet.filter(item => item.category === fleetFilter)).map((item) => (
               <div
                 key={item.id}
@@ -371,11 +371,11 @@ export default function FleetPage({ onOpenBooking }) {
 
                 <div>
                   {/* Fitted Showroom Stage with Radial Spotlight */}
-                  <div className="fleet-stage relative h-52 sm:h-64 w-full flex flex-col items-center justify-center p-4 sm:p-6 border-b border-white/10 overflow-hidden">
+                  <div className="fleet-stage relative h-48 sm:h-56 w-full flex flex-col items-center justify-center p-4 border-b border-white/10 overflow-hidden bg-gradient-to-b from-[#2a1b17] to-[#180e0c]">
                     <div className="absolute inset-0 bg-radial from-brand-gold/25 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                     {/* Floating Studio Vehicle Image with Ground Shadow */}
-                    <div className="relative z-10 w-full h-36 sm:h-44 flex items-center justify-center">
+                    <div className="relative z-10 w-full h-32 sm:h-40 flex items-center justify-center">
                       <img
                         src={item.image}
                         alt={item.name}
@@ -383,106 +383,97 @@ export default function FleetPage({ onOpenBooking }) {
                         loading="lazy"
                       />
                     </div>
-                    <div className="w-3/4 sm:w-2/3 h-2.5 sm:h-3 bg-black/80 rounded-full blur-sm mx-auto -mt-1 fleet-ground-shadow pointer-events-none"></div>
+                    <div className="w-2/3 h-2.5 bg-black/80 rounded-full blur-xs mx-auto -mt-1 fleet-ground-shadow pointer-events-none"></div>
 
                     {/* Category Tag on Stage Top Left */}
-                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[#1b100e]/90 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold text-brand-gold border border-brand-gold/40 shadow-sm whitespace-nowrap">
+                    <div className="absolute top-3 left-3 bg-[#1b100e]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold text-brand-gold border border-brand-gold/40 shadow-sm whitespace-nowrap">
                       {item.category}
                     </div>
 
                     {/* Rate Tag on Stage Top Right */}
-                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-gradient-to-r from-[#241815] to-[#180e0c] text-brand-gold text-xs sm:text-sm font-black font-heading px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-lg border border-brand-gold/50 shadow-md whitespace-nowrap">
+                    <div className="absolute top-3 right-3 bg-gradient-to-r from-brand-gold-dark via-brand-gold to-brand-gold text-neutral-950 text-xs sm:text-sm font-black font-heading px-3 py-1 rounded-lg shadow-md whitespace-nowrap">
                       {item.rate}
                     </div>
                   </div>
 
-                  {/* Vehicle Details & Specifications */}
-                  <div className="p-4 sm:p-6 pb-2">
+                  {/* Clean Vehicle Details: Required Info Only */}
+                  <div className="p-4 sm:p-5 space-y-3.5">
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold font-heading text-white group-hover:text-brand-gold transition-colors">
-                        {item.name}
-                      </h3>
-                      <p className="text-xs text-brand-gold-light/90 font-medium mt-0.5">
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="text-base sm:text-lg font-bold font-heading text-white group-hover:text-brand-gold transition-colors">
+                          {item.name}
+                        </h3>
+                        <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800/40 px-2 py-0.5 rounded-full shrink-0">
+                          AC Commercial
+                        </span>
+                      </div>
+                      <p className="text-xs text-neutral-300 mt-1 line-clamp-1">
                         {item.idealFor}
                       </p>
                     </div>
 
-                    {/* TWO SECTIONS SIDE BY SIDE: Left = Specifications, Right = Tariff & Booking */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-3.5 mt-3 border-t border-white/10">
-                      
-                      {/* SECTION 1: VEHICLE SPECIFICATIONS */}
-                      <div className="bg-[#180f0d] border border-white/5 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between">
-                        <div>
-                          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand-gold flex items-center gap-1.5 mb-2.5">
-                            <Car className="w-3.5 h-3.5 text-brand-gold" />
-                            <span>Vehicle Specs</span>
-                          </span>
-
-                          <div className="space-y-1.5 text-xs text-neutral-200">
-                            <div className="flex items-center gap-2 bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
-                              <Users className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-                              <span className="font-semibold text-white truncate">{item.seats}</span>
-                            </div>
-                            <div className="flex items-center gap-2 bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
-                              <Briefcase className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-                              <span className="font-semibold text-white truncate">{item.luggage}</span>
-                            </div>
-                            <div className="flex items-center gap-2 bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
-                              <Wind className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-                              <span className="font-semibold text-white truncate">{item.ac}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <ul className="mt-2.5 pt-2 border-t border-white/5 space-y-1 text-[11px] text-neutral-300">
-                          {item.specs.map((spec, sIdx) => (
-                            <li key={sIdx} className="flex items-start gap-1.5">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-brand-gold shrink-0 mt-0.5" />
-                              <span className="line-clamp-1">{spec}</span>
-                            </li>
-                          ))}
-                        </ul>
+                    {/* 1. KEY SPECS: 3 Clean Stat Boxes */}
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                        <Users className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
+                        <span className="text-[9px] uppercase font-bold text-neutral-400 block">Capacity</span>
+                        <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
+                          {item.seatsMobile || (item.seats.includes('+') ? item.seats.split(' ')[0] + ' ' + item.seats.split(' ')[1] : item.seats.split(' ')[0] + ' Seats')}
+                        </span>
                       </div>
 
-                      {/* SECTION 2: TARIFF & BOOKING */}
-                      <div className="bg-[#180f0d] border border-brand-gold/20 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between">
-                        <div>
-                          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand-gold flex items-center gap-1.5 mb-2.5">
-                            <ShieldCheck className="w-3.5 h-3.5 text-brand-gold" />
-                            <span>Tariff & Terms</span>
-                          </span>
-
-                          <div className="space-y-1.5 text-xs">
-                            <div className="flex items-center justify-between bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
-                              <span className="text-[10px] text-neutral-400 uppercase font-semibold">Outstation</span>
-                              <span className="font-extrabold text-brand-gold text-xs">{item.rate}</span>
-                            </div>
-                            <div className="flex items-center justify-between bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
-                              <span className="text-[10px] text-neutral-400 uppercase font-semibold">Min Distance</span>
-                              <span className="font-semibold text-white text-xs">{item.minKm}</span>
-                            </div>
-                            <div className="flex items-center justify-between bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
-                              <span className="text-[10px] text-neutral-400 uppercase font-semibold">Driver Bata</span>
-                              <span className="font-semibold text-white text-xs">{item.driverBata}</span>
-                            </div>
-                          </div>
-
-                          <div className="mt-2 text-[10px] text-neutral-400 text-center">
-                            Tolls & permits as actuals
-                          </div>
-                        </div>
-
-                        <button
-                          onClick={() => onOpenBooking(item)}
-                          className="w-full btn-gold py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-md hover:scale-[1.02] active:scale-98 transition-all mt-3"
-                        >
-                          <span>Book {item.name.split(' ')[0]}</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </button>
+                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                        <Briefcase className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
+                        <span className="text-[9px] uppercase font-bold text-neutral-400 block">Luggage</span>
+                        <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
+                          {item.luggageMobile || (item.luggage.includes('Bag') ? item.luggage.split('Bag')[0].trim() + ' Bags' : 'Luggage Space')}
+                        </span>
                       </div>
 
+                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                        <Wind className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
+                        <span className="text-[9px] uppercase font-bold text-neutral-400 block">Climate</span>
+                        <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
+                          {item.acMobile || (item.ac.includes('Dual') ? 'Dual AC' : item.ac.includes('Panoramic') ? 'Panoramic AC' : 'Climate AC')}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 2. TRANSPARENT TARIFF STRIP */}
+                    <div className="bg-[#180f0d] border border-brand-gold/25 rounded-xl p-2.5">
+                      <div className="grid grid-cols-3 divide-x divide-white/10 text-center">
+                        <div className="px-1">
+                          <span className="text-[9px] uppercase font-bold text-neutral-400 block">Outstation</span>
+                          <span className="text-xs sm:text-sm font-extrabold text-brand-gold font-mono block">
+                            {item.rate.replace(' / km', '/km')}
+                          </span>
+                        </div>
+                        <div className="px-1">
+                          <span className="text-[9px] uppercase font-bold text-neutral-400 block">Min Distance</span>
+                          <span className="text-xs sm:text-sm font-bold text-white font-mono block">
+                            {item.minKm.split('/')[0].trim()}
+                          </span>
+                        </div>
+                        <div className="px-1">
+                          <span className="text-[9px] uppercase font-bold text-neutral-400 block">Driver Bata</span>
+                          <span className="text-xs sm:text-sm font-bold text-white font-mono block">
+                            {item.driverBata.replace(' / day', '/d')}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </div>
+
+                {/* Primary Booking Button */}
+                <div className="p-4 sm:p-5 pt-0">
+                  <button
+                    onClick={() => onOpenBooking(item)}
+                    className="w-full btn-gold py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-md hover:scale-[1.01] active:scale-98 transition-all"
+                  >
+                    <span>Book {item.name.split(' ')[0]}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
             ))}
