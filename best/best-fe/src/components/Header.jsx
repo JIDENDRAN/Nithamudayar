@@ -35,17 +35,19 @@ export default function Header({ onOpenBooking }) {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Brand Logo - Updated with official emblem */}
-          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
-            <img
-              src="/logo.png"
-              alt="Nithamudayar Tours Pvt Ltd Logo"
-              className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-md transition-transform duration-200 group-hover:scale-105"
-            />
+          <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white rounded-2xl p-1 sm:p-1.5 shadow-lg flex items-center justify-center shrink-0 border border-white/25 transition-transform duration-200 group-hover:scale-105">
+              <img
+                src="/logo.png"
+                alt="Nithamudayar Tours Pvt Ltd Logo"
+                className="w-full h-full object-contain rounded-xl"
+              />
+            </div>
             <div>
-              <span className="font-heading font-extrabold text-base sm:text-lg tracking-wider text-white block leading-none">
+              <span className="font-heading font-extrabold text-base sm:text-lg lg:text-xl tracking-wider text-white block leading-tight">
                 NITHAMUDAYAR
               </span>
-              <span className="text-[9px] sm:text-[10px] font-semibold tracking-widest text-brand-gold uppercase block mt-0.5">
+              <span className="text-[9px] sm:text-[11px] font-bold tracking-widest text-brand-gold uppercase block mt-0.5">
                 Tours Pvt Ltd
               </span>
             </div>

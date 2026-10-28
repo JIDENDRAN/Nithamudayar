@@ -53,17 +53,19 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-2.5 sm:space-y-4">
-            <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
-              <img
-                src="/logo.png"
-                alt="Nithamudayar Tours Pvt Ltd Logo"
-                className="w-10 h-10 sm:w-14 sm:h-14 object-contain drop-shadow-md transition-transform duration-200 group-hover:scale-105"
-              />
+            <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
+              <div className="w-14 h-14 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-white rounded-2xl p-1.5 shadow-lg flex items-center justify-center shrink-0 border border-white/25 transition-transform duration-200 group-hover:scale-105">
+                <img
+                  src="/logo.png"
+                  alt="Nithamudayar Tours Pvt Ltd Logo"
+                  className="w-full h-full object-contain rounded-xl"
+                />
+              </div>
               <div>
-                <span className="font-heading font-extrabold text-base sm:text-lg tracking-wider text-white">
+                <span className="font-heading font-extrabold text-lg sm:text-xl lg:text-2xl tracking-wider text-white">
                   NITHAMUDAYAR
                 </span>
-                <p className="text-[9px] sm:text-[10px] tracking-wider text-brand-gold uppercase font-semibold">
+                <p className="text-[10px] sm:text-xs tracking-wider text-brand-gold uppercase font-semibold">
                   Tours Pvt Ltd
                 </p>
               </div>

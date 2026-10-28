@@ -771,11 +771,13 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                           {/* 1. TOP HEADER BANNER */}
                           <div className="bg-[#1a3c34] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
                             <div className="flex items-center gap-3">
-                              <img
-                                src="/logo.png"
-                                alt="Logo"
-                                className="w-12 h-12 object-contain rounded-full bg-white/10 p-0.5 border border-white/20 shrink-0"
-                              />
+                              <div className="w-14 h-14 bg-white rounded-xl p-1 shadow-md border border-white/30 shrink-0 flex items-center justify-center">
+                                <img
+                                  src="/logo.png"
+                                  alt="Logo"
+                                  className="w-full h-full object-contain rounded-lg"
+                                />
+                              </div>
                               <div className="space-y-0.5">
                                 <h1 className="text-base sm:text-lg font-black tracking-wide font-heading text-white">
                                   {billData.cabServiceName.toUpperCase()}
