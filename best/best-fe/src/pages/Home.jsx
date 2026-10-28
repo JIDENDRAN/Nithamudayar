@@ -406,7 +406,7 @@ export default function HomePage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* 6.5 Dedicated Travel Services & Charters Section */}
+      {/* 6.5 Dedicated Travel Services & Charters Section: What We Do (2 Columns) */}
       <section className="py-12 sm:py-20 px-4 sm:px-10 bg-white border-t border-neutral-200">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
@@ -415,74 +415,83 @@ export default function HomePage({ onOpenBooking }) {
               <div className="inline-flex items-center gap-1.5 bg-brand-gold/10 border border-brand-gold/30 px-3 py-1 rounded-full mb-2">
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold-dark" />
                 <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-brand-gold-dark">
-                  All Luxury Car Available: Sedan • SUV • Innova Crysta • Tempo Traveller • Urbania
+                  Specialized Travel Services
                 </span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-neutral-900">
-                Specialized Travel Services
+                What We Do
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-2xl">
-                Airport transfers, local sightseeing, outstation charters, corporate conventions, family holidays, and honeymoon tours with certified chauffeurs.
+                Dedicated chauffeur services and tailored travel solutions across Tamil Nadu and South India for every trip requirement.
               </p>
             </div>
             <Link
               to="/packages"
               className="text-xs sm:text-sm font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1.5 transition-colors shrink-0"
             >
-              <span>Explore All Services & Packages</span>
+              <span>Explore All Circuits</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          {/* Services Grid (6 Cards) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Services Grid (Strictly 2 Columns) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
             {travelServices.map((service) => {
               const IconComp = service.icon || Car;
               return (
                 <div
                   key={service.id}
-                  className="bg-[#FAF8F5] border border-neutral-200/90 rounded-2xl p-5 sm:p-6 hover:border-brand-gold/60 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-[#FAF8F5] border border-neutral-200/90 rounded-2xl p-5 sm:p-7 hover:border-brand-gold/60 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-white border border-brand-gold/30 flex items-center justify-center shadow-2xs group-hover:scale-105 group-hover:bg-brand-gold/10 transition-transform">
-                        <IconComp className="w-5 h-5 text-brand-gold-dark" />
+                  <div className="space-y-4">
+                    {/* Top Row: Icon + Category + Badge */}
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-11 h-11 rounded-xl bg-white border border-brand-gold/30 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:bg-brand-gold/10 transition-transform shrink-0">
+                          <IconComp className="w-5 h-5 text-brand-gold-dark" />
+                        </div>
+                        <div>
+                          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand-gold-dark block">
+                            {service.category}
+                          </span>
+                          <h3 className="text-base sm:text-xl font-bold font-heading text-neutral-900 group-hover:text-brand-gold-dark transition-colors">
+                            {service.title}
+                          </h3>
+                        </div>
                       </div>
-                      <span className="text-xs font-extrabold text-white bg-black/75 border border-brand-gold/40 px-2.5 py-0.5 rounded-lg shadow-xs">
-                        {service.price}
+                      <span className="hidden sm:inline-flex text-[10px] font-bold text-neutral-600 bg-white border border-neutral-200 px-2.5 py-1 rounded-full shrink-0 shadow-2xs">
+                        All Luxury Cars
                       </span>
                     </div>
 
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-brand-gold-dark block">
-                        {service.category}
-                      </span>
-                      <h3 className="text-base sm:text-lg font-bold font-heading text-neutral-900 group-hover:text-brand-gold-dark transition-colors">
-                        {service.title}
-                      </h3>
-                    </div>
-
-                    <p className="text-xs text-neutral-600 leading-relaxed">
+                    {/* What We Do Description */}
+                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
                       {service.desc}
                     </p>
 
-                    <ul className="space-y-1.5 pt-2 border-t border-neutral-200/60 text-xs text-neutral-700">
-                      {service.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-1.5">
-                          <Check className="w-3.5 h-3.5 text-brand-gold-dark shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* What We Do: Features Checklist in 2 Columns */}
+                    <div className="pt-3 border-t border-neutral-200/70">
+                      <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-neutral-500 block mb-2.5">
+                        What We Do:
+                      </span>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-neutral-700">
+                        {service.features.map((feat, fIdx) => (
+                          <li key={fIdx} className="flex items-start gap-2 bg-white/70 p-2 rounded-lg border border-neutral-200/50">
+                            <Check className="w-3.5 h-3.5 text-brand-gold-dark shrink-0 mt-0.5" />
+                            <span className="font-medium text-[11px] sm:text-xs leading-snug">{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
-                  <div className="pt-5 mt-4 border-t border-neutral-200/60">
+                  <div className="pt-5 mt-5 border-t border-neutral-200/70">
                     <button
                       onClick={() => onOpenBooking({ title: service.title, packageType: service.title })}
-                      className="w-full btn-gold py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-95 transition-all"
+                      className="w-full btn-gold py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow active:scale-98 transition-all"
                     >
                       <span>Book {service.title}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
