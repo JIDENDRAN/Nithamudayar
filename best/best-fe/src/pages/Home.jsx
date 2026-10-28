@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import MobileHero from '../components/mobile/MobileHero';
 import QuickBookingBar from '../components/QuickBookingBar';
+import TravelHubsCarousel from '../components/TravelHubsCarousel';
 import { ArrowRight, Shield, Award, Clock, Users, CheckCircle2, ChevronRight, Sparkles, MapPin, Plane, Navigation, Briefcase, Heart, Check, Car } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
 
@@ -305,61 +306,8 @@ export default function HomePage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* 5. Primary Destinations Grid */}
-      <section className="py-12 sm:py-20 px-4 sm:px-10 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 border-b border-neutral-200 pb-4 sm:pb-6">
-            <div>
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-brand-gold-dark block mb-1">
-                Tour Destinations Across Tamil Nadu
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-neutral-900">
-                Key Travel Hubs
-              </h2>
-            </div>
-            <Link
-              to="/destinations"
-              className="mt-3 sm:mt-0 text-xs sm:text-sm font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1.5 transition-colors"
-            >
-              <span>View All Destination Details</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-            {destinations.map((d) => (
-              <Link
-                key={d.city}
-                to="/destinations"
-                className="group relative h-48 sm:h-64 lg:h-80 rounded-xl overflow-hidden shadow-sm border border-neutral-200 block transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl active:scale-[0.98]"
-              >
-                {/* Top subtle golden shimmer border */}
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-
-                <img
-                  src={d.image}
-                  alt={d.city}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5 text-white">
-                  <span className="text-[9px] sm:text-[11px] font-semibold text-brand-gold uppercase tracking-wider block mb-0.5">
-                    {d.tag}
-                  </span>
-                  <h3 className="text-base sm:text-2xl font-bold font-heading group-hover:text-gold-shine transition-colors">
-                    {d.city}
-                  </h3>
-                  <div className="flex items-center gap-1 text-[10px] sm:text-xs text-neutral-300 pt-1 sm:pt-2 group-hover:text-brand-gold transition-colors">
-                    <span>Explore Packages</span>
-                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 5. Primary Destinations: Interactive One-by-One Auto-Swipe Hubs with Detailed Side-by-Side Images */}
+      <TravelHubsCarousel onOpenBooking={onOpenBooking} />
 
       {/* 6. Live Tour Packages from Database Showcase */}
       <section className="py-12 sm:py-20 px-4 sm:px-10 bg-[#FAF8F5] border-t border-neutral-200">
