@@ -132,99 +132,39 @@ export default function HomePage({ onOpenBooking }) {
   const travelServices = [
     {
       id: 'airport',
-      title: 'Airport pickup and drop',
-      category: '24/7 Flight Schedule Service',
-      price: 'From ₹1,800',
+      title: 'Airport Pickup & Drop',
+      subtitle: '24/7 Airport Transfers',
       icon: Plane,
-      desc: 'On-time doorstep and terminal transfers for Chennai, Trichy, Madurai & Coimbatore airports with real-time flight tracking.',
-      features: [
-        'Live flight arrival tracking',
-        'Zero waiting charges on flight delays',
-        'Terminal meet & greet with placard',
-        'All luxury car available',
-      ],
-      tag: 'All Luxury Car Available',
-      image: '/images/destinations/chennai.jpg'
     },
     {
       id: 'local',
-      title: 'Local trip',
-      category: 'Hourly & Full Day City Rental',
-      price: 'From ₹2,000',
+      title: 'Local City Trip',
+      subtitle: 'Hourly & Day Rentals',
       icon: MapPin,
-      desc: 'Flexible 4-hour, 8-hour, and full-day city rental for temple darshans, family functions, shopping, and business visits.',
-      features: [
-        'Flexible 4hr / 8hr / 12hr packages',
-        'Experienced local city chauffeur',
-        'Temple darshans & shopping crawls',
-        'All luxury car available',
-      ],
-      tag: 'All Luxury Car Available',
-      image: '/images/destinations/thanjavur.jpg'
     },
     {
       id: 'outstation',
       title: 'Outstation Trip',
-      category: 'Intercity Round & One-Way',
-      price: 'From ₹3,500',
+      subtitle: 'Round & One-Way Trips',
       icon: Navigation,
-      desc: 'Safe and comfortable intercity round-trips and one-way drops across Tamil Nadu, Kerala, Karnataka, and Andhra Pradesh.',
-      features: [
-        'Verified interstate highway chauffeurs',
-        'Round trip vacations & one-way drops',
-        'Complimentary roof luggage carrier',
-        'All luxury car available',
-      ],
-      tag: 'All Luxury Car Available',
-      image: '/images/destinations/rameswaram.jpg'
     },
     {
       id: 'corporation',
-      title: 'Corporation trip',
-      category: 'Business & Corporate Delegations',
-      price: 'From ₹3,200',
+      title: 'Corporation Trip',
+      subtitle: 'Corporate Delegations',
       icon: Briefcase,
-      desc: 'Executive chauffeur transit for business summits, corporate delegates, VIP airport reception, and company conventions.',
-      features: [
-        'GST compliant official corporate billing',
-        'VIP executive class chauffeur transit',
-        'Punctual client & delegate pickups',
-        'All luxury car available',
-      ],
-      tag: 'All Luxury Car Available',
-      image: '/images/destinations/chennai.jpg'
     },
     {
       id: 'family',
-      title: 'Family trip',
-      category: 'Multi-Day Holidays & Pilgrimages',
-      price: 'From ₹4,500',
+      title: 'Family Trip',
+      subtitle: 'Holidays & Pilgrimages',
       icon: Users,
-      desc: 'Spacious, air-conditioned multi-generation family travel with child and elder-friendly halts and huge luggage carriers.',
-      features: [
-        'Spacious 4, 7, 12 & 18 seater cabins',
-        'Elder-friendly smooth highway driving',
-        'Extra luggage capacity for family bags',
-        'All luxury car available',
-      ],
-      tag: 'All Luxury Car Available',
-      image: '/images/destinations/murugan.jpg'
     },
     {
       id: 'honeymoon',
-      title: 'Honeymoon trip',
-      category: 'Romantic Scenic Retreats',
-      price: 'From ₹6,500',
+      title: 'Honeymoon Trip',
+      subtitle: 'Romantic Scenic Tours',
       icon: Heart,
-      desc: 'Romantic hill station and coastal tours to Ooty, Kodaikanal, Munnar, and Alleppey with premium decorated private cabs.',
-      features: [
-        'Premium decorated private AC cab option',
-        'Certified misty hill hairpin chauffeur',
-        'Discreet, courteous & respectful service',
-        'All luxury car available',
-      ],
-      tag: 'All Luxury Car Available',
-      image: '/images/destinations/kodaikanal.jpg'
     }
   ];
 
@@ -406,24 +346,21 @@ export default function HomePage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* 6.5 Dedicated Travel Services & Charters Section: What We Do (2 Columns) */}
-      <section className="py-12 sm:py-20 px-4 sm:px-10 bg-white border-t border-neutral-200">
+      {/* 6.5 Dedicated Travel Services: What We Do (Mobile: 2 Columns, Desktop: Single Row) */}
+      <section className="py-10 sm:py-16 px-4 sm:px-10 bg-white border-t border-neutral-200">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 border-b border-neutral-200 pb-4 sm:pb-6 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 border-b border-neutral-200 pb-3 sm:pb-4 gap-3">
             <div>
-              <div className="inline-flex items-center gap-1.5 bg-brand-gold/10 border border-brand-gold/30 px-3 py-1 rounded-full mb-2">
+              <div className="inline-flex items-center gap-1.5 bg-brand-gold/10 border border-brand-gold/30 px-3 py-1 rounded-full mb-1">
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold-dark" />
                 <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-brand-gold-dark">
                   Specialized Travel Services
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-neutral-900">
+              <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-neutral-900">
                 What We Do
               </h2>
-              <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-2xl">
-                Dedicated chauffeur services and tailored travel solutions across Tamil Nadu and South India for every trip requirement.
-              </p>
             </div>
             <Link
               to="/packages"
@@ -434,66 +371,43 @@ export default function HomePage({ onOpenBooking }) {
             </Link>
           </div>
 
-          {/* Services Grid (Strictly 2 Columns) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
+          {/* Services Grid: Mobile 2 Columns (grid-cols-2), Desktop Single Row (lg:grid-cols-6) */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {travelServices.map((service) => {
               const IconComp = service.icon || Car;
               return (
                 <div
                   key={service.id}
-                  className="bg-[#FAF8F5] border border-neutral-200/90 rounded-2xl p-5 sm:p-7 hover:border-brand-gold/60 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                  onClick={() => onOpenBooking({ title: service.title, packageType: service.title })}
+                  className="bg-[#FAF8F5] border border-neutral-200/90 hover:border-brand-gold/70 rounded-2xl p-3.5 sm:p-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-center items-center group cursor-pointer"
                 >
-                  <div className="space-y-4">
-                    {/* Top Row: Icon + Category + Badge */}
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-11 h-11 rounded-xl bg-white border border-brand-gold/30 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:bg-brand-gold/10 transition-transform shrink-0">
-                          <IconComp className="w-5 h-5 text-brand-gold-dark" />
-                        </div>
-                        <div>
-                          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand-gold-dark block">
-                            {service.category}
-                          </span>
-                          <h3 className="text-base sm:text-xl font-bold font-heading text-neutral-900 group-hover:text-brand-gold-dark transition-colors">
-                            {service.title}
-                          </h3>
-                        </div>
-                      </div>
-                      <span className="hidden sm:inline-flex text-[10px] font-bold text-neutral-600 bg-white border border-neutral-200 px-2.5 py-1 rounded-full shrink-0 shadow-2xs">
-                        All Luxury Cars
-                      </span>
-                    </div>
-
-                    {/* What We Do Description */}
-                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                      {service.desc}
-                    </p>
-
-                    {/* What We Do: Features Checklist in 2 Columns */}
-                    <div className="pt-3 border-t border-neutral-200/70">
-                      <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-neutral-500 block mb-2.5">
-                        What We Do:
-                      </span>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-neutral-700">
-                        {service.features.map((feat, fIdx) => (
-                          <li key={fIdx} className="flex items-start gap-2 bg-white/70 p-2 rounded-lg border border-neutral-200/50">
-                            <Check className="w-3.5 h-3.5 text-brand-gold-dark shrink-0 mt-0.5" />
-                            <span className="font-medium text-[11px] sm:text-xs leading-snug">{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {/* Icon badge */}
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white border border-brand-gold/30 flex items-center justify-center shadow-2xs group-hover:scale-110 group-hover:bg-brand-gold/15 transition-all mb-2.5 shrink-0">
+                    <IconComp className="w-5 h-5 sm:w-6 sm:h-6 text-brand-gold-dark" />
                   </div>
 
-                  <div className="pt-5 mt-5 border-t border-neutral-200/70">
-                    <button
-                      onClick={() => onOpenBooking({ title: service.title, packageType: service.title })}
-                      className="w-full btn-gold py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow active:scale-98 transition-all"
-                    >
-                      <span>Book {service.title}</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
+                  {/* Title & Subtitle */}
+                  <div className="flex-1 flex flex-col justify-center my-1 w-full">
+                    <h3 className="text-xs sm:text-sm font-bold font-heading text-neutral-900 group-hover:text-brand-gold-dark transition-colors line-clamp-2 leading-tight">
+                      {service.title}
+                    </h3>
+                    <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium mt-1 block truncate">
+                      {service.subtitle}
+                    </span>
                   </div>
+
+                  {/* Book Button */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenBooking({ title: service.title, packageType: service.title });
+                    }}
+                    className="w-full btn-gold py-1.5 px-2 rounded-xl text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-2xs active:scale-95 transition-all mt-2.5"
+                  >
+                    <span>Book</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
                 </div>
               );
             })}
