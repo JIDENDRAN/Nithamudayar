@@ -1,4 +1,5 @@
 import jsPDF from 'jspdf';
+import { NITHAM_LOGO_BASE64 } from '../assets/logoBase64';
 
 /**
  * Converts numbers into formal Indian Currency format (e.g. Rupees Eight Thousand Six Hundred and Fifty Only)
@@ -64,21 +65,28 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.setFillColor(...emeraldDark);
   doc.rect(9.5, 9.5, 191, 26, 'F');
 
+  // Official Emblem
+  try {
+    doc.addImage(NITHAM_LOGO_BASE64, 'PNG', 12, 11.5, 22, 22);
+  } catch (err) {
+    console.warn('PDF logo render skipped:', err);
+  }
+
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(14.5);
+  doc.setFontSize(13.5);
   const companyName = billData.cabServiceName || settings?.name || 'NITHAMUDAYAR TOURS AND TRAVELS';
-  doc.text(companyName.toUpperCase(), 14, 18);
+  doc.text(companyName.toUpperCase(), 37, 18);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(7.5);
   doc.setTextColor(...goldLight);
-  doc.text('Premium Luxury Fleet • Force Urbania • Innova Crysta • Tempo Traveller • 24x7 Cab Services', 14, 23.5);
+  doc.text('Premium Luxury Fleet • Force Urbania • Innova Crysta • Tempo Traveller • 24x7 Cab Services', 37, 23.5);
   doc.setTextColor(235, 235, 235);
   doc.setFontSize(7);
   const contactPhone = settings?.phone || billData.phone || '9894116405';
   const contactWa = settings?.whatsapp || '9894116405';
-  doc.text(`Trichy • Madurai • Thanjavur • Chennai • All South India | Call: +91 ${contactPhone} • WhatsApp: +91 ${contactWa}`, 14, 28.5);
+  doc.text(`Trichy • Madurai • Thanjavur • Chennai • All South India | Call: +91 ${contactPhone} • WhatsApp: +91 ${contactWa}`, 37, 28.5);
 
   // Header Right Badge: INVOICE / DUTY SLIP
   doc.setFillColor(...goldPrimary);

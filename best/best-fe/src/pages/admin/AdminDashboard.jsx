@@ -678,9 +678,11 @@ Driver Charge: ${data.dayDriver || ''}`;
               <span className="block text-sm font-semibold text-[#342521]">Superadmin Panel</span>
               <span className="block text-xs text-[#D4AF37] font-medium tracking-wide">Nithamudayar Tours and Travels</span>
             </div>
-            <div className="w-10 h-10 bg-[#342521] text-[#D4AF37] rounded-full font-bold flex items-center justify-center text-lg shadow-sm border border-[#edeae1]">
-              NT
-            </div>
+            <img
+              src="/logo.png"
+              alt="Nithamudayar Emblem"
+              className="w-10 h-10 object-contain rounded-full shadow-sm bg-[#342521] p-0.5 border border-[#edeae1]"
+            />
           </div>
         </header>
 

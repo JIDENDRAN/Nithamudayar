@@ -770,16 +770,23 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                           
                           {/* 1. TOP HEADER BANNER */}
                           <div className="bg-[#1a3c34] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
-                            <div className="space-y-0.5">
-                              <h1 className="text-base sm:text-lg font-black tracking-wide font-heading text-white">
-                                {billData.cabServiceName.toUpperCase()}
-                              </h1>
-                              <p className="text-[10px] text-[#f8e7a2] font-semibold">
-                                Luxury Commercial Fleet • Force Urbania • Innova Crysta • Tempo Traveller
-                              </p>
-                              <p className="text-[9px] text-neutral-300">
-                                Trichy • Madurai • Thanjavur • Chennai • All South India | Call: +91 {settings?.phone || '9894116405'}
-                              </p>
+                            <div className="flex items-center gap-3">
+                              <img
+                                src="/logo.png"
+                                alt="Logo"
+                                className="w-12 h-12 object-contain rounded-full bg-white/10 p-0.5 border border-white/20 shrink-0"
+                              />
+                              <div className="space-y-0.5">
+                                <h1 className="text-base sm:text-lg font-black tracking-wide font-heading text-white">
+                                  {billData.cabServiceName.toUpperCase()}
+                                </h1>
+                                <p className="text-[10px] text-[#f8e7a2] font-semibold">
+                                  Luxury Commercial Fleet • Force Urbania • Innova Crysta • Tempo Traveller
+                                </p>
+                                <p className="text-[9px] text-neutral-300">
+                                  Trichy • Madurai • Thanjavur • Chennai • All South India | Call: +91 {settings?.phone || '9894116405'}
+                                </p>
+                              </div>
                             </div>
 
                             {/* Top-Right Badge */}
