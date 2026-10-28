@@ -70,6 +70,8 @@ export default function FleetPage({ onOpenBooking }) {
       acMobile: 'Climate AC',
       rate: '₹14 / km',
       rateMobile: '₹14 / km',
+      minKm: '250 km / day',
+      driverBata: '₹400 / day',
       specs: [
         'Minimum 250 km / day',
         'Driver Bata: ₹400 / day',
@@ -91,6 +93,8 @@ export default function FleetPage({ onOpenBooking }) {
       acMobile: 'Dual AC',
       rate: '₹19 / km',
       rateMobile: '₹19 / km',
+      minKm: '300 km / day',
+      driverBata: '₹500 / day',
       specs: [
         'Minimum 300 km / day',
         'Driver Bata: ₹500 / day',
@@ -112,6 +116,8 @@ export default function FleetPage({ onOpenBooking }) {
       acMobile: 'Dual Zone AC',
       rate: '₹22 / km',
       rateMobile: '₹22 / km',
+      minKm: '350 km / day',
+      driverBata: '₹600 / day',
       specs: [
         'Minimum 350 km / day',
         'Driver Bata: ₹600 / day',
@@ -133,6 +139,8 @@ export default function FleetPage({ onOpenBooking }) {
       acMobile: 'Individual AC',
       rate: '₹25 / km',
       rateMobile: '₹25 / km',
+      minKm: '300 km / day',
+      driverBata: '₹700 / day',
       specs: [
         'Minimum 300 km / day',
         'Driver Bata: ₹700 / day',
@@ -154,6 +162,8 @@ export default function FleetPage({ onOpenBooking }) {
       acMobile: 'Panoramic AC',
       rate: '₹33 / km',
       rateMobile: '₹33 / km',
+      minKm: '300 km / day',
+      driverBata: '₹800 / day',
       specs: [
         'Minimum 300 km / day',
         'Driver Bata: ₹800 / day',
@@ -180,6 +190,10 @@ export default function FleetPage({ onOpenBooking }) {
       cat = 'Bus Charter';
     }
 
+    const desc = c.desc || '';
+    const bataMatch = desc.match(/bata[:\s]*₹?\s*(\d+)/i);
+    const minKmMatch = desc.match(/minimum[:\s]*(\d+)\s*km/i);
+
     const specsList = c.desc
       ? c.desc.split(/[|\n]+/).map(s => s.trim()).filter(Boolean)
       : ['Well-maintained commercial vehicle', 'Chauffeur driven'];
@@ -191,12 +205,14 @@ export default function FleetPage({ onOpenBooking }) {
       image: c.image ? (c.image.startsWith('/uploads/') ? `${API_BASE_URL}${c.image}` : c.image) : '/images/vehicles/sedan.png',
       seats: c.seats || '4+1 Passengers',
       seatsMobile: (c.seats || '4+1').split(' ')[0] + ' Seats',
-      luggage: 'Luggage Carrier Included',
+      luggage: '2-4 Large Bags',
       luggageMobile: 'Luggage Space',
       ac: c.ac || 'AC',
       acMobile: c.ac || 'AC',
       rate: c.price,
       rateMobile: c.price,
+      minKm: minKmMatch ? `${minKmMatch[1]} km / day` : '300 km / day',
+      driverBata: bataMatch ? `₹${bataMatch[1]} / day` : 'Standard Bata',
       specs: specsList,
       idealFor: c.desc || 'Chauffeur Driven Travel',
     };
@@ -343,34 +359,30 @@ export default function FleetPage({ onOpenBooking }) {
             ))}
           </div>
 
-          {/* Showroom Animated Fleet Grid */}
+          {/* Showroom Animated Fleet Grid: 2 Columns Side by Side */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {(fleetFilter === 'all' ? fleet : fleet.filter(item => item.category === fleetFilter)).map((item) => (
               <div
                 key={item.id}
-                className="fleet-showroom-card group flex flex-col justify-between"
+                className="fleet-showroom-card group flex flex-col justify-between bg-[#201512] border border-brand-gold/30 rounded-2xl overflow-hidden hover:border-brand-gold/70 hover:shadow-2xl transition-all duration-300"
               >
                 {/* Gold Shimmer Bar on Hover */}
                 <div className="fleet-shimmer"></div>
 
                 <div>
                   {/* Fitted Showroom Stage with Radial Spotlight */}
-                  <div className="fleet-stage relative h-52 sm:h-64 w-full flex flex-col items-center justify-center p-4 sm:p-6 border-b border-white/10">
-                    
-                    {/* Background Radial Spotlight */}
-                    <div className="absolute inset-0 bg-radial from-brand-gold/20 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  <div className="fleet-stage relative h-52 sm:h-64 w-full flex flex-col items-center justify-center p-4 sm:p-6 border-b border-white/10 overflow-hidden">
+                    <div className="absolute inset-0 bg-radial from-brand-gold/25 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                     {/* Floating Studio Vehicle Image with Ground Shadow */}
                     <div className="relative z-10 w-full h-36 sm:h-44 flex items-center justify-center">
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-full object-contain fleet-car-image"
+                        className="w-full h-full object-contain fleet-car-image group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
                     </div>
-
-                    {/* Ambient Contact Ground Shadow */}
                     <div className="w-3/4 sm:w-2/3 h-2.5 sm:h-3 bg-black/80 rounded-full blur-sm mx-auto -mt-1 fleet-ground-shadow pointer-events-none"></div>
 
                     {/* Category Tag on Stage Top Left */}
@@ -379,81 +391,98 @@ export default function FleetPage({ onOpenBooking }) {
                     </div>
 
                     {/* Rate Tag on Stage Top Right */}
-                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-gradient-to-r from-[#241815] to-[#180e0c] text-white text-[10px] sm:text-xs font-black font-heading px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-lg border border-brand-gold/50 shadow-md whitespace-nowrap">
-                      <span className="hidden sm:inline">{item.rate}</span>
-                      <span className="sm:hidden">{item.rateMobile || item.rate.split('(')[0].trim()}</span>
+                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-gradient-to-r from-[#241815] to-[#180e0c] text-brand-gold text-xs sm:text-sm font-black font-heading px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-lg border border-brand-gold/50 shadow-md whitespace-nowrap">
+                      {item.rate}
                     </div>
                   </div>
 
                   {/* Vehicle Details & Specifications */}
-                  <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                  <div className="p-4 sm:p-6 pb-2">
                     <div>
-                      <h3 className="text-base sm:text-xl font-bold font-heading text-white group-hover:text-brand-gold transition-colors truncate whitespace-nowrap">
+                      <h3 className="text-lg sm:text-xl font-bold font-heading text-white group-hover:text-brand-gold transition-colors">
                         {item.name}
                       </h3>
-                      <p className="text-[11px] sm:text-xs text-brand-gold font-medium mt-0.5 sm:mt-1 truncate whitespace-nowrap">
+                      <p className="text-xs text-brand-gold-light/90 font-medium mt-0.5">
                         {item.idealFor}
                       </p>
                     </div>
 
-                    {/* 3 Key Metric Tiles (Single line fit in all datas) */}
-                    <div className="grid grid-cols-3 gap-2 sm:gap-2.5 text-xs text-neutral-300 py-2.5 sm:py-3 border-y border-white/10">
-                      <div className="bg-[#1f1310] border border-white/5 hover:border-brand-gold/40 rounded-lg p-2 sm:p-2.5 transition-colors flex flex-col gap-0.5 sm:gap-1 overflow-hidden">
-                        <div className="flex items-center gap-1 sm:gap-1.5 text-brand-gold">
-                          <Users className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
-                          <span className="text-[9px] sm:text-[10px] uppercase font-bold text-neutral-400 whitespace-nowrap">Seats</span>
+                    {/* TWO SECTIONS SIDE BY SIDE: Left = Specifications, Right = Tariff & Booking */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-3.5 mt-3 border-t border-white/10">
+                      
+                      {/* SECTION 1: VEHICLE SPECIFICATIONS */}
+                      <div className="bg-[#180f0d] border border-white/5 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand-gold flex items-center gap-1.5 mb-2.5">
+                            <Car className="w-3.5 h-3.5 text-brand-gold" />
+                            <span>Vehicle Specs</span>
+                          </span>
+
+                          <div className="space-y-1.5 text-xs text-neutral-200">
+                            <div className="flex items-center gap-2 bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
+                              <Users className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+                              <span className="font-semibold text-white truncate">{item.seats}</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
+                              <Briefcase className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+                              <span className="font-semibold text-white truncate">{item.luggage}</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
+                              <Wind className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+                              <span className="font-semibold text-white truncate">{item.ac}</span>
+                            </div>
+                          </div>
                         </div>
-                        <span className="font-semibold text-white text-[10px] sm:text-xs truncate whitespace-nowrap">
-                          <span className="sm:hidden">{item.seatsMobile || item.seats}</span>
-                          <span className="hidden sm:inline">{item.seats}</span>
-                        </span>
+
+                        <ul className="mt-2.5 pt-2 border-t border-white/5 space-y-1 text-[11px] text-neutral-300">
+                          {item.specs.map((spec, sIdx) => (
+                            <li key={sIdx} className="flex items-start gap-1.5">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-brand-gold shrink-0 mt-0.5" />
+                              <span className="line-clamp-1">{spec}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
 
-                      <div className="bg-[#1f1310] border border-white/5 hover:border-brand-gold/40 rounded-lg p-2 sm:p-2.5 transition-colors flex flex-col gap-0.5 sm:gap-1 overflow-hidden">
-                        <div className="flex items-center gap-1 sm:gap-1.5 text-brand-gold">
-                          <Briefcase className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
-                          <span className="text-[9px] sm:text-[10px] uppercase font-bold text-neutral-400 whitespace-nowrap">Luggage</span>
+                      {/* SECTION 2: TARIFF & BOOKING */}
+                      <div className="bg-[#180f0d] border border-brand-gold/20 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand-gold flex items-center gap-1.5 mb-2.5">
+                            <ShieldCheck className="w-3.5 h-3.5 text-brand-gold" />
+                            <span>Tariff & Terms</span>
+                          </span>
+
+                          <div className="space-y-1.5 text-xs">
+                            <div className="flex items-center justify-between bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
+                              <span className="text-[10px] text-neutral-400 uppercase font-semibold">Outstation</span>
+                              <span className="font-extrabold text-brand-gold text-xs">{item.rate}</span>
+                            </div>
+                            <div className="flex items-center justify-between bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
+                              <span className="text-[10px] text-neutral-400 uppercase font-semibold">Min Distance</span>
+                              <span className="font-semibold text-white text-xs">{item.minKm}</span>
+                            </div>
+                            <div className="flex items-center justify-between bg-[#251713] px-2.5 py-1 rounded-lg border border-white/5">
+                              <span className="text-[10px] text-neutral-400 uppercase font-semibold">Driver Bata</span>
+                              <span className="font-semibold text-white text-xs">{item.driverBata}</span>
+                            </div>
+                          </div>
+
+                          <div className="mt-2 text-[10px] text-neutral-400 text-center">
+                            Tolls & permits as actuals
+                          </div>
                         </div>
-                        <span className="font-semibold text-white text-[10px] sm:text-xs truncate whitespace-nowrap">
-                          <span className="sm:hidden">{item.luggageMobile || item.luggage}</span>
-                          <span className="hidden sm:inline">{item.luggage}</span>
-                        </span>
+
+                        <button
+                          onClick={() => onOpenBooking(item)}
+                          className="w-full btn-gold py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-md hover:scale-[1.02] active:scale-98 transition-all mt-3"
+                        >
+                          <span>Book {item.name.split(' ')[0]}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
                       </div>
 
-                      <div className="bg-[#1f1310] border border-white/5 hover:border-brand-gold/40 rounded-lg p-2 sm:p-2.5 transition-colors flex flex-col gap-0.5 sm:gap-1 overflow-hidden">
-                        <div className="flex items-center gap-1 sm:gap-1.5 text-brand-gold">
-                          <Wind className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
-                          <span className="text-[9px] sm:text-[10px] uppercase font-bold text-neutral-400 whitespace-nowrap">Comfort</span>
-                        </div>
-                        <span className="font-semibold text-white text-[10px] sm:text-xs truncate whitespace-nowrap">
-                          <span className="sm:hidden">{item.acMobile || item.ac}</span>
-                          <span className="hidden sm:inline">{item.ac}</span>
-                        </span>
-                      </div>
                     </div>
-
-                    {/* Specifications Checklist (Single-line fit with truncate) */}
-                    <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-neutral-300 pt-0.5">
-                      {item.specs.map((spec, idx) => (
-                        <li key={idx} className="flex items-center gap-2 leading-tight truncate whitespace-nowrap">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-                          <span className="truncate whitespace-nowrap">{spec}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
-                </div>
-
-                {/* Booking Button with smooth slide */}
-                <div className="p-4 sm:p-6 pt-0">
-                  <button
-                    onClick={() => onOpenBooking(item)}
-                    className="w-full btn-gold py-2.5 sm:py-3 rounded-lg text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-md group/btn whitespace-nowrap"
-                  >
-                    <span className="hidden sm:inline">Check Availability & Book {item.name.split(' ')[0]}</span>
-                    <span className="sm:hidden">Book {item.name.split(' ')[0]} Now</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform shrink-0" />
-                  </button>
                 </div>
               </div>
             ))}
