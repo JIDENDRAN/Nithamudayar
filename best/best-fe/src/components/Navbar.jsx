@@ -93,13 +93,15 @@ export default function Navbar({ onOpenBooking }) {
               Book Now
             </button>
 
-            {/* Subtle Admin Link */}
+            {/* Admin Button - Visible on Phone & Desktop */}
             <Link
               to="/admin/dashboard"
-              className="hidden sm:flex w-8 h-8 rounded-full items-center justify-center border border-white/10 text-neutral-400 hover:text-brand-gold hover:border-brand-gold/40 transition-colors"
+              className="flex items-center gap-1 px-2.5 py-1 sm:py-1.5 rounded-lg bg-white/10 hover:bg-brand-gold/20 border border-brand-gold/40 text-brand-gold hover:text-white transition-all shadow-xs shrink-0"
               title="Admin Dashboard"
+              aria-label="Admin Dashboard"
             >
-              <ShieldCheck className="w-4 h-4" />
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold" />
+              <span className="text-[10px] sm:text-xs font-bold">Admin</span>
             </Link>
 
             {/* Mobile Menu Button */}
@@ -132,23 +134,37 @@ export default function Navbar({ onOpenBooking }) {
             </NavLink>
           ))}
 
-          <div className="pt-3 border-t border-white/10 flex items-center gap-3">
-            <a
-              href="tel:+919894116405"
-              className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#241815] transition-all"
-              aria-label="Call +91 98941 16405"
+          <div className="pt-3 border-t border-white/10 space-y-2.5">
+            <Link
+              to="/admin/dashboard"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between w-full py-2 px-3 rounded-lg bg-white/5 border border-brand-gold/30 text-brand-gold text-xs font-bold hover:bg-brand-gold/15 transition-all"
             >
-              <Phone className="w-4 h-4" />
-            </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenBooking) onOpenBooking();
-              }}
-              className="flex-1 btn-gold py-2.5 rounded-lg text-sm font-bold text-center cursor-pointer"
-            >
-              Book Now
-            </button>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-brand-gold" />
+                <span>Admin Dashboard</span>
+              </div>
+              <span className="text-[10px] text-neutral-400">Manage Bookings →</span>
+            </Link>
+
+            <div className="flex items-center gap-3">
+              <a
+                href="tel:+919894116405"
+                className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#241815] transition-all"
+                aria-label="Call +91 98941 16405"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (onOpenBooking) onOpenBooking();
+                }}
+                className="flex-1 btn-gold py-2.5 rounded-lg text-sm font-bold text-center cursor-pointer"
+              >
+                Book Now
+              </button>
+            </div>
           </div>
         </div>
       )}
