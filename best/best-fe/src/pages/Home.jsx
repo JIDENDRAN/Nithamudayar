@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import MobileHero from '../components/mobile/MobileHero';
 import QuickBookingBar from '../components/QuickBookingBar';
-import TravelHubsCarousel from '../components/TravelHubsCarousel';
+import TravelHubsSections from '../components/TravelHubsSections';
 import { ArrowRight, Shield, Award, Clock, Users, CheckCircle2, ChevronRight, Sparkles, MapPin, Plane, Navigation, Briefcase, Heart, Check, Car } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
 
@@ -306,8 +306,8 @@ export default function HomePage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* 5. Primary Destinations: Interactive One-by-One Auto-Swipe Hubs with Detailed Side-by-Side Images */}
-      <TravelHubsCarousel onOpenBooking={onOpenBooking} />
+      {/* 5. Primary Destinations: Six Dedicated Travel Hub Sections with Independent Image Auto-Sliders */}
+      <TravelHubsSections onOpenBooking={onOpenBooking} />
 
       {/* 6. Live Tour Packages from Database Showcase */}
       <section className="py-12 sm:py-20 px-4 sm:px-10 bg-[#FAF8F5] border-t border-neutral-200">
