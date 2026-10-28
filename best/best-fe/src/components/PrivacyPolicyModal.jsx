@@ -24,14 +24,14 @@ export default function PrivacyPolicyModal({ isOpen, onClose }) {
           </div>
           <div>
             <h2 className="text-2xl font-bold font-heading text-white">Privacy Policy</h2>
-            <p className="text-sm text-neutral-400">Nithamudayar Tours Pvt Ltd • Updated October 2026</p>
+            <p className="text-sm text-neutral-400">Nithamudayar Tours & Travels Pvt Ltd • Updated October 2026</p>
           </div>
         </div>
 
         {/* Modal Content */}
         <div className="space-y-5 text-sm leading-relaxed text-neutral-300">
           <p>
-            Welcome to <strong className="text-brand-gold">Nithamudayar Tours Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across Tamil Nadu.
+            Welcome to <strong className="text-brand-gold">Nithamudayar Tours & Travels Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across Tamil Nadu.
           </p>
 
           <div className="space-y-2">

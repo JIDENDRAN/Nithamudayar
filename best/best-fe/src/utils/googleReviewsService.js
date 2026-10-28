@@ -19,7 +19,7 @@ export const fetchGoogleReviews = async () => {
     return {
       success: false,
       message: 'Failed to connect to backend api',
-      businessName: 'Nithamudayar Tours Pvt Ltd',
+      businessName: 'Nithamudayar Tours & Travels Pvt Ltd',
       rating: 5.0,
       userRatingCount: 250,
       googleReviewUrl: 'https://search.google.com/local/reviews?placeid=ChIJyXG_6UZaADsR0Lq9mO32ZYo',

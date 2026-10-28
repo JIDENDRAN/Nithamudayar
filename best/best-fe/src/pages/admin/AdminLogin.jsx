@@ -58,7 +58,7 @@ const AdminLogin = () => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block bg-white p-3 rounded-2xl shadow-sm border border-[#edeae1] mb-4"
           >
-            <img src="/logo.png" alt="Nithamudayar Tours Pvt Ltd" className="w-14 h-14 object-contain rounded-xl" />
+            <img src="/logo.png" alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-14 h-14 object-contain rounded-xl" />
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: -10 }}
@@ -158,7 +158,7 @@ const AdminLogin = () => {
         </motion.div>
 
         <div className="text-center mt-8 text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} Nithamudayar Tours Pvt Ltd
+          &copy; {new Date().getFullYear()} Nithamudayar Tours & Travels Pvt Ltd
         </div>
       </div>
     </div>

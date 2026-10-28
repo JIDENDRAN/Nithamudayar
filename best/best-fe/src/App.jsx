@@ -19,29 +19,29 @@ const AppContent = () => {
   // Dynamic Route-Based Metadata (SEO) for client-side navigation
   useEffect(() => {
     const routeTitles = {
-      '/': 'Nithamudayar Tours Pvt Ltd | Premium Travel Across Tamil Nadu',
-      '/about': 'About Us | Nithamudayar Tours Pvt Ltd | Reliable South India Travel',
-      '/packages': 'Tour Packages & Regional Circuits | Nithamudayar Tours Pvt Ltd',
-      '/fleet': 'Our Fleet & Tariffs - Sedans, Innova, Tempo & Buses | Nithamudayar Tours Pvt Ltd',
-      '/vehicles': 'Our Fleet & Tariffs - Sedans, Innova, Tempo & Buses | Nithamudayar Tours Pvt Ltd',
-      '/destinations': 'Key Travel Hubs & Destinations in Tamil Nadu | Nithamudayar Tours Pvt Ltd',
-      '/contact': 'Contact Desk & Booking | Nithamudayar Tours Pvt Ltd | 24/7 Service',
-      '/gallery': 'Journey Highlights & Gallery | Nithamudayar Tours Pvt Ltd',
-      '/privacy-policy': 'Privacy Policy | Nithamudayar Tours Pvt Ltd',
-      '/terms-and-conditions': 'Terms & Conditions | Nithamudayar Tours Pvt Ltd',
+      '/': 'Nithamudayar Tours & Travels Pvt Ltd | Premium Travel Across Tamil Nadu',
+      '/about': 'About Us | Nithamudayar Tours & Travels Pvt Ltd | Reliable South India Travel',
+      '/packages': 'Tour Packages & Regional Circuits | Nithamudayar Tours & Travels Pvt Ltd',
+      '/fleet': 'Our Fleet & Tariffs - Sedans, Innova, Tempo & Buses | Nithamudayar Tours & Travels Pvt Ltd',
+      '/vehicles': 'Our Fleet & Tariffs - Sedans, Innova, Tempo & Buses | Nithamudayar Tours & Travels Pvt Ltd',
+      '/destinations': 'Key Travel Hubs & Destinations in Tamil Nadu | Nithamudayar Tours & Travels Pvt Ltd',
+      '/contact': 'Contact Desk & Booking | Nithamudayar Tours & Travels Pvt Ltd | 24/7 Service',
+      '/gallery': 'Journey Highlights & Gallery | Nithamudayar Tours & Travels Pvt Ltd',
+      '/privacy-policy': 'Privacy Policy | Nithamudayar Tours & Travels Pvt Ltd',
+      '/terms-and-conditions': 'Terms & Conditions | Nithamudayar Tours & Travels Pvt Ltd',
     };
 
     const routeDescriptions = {
-      '/': 'Explore Tamil Nadu with Nithamudayar Tours Pvt Ltd. Premium bus charter, tempo traveller, and luxury cab services across Thanjavur, Trichy, Kumbakonam, Madurai, Coimbatore, and Chennai.',
-      '/about': 'Learn about Nithamudayar Tours Pvt Ltd. Over 15 years of dedicated tourist operations across Tamil Nadu and South India with verified chauffeurs and transparent per-km billing.',
+      '/': 'Explore Tamil Nadu with Nithamudayar Tours & Travels Pvt Ltd. Premium bus charter, tempo traveller, and luxury cab services across Thanjavur, Trichy, Kumbakonam, Madurai, Coimbatore, and Chennai.',
+      '/about': 'Learn about Nithamudayar Tours & Travels Pvt Ltd. Over 15 years of dedicated tourist operations across Tamil Nadu and South India with verified chauffeurs and transparent per-km billing.',
       '/packages': 'Book customized regional tour packages for Thanjavur Royal Palace, Trichy Kaveri Riverway, Kumbakonam silk and bronze delta, Madurai food walks, and Western Ghats tea trails.',
       '/fleet': 'Choose from our clean, sanitized commercial fleet: Maruti Suzuki Dzire, Toyota Innova Crysta, Force Tempo Traveller, and 36/49 seater luxury AC coach buses.',
       '/vehicles': 'Choose from our clean, sanitized commercial fleet: Maruti Suzuki Dzire, Toyota Innova Crysta, Force Tempo Traveller, and 36/49 seater luxury AC coach buses.',
-      '/destinations': 'Discover the cultural and scenic hubs of Tamil Nadu: Thanjavur, Kumbakonam, Trichy, Madurai, Coimbatore, and Chennai with Nithamudayar Tours Pvt Ltd.',
-      '/contact': 'Contact Nithamudayar Tours Pvt Ltd 24/7. Call +91 98941 16405 or chat via WhatsApp for instant quotation and transparent booking confirmation.',
-      '/gallery': 'View travel memories, heritage monuments, and fleet journeys across Tamil Nadu with Nithamudayar Tours Pvt Ltd.',
-      '/privacy-policy': 'Read the privacy policy of Nithamudayar Tours Pvt Ltd regarding customer information and trip enquiries.',
-      '/terms-and-conditions': 'Review the terms and conditions for booking tourist cabs, tempo travellers, and bus charters with Nithamudayar Tours Pvt Ltd.'
+      '/destinations': 'Discover the cultural and scenic hubs of Tamil Nadu: Thanjavur, Kumbakonam, Trichy, Madurai, Coimbatore, and Chennai with Nithamudayar Tours & Travels Pvt Ltd.',
+      '/contact': 'Contact Nithamudayar Tours & Travels Pvt Ltd 24/7. Call +91 98941 16405 or chat via WhatsApp for instant quotation and transparent booking confirmation.',
+      '/gallery': 'View travel memories, heritage monuments, and fleet journeys across Tamil Nadu with Nithamudayar Tours & Travels Pvt Ltd.',
+      '/privacy-policy': 'Read the privacy policy of Nithamudayar Tours & Travels Pvt Ltd regarding customer information and trip enquiries.',
+      '/terms-and-conditions': 'Review the terms and conditions for booking tourist cabs, tempo travellers, and bus charters with Nithamudayar Tours & Travels Pvt Ltd.'
     };
 
     const title = routeTitles[location.pathname] || routeTitles['/'];
@@ -85,7 +85,7 @@ const AppContent = () => {
                 className="relative mb-6"
               >
                 <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#342521] shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/40 p-2 flex items-center justify-center overflow-hidden">
-                  <img src={Logo} alt="Nithamudayar Tours Pvt Ltd" className="w-full h-full object-contain" />
+                  <img src={Logo} alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
                 </div>
                 {/* Animated golden ring */}
                 <motion.div
@@ -106,7 +106,7 @@ const AppContent = () => {
                 </h2>
                 <div className="flex items-center gap-2 mt-2 opacity-80">
                   <span className="w-5 h-px bg-brand-gold" />
-                  <p className="text-[10px] tracking-[0.25em] font-bold uppercase text-brand-gold">Tours Pvt Ltd</p>
+                  <p className="text-[10px] tracking-[0.25em] font-bold uppercase text-brand-gold">Tours & Travels Pvt Ltd</p>
                   <span className="w-5 h-px bg-brand-gold" />
                 </div>
               </motion.div>

@@ -60,7 +60,7 @@ export default function Contact({ onOpenBooking }) {
       console.warn('Backend sync failed, continuing to WhatsApp:', err);
     }
 
-    const text = `*New Travel Enquiry - Nithamudayar Tours Pvt Ltd*%0A` +
+    const text = `*New Travel Enquiry - Nithamudayar Tours & Travels Pvt Ltd*%0A` +
       `• Trip Type: ${tripType}%0A` +
       `• Name: ${formData.name}%0A` +
       `• Phone: ${formData.phone}%0A` +
@@ -111,14 +111,23 @@ export default function Contact({ onOpenBooking }) {
               </p>
             </div>
             <div className="pt-2.5 sm:pt-4 mt-2 sm:mt-3 border-t border-neutral-100 flex items-center justify-between">
-              <a
-                href="tel:+919894116405"
-                className="text-[10px] sm:text-xs font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1 transition-colors"
-              >
-                <span>98941 16405</span>
-                <ArrowRight className="w-3 h-3 text-brand-gold-dark" />
-              </a>
-              <span className="text-[8px] sm:text-[9px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
+              <div className="flex flex-col gap-0.5">
+                <a
+                  href="tel:+919894116405"
+                  className="text-[10px] sm:text-xs font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1 transition-colors"
+                >
+                  <span>98941 16405</span>
+                  <ArrowRight className="w-2.5 h-2.5 text-brand-gold-dark" />
+                </a>
+                <a
+                  href="tel:+919626116405"
+                  className="text-[10px] sm:text-xs font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1 transition-colors"
+                >
+                  <span>96261 16405</span>
+                  <ArrowRight className="w-2.5 h-2.5 text-brand-gold-dark" />
+                </a>
+              </div>
+              <span className="text-[8px] sm:text-[9px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 shrink-0">
                 Live
               </span>
             </div>
@@ -480,7 +489,7 @@ export default function Contact({ onOpenBooking }) {
                         Direct Operator
                       </span>
                       <h3 className="text-lg font-black font-heading text-white">
-                        Nithamudayar Tours Pvt Ltd
+                        Nithamudayar Tours & Travels Pvt Ltd
                       </h3>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-brand-gold/40 p-0.5 bg-[#342521]">
@@ -496,8 +505,11 @@ export default function Contact({ onOpenBooking }) {
                       </div>
                       <div>
                         <p className="font-bold text-white text-xs">Operations Headquarters</p>
-                        <p className="text-neutral-400 mt-0.5 leading-relaxed">
-                          Main Garage & Depot: Thanjavur, Tamil Nadu. Covering all 38 districts & South India interstate.
+                        <p className="text-neutral-300 mt-0.5 leading-relaxed font-medium">
+                          Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005
+                        </p>
+                        <p className="text-neutral-400 text-[11px] mt-0.5">
+                          Depot & garage network covering all 38 districts & South India.
                         </p>
                       </div>
                     </div>
@@ -508,11 +520,15 @@ export default function Contact({ onOpenBooking }) {
                       </div>
                       <div>
                         <p className="font-bold text-white text-xs">Phone & WhatsApp Hotline</p>
-                        <p className="text-neutral-300 mt-0.5 font-semibold">
+                        <div className="flex flex-col sm:flex-row sm:gap-3 text-neutral-300 mt-0.5 font-semibold">
                           <a href="tel:+919894116405" className="hover:text-brand-gold transition-colors">
                             +91 98941 16405
                           </a>
-                        </p>
+                          <span className="hidden sm:inline text-neutral-500">•</span>
+                          <a href="tel:+919626116405" className="hover:text-brand-gold transition-colors">
+                            +91 96261 16405
+                          </a>
+                        </div>
                         <p className="text-[11px] text-neutral-400">Available 24 hours / 7 days</p>
                       </div>
                     </div>
@@ -578,7 +594,7 @@ export default function Contact({ onOpenBooking }) {
                 {/* Google Maps Embed with clean curved container */}
                 <div className="rounded-2xl overflow-hidden border border-neutral-200 shadow-inner h-64 bg-neutral-100">
                   <iframe
-                    title="Nithamudayar Tours Pvt Ltd Regional Map Coverage"
+                    title="Nithamudayar Tours & Travels Pvt Ltd Regional Map Coverage"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4013446.541399479!2d76.51659929291176!3d10.78673030249219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189633%3A0xdc955b7264f63933!2sTamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                     width="100%"
                     height="100%"

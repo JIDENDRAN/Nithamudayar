@@ -14,8 +14,8 @@ const resources = {
       "Packages": "Packages",
       "Gallery": "Gallery",
       "Contact Us": "Contact Us",
-      "Nithamudayar Tours Pvt Ltd": "Nithamudayar Tours Pvt Ltd",
-      "Madurai Best Tours and Travels": "Nithamudayar Tours Pvt Ltd",
+      "Nithamudayar Tours & Travels Pvt Ltd": "Nithamudayar Tours & Travels Pvt Ltd",
+      "Madurai Best Tours and Travels": "Nithamudayar Tours & Travels Pvt Ltd",
       "Select Language": "Select Language",
       
       // Home
@@ -128,7 +128,7 @@ const resources = {
       "Packages": "சுற்றுலா தொகுப்புகள்",
       "Gallery": "தொகுப்பு",
       "Contact Us": "தொடர்பு கொள்ள",
-      "Nithamudayar Tours Pvt Ltd": "நித்தமுடையார் டூர்ஸ் & டிராவல்ஸ்",
+      "Nithamudayar Tours & Travels Pvt Ltd": "நித்தமுடையார் டூர்ஸ் & டிராவல்ஸ்",
       "Madurai Best Tours and Travels": "நித்தமுடையார் டூர்ஸ் & டிராவல்ஸ்",
       "Select Language": "மொழியை தேர்ந்தெடுக்கவும்",
       
@@ -240,7 +240,7 @@ const resources = {
       "Packages": "टूर पैकेज",
       "Gallery": "गैलरी",
       "Contact Us": "संपर्क करें",
-      "Nithamudayar Tours Pvt Ltd": "नितमउदयर टूर्स एंड ट्रैवल्स",
+      "Nithamudayar Tours & Travels Pvt Ltd": "नितमउदयर टूर्स एंड ट्रैवल्स",
       "Madurai Best Tours and Travels": "नितमउदयर टूर्स एंड ट्रैवल्स",
       "Select Language": "भाषा चुनें",
       

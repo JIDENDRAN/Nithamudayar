@@ -131,7 +131,7 @@ export default function AboutPage({ onOpenBooking }) {
               </div>
 
               <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-                <strong className="text-neutral-900 font-semibold">Nithamudayar Tours Pvt Ltd</strong> has operated dedicated tourist passenger vehicles across Tamil Nadu and South India for over fifteen years.
+                <strong className="text-neutral-900 font-semibold">Nithamudayar Tours & Travels Pvt Ltd</strong> has operated dedicated tourist passenger vehicles across Tamil Nadu and South India for over fifteen years.
               </p>
 
               <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
@@ -323,13 +323,22 @@ export default function AboutPage({ onOpenBooking }) {
               <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
 
-            <a
-              href="tel:+919894116405"
-              className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold bg-[#FAF8F5] border border-neutral-300 text-neutral-800 hover:border-brand-gold-dark hover:text-brand-gold-dark transition-colors shadow-sm flex items-center gap-1.5 sm:gap-2"
-            >
-              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold-dark" />
-              <span>Call 98941 16405</span>
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="tel:+919894116405"
+                className="px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold bg-[#FAF8F5] border border-neutral-300 text-neutral-800 hover:border-brand-gold-dark hover:text-brand-gold-dark transition-colors shadow-sm flex items-center gap-1.5"
+              >
+                <Phone className="w-3.5 h-3.5 text-brand-gold-dark" />
+                <span>98941 16405</span>
+              </a>
+              <a
+                href="tel:+919626116405"
+                className="px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold bg-[#FAF8F5] border border-neutral-300 text-neutral-800 hover:border-brand-gold-dark hover:text-brand-gold-dark transition-colors shadow-sm flex items-center gap-1.5"
+              >
+                <Phone className="w-3.5 h-3.5 text-brand-gold-dark" />
+                <span>96261 16405</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

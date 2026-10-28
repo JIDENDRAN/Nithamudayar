@@ -150,7 +150,7 @@ const Gallery = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/backgrounds/destinations-hero-landscape.jpg" 
-            alt="Nithamudayar Tours Pvt Ltd Gallery" 
+            alt="Nithamudayar Tours & Travels Pvt Ltd Gallery" 
             className="w-full h-full object-cover object-center scale-105"
           />
         <div className="absolute inset-0 bg-gradient-to-b from-[#241815]/90 via-[#342521]/70 to-[#180e0c]/95" />
@@ -165,7 +165,7 @@ const Gallery = () => {
             transition={{ duration: 0.8 }}
             className="text-xs sm:text-sm text-brand-gold font-bold uppercase tracking-widest mb-1.5"
           >
-            Nithamudayar Tours Pvt Ltd
+            Nithamudayar Tours & Travels Pvt Ltd
           </motion.p>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}

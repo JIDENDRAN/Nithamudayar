@@ -37,7 +37,7 @@ export default function Hero({ onOpenBooking }) {
                 NITHAMUDAYAR
               </span>
               <span className="text-gold-shine block text-xl sm:text-2xl lg:text-3xl font-extrabold mt-0.5">
-                TOURS PVT LTD
+                TOURS & TRAVELS PVT LTD
               </span>
             </h1>
 

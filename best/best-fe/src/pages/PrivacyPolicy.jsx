@@ -17,14 +17,14 @@ export default function PrivacyPolicy() {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold font-heading text-white">Privacy Policy</h1>
-            <p className="text-xs sm:text-sm text-neutral-400">Nithamudayar Tours Pvt Ltd • Updated October 2026</p>
+            <p className="text-xs sm:text-sm text-neutral-400">Nithamudayar Tours & Travels Pvt Ltd • Updated October 2026</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="space-y-6 text-sm leading-relaxed text-neutral-300">
           <p>
-            Welcome to <strong className="text-brand-gold">Nithamudayar Tours Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across Tamil Nadu and South India.
+            Welcome to <strong className="text-brand-gold">Nithamudayar Tours & Travels Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across Tamil Nadu and South India.
           </p>
 
           <div className="space-y-2">
@@ -69,6 +69,8 @@ export default function PrivacyPolicy() {
               or call our central customer desk at{' '}
               <a href="tel:+919894116405" className="text-brand-gold underline font-semibold">
                 +91 98941 16405
+              </a> / <a href="tel:+919626116405" className="text-brand-gold underline font-semibold">
+                +91 96261 16405
               </a>.
             </p>
           </div>

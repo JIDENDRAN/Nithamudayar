@@ -74,8 +74,8 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
 
     setIsSuccess(true);
 
-    // 2. Open WhatsApp directly with formatted message to Nithamudayar Tours Pvt Ltd
-    const msg = `*Booking Enquiry - Nithamudayar Tours Pvt Ltd*%0A` +
+    // 2. Open WhatsApp directly with formatted message to Nithamudayar Tours & Travels Pvt Ltd
+    const msg = `*Booking Enquiry - Nithamudayar Tours & Travels Pvt Ltd*%0A` +
       `• Name: ${formData.name}%0A` +
       `• Phone: ${formData.phone}%0A` +
       `• Pickup City: ${formData.pickup}%0A` +
@@ -112,7 +112,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
         {/* Modal Header */}
         <div className="mb-5 sm:mb-6 pr-6">
           <span className="text-[10px] sm:text-xs font-bold text-brand-gold uppercase tracking-widest block mb-1">
-            Nithamudayar Tours Pvt Ltd
+            Nithamudayar Tours & Travels Pvt Ltd
           </span>
           <h2 className="text-xl sm:text-2xl font-bold font-heading text-white">
             Book Vehicle / Custom Tour

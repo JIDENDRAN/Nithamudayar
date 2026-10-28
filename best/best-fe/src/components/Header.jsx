@@ -39,7 +39,7 @@ export default function Header({ onOpenBooking }) {
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white rounded-2xl p-1 sm:p-1.5 shadow-lg flex items-center justify-center shrink-0 border border-white/25 transition-transform duration-200 group-hover:scale-105">
               <img
                 src="/logo.png"
-                alt="Nithamudayar Tours Pvt Ltd Logo"
+                alt="Nithamudayar Tours & Travels Pvt Ltd Logo"
                 className="w-full h-full object-contain rounded-xl"
               />
             </div>
@@ -48,7 +48,7 @@ export default function Header({ onOpenBooking }) {
                 NITHAMUDAYAR
               </span>
               <span className="text-[9px] sm:text-[11px] font-bold tracking-widest text-brand-gold uppercase block mt-0.5">
-                Tours Pvt Ltd
+                Tours & Travels Pvt Ltd
               </span>
             </div>
           </Link>

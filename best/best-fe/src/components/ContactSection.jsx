@@ -19,7 +19,7 @@ export default function ContactSection() {
     e.preventDefault();
     setSubmitted(true);
 
-    const text = `*New Travel Enquiry - Nithamudayar Tours Pvt Ltd*%0A• Name: ${formData.name}%0A• Phone: ${formData.phone}%0A• Email: ${formData.email || 'N/A'}%0A• Pickup: ${formData.pickup}%0A• Destination: ${formData.destination}%0A• Travel Date: ${formData.date}%0A• Vehicle: ${formData.vehicle}%0A• Details: ${formData.message || 'Standard Trip'}`;
+    const text = `*New Travel Enquiry - Nithamudayar Tours & Travels Pvt Ltd*%0A• Name: ${formData.name}%0A• Phone: ${formData.phone}%0A• Email: ${formData.email || 'N/A'}%0A• Pickup: ${formData.pickup}%0A• Destination: ${formData.destination}%0A• Travel Date: ${formData.date}%0A• Vehicle: ${formData.vehicle}%0A• Details: ${formData.message || 'Standard Trip'}`;
     
     setTimeout(() => {
       window.open(`https://wa.me/919894116405?text=${text}`, '_blank');
@@ -194,9 +194,9 @@ export default function ContactSection() {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-brand-gold-dark shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-neutral-900">Service Coverage</p>
+                    <p className="font-semibold text-neutral-900">Headquarters Address</p>
                     <p className="text-neutral-600 mt-0.5">
-                      All Across Tamil Nadu & South India
+                      Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005
                     </p>
                   </div>
                 </div>
@@ -204,12 +204,15 @@ export default function ContactSection() {
                 <div className="flex items-start gap-3">
                   <Phone className="w-4 h-4 text-brand-gold-dark shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-neutral-900">Phone</p>
-                    <p className="text-neutral-600 mt-0.5">
-                      <a href="tel:+919894116405" className="hover:text-brand-gold-dark transition-colors">
+                    <p className="font-semibold text-neutral-900">Phone & Hotline</p>
+                    <div className="flex flex-col gap-0.5 text-neutral-600 mt-0.5">
+                      <a href="tel:+919894116405" className="hover:text-brand-gold-dark transition-colors font-medium">
                         +91 98941 16405
                       </a>
-                    </p>
+                      <a href="tel:+919626116405" className="hover:text-brand-gold-dark transition-colors font-medium">
+                        +91 96261 16405
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -234,7 +237,7 @@ export default function ContactSection() {
             {/* Google Maps Embed Representation */}
             <div className="rounded-xl overflow-hidden border border-neutral-200 shadow-sm h-64 bg-neutral-200">
               <iframe
-                title="Nithamudayar Tours Pvt Ltd Service Coverage"
+                title="Nithamudayar Tours & Travels Pvt Ltd Service Coverage"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4013446.541399479!2d76.51659929291176!3d10.78673030249219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189633%3A0xdc955b7264f63933!2sTamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"

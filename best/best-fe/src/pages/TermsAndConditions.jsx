@@ -17,14 +17,14 @@ export default function TermsAndConditions() {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold font-heading text-white">Terms & Conditions</h1>
-            <p className="text-xs sm:text-sm text-neutral-400">Nithamudayar Tours Pvt Ltd • Standard Tariff & Operations Guide</p>
+            <p className="text-xs sm:text-sm text-neutral-400">Nithamudayar Tours & Travels Pvt Ltd • Standard Tariff & Operations Guide</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="space-y-6 text-sm leading-relaxed text-neutral-300">
           <p>
-            Welcome to <strong className="text-brand-gold">Nithamudayar Tours Pvt Ltd</strong>. By reserving any tourist cab, tempo traveller, or luxury bus charter through our website, phone desk, or WhatsApp, you agree to the following terms and operating guidelines:
+            Welcome to <strong className="text-brand-gold">Nithamudayar Tours & Travels Pvt Ltd</strong>. By reserving any tourist cab, tempo traveller, or luxury bus charter through our website, phone desk, or WhatsApp, you agree to the following terms and operating guidelines:
           </p>
 
           <div className="space-y-2">
@@ -74,7 +74,7 @@ export default function TermsAndConditions() {
               For any clarification regarding billing or trip changes, reach out directly to our 24/7 travel desk at{' '}
               <a href="tel:+919894116405" className="text-brand-gold underline font-semibold">
                 +91 98941 16405
-              </a>{' '}
+              </a> / <a href="tel:+919626116405" className="text-brand-gold underline font-semibold">+91 96261 16405</a>{' '}
               or email{' '}
               <a href="mailto:booking@nithamudayartravels.com" className="text-brand-gold underline">
                 booking@nithamudayartravels.com

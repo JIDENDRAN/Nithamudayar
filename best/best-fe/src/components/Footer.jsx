@@ -57,7 +57,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
               <div className="w-14 h-14 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-white rounded-2xl p-1.5 shadow-lg flex items-center justify-center shrink-0 border border-white/25 transition-transform duration-200 group-hover:scale-105">
                 <img
                   src="/logo.png"
-                  alt="Nithamudayar Tours Pvt Ltd Logo"
+                  alt="Nithamudayar Tours & Travels Pvt Ltd Logo"
                   className="w-full h-full object-contain rounded-xl"
                 />
               </div>
@@ -66,7 +66,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
                   NITHAMUDAYAR
                 </span>
                 <p className="text-[10px] sm:text-xs tracking-wider text-brand-gold uppercase font-semibold">
-                  Tours Pvt Ltd
+                  Tours & Travels Pvt Ltd
                 </p>
               </div>
             </Link>
@@ -161,13 +161,18 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
             <div className="space-y-2 text-xs text-neutral-400">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-brand-gold shrink-0 mt-0.5" />
-                <span>Tamil Nadu & South India</span>
+                <span>Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-                <a href="tel:+919894116405" className="hover:text-white transition-colors font-semibold text-neutral-200">
-                  +91 98941 16405
-                </a>
+              <div className="flex items-start gap-2">
+                <Phone className="w-3.5 h-3.5 text-brand-gold shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-0.5">
+                  <a href="tel:+919894116405" className="hover:text-white transition-colors font-semibold text-neutral-200">
+                    +91 98941 16405
+                  </a>
+                  <a href="tel:+919626116405" className="hover:text-white transition-colors font-semibold text-neutral-200">
+                    +91 96261 16405
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-brand-gold shrink-0" />
@@ -188,7 +193,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
       {/* Copyright */}
       <div className="border-t border-white/5 bg-[#1a110e] py-3 px-4 sm:px-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Nithamudayar Tours Pvt Ltd. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Nithamudayar Tours & Travels Pvt Ltd. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <Link
               to="/privacy-policy"
