@@ -11,7 +11,6 @@ import {
   Check,
   Phone,
   Building2,
-  Image as ImageIcon,
   Compass,
   Gauge,
   Receipt,
@@ -25,13 +24,11 @@ import {
   Maximize2,
   Minimize2
 } from 'lucide-react';
-import html2canvas from 'html2canvas-pro';
 import { downloadVectorBillPdf, numberToWords } from '../../utils/billPdfGenerator';
 
 export default function TripBillModal({ isOpen, onClose, booking, settings }) {
   const billRef = useRef(null);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
-  const [isGeneratingImg, setIsGeneratingImg] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
 
   // Mobile responsiveness controls
@@ -175,34 +172,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
     }
   };
 
-  // PNG Image Export Handler
-  const handleDownloadImage = async () => {
-    if (!billRef.current) return;
-    setIsGeneratingImg(true);
 
-    try {
-      const element = billRef.current;
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        backgroundColor: '#ffffff'
-      });
-
-      const imgData = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = imgData;
-      link.download = `${billData.billNo || 'TRIP_BILL'}_${(billData.customerName || 'Customer').replace(/[^a-zA-Z0-9_-]/g, '_')}.png`;
-      document.body.appendChild(link);
-      link.click();
-      setTimeout(() => document.body.removeChild(link), 500);
-    } catch (err) {
-      console.error('Error exporting image:', err);
-      alert('Could not export image. Please use Download PDF or Print.');
-    } finally {
-      setIsGeneratingImg(false);
-    }
-  };
 
   // Print Handler
   const handlePrint = () => {
@@ -270,16 +240,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                     <span>Print</span>
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={handleDownloadImage}
-                    disabled={isGeneratingImg}
-                    className="bg-[#1b4382] hover:bg-[#2356a5] text-white py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs disabled:opacity-50 transition-colors"
-                    title="Save Bill as PNG image for WhatsApp sharing"
-                  >
-                    <ImageIcon className="w-4 h-4 text-[#c2d7f2]" />
-                    <span>{isGeneratingImg ? 'Exporting...' : 'Save PNG (WhatsApp)'}</span>
-                  </button>
+
 
                   <button
                     type="button"
@@ -615,6 +576,71 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                       />
                     </div>
                   </div>
+
+                  {/* Night Halting Bata Input Option */}
+                  <div className="pt-2 border-t border-white/10">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="text-neutral-300 text-[11px] font-bold flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
+                        Night Halting Bata (10 PM to 6 AM)
+                      </label>
+                      {nightBata > 0 ? (
+                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 px-2 py-0.5 rounded">
+                          Total: ₹{nightBata.toLocaleString('en-IN')}
+                        </span>
+                      ) : (
+                        <span className="text-[10px] text-neutral-500 font-mono">
+                          (No value • Not on bill)
+                        </span>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+                      <div>
+                        <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Night(s) Count</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={billData.nightBataDays ?? 0}
+                          onChange={(e) => handleInputChange('nightBataDays', e.target.value)}
+                          placeholder="0"
+                          className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Rate / Night (₹)</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={billData.nightBataRate ?? 400}
+                          onChange={(e) => handleInputChange('nightBataRate', e.target.value)}
+                          placeholder="400"
+                          className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        />
+                      </div>
+                      <div className="col-span-2 sm:col-span-1">
+                        <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Direct Value (₹)</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={nightBata || ''}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val === '' || Number(val) === 0) {
+                              handleInputChange('nightBataDays', 0);
+                            } else {
+                              handleInputChange('nightBataDays', 1);
+                              handleInputChange('nightBataRate', val);
+                            }
+                          }}
+                          placeholder="0"
+                          className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* 5. Additional Charges & Settlement */}
@@ -899,41 +925,75 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-[#edeae1]">
-                                <tr>
-                                  <td className="p-2 text-center font-mono text-neutral-500 border-r border-[#edeae1]">1</td>
-                                  <td className="p-2 font-semibold text-neutral-800 border-r border-[#edeae1]">Base Kilometre Running Charges</td>
-                                  <td className="p-2 text-center font-mono text-neutral-700 border-r border-[#edeae1]">{billData.distanceKm} KM</td>
-                                  <td className="p-2 text-right font-mono text-neutral-700 border-r border-[#edeae1]">₹ {Number(billData.ratePerKm || 0).toFixed(2)}</td>
-                                  <td className="p-2 text-right font-bold font-mono text-neutral-900">₹ {distanceFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
-                                </tr>
-                                <tr className="bg-[#faf8f5]">
-                                  <td className="p-2 text-center font-mono text-neutral-500 border-r border-[#edeae1]">2</td>
-                                  <td className="p-2 font-semibold text-neutral-800 border-r border-[#edeae1]">Driver Daily Bata / Allowance (Day Duty)</td>
-                                  <td className="p-2 text-center font-mono text-neutral-700 border-r border-[#edeae1]">{billData.driverBataDays || 1} Day(s)</td>
-                                  <td className="p-2 text-right font-mono text-neutral-700 border-r border-[#edeae1]">₹ {Number(billData.driverBata || 0).toFixed(2)}</td>
-                                  <td className="p-2 text-right font-bold font-mono text-neutral-900">₹ {totalBata.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
-                                </tr>
-                                <tr>
-                                  <td className="p-2 text-center font-mono text-neutral-500 border-r border-[#edeae1]">3</td>
-                                  <td className="p-2 font-semibold text-neutral-800 border-r border-[#edeae1]">Night Halting Bata (10 PM to 6 AM)</td>
-                                  <td className="p-2 text-center font-mono text-neutral-700 border-r border-[#edeae1]">{billData.nightBataDays || 0} Night(s)</td>
-                                  <td className="p-2 text-right font-mono text-neutral-700 border-r border-[#edeae1]">₹ {Number(billData.nightBataRate || 0).toFixed(2)}</td>
-                                  <td className="p-2 text-right font-bold font-mono text-neutral-900">₹ {nightBata.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
-                                </tr>
-                                <tr className="bg-[#faf8f5]">
-                                  <td className="p-2 text-center font-mono text-neutral-500 border-r border-[#edeae1]">4</td>
-                                  <td className="p-2 font-semibold text-neutral-800 border-r border-[#edeae1]">Toll Plaza & Parking Charges (At Actuals)</td>
-                                  <td className="p-2 text-center font-mono text-neutral-700 border-r border-[#edeae1]">Actuals</td>
-                                  <td className="p-2 text-right font-mono text-neutral-500 border-r border-[#edeae1]">-</td>
-                                  <td className="p-2 text-right font-bold font-mono text-neutral-900">₹ {tollAmt.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
-                                </tr>
-                                <tr>
-                                  <td className="p-2 text-center font-mono text-neutral-500 border-r border-[#edeae1]">5</td>
-                                  <td className="p-2 font-semibold text-neutral-800 border-r border-[#edeae1]">Permit / Hill Station / Extra Allowance</td>
-                                  <td className="p-2 text-center font-mono text-neutral-700 border-r border-[#edeae1]">{billData.waitingDetails || '-'}</td>
-                                  <td className="p-2 text-right font-mono text-neutral-500 border-r border-[#edeae1]">-</td>
-                                  <td className="p-2 text-right font-bold font-mono text-neutral-900">₹ {(waitingAmt + permitAmt).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
-                                </tr>
+                                {(() => {
+                                  const rows = [];
+                                  let sNo = 1;
+                                  if (distanceFare > 0 || Number(billData.distanceKm) > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Base Kilometre Running Charges',
+                                      details: `${billData.distanceKm || 0} KM`,
+                                      rate: `₹ ${Number(billData.ratePerKm || 0).toFixed(2)}`,
+                                      amount: distanceFare
+                                    });
+                                  }
+                                  if (totalBata > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Driver Daily Bata / Allowance (Day Duty)',
+                                      details: `${billData.driverBataDays || 1} Day(s)`,
+                                      rate: `₹ ${Number(billData.driverBata || 0).toFixed(2)}`,
+                                      amount: totalBata
+                                    });
+                                  }
+                                  if (nightBata > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Night Halting Bata (10:00 PM to 06:00 AM)',
+                                      details: `${billData.nightBataDays || 1} Night(s)`,
+                                      rate: `₹ ${Number(billData.nightBataRate || 0).toFixed(2)}`,
+                                      amount: nightBata
+                                    });
+                                  }
+                                  if (tollAmt > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Toll Plaza & Parking Charges (At Actuals)',
+                                      details: 'Actuals',
+                                      rate: '-',
+                                      amount: tollAmt
+                                    });
+                                  }
+                                  if ((waitingAmt + permitAmt) > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Permit / Hill Station / Extra Allowance',
+                                      details: billData.waitingDetails || '-',
+                                      rate: '-',
+                                      amount: (waitingAmt + permitAmt)
+                                    });
+                                  }
+
+                                  if (rows.length === 0) {
+                                    return (
+                                      <tr>
+                                        <td colSpan="5" className="p-4 text-center text-neutral-400 italic">
+                                          No billable items entered yet.
+                                        </td>
+                                      </tr>
+                                    );
+                                  }
+
+                                  return rows.map((r, i) => (
+                                    <tr key={r.sNo} className={i % 2 === 1 ? 'bg-[#faf8f5]' : ''}>
+                                      <td className="p-2 text-center font-mono text-neutral-500 border-r border-[#edeae1]">{r.sNo}</td>
+                                      <td className="p-2 font-semibold text-neutral-800 border-r border-[#edeae1]">{r.desc}</td>
+                                      <td className="p-2 text-center font-mono text-neutral-700 border-r border-[#edeae1]">{r.details}</td>
+                                      <td className="p-2 text-right font-mono text-neutral-700 border-r border-[#edeae1]">{r.rate}</td>
+                                      <td className="p-2 text-right font-bold font-mono text-neutral-900">₹ {r.amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
+                                    </tr>
+                                  ));
+                                })()}
                               </tbody>
                             </table>
                           </div>
@@ -977,14 +1037,18 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                                 <span className="text-neutral-600">Total Trip Fare:</span>
                                 <span className="font-mono font-bold text-neutral-800">₹ {totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
                               </div>
-                              <div className="flex justify-between items-center text-xs">
-                                <span className="text-neutral-600">Advance Paid:</span>
-                                <span className="font-mono font-bold text-neutral-800">₹ {advance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
-                              </div>
-                              <div className="flex justify-between items-center text-xs pb-1 border-b border-[#edeae1]">
-                                <span className="text-neutral-600 font-semibold">Balance Due:</span>
-                                <span className="font-mono font-bold text-red-600">₹ {balanceAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
-                              </div>
+                              {advance > 0 && (
+                                <>
+                                  <div className="flex justify-between items-center text-xs">
+                                    <span className="text-neutral-600">Advance Paid:</span>
+                                    <span className="font-mono font-bold text-emerald-700">₹ {advance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+                                  </div>
+                                  <div className="flex justify-between items-center text-xs pb-1 border-b border-[#edeae1]">
+                                    <span className="text-neutral-600 font-semibold">Balance Due:</span>
+                                    <span className="font-mono font-bold text-red-600">₹ {balanceAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+                                  </div>
+                                </>
+                              )}
 
                               {/* Solid Net Amount Banner */}
                               <div className="bg-[#1a3c34] text-white p-2 rounded-lg flex justify-between items-center mt-1">
@@ -1052,16 +1116,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                 <span>{isGeneratingPdf ? 'Generating...' : 'Download PDF'}</span>
               </button>
 
-              <button
-                type="button"
-                onClick={handleDownloadImage}
-                disabled={isGeneratingImg}
-                className="bg-[#1b4382] hover:bg-[#2356a5] text-white py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
-                title="Save PNG for WhatsApp"
-              >
-                <ImageIcon className="w-4 h-4 text-[#c2d7f2]" />
-                <span>PNG</span>
-              </button>
+
 
               <button
                 type="button"

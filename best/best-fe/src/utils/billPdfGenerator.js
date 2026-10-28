@@ -222,43 +222,58 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.text('AMOUNT (Rs.)', 194, y + 4.8, { align: 'right' });
 
   y += 7;
-  const items = [
-    {
-      no: '1',
+  const items = [];
+  let sNo = 1;
+
+  if (distanceFare > 0 || billedKm > 0) {
+    items.push({
+      no: String(sNo++),
       desc: 'Base Kilometre Running Charges',
       details: `${billedKm} KM`,
       rate: Number(billData.ratePerKm || 0).toFixed(2),
       amt: distanceFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })
-    },
-    {
-      no: '2',
+    });
+  }
+
+  if (totalBata > 0) {
+    items.push({
+      no: String(sNo++),
       desc: 'Driver Daily Bata / Allowance (Day Duty)',
       details: `${billData.driverBataDays || 1} Day(s)`,
       rate: Number(billData.driverBata || 0).toFixed(2),
       amt: totalBata.toLocaleString('en-IN', { minimumFractionDigits: 2 })
-    },
-    {
-      no: '3',
+    });
+  }
+
+  if (nightBata > 0) {
+    items.push({
+      no: String(sNo++),
       desc: 'Night Halting Bata (10:00 PM to 06:00 AM)',
-      details: `${billData.nightBataDays || 0} Night(s)`,
+      details: `${billData.nightBataDays || 1} Night(s)`,
       rate: Number(billData.nightBataRate || 0).toFixed(2),
       amt: nightBata.toLocaleString('en-IN', { minimumFractionDigits: 2 })
-    },
-    {
-      no: '4',
+    });
+  }
+
+  if (tollAmt > 0) {
+    items.push({
+      no: String(sNo++),
       desc: 'Toll Plaza & Parking Charges (At Actuals)',
       details: 'Actuals',
       rate: '-',
       amt: tollAmt.toLocaleString('en-IN', { minimumFractionDigits: 2 })
-    },
-    {
-      no: '5',
+    });
+  }
+
+  if ((waitingAmt + permitAmt) > 0) {
+    items.push({
+      no: String(sNo++),
       desc: 'Permit / Hill Station / Extra Allowance',
       details: billData.waitingDetails || '-',
       rate: '-',
       amt: (waitingAmt + permitAmt).toLocaleString('en-IN', { minimumFractionDigits: 2 })
-    }
-  ];
+    });
+  }
 
   items.forEach((item, idx) => {
     doc.setFillColor(idx % 2 === 0 ? 255 : 250, idx % 2 === 0 ? 255 : 248, idx % 2 === 0 ? 255 : 244);
@@ -328,24 +343,29 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   // Right: Calculations Breakdown
   doc.setFontSize(8);
   doc.setTextColor(...grayText);
-  doc.text('Total Trip Amount:', 110, summaryY + 7);
+  let calcY = summaryY + 7;
+  doc.text('Total Trip Amount:', 110, calcY);
   doc.setTextColor(...darkText);
   doc.setFont('helvetica', 'bold');
-  doc.text(`Rs. ${totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, 194, summaryY + 7, { align: 'right' });
+  doc.text(`Rs. ${totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, 194, calcY, { align: 'right' });
 
-  doc.setFont('helvetica', 'normal');
-  doc.setTextColor(...grayText);
-  doc.text('Advance Amount Paid:', 110, summaryY + 13.5);
-  doc.setTextColor(...darkText);
-  doc.setFont('helvetica', 'bold');
-  doc.text(`Rs. ${advance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, 194, summaryY + 13.5, { align: 'right' });
+  if (advance > 0) {
+    calcY += 6.5;
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...grayText);
+    doc.text('Advance Amount Paid:', 110, calcY);
+    doc.setTextColor(...darkText);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Rs. ${advance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, 194, calcY, { align: 'right' });
 
-  doc.setFont('helvetica', 'normal');
-  doc.setTextColor(...grayText);
-  doc.text('Balance Due Payable:', 110, summaryY + 20);
-  doc.setTextColor(190, 40, 40); // Alert red
-  doc.setFont('helvetica', 'bold');
-  doc.text(`Rs. ${balanceAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, 194, summaryY + 20, { align: 'right' });
+    calcY += 6.5;
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...grayText);
+    doc.text('Balance Due Payable:', 110, calcY);
+    doc.setTextColor(190, 40, 40); // Alert red
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Rs. ${balanceAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, 194, calcY, { align: 'right' });
+  }
 
   // Solid Net Amount Banner
   doc.setFillColor(...emeraldDark);
