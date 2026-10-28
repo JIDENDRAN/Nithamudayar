@@ -66,7 +66,7 @@ const GoogleReviews = () => {
   const [loading, setLoading] = useState(true);
   const [isFallback, setIsFallback] = useState(false);
   const [ratingData, setRatingData] = useState({
-    businessName: 'Nithamudayar Tours and Travels',
+    businessName: 'Nithamudayar Tours Pvt Ltd',
     rating: 5.0,
     userRatingCount: 250,
     googleReviewUrl: 'https://search.google.com/local/reviews?placeid=ChIJyXG_6UZaADsR0Lq9mO32ZYo',
@@ -93,7 +93,7 @@ const GoogleReviews = () => {
         }));
         
         setRatingData({
-          businessName: 'Nithamudayar Tours and Travels',
+          businessName: 'Nithamudayar Tours Pvt Ltd',
           rating: 5.0,
           userRatingCount: 250,
           googleReviewUrl: 'https://search.google.com/local/reviews?placeid=ChIJyXG_6UZaADsR0Lq9mO32ZYo',

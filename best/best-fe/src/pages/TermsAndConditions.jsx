@@ -17,14 +17,14 @@ export default function TermsAndConditions() {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold font-heading text-white">Terms & Conditions</h1>
-            <p className="text-xs sm:text-sm text-neutral-400">Nithamudayar Tours and Travels • Standard Tariff & Operations Guide</p>
+            <p className="text-xs sm:text-sm text-neutral-400">Nithamudayar Tours Pvt Ltd • Standard Tariff & Operations Guide</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="space-y-6 text-sm leading-relaxed text-neutral-300">
           <p>
-            Welcome to <strong className="text-brand-gold">Nithamudayar Tours and Travels</strong>. By reserving any tourist cab, tempo traveller, or luxury bus charter through our website, phone desk, or WhatsApp, you agree to the following terms and operating guidelines:
+            Welcome to <strong className="text-brand-gold">Nithamudayar Tours Pvt Ltd</strong>. By reserving any tourist cab, tempo traveller, or luxury bus charter through our website, phone desk, or WhatsApp, you agree to the following terms and operating guidelines:
           </p>
 
           <div className="space-y-2">

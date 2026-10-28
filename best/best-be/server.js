@@ -105,7 +105,7 @@ app.get('/api/uploaded-files', async (req, res) => {
 app.get('/', (req, res) => {
   res.json({
     status: 'ok',
-    service: 'Nithamudayar Tours and Travels API',
+    service: 'Nithamudayar Tours Pvt Ltd API',
     database: 'Neon PostgreSQL',
     timestamp: new Date().toISOString()
   });
@@ -148,7 +148,7 @@ async function dispatchAdminWhatsAppAlert(booking) {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
     const targetPhone = admin ? admin.whatsapp : '9894116405';
     
-    const message = `🚨 *New Booking from Nithamudayar Tours and Travels* 🚨\n\n` +
+    const message = `🚨 *New Booking from Nithamudayar Tours Pvt Ltd* 🚨\n\n` +
       `👤 *Customer Name:* ${booking.name}\n` +
       `📞 *Phone Number:* ${booking.phone}\n` +
       `📍 *Start Location:* ${booking.fromLocation}\n` +
@@ -169,7 +169,7 @@ async function dispatchContactWhatsAppAlert(messageData) {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
     const targetPhone = admin ? admin.whatsapp : '9894116405';
     
-    const message = `✉️ *New Message received from Nithamudayar Tours and Travels* ✉️\n\n` +
+    const message = `✉️ *New Message received from Nithamudayar Tours Pvt Ltd* ✉️\n\n` +
       `👤 *Sender Name:* ${messageData.name}\n` +
       `📧 *Email:* ${messageData.email}\n` +
       `📞 *Phone Number:* ${messageData.phone}\n` +
@@ -507,7 +507,7 @@ app.post('/api/admin/whatsapp-test', async (req, res) => {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
     const targetPhone = admin ? admin.whatsapp : '9894116405';
     
-    const message = `👋 *Test Message from Nithamudayar Tours and Travels* \n\nIf you are seeing this, your WhatsApp Notification Bot is successfully connected and ready to receive live booking alerts! ✅`;
+    const message = `👋 *Test Message from Nithamudayar Tours Pvt Ltd* \n\nIf you are seeing this, your WhatsApp Notification Bot is successfully connected and ready to receive live booking alerts! ✅`;
       
     const success = await sendWhatsAppNotification(targetPhone, message);
     if (success) {
@@ -553,7 +553,7 @@ app.get('/api/google-reviews', async (req, res) => {
     return res.status(200).json({
       success: false,
       message: 'API credentials missing. Falling back to local static reviews.',
-      businessName: 'Nithamudayar Tours and Travels',
+      businessName: 'Nithamudayar Tours Pvt Ltd',
       rating: 5.0,
       userRatingCount: 250,
       googleReviewUrl: 'https://search.google.com/local/reviews',
@@ -613,7 +613,7 @@ app.get('/api/google-reviews', async (req, res) => {
 
     const formattedData = {
       success: true,
-      businessName: data.displayName?.text || 'Nithamudayar Tours and Travels',
+      businessName: data.displayName?.text || 'Nithamudayar Tours Pvt Ltd',
       rating: data.rating || 5.0,
       userRatingCount: data.userRatingCount || 0,
       googleReviewUrl: `https://search.google.com/local/reviews?placeid=${placeId}`,
@@ -643,7 +643,7 @@ app.get('/api/google-reviews', async (req, res) => {
     return res.status(200).json({
       success: false,
       message: 'Failed to retrieve reviews from Google API. Falling back to local static reviews.',
-      businessName: 'Nithamudayar Tours and Travels',
+      businessName: 'Nithamudayar Tours Pvt Ltd',
       rating: 5.0,
       userRatingCount: 250,
       googleReviewUrl: `https://search.google.com/local/reviews?placeid=${placeId}`,

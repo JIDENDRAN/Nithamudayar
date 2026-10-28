@@ -560,7 +560,7 @@ Driver Charge: ${data.dayDriver || ''}`;
       <div className="w-full md:w-64 bg-[#241815] flex flex-col border-r border-[#342521] shadow-2xl z-20">
         <div className="p-6 flex items-center gap-3 border-b border-[#342521]">
           <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-md p-1">
-            <img src="/logo.png" alt="Nithamudayar Tours and Travels" className="w-full h-full object-contain" />
+            <img src="/logo.png" alt="Nithamudayar Tours Pvt Ltd" className="w-full h-full object-contain" />
           </div>
           <div>
             <h2 className="font-bold text-lg leading-tight text-white font-heading">Nithamudayar</h2>
@@ -676,7 +676,7 @@ Driver Charge: ${data.dayDriver || ''}`;
           <div className="flex items-center gap-3">
             <div className="text-right hidden sm:block">
               <span className="block text-sm font-semibold text-[#342521]">Superadmin Panel</span>
-              <span className="block text-xs text-[#D4AF37] font-medium tracking-wide">Nithamudayar Tours and Travels</span>
+              <span className="block text-xs text-[#D4AF37] font-medium tracking-wide">Nithamudayar Tours Pvt Ltd</span>
             </div>
             <img
               src="/logo.png"

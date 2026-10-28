@@ -9,7 +9,7 @@ export default function WhatsAppFloatingButton() {
         rel="noopener noreferrer"
         className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-brand-gold-dark via-brand-gold to-brand-gold-bright text-[#241815] flex items-center justify-center shadow-lg shadow-black/30 hover:shadow-brand-gold/40 hover:scale-110 active:scale-95 transition-all duration-200 border border-brand-gold-light/40 group"
         aria-label="Direct WhatsApp Enquiry"
-        title="Chat with Nithamudayar Travels on WhatsApp"
+        title="Chat with Nithamudayar Tours Pvt Ltd on WhatsApp"
       >
         <svg 
           className="w-5 h-5 fill-current transition-transform duration-200 group-hover:scale-105" 

@@ -39,7 +39,7 @@ export default function Navbar({ onOpenBooking }) {
           <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
             <img
               src="/logo.png"
-              alt="Nithamudayar Tours and Travels Logo"
+              alt="Nithamudayar Tours Pvt Ltd Logo"
               className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-md transition-transform duration-200 group-hover:scale-105"
             />
             <div>
@@ -47,7 +47,7 @@ export default function Navbar({ onOpenBooking }) {
                 NITHAMUDAYAR
               </span>
               <span className="text-[9px] sm:text-[10px] font-semibold tracking-widest text-brand-gold uppercase block mt-0.5">
-                Tours & Travels
+                Tours Pvt Ltd
               </span>
             </div>
           </Link>

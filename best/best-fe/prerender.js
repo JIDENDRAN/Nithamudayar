@@ -27,40 +27,40 @@ const routes = [
 // Define static SEO metadata for each route
 const routeMetadata = {
   '/': {
-    title: 'Nithamudayar Tours and Travels | Luxury Taxi Service & South India Tour Packages',
-    description: 'Nithamudayar Tours and Travels offers premier chauffeur-driven taxi services, airport pickup and drop, luxury fleet rentals, temple circuits, Thanjavur tours, Kumbakonam Navagraha packages, and South India holiday tours.'
+    title: 'Nithamudayar Tours Pvt Ltd | Luxury Taxi Service & South India Tour Packages',
+    description: 'Nithamudayar Tours Pvt Ltd offers premier chauffeur-driven taxi services, airport pickup and drop, luxury fleet rentals, temple circuits, Thanjavur tours, Kumbakonam Navagraha packages, and South India holiday tours.'
   },
   '/about': {
-    title: 'About Us | Nithamudayar Tours and Travels | Trusted Travel Partner Since 2010',
-    description: 'Learn more about Nithamudayar Tours and Travels. Over 15 years of exceptional journeys, 10,000+ satisfied travelers, certified drivers, and curated South Indian travel experiences.'
+    title: 'About Us | Nithamudayar Tours Pvt Ltd | Trusted Travel Partner Since 2010',
+    description: 'Learn more about Nithamudayar Tours Pvt Ltd. Over 15 years of exceptional journeys, 10,000+ satisfied travelers, certified drivers, and curated South Indian travel experiences.'
   },
   '/vehicles': {
-    title: 'Our Luxury Fleet & Tariffs | Nithamudayar Tours and Travels',
+    title: 'Our Luxury Fleet & Tariffs | Nithamudayar Tours Pvt Ltd',
     description: 'Explore our fleet of premium sedans, Toyota Innova Crysta, Tempo Travellers, and luxury coaches with transparent transparent per-km and per-day tariffs.'
   },
   '/packages': {
-    title: 'South India Tour Packages & Temple Circuits | Nithamudayar Tours and Travels',
+    title: 'South India Tour Packages & Temple Circuits | Nithamudayar Tours Pvt Ltd',
     description: 'Curated heritage and pilgrimage tour packages including Thanjavur Grand Temple, Navagraha Temple Circuits, Rameswaram, Madurai, Kodaikanal, and Ooty tours.'
   },
   '/destinations': {
-    title: 'Destinations & Route Network | Nithamudayar Tours and Travels',
-    description: 'Discover popular heritage, coastal, hill station, and pilgrimage destinations across Tamil Nadu and South India with Nithamudayar Tours and Travels.'
+    title: 'Destinations & Route Network | Nithamudayar Tours Pvt Ltd',
+    description: 'Discover popular heritage, coastal, hill station, and pilgrimage destinations across Tamil Nadu and South India with Nithamudayar Tours Pvt Ltd.'
   },
   '/gallery': {
-    title: 'Tour Gallery & Fleet Showcase | Nithamudayar Tours and Travels',
-    description: 'Browse photos of our pristine fleet, scenic destination views, and memorable traveler moments with Nithamudayar Tours and Travels.'
+    title: 'Tour Gallery & Fleet Showcase | Nithamudayar Tours Pvt Ltd',
+    description: 'Browse photos of our pristine fleet, scenic destination views, and memorable traveler moments with Nithamudayar Tours Pvt Ltd.'
   },
   '/contact': {
-    title: 'Contact Us | Nithamudayar Tours and Travels | 24/7 Concierge Booking',
-    description: 'Get in touch with Nithamudayar Tours and Travels. Call +91 98941 16405 or WhatsApp for 24/7 custom booking, outstation taxi reservations, and trip planning.'
+    title: 'Contact Us | Nithamudayar Tours Pvt Ltd | 24/7 Concierge Booking',
+    description: 'Get in touch with Nithamudayar Tours Pvt Ltd. Call +91 98941 16405 or WhatsApp for 24/7 custom booking, outstation taxi reservations, and trip planning.'
   },
   '/privacy-policy': {
-    title: 'Privacy Policy | Nithamudayar Tours and Travels',
-    description: 'Read the privacy policy of Nithamudayar Tours and Travels regarding customer data, cookies, and booking protection.'
+    title: 'Privacy Policy | Nithamudayar Tours Pvt Ltd',
+    description: 'Read the privacy policy of Nithamudayar Tours Pvt Ltd regarding customer data, cookies, and booking protection.'
   },
   '/terms-and-conditions': {
-    title: 'Terms & Conditions | Nithamudayar Tours and Travels',
-    description: 'Review the terms and conditions for booking taxis, cabs, and tour packages with Nithamudayar Tours and Travels.'
+    title: 'Terms & Conditions | Nithamudayar Tours Pvt Ltd',
+    description: 'Review the terms and conditions for booking taxis, cabs, and tour packages with Nithamudayar Tours Pvt Ltd.'
   }
 };
 

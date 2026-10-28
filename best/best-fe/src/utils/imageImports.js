@@ -1,5 +1,5 @@
 /* src/utils/imageImports.js */
-// Centralized image imports for the Nithamudayar Tours and Travels project
+// Centralized image imports for the Nithamudayar Tours Pvt Ltd project
 // This file provides mapping objects to resolve image names to imported modules.
 // It enables static imports while allowing dynamic lookup based on image filename.
 

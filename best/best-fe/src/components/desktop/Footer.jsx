@@ -56,7 +56,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
             <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
               <img
                 src="/logo.png"
-                alt="Nithamudayar Tours and Travels Logo"
+                alt="Nithamudayar Tours Pvt Ltd Logo"
                 className="w-10 h-10 sm:w-14 sm:h-14 object-contain drop-shadow-md transition-transform duration-200 group-hover:scale-105"
               />
               <div>
@@ -64,7 +64,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
                   NITHAMUDAYAR
                 </span>
                 <p className="text-[9px] sm:text-[10px] tracking-wider text-brand-gold uppercase font-semibold">
-                  Tours & Travels
+                  Tours Pvt Ltd
                 </p>
               </div>
             </Link>
@@ -186,7 +186,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
       {/* Copyright */}
       <div className="border-t border-white/5 bg-[#1a110e] py-3 px-4 sm:px-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Nithamudayar Tours and Travels. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Nithamudayar Tours Pvt Ltd. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <Link
               to="/privacy-policy"

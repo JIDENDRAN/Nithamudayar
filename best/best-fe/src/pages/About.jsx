@@ -131,7 +131,7 @@ export default function AboutPage({ onOpenBooking }) {
               </div>
 
               <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-                <strong className="text-neutral-900 font-semibold">Nithamudayar Tours and Travels</strong> has operated dedicated tourist passenger vehicles across Tamil Nadu and South India for over fifteen years.
+                <strong className="text-neutral-900 font-semibold">Nithamudayar Tours Pvt Ltd</strong> has operated dedicated tourist passenger vehicles across Tamil Nadu and South India for over fifteen years.
               </p>
 
               <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">

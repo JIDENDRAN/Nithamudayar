@@ -44,7 +44,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
     date: new Date().toLocaleDateString('en-GB'), // DD/MM/YYYY
     time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     tripType: 'Outstation Round Trip',
-    cabServiceName: 'Nithamudayar Tours and Travels',
+    cabServiceName: 'Nithamudayar Tours Pvt Ltd',
     customerName: '',
     phone: '',
     fromLocation: '',
@@ -113,7 +113,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
         ratePerKm: initialRate,
         driverBata: initialBata,
         tripType: booking.packageType || 'Outstation Round Trip',
-        cabServiceName: settings?.name && settings.name !== 'admin' ? settings.name : 'Nithamudayar Tours and Travels'
+        cabServiceName: settings?.name && settings.name !== 'admin' ? settings.name : 'Nithamudayar Tours Pvt Ltd'
       }));
     }
   }, [booking, settings]);
@@ -253,7 +253,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                       <span className="text-[9px] sm:text-[10px] bg-[#d4af37]/20 text-[#d4af37] px-2 py-0.5 rounded-full font-mono uppercase tracking-wider">Official</span>
                     </h3>
                     <p className="text-[11px] sm:text-xs text-neutral-400 truncate max-w-[200px] sm:max-w-none">
-                      Nithamudayar Tours and Travels • Travel Bill
+                      Nithamudayar Tours Pvt Ltd • Travel Bill
                     </p>
                   </div>
                 </div>
@@ -1013,7 +1013,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                             </div>
                             <div>
                               <div className="w-3/4 mx-auto border-b border-neutral-400 mb-1"></div>
-                              <span className="text-[#1a3c34] font-bold uppercase text-[9px] block">For NITHAMUDAYAR TOURS & TRAVELS</span>
+                              <span className="text-[#1a3c34] font-bold uppercase text-[9px] block">For NITHAMUDAYAR TOURS PVT LTD</span>
                               <span className="text-[8px] text-neutral-400 italic">(Authorized Signatory / Chauffeur)</span>
                             </div>
                           </div>
@@ -1021,7 +1021,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                           {/* 8. FOOTER BANNER */}
                           <div className="bg-[#1a3c34] text-white text-[10px] text-center py-2 px-3 rounded-lg leading-tight space-y-0.5">
                             <p className="font-bold text-[#f8e7a2]">
-                              Thank you for traveling with Nithamudayar Tours & Travels! Wish you a pleasant journey.
+                              Thank you for traveling with Nithamudayar Tours Pvt Ltd! Wish you a pleasant journey.
                             </p>
                             <p className="text-[8.5px] text-neutral-300">
                               Computer Generated Travel Duty Slip & Invoice • Customer Copy • 24x7 Customer Care: +91 {settings?.phone || '9894116405'}

@@ -12,7 +12,7 @@ export default function AboutSection({ onOpenBooking }) {
             <div className="rounded-2xl overflow-hidden shadow-xl border border-neutral-200">
               <img
                 src="/images/destinations/thanjavur.jpg"
-                alt="Thanjavur Temple Heritage and Nithamudayar Travels"
+                alt="Thanjavur Temple Heritage and Nithamudayar Tours Pvt Ltd"
                 className="w-full h-96 object-cover"
                 loading="lazy"
               />
@@ -31,7 +31,7 @@ export default function AboutSection({ onOpenBooking }) {
           <div className="lg:col-span-7 space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark block mb-1">
-                About Nithamudayar Tours and Travels
+                About Nithamudayar Tours Pvt Ltd
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-neutral-900 leading-tight">
                 Reliable Travel Partner for Temple Tours, Family Holidays & Bus Charters
@@ -39,7 +39,7 @@ export default function AboutSection({ onOpenBooking }) {
             </div>
 
             <p className="text-sm text-neutral-600 leading-relaxed">
-              <strong className="text-neutral-900">Nithamudayar Tours and Travels</strong> provides comprehensive passenger transport and holiday tour services across Tamil Nadu and South India. Whether you require a comfortable sedan for family temple darshan, an Innova Crysta for outstation journeys, or a 49-seater luxury coach for a marriage or college excursion, our fleet is ready to serve you.
+              <strong className="text-neutral-900">Nithamudayar Tours Pvt Ltd</strong> provides comprehensive passenger transport and holiday tour services across Tamil Nadu and South India. Whether you require a comfortable sedan for family temple darshan, an Innova Crysta for outstation journeys, or a 49-seater luxury coach for a marriage or college excursion, our fleet is ready to serve you.
             </p>
 
             {/* 4 Core Pillars */}

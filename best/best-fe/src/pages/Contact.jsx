@@ -60,7 +60,7 @@ export default function Contact({ onOpenBooking }) {
       console.warn('Backend sync failed, continuing to WhatsApp:', err);
     }
 
-    const text = `*New Travel Enquiry - Nithamudayar Tours and Travels*%0A` +
+    const text = `*New Travel Enquiry - Nithamudayar Tours Pvt Ltd*%0A` +
       `• Trip Type: ${tripType}%0A` +
       `• Name: ${formData.name}%0A` +
       `• Phone: ${formData.phone}%0A` +
@@ -480,7 +480,7 @@ export default function Contact({ onOpenBooking }) {
                         Direct Operator
                       </span>
                       <h3 className="text-lg font-black font-heading text-white">
-                        Nithamudayar Travels
+                        Nithamudayar Tours Pvt Ltd
                       </h3>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-brand-gold/40 p-0.5 bg-[#342521]">
@@ -578,7 +578,7 @@ export default function Contact({ onOpenBooking }) {
                 {/* Google Maps Embed with clean curved container */}
                 <div className="rounded-2xl overflow-hidden border border-neutral-200 shadow-inner h-64 bg-neutral-100">
                   <iframe
-                    title="Nithamudayar Tours and Travels Regional Map Coverage"
+                    title="Nithamudayar Tours Pvt Ltd Regional Map Coverage"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4013446.541399479!2d76.51659929291176!3d10.78673030249219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189633%3A0xdc955b7264f63933!2sTamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                     width="100%"
                     height="100%"

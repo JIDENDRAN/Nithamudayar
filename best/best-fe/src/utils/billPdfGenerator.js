@@ -45,7 +45,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
     balanceAmount = 0
   } = calculations || {};
 
-  // Theme Palette: Emerald & Heritage Gold (matches Nithamudayar Tours & Travels)
+  // Theme Palette: Emerald & Heritage Gold (matches Nithamudayar Tours Pvt Ltd)
   const emeraldDark = [26, 60, 52];     // #1a3c34
   const goldPrimary = [212, 175, 55];    // #d4af37
   const goldLight = [253, 248, 225];
@@ -75,7 +75,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(13.5);
-  const companyName = billData.cabServiceName || settings?.name || 'NITHAMUDAYAR TOURS AND TRAVELS';
+  const companyName = billData.cabServiceName || settings?.name || 'NITHAMUDAYAR TOURS PVT LTD';
   doc.text(companyName.toUpperCase(), 37, 18);
 
   doc.setFont('helvetica', 'normal');
@@ -319,7 +319,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.text('Official UPI ID for Payment:', 16, summaryY + 20);
   doc.setTextColor(...emeraldDark);
   doc.setFont('helvetica', 'bold');
-  doc.text(`${billData.upiId || '9894116405@okaxis'}  (Nithamudayar Travels)`, 16, summaryY + 24.5);
+  doc.text(`${billData.upiId || '9894116405@okaxis'}  (Nithamudayar Tours Pvt Ltd)`, 16, summaryY + 24.5);
 
   doc.setTextColor(...grayText);
   doc.setFont('helvetica', 'normal');
@@ -391,7 +391,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.text('(Service Satisfactory)', 43, sigY + 7.5, { align: 'center' });
 
   doc.setTextColor(...emeraldDark);
-  doc.text('For NITHAMUDAYAR TOURS & TRAVELS', 162, sigY + 4, { align: 'center' });
+  doc.text('For NITHAMUDAYAR TOURS PVT LTD', 162, sigY + 4, { align: 'center' });
   doc.setTextColor(...grayText);
   doc.text('(Authorized Signatory / Chauffeur)', 162, sigY + 7.5, { align: 'center' });
 
@@ -401,7 +401,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(7.5);
-  doc.text('Thank you for traveling with Nithamudayar Tours & Travels! Wish you a safe and memorable journey.', 105, 281.5, { align: 'center' });
+  doc.text('Thank you for traveling with Nithamudayar Tours Pvt Ltd! Wish you a safe and memorable journey.', 105, 281.5, { align: 'center' });
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(6.5);
   doc.setTextColor(...goldLight);

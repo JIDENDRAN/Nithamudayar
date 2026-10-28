@@ -17,14 +17,14 @@ export default function PrivacyPolicy() {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold font-heading text-white">Privacy Policy</h1>
-            <p className="text-xs sm:text-sm text-neutral-400">Nithamudayar Tours and Travels • Updated October 2026</p>
+            <p className="text-xs sm:text-sm text-neutral-400">Nithamudayar Tours Pvt Ltd • Updated October 2026</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="space-y-6 text-sm leading-relaxed text-neutral-300">
           <p>
-            Welcome to <strong className="text-brand-gold">Nithamudayar Tours and Travels</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across Tamil Nadu and South India.
+            Welcome to <strong className="text-brand-gold">Nithamudayar Tours Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across Tamil Nadu and South India.
           </p>
 
           <div className="space-y-2">
