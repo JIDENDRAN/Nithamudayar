@@ -295,11 +295,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 <button
                   type="button"
                   onClick={() => setMobileTab('form')}
-                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${
-                    mobileTab === 'form'
-                      ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
-                      : 'text-neutral-400 hover:text-white'
-                  }`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${mobileTab === 'form'
+                    ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
+                    : 'text-neutral-400 hover:text-white'
+                    }`}
                 >
                   <Edit3 className="w-3.5 h-3.5" />
                   <span>1. Trip Details</span>
@@ -307,11 +306,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 <button
                   type="button"
                   onClick={() => setMobileTab('preview')}
-                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${
-                    mobileTab === 'preview'
-                      ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
-                      : 'text-neutral-400 hover:text-white'
-                  }`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${mobileTab === 'preview'
+                    ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
+                    : 'text-neutral-400 hover:text-white'
+                    }`}
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>2. Bill Preview</span>
@@ -847,11 +845,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             key={mode}
                             type="button"
                             onClick={() => handleInputChange('paymentMode', mode)}
-                            className={`py-2 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${
-                              billData.paymentMode === mode
-                                ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]'
-                                : 'bg-[#18110f] text-neutral-400 border-white/10 hover:border-white/30'
-                            }`}
+                            className={`py-2 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${billData.paymentMode === mode
+                              ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]'
+                              : 'bg-[#18110f] text-neutral-400 border-white/10 hover:border-white/30'
+                              }`}
                           >
                             {mode}
                           </button>
@@ -904,18 +901,16 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <button
                       type="button"
                       onClick={() => setMobileFit(true)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${
-                        mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
-                      }`}
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
+                        }`}
                     >
                       Fit Phone
                     </button>
                     <button
                       type="button"
                       onClick={() => setMobileFit(false)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${
-                        !mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
-                      }`}
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${!mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
+                        }`}
                     >
                       100% Zoom
                     </button>
@@ -925,9 +920,8 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {/* Invoice Container with Responsive View Scaling */}
                 <div className="w-full overflow-x-auto flex justify-center py-1">
                   <div
-                    className={`transition-transform duration-200 origin-top ${
-                      mobileFit ? 'scale-[0.52] sm:scale-75 md:scale-90 lg:scale-100' : 'scale-100'
-                    }`}
+                    className={`transition-transform duration-200 origin-top ${mobileFit ? 'scale-[0.52] sm:scale-75 md:scale-90 lg:scale-100' : 'scale-100'
+                      }`}
                     style={{
                       // Reduce dead space when scaled on phone screens
                       marginBottom: mobileFit ? '-370px' : '0'
