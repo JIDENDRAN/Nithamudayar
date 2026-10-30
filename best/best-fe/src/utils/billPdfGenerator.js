@@ -62,12 +62,15 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.rect(9.5, headerY, 191, headerHeight, 'F');
 
   // Official Temple Emblem (Midnight Navy & Champagne Gold)
-  d.setFillColor(20, 24, 48);
+  const logoSize = 26.5;
+  const logoX = 11.5;
+  const logoY = headerY + 2.5;
+  d.setFillColor(15, 18, 35);
   d.setDrawColor(...goldPrimary);
-  d.setLineWidth(0.3);
-  d.roundedRect(12, headerY + 2.5, 23, 26.5, 1.5, 1.5, 'FD');
+  d.setLineWidth(0.4);
+  d.roundedRect(logoX, logoY, logoSize, logoSize, 1.5, 1.5, 'FD');
   try {
-    d.addImage(NITHAM_LOGO_BASE64, 'JPEG', 12.3, headerY + 2.8, 22.4, 25.9);
+    d.addImage(NITHAM_LOGO_BASE64, 'PNG', logoX, logoY, logoSize, logoSize, 'LOGO', 'NONE');
   } catch (err) {
     console.warn('Logo render skipped:', err);
   }
@@ -101,8 +104,8 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.text(`Time: ${billData.time || '12:00 PM'}`, badgeCenterX, badgeY + 22.5, { align: 'center' });
 
   // Company Information (Left Side, with strict maxWidth to avoid badge overlap)
-  const textLeftX = 37;
-  const textMaxWidth = badgeX - textLeftX - 3; // ~103mm safe width
+  const textLeftX = logoX + logoSize + 3; // 41mm
+  const textMaxWidth = badgeX - textLeftX - 3; // ~99mm safe width
 
   d.setTextColor(255, 255, 255);
   d.setFont('helvetica', 'bold');
@@ -629,7 +632,15 @@ function createCanvasRenderer(ctx, scale, logoImg) {
     },
     addImage(src, type, x, y, w, h) {
       if (logoImg && (logoImg.complete || logoImg.naturalWidth > 0)) {
-        ctx.drawImage(logoImg, x * s, y * s, w * s, h * s);
+        const dx = Math.round(x * s);
+        const dy = Math.round(y * s);
+        const dw = Math.round(w * s);
+        const dh = Math.round(h * s);
+        ctx.save();
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(logoImg, dx, dy, dw, dh);
+        ctx.restore();
       }
     }
   };
@@ -659,10 +670,12 @@ export async function generateBillCanvas(billData, calculations, settings) {
   }
 
   const canvas = document.createElement('canvas');
-  const s = 8; // 8 pixels per mm -> 1680 x 2376 px (300 DPI Retina quality)
+  const s = 10; // 10 pixels per mm -> 2100 x 2970 px (Ultra-high 254 DPI clarity)
   canvas.width = Math.round(210 * s);
   canvas.height = Math.round(297 * s);
   const ctx = canvas.getContext('2d');
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
 
   // Fill crisp white background
   ctx.fillStyle = '#ffffff';

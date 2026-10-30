@@ -813,10 +813,9 @@ Driver Charge: ${data.dayDriver || ''}`;
                               <span className="font-mono font-bold text-xs text-[#1b203d] bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded">
                                 BKG-{String(booking.id).padStart(4, '0')}
                               </span>
-                              <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
-                                booking.status === 'Approved' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' :
-                                booking.status === 'Completed' ? 'bg-blue-100 text-blue-700 border border-blue-200' : 'bg-amber-100 text-amber-700 border border-amber-200'
-                              }`}>
+                              <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${booking.status === 'Approved' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' :
+                                  booking.status === 'Completed' ? 'bg-blue-100 text-blue-700 border border-blue-200' : 'bg-amber-100 text-amber-700 border border-amber-200'
+                                }`}>
                                 {booking.status || 'Pending'}
                               </span>
                             </div>
@@ -1182,7 +1181,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                           <div className="text-center p-6 bg-emerald-50 border border-emerald-100 rounded-2xl text-emerald-700">
                             <p className="text-sm font-bold">Bot is active and ready to dispatch booking and contact alerts to admin.</p>
                           </div>
-                          
+
                           {/* Send Custom Message UI */}
                           <div className="bg-[#f7f5f0] border border-[#edeae1] rounded-2xl p-5 shadow-sm">
                             <h4 className="text-sm font-bold text-[#1b203d] mb-4 flex items-center gap-2">
