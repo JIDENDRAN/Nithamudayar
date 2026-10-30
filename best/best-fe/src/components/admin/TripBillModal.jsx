@@ -47,7 +47,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     fromLocation: '',
     toLocation: '',
     vehicleNo: '',
-    vehicleModel: '',
+    vehicleModel: 'Toyota Innova Crysta',
     driverName: '',
     driverPhone: '+91 98941 16405',
     openingKm: 14500,
@@ -78,22 +78,37 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
       let initialDailyRent = 2500;
       const vName = (booking.vehicle || '').toLowerCase();
 
-      if (vName.includes('suv') || vName.includes('ertiga')) {
+      if (vName.includes('suv') || vName.includes('ertiga') || vName.includes('carens')) {
         initialRate = 19;
         initialBata = 500;
         initialKm = 300;
+        initialDailyRent = 3000;
       } else if (vName.includes('innova') || vName.includes('crysta')) {
         initialRate = 22;
         initialBata = 600;
         initialKm = 350;
+        initialDailyRent = 3800;
       } else if (vName.includes('tempo') || vName.includes('traveller')) {
         initialRate = 25;
         initialBata = 700;
         initialKm = 300;
+        initialDailyRent = 5000;
       } else if (vName.includes('urbania')) {
         initialRate = 33;
         initialBata = 800;
         initialKm = 300;
+        initialDailyRent = 7000;
+      }
+
+      if (cars && cars.length > 0) {
+        const matched = cars.find(c => (c.name || '').toLowerCase().includes(vName) || vName.includes((c.name || '').toLowerCase()));
+        if (matched?.desc) {
+          const match = matched.desc.match(/base rent:\s*([^\n\r]+)/i);
+          if (match && match[1]) {
+            const parsed = Number(match[1].replace(/[^0-9.]/g, ''));
+            if (parsed > 0) initialDailyRent = parsed;
+          }
+        }
       }
 
       const opKm = 14500;
@@ -112,20 +127,23 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
         distanceKm: initialKm,
         ratePerKm: initialRate,
         driverBata: initialBata,
+        dailyRentDays: prev.dailyRentDays || 0,
+        dailyRentRate: initialDailyRent,
         tripType: booking.packageType || 'Outstation Round Trip',
         cabServiceName: settings?.name && settings.name !== 'admin' ? settings.name : 'Nithamudayar Tours & Travels Pvt Ltd'
       }));
     }
-  }, [booking, settings]);
+  }, [booking, settings, cars]);
 
   // Real-time Calculations
   const distanceFare = (Number(billData.distanceKm) || 0) * (Number(billData.ratePerKm) || 0);
+  const dailyRentTotal = (Number(billData.dailyRentDays) || 0) * (Number(billData.dailyRentRate) || 0);
   const totalBata = (Number(billData.driverBataDays) || 1) * (Number(billData.driverBata) || 0);
   const nightBata = (Number(billData.nightBataDays) || 0) * (Number(billData.nightBataRate) || 0);
   const waitingAmt = Number(billData.waitingAmt) || 0;
   const tollAmt = Number(billData.tollParking) || 0;
   const permitAmt = Number(billData.permitAmt) || 0;
-  const totalFare = distanceFare + totalBata + nightBata + waitingAmt + tollAmt + permitAmt;
+  const totalFare = distanceFare + dailyRentTotal + totalBata + nightBata + waitingAmt + tollAmt + permitAmt;
   const advance = Number(billData.advancePaid) || 0;
   const balanceAmount = Math.max(0, totalFare - advance);
 
@@ -154,6 +172,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
         billData,
         {
           distanceFare,
+          dailyRentTotal,
           totalBata,
           nightBata,
           waitingAmt,
@@ -174,8 +193,6 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
       setIsGeneratingPdf(false);
     }
   };
-
-
 
   // Print Handler
   const handlePrint = () => {
@@ -243,8 +260,6 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <span>Print</span>
                   </button>
 
-
-
                   <button
                     type="button"
                     onClick={handleDownloadPdf}
@@ -280,10 +295,11 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 <button
                   type="button"
                   onClick={() => setMobileTab('form')}
-                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${mobileTab === 'form'
-                    ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
-                    : 'text-neutral-400 hover:text-white'
-                    }`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${
+                    mobileTab === 'form'
+                      ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
+                      : 'text-neutral-400 hover:text-white'
+                  }`}
                 >
                   <Edit3 className="w-3.5 h-3.5" />
                   <span>1. Trip Details</span>
@@ -291,10 +307,11 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 <button
                   type="button"
                   onClick={() => setMobileTab('preview')}
-                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${mobileTab === 'preview'
-                    ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
-                    : 'text-neutral-400 hover:text-white'
-                    }`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${
+                    mobileTab === 'preview'
+                      ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
+                      : 'text-neutral-400 hover:text-white'
+                  }`}
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>2. Bill Preview</span>
@@ -332,10 +349,17 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                       <label className="text-neutral-400 block mb-1 font-semibold">Trip Type</label>
                       <select
                         value={billData.tripType}
-                        onChange={(e) => handleInputChange('tripType', e.target.value)}
+                        onChange={(e) => {
+                          const tVal = e.target.value;
+                          handleInputChange('tripType', tVal);
+                          if (tVal === 'Daily Base Rental' && Number(billData.dailyRentDays) === 0) {
+                            handleInputChange('dailyRentDays', 1);
+                          }
+                        }}
                         className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                       >
                         <option value="Outstation Round Trip">Outstation Round Trip</option>
+                        <option value="Daily Base Rental">Daily Base Rental</option>
                         <option value="One Way Drop">One Way Drop</option>
                         <option value="Local Package (8hr / 80km)">Local Package</option>
                         <option value="Airport Pickup / Drop">Airport Pickup / Drop</option>
@@ -442,18 +466,31 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.vehicleModel}
                         onChange={(e) => {
                           const val = e.target.value;
-                          let r = 14, b = 400, km = 250;
-                          if (val.includes('SUV')) { r = 19; b = 500; km = 300; }
-                          else if (val.includes('Innova')) { r = 22; b = 600; km = 350; }
-                          else if (val.includes('Tempo')) { r = 25; b = 700; km = 300; }
-                          else if (val.includes('Urbania')) { r = 33; b = 800; km = 300; }
+                          let r = 14, b = 400, km = 250, dr = 2500;
+                          if (val.includes('SUV')) { r = 19; b = 500; km = 300; dr = 3000; }
+                          else if (val.includes('Innova')) { r = 22; b = 600; km = 350; dr = 3800; }
+                          else if (val.includes('Tempo')) { r = 25; b = 700; km = 300; dr = 5000; }
+                          else if (val.includes('Urbania')) { r = 33; b = 800; km = 300; dr = 7000; }
+
+                          if (cars && cars.length > 0) {
+                            const matched = cars.find(c => (c.name || '').toLowerCase().includes(val.toLowerCase()) || val.toLowerCase().includes((c.name || '').toLowerCase()));
+                            if (matched?.desc) {
+                              const baseMatch = matched.desc.match(/base rent:\s*([^\n\r]+)/i);
+                              if (baseMatch && baseMatch[1]) {
+                                const parsed = Number(baseMatch[1].replace(/[^0-9.]/g, ''));
+                                if (parsed > 0) dr = parsed;
+                              }
+                            }
+                          }
+
                           setBillData(prev => ({
                             ...prev,
                             vehicleModel: val,
                             ratePerKm: r,
                             driverBata: b,
                             distanceKm: km,
-                            closingKm: Number(prev.openingKm) + km
+                            closingKm: Number(prev.openingKm) + km,
+                            dailyRentRate: (prev.dailyRentRate === 0 || !prev.dailyRentDays) ? dr : prev.dailyRentRate
                           }));
                         }}
                         className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
@@ -473,20 +510,20 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.vehicleNo}
                         onChange={(e) => handleInputChange('vehicleNo', e.target.value)}
                         className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-mono"
-                        placeholder=""
+                        placeholder="e.g. TN 49 AB 2026"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-neutral-400 block mb-1 font-semibold"> Driver Name</label>
+                      <label className="text-neutral-400 block mb-1 font-semibold">Driver Name</label>
                       <input
                         type="text"
                         value={billData.driverName}
                         onChange={(e) => handleInputChange('driverName', e.target.value)}
                         className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
-                        placeholder=""
+                        placeholder="e.g. S. Murugesan"
                       />
                     </div>
                     <div>
@@ -502,7 +539,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   </div>
                 </div>
 
-                {/* 4. Odometer / Meter Duty Log */}
+                {/* 4. Odometer / Meter Duty Log & Rates */}
                 <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
@@ -575,6 +612,122 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         onChange={(e) => handleInputChange('driverBataDays', e.target.value)}
                         className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                       />
+                    </div>
+                  </div>
+
+                  {/* DAILY BASE RENT (DAYS & PRICE) OPTION */}
+                  <div className="pt-2.5 border-t border-white/10 bg-[#140b09]/80 p-3 rounded-xl border border-[#d4af37]/20">
+                    <div className="flex items-center justify-between mb-2">
+                      <label className="text-[#f8e7a2] text-xs font-bold flex items-center gap-1.5">
+                        <Car className="w-4 h-4 text-[#d4af37]" />
+                        <span>Daily Base Rent (Days & Price)</span>
+                      </label>
+                      {dailyRentTotal > 0 ? (
+                        <div className="flex items-center gap-2">
+                          <span className="text-[11px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 border border-[#d4af37]/40 px-2 py-0.5 rounded">
+                            Total: ₹{dailyRentTotal.toLocaleString('en-IN')}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => handleInputChange('dailyRentDays', 0)}
+                            className="text-[10px] text-red-400 hover:text-red-300 font-semibold cursor-pointer underline"
+                            title="Remove daily base rent from bill"
+                          >
+                            Reset
+                          </button>
+                        </div>
+                      ) : (
+                        <span className="text-[10px] text-neutral-500 font-mono">
+                          (Optional • Not on bill)
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+                      <div>
+                        <label className="text-neutral-300 block mb-1 font-semibold text-[11px]">Rent Days</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={billData.dailyRentDays ?? 0}
+                          onChange={(e) => handleInputChange('dailyRentDays', Math.max(0, Number(e.target.value) || 0))}
+                          placeholder="0"
+                          className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-neutral-300 block mb-1 font-semibold text-[11px]">Daily Price / Rate (₹)</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={billData.dailyRentRate ?? ''}
+                          onChange={(e) => handleInputChange('dailyRentRate', e.target.value)}
+                          placeholder="3500"
+                          className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        />
+                      </div>
+                      <div className="col-span-2 sm:col-span-1">
+                        <label className="text-neutral-300 block mb-1 font-semibold text-[11px]">Total Rent (₹)</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={dailyRentTotal || ''}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val === '' || Number(val) === 0) {
+                              handleInputChange('dailyRentDays', 0);
+                            } else {
+                              const currentDays = Number(billData.dailyRentDays) > 0 ? Number(billData.dailyRentDays) : 1;
+                              handleInputChange('dailyRentDays', currentDays);
+                              handleInputChange('dailyRentRate', Math.round(Number(val) / currentDays));
+                            }
+                          }}
+                          placeholder="0"
+                          className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Quick Day Presets */}
+                    <div className="flex items-center gap-1.5 pt-2">
+                      <span className="text-[10px] text-neutral-400 font-medium">Quick Days:</span>
+                      {[1, 2, 3, 4, 5, 7].map((d) => (
+                        <button
+                          key={d}
+                          type="button"
+                          onClick={() => {
+                            handleInputChange('dailyRentDays', d);
+                            if (!billData.dailyRentRate || Number(billData.dailyRentRate) === 0) {
+                              let suggested = 2500;
+                              const v = (billData.vehicleModel || '').toLowerCase();
+                              if (v.includes('suv') || v.includes('ertiga')) suggested = 3000;
+                              else if (v.includes('innova') || v.includes('crysta')) suggested = 3800;
+                              else if (v.includes('tempo')) suggested = 5000;
+                              else if (v.includes('urbania')) suggested = 7000;
+                              handleInputChange('dailyRentRate', suggested);
+                            }
+                          }}
+                          className={`px-2 py-0.5 text-[10px] font-bold rounded-md transition-all cursor-pointer ${
+                            Number(billData.dailyRentDays) === d
+                              ? 'bg-[#d4af37] text-neutral-950 font-black shadow-xs'
+                              : 'bg-white/10 text-neutral-300 hover:text-white hover:bg-white/20 border border-white/10'
+                          }`}
+                        >
+                          {d}D
+                        </button>
+                      ))}
+                      {Number(billData.dailyRentDays) > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => handleInputChange('dailyRentDays', 0)}
+                          className="px-2 py-0.5 text-[10px] text-red-400 hover:text-red-300 bg-red-500/10 border border-red-500/20 rounded-md transition-all cursor-pointer ml-1"
+                        >
+                          Off
+                        </button>
+                      )}
                     </div>
                   </div>
 
@@ -699,10 +852,11 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             key={mode}
                             type="button"
                             onClick={() => handleInputChange('paymentMode', mode)}
-                            className={`py-2 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${billData.paymentMode === mode
-                              ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]'
-                              : 'bg-[#18110f] text-neutral-400 border-white/10 hover:border-white/30'
-                              }`}
+                            className={`py-2 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${
+                              billData.paymentMode === mode
+                                ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]'
+                                : 'bg-[#18110f] text-neutral-400 border-white/10 hover:border-white/30'
+                            }`}
                           >
                             {mode}
                           </button>
@@ -755,16 +909,18 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <button
                       type="button"
                       onClick={() => setMobileFit(true)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
-                        }`}
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${
+                        mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
+                      }`}
                     >
                       Fit Phone
                     </button>
                     <button
                       type="button"
                       onClick={() => setMobileFit(false)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${!mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
-                        }`}
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${
+                        !mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
+                      }`}
                     >
                       100% Zoom
                     </button>
@@ -774,8 +930,9 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {/* Invoice Container with Responsive View Scaling */}
                 <div className="w-full overflow-x-auto flex justify-center py-1">
                   <div
-                    className={`transition-transform duration-200 origin-top ${mobileFit ? 'scale-[0.52] sm:scale-75 md:scale-90 lg:scale-100' : 'scale-100'
-                      }`}
+                    className={`transition-transform duration-200 origin-top ${
+                      mobileFit ? 'scale-[0.52] sm:scale-75 md:scale-90 lg:scale-100' : 'scale-100'
+                    }`}
                     style={{
                       // Reduce dead space when scaled on phone screens
                       marginBottom: mobileFit ? '-370px' : '0'
@@ -866,20 +1023,28 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                               <div className="p-2 space-y-1">
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Vehicle:</span>
-                                  <span className="font-bold text-neutral-900 truncate">{billData.vehicleModel}</span>
+                                  <span className="font-bold text-neutral-900 truncate">{billData.vehicleModel || 'Commercial Cab'}</span>
                                 </div>
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Reg. No:</span>
-                                  <span className="font-mono font-bold text-neutral-900">{billData.vehicleNo}</span>
+                                  <span className="font-mono font-bold text-neutral-900">{billData.vehicleNo || '-'}</span>
                                 </div>
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Chauffeur:</span>
-                                  <span className="font-semibold text-neutral-800 truncate">{billData.driverName}</span>
+                                  <span className="font-semibold text-neutral-800 truncate">{billData.driverName || '-'}</span>
                                 </div>
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Trip Nature:</span>
                                   <span className="font-semibold text-[#1a3c34] truncate">{billData.tripType}</span>
                                 </div>
+                                {dailyRentTotal > 0 && (
+                                  <div className="flex">
+                                    <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Daily Rent:</span>
+                                    <span className="font-bold text-emerald-800 font-mono text-[10px]">
+                                      {billData.dailyRentDays} Day(s) @ ₹{Number(billData.dailyRentRate || 0).toLocaleString('en-IN')}/day
+                                    </span>
+                                  </div>
+                                )}
                               </div>
                             </div>
 
@@ -905,7 +1070,9 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             </div>
                             <div>
                               <span className="block text-[9px] text-neutral-500 font-bold uppercase">Rate / KM</span>
-                              <span className="font-mono font-bold text-[#d4af37] text-xs">₹ {billData.ratePerKm}</span>
+                              <span className="font-mono font-bold text-[#d4af37] text-xs">
+                                {Number(billData.ratePerKm) > 0 ? `₹ ${billData.ratePerKm}` : (dailyRentTotal > 0 ? 'Nil / Incl' : '₹ 0')}
+                              </span>
                             </div>
                           </div>
 
@@ -925,7 +1092,24 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 {(() => {
                                   const rows = [];
                                   let sNo = 1;
-                                  if (distanceFare > 0 || Number(billData.distanceKm) > 0) {
+                                  if (dailyRentTotal > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Daily Base Rent / Vehicle Hire Charges',
+                                      details: `${billData.dailyRentDays || 1} Day(s)`,
+                                      rate: `₹ ${Number(billData.dailyRentRate || 0).toFixed(2)}`,
+                                      amount: dailyRentTotal
+                                    });
+                                  }
+                                  if (distanceFare > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Base Kilometre Running Charges',
+                                      details: `${billData.distanceKm || 0} KM`,
+                                      rate: `₹ ${Number(billData.ratePerKm || 0).toFixed(2)}`,
+                                      amount: distanceFare
+                                    });
+                                  } else if (dailyRentTotal === 0 && Number(billData.distanceKm) > 0) {
                                     rows.push({
                                       sNo: sNo++,
                                       desc: 'Base Kilometre Running Charges',
@@ -1112,8 +1296,6 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {downloadSuccess ? <Check className="w-4 h-4 text-white" /> : <Download className="w-4 h-4" />}
                 <span>{isGeneratingPdf ? 'Generating...' : 'Download PDF'}</span>
               </button>
-
-
 
               <button
                 type="button"
