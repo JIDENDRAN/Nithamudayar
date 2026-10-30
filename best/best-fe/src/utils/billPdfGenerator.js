@@ -61,11 +61,13 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.setFillColor(...navyDark);
   d.rect(9.5, headerY, 191, headerHeight, 'F');
 
-  // Official White Temple Emblem Card
-  d.setFillColor(255, 255, 255);
-  d.roundedRect(12, headerY + 2.5, 22, 26, 1.5, 1.5, 'F');
+  // Official Temple Emblem (Midnight Navy & Champagne Gold)
+  d.setFillColor(20, 24, 48);
+  d.setDrawColor(...goldPrimary);
+  d.setLineWidth(0.3);
+  d.roundedRect(12, headerY + 2.5, 23, 26.5, 1.5, 1.5, 'FD');
   try {
-    d.addImage(NITHAM_LOGO_BASE64, 'PNG', 12.5, headerY + 3.5, 21, 24);
+    d.addImage(NITHAM_LOGO_BASE64, 'JPEG', 12.3, headerY + 2.8, 22.4, 25.9);
   } catch (err) {
     console.warn('Logo render skipped:', err);
   }
@@ -266,7 +268,7 @@ function renderBillDocument(d, billData, calculations, settings) {
 
   const vehLabels = [
     { label: 'Vehicle Model:', val: billData.vehicleModel || 'Commercial Cab' },
-    { label: 'Registration No:', val: billData.vehicleNo || 'TN 49 AB 2026' },
+    { label: 'Registration No:', val: billData.vehicleNo ? String(billData.vehicleNo).toUpperCase() : 'TN 49 AB 2026' },
     { label: 'Chauffeur Name:', val: billData.driverName || 'Professional Chauffeur' },
     {
       label: dailyRentTotal > 0 ? 'Daily Base Rent:' : 'Trip Nature:',

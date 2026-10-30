@@ -559,7 +559,7 @@ Driver Charge: ${data.dayDriver || ''}`;
       {/* Sidebar navigation */}
       <div className="w-full md:w-64 bg-[#241815] flex flex-col border-r border-[#342521] shadow-2xl z-20">
         <div className="p-6 flex items-center gap-3 border-b border-[#342521]">
-          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md p-1 border border-white/25 overflow-hidden">
+          <div className="w-12 h-12 bg-[#1b203d] rounded-xl flex items-center justify-center shadow-md p-0.5 border border-[#d4af37]/50 overflow-hidden">
             <img src="/logo.png" alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
           </div>
           <div>
@@ -678,7 +678,7 @@ Driver Charge: ${data.dayDriver || ''}`;
               <span className="block text-sm font-semibold text-[#342521]">Superadmin Panel</span>
               <span className="block text-xs text-[#D4AF37] font-medium tracking-wide">Nithamudayar Tours & Travels Pvt Ltd</span>
             </div>
-            <div className="w-12 h-12 bg-white rounded-xl p-1 shadow-md border border-[#edeae1] flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 bg-[#1b203d] rounded-xl p-0.5 shadow-md border border-[#d4af37]/50 flex items-center justify-center shrink-0">
               <img
                 src="/logo.png"
                 alt="Nithamudayar Emblem"

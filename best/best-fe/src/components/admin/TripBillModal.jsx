@@ -125,6 +125,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
         phone: booking.phone || '',
         fromLocation: booking.fromLocation || '',
         toLocation: booking.toLocation || '',
+        vehicleNo: booking.vehicleNo ? booking.vehicleNo.toUpperCase() : (prev.vehicleNo ? prev.vehicleNo.toUpperCase() : ''),
         vehicleModel: booking.vehicle || 'Toyota Innova Crysta',
         openingKm: opKm,
         closingKm: clKm,
@@ -152,8 +153,12 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
   const balanceAmount = Math.max(0, totalFare - advance);
 
   const handleInputChange = (field, value) => {
+    let processedValue = value;
+    if (field === 'vehicleNo' && typeof value === 'string') {
+      processedValue = value.toUpperCase();
+    }
     setBillData(prev => {
-      const updated = { ...prev, [field]: value };
+      const updated = { ...prev, [field]: processedValue };
       // Sync distance if opening or closing KM edited
       if (field === 'openingKm' || field === 'closingKm') {
         const op = Number(field === 'openingKm' ? value : prev.openingKm) || 0;
@@ -550,9 +555,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                       <label className="text-neutral-400 block mb-1 font-semibold">Vehicle Number</label>
                       <input
                         type="text"
-                        value={billData.vehicleNo}
-                        onChange={(e) => handleInputChange('vehicleNo', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-mono"
+                        value={billData.vehicleNo || ''}
+                        onChange={(e) => handleInputChange('vehicleNo', e.target.value.toUpperCase())}
+                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-mono uppercase"
+                        style={{ textTransform: 'uppercase' }}
                         placeholder="e.g. TN 49 AB 2026"
                       />
                     </div>
@@ -985,10 +991,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           {/* 1. TOP HEADER BANNER */}
                           <div className="bg-[#1b203d] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
                             <div className="flex items-center gap-3">
-                              <div className="w-14 h-14 bg-white rounded-xl p-1 shadow-md border border-white/30 shrink-0 flex items-center justify-center overflow-hidden">
+                              <div className="w-14 h-14 bg-[#1b203d] rounded-xl p-0.5 shadow-md border border-[#d4af37]/60 shrink-0 flex items-center justify-center overflow-hidden">
                                 <img
                                   src={NITHAM_LOGO_BASE64 || "/logo.png"}
-                                  alt="Logo"
+                                  alt="Nithamudayar Emblem"
                                   className="w-full h-full object-contain rounded-lg"
                                 />
                               </div>
@@ -1061,7 +1067,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 </div>
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Reg. No:</span>
-                                  <span className="font-mono font-bold text-neutral-900">{billData.vehicleNo || '-'}</span>
+                                  <span className="font-mono font-bold text-neutral-900">{billData.vehicleNo ? billData.vehicleNo.toUpperCase() : '-'}</span>
                                 </div>
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Chauffeur:</span>
