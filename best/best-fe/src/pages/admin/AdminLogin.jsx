@@ -56,7 +56,7 @@ const AdminLogin = () => {
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block bg-[#1b203d] p-2.5 rounded-2xl shadow-md border border-[#d4af37]/40 mb-4 overflow-hidden"
+            className="inline-block bg-white p-3 rounded-2xl shadow-sm border border-[#edeae1] mb-4 overflow-hidden"
           >
             <img src="/logo.png" alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-14 h-14 object-contain rounded-xl" />
           </motion.div>

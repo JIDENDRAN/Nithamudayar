@@ -60,15 +60,15 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     ratePerKm: 22,
     driverBataDays: 1,
     driverBata: 600,
-    dailyRentDays: 0,
-    dailyRentRate: 3800,
-    nightBataDays: 0,
+    dailyRentDays: "",
+    dailyRentRate: "",
+    nightBataDays: "",
     nightBataRate: 400,
     waitingDetails: '0 hrs',
-    waitingAmt: 0,
-    tollParking: 0,
-    permitAmt: 0,
-    advancePaid: 0,
+    waitingAmt: "",
+    tollParking: "",
+    permitAmt: "",
+    advancePaid: "",
     paymentMode: 'UPI', // 'UPI' | 'Cash' | 'Bank'
     upiId: ''
   });
@@ -1001,7 +1001,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           {/* 1. TOP HEADER BANNER */}
                           <div className="bg-[#1b203d] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
                             <div className="flex items-center gap-3">
-                              <div className="w-14 h-14 bg-[#1b203d] rounded-xl p-0.5 shadow-md border border-[#d4af37]/40 shrink-0 flex items-center justify-center overflow-hidden">
+                              <div className="w-14 h-14 bg-white rounded-xl p-1 shadow-md border border-white/30 shrink-0 flex items-center justify-center overflow-hidden">
                                 <img
                                   src="/logo.png"
                                   alt="Logo"

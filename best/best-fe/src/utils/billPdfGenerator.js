@@ -69,13 +69,11 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.setFillColor(...navyDark);
   doc.rect(9.5, headerY, 191, headerHeight, 'F');
 
-  // Official Emblem Card (Matching Logo Navy & Gold)
-  doc.setFillColor(...navyDark);
-  doc.setDrawColor(...goldPrimary);
-  doc.setLineWidth(0.3);
-  doc.roundedRect(12, headerY + 2.5, 22, 26, 1.5, 1.5, 'FD');
+  // Official White Temple Emblem Card
+  doc.setFillColor(255, 255, 255);
+  doc.roundedRect(12, headerY + 2.5, 22, 26, 1.5, 1.5, 'F');
   try {
-    doc.addImage(NITHAM_LOGO_BASE64, 'PNG', 12.5, headerY + 3, 21, 25);
+    doc.addImage(NITHAM_LOGO_BASE64, 'PNG', 12.5, headerY + 3.5, 21, 24);
   } catch (err) {
     console.warn('PDF logo render skipped:', err);
   }
