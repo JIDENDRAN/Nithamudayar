@@ -46,9 +46,9 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     phone: '',
     fromLocation: '',
     toLocation: '',
-    vehicleNo: 'TN 49 AB 2026',
-    vehicleModel: 'Toyota Innova Crysta',
-    driverName: 'S. Murugesan (Chauffeur)',
+    vehicleNo: '',
+    vehicleModel: '',
+    driverName: '',
     driverPhone: '+91 98941 16405',
     openingKm: 14500,
     closingKm: 14850,
@@ -66,7 +66,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     permitAmt: 0,
     advancePaid: 0,
     paymentMode: 'UPI', // 'UPI' | 'Cash' | 'Bank'
-    upiId: '9894116405@okaxis'
+    upiId: ''
   });
 
   // Automatically update bill data when booking changes
