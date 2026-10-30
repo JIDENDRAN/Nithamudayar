@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import html2canvas from 'html2canvas-pro';
+import { toPng, toJpeg } from 'html-to-image';
 import {
   X,
   Printer,
@@ -27,6 +27,7 @@ import {
   Minimize2
 } from 'lucide-react';
 import { downloadVectorBillPdf, numberToWords } from '../../utils/billPdfGenerator';
+import { NITHAM_LOGO_BASE64 } from '../../assets/logoBase64';
 
 export default function TripBillModal({ isOpen, onClose, booking, settings, cars = [] }) {
   const billRef = useRef(null);
@@ -1003,7 +1004,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             <div className="flex items-center gap-3">
                               <div className="w-14 h-14 bg-white rounded-xl p-1 shadow-md border border-white/30 shrink-0 flex items-center justify-center overflow-hidden">
                                 <img
-                                  src="/logo.png"
+                                  src={NITHAM_LOGO_BASE64 || "/logo.png"}
                                   alt="Logo"
                                   className="w-full h-full object-contain rounded-lg"
                                 />
