@@ -907,7 +907,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.upiId}
                         onChange={(e) => handleInputChange('upiId', e.target.value)}
                         className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
-                        placeholder="9894116405@okaxis"
+                        placeholder=""
                       />
                     </div>
                   </div>
@@ -1241,7 +1241,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                               <div className="pt-1 text-[10px]">
                                 <span className="text-neutral-500 block">Official UPI ID for Payment:</span>
                                 <span className="font-mono font-bold text-[#1b203d] bg-white px-2 py-0.5 rounded border border-[#edeae1] inline-block mt-0.5">
-                                  {billData.upiId || '9894116405@okaxis'}
+                                  {billData.upiId || ''}
                                 </span>
                               </div>
                             </div>
