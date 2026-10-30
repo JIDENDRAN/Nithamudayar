@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { toPng, toJpeg } from 'html-to-image';
 import {
   X,
   Printer,
@@ -26,7 +25,7 @@ import {
   Maximize2,
   Minimize2
 } from 'lucide-react';
-import { downloadVectorBillPdf, numberToWords } from '../../utils/billPdfGenerator';
+import { downloadVectorBillPdf, downloadVectorBillImage, numberToWords } from '../../utils/billPdfGenerator';
 import { NITHAM_LOGO_BASE64 } from '../../assets/logoBase64';
 
 export default function TripBillModal({ isOpen, onClose, booking, settings, cars = [] }) {
@@ -199,42 +198,26 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     }
   };
 
-  // Direct High-Resolution Image (PNG) Download (Perfect for WhatsApp sharing)
+  // Direct High-Resolution Vector Image (PNG) Download (Ultra-sharp & perfect for WhatsApp sharing)
   const handleDownloadImage = async () => {
-    if (!billRef.current) return;
     setIsGeneratingImage(true);
     try {
-      const canvas = await html2canvas(billRef.current, {
-        scale: 2.5, // Ultra-sharp Retina resolution
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-        backgroundColor: '#ffffff',
-        onclone: (clonedDoc) => {
-          const el = clonedDoc.getElementById('printable-bill');
-          if (el) {
-            el.style.transform = 'none';
-            if (el.parentElement) {
-              el.parentElement.style.transform = 'none';
-              el.parentElement.style.marginBottom = '0';
-            }
-          }
-        }
-      });
-
-      const sanitizedName = (billData.customerName || 'Customer').replace(/[^a-zA-Z0-9_-]/g, '_');
-      const fileName = `${billData.billNo || 'TRIP_BILL'}_${sanitizedName}.png`;
-
-      const imgData = canvas.toDataURL('image/png', 1.0);
-      const link = document.createElement('a');
-      link.href = imgData;
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      setTimeout(() => {
-        document.body.removeChild(link);
-      }, 1000);
-
+      await downloadVectorBillImage(
+        billData,
+        {
+          distanceFare,
+          dailyRentTotal,
+          totalBata,
+          nightBata,
+          waitingAmt,
+          tollAmt,
+          permitAmt,
+          totalFare,
+          advance,
+          balanceAmount
+        },
+        settings
+      );
       setDownloadImageSuccess(true);
       setTimeout(() => setDownloadImageSuccess(false), 3000);
     } catch (err) {

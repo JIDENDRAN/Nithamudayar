@@ -22,18 +22,10 @@ export function numberToWords(num) {
 }
 
 /**
- * Generates an authentic, executive Tours & Travels Duty Slip & Invoice PDF.
- * Crafted with luxury emerald & gold branding, itemized commercial travel billing,
- * odometer readings, advance settlement, UPI ID, and legal travel duty conditions.
- * Dynamically balances vertical rhythm to eliminate empty voids and prevent text overlaps.
+ * Core unified vector renderer that draws the official invoice onto any target:
+ * jsPDF document instance or HTML5 Canvas adapter.
  */
-export function generateVectorBillPdf(billData, calculations, settings) {
-  const doc = new jsPDF({
-    orientation: 'portrait',
-    unit: 'mm',
-    format: 'a4'
-  });
-
+function renderBillDocument(d, billData, calculations, settings) {
   const {
     distanceFare = 0,
     dailyRentTotal = 0,
@@ -49,7 +41,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
 
   // Theme Palette: Royal Midnight Navy & Heritage Champagne Gold (Exact Logo Colors)
   const navyDark = [27, 32, 61];        // #1b203d (Dominant Midnight Navy from official logo)
-  const goldPrimary = [212, 175, 55];    // #d4af37
+  const goldPrimary = [212, 175, 55];    // #d4af37 (Regal Champagne Gold from temple illustration)
   const goldLight = [253, 248, 225];
   const bgCream = [250, 248, 243];
   const borderCream = [225, 218, 205];
@@ -57,25 +49,25 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const grayText = [100, 95, 90];
 
   // 1. Outer Double Border Frame (Professional Executive Invoice Look)
-  doc.setDrawColor(...navyDark);
-  doc.setLineWidth(0.4);
-  doc.rect(8, 8, 194, 281);
-  doc.setLineWidth(0.15);
-  doc.rect(9.5, 9.5, 191, 278);
+  d.setDrawColor(...navyDark);
+  d.setLineWidth(0.4);
+  d.rect(8, 8, 194, 281);
+  d.setLineWidth(0.15);
+  d.rect(9.5, 9.5, 191, 278);
 
   // 2. Top Header Area (Spacious & Overlap-Free)
   const headerY = 9.5;
   const headerHeight = 31.5;
-  doc.setFillColor(...navyDark);
-  doc.rect(9.5, headerY, 191, headerHeight, 'F');
+  d.setFillColor(...navyDark);
+  d.rect(9.5, headerY, 191, headerHeight, 'F');
 
   // Official White Temple Emblem Card
-  doc.setFillColor(255, 255, 255);
-  doc.roundedRect(12, headerY + 2.5, 22, 26, 1.5, 1.5, 'F');
+  d.setFillColor(255, 255, 255);
+  d.roundedRect(12, headerY + 2.5, 22, 26, 1.5, 1.5, 'F');
   try {
-    doc.addImage(NITHAM_LOGO_BASE64, 'PNG', 12.5, headerY + 3.5, 21, 24);
+    d.addImage(NITHAM_LOGO_BASE64, 'PNG', 12.5, headerY + 3.5, 21, 24);
   } catch (err) {
-    console.warn('PDF logo render skipped:', err);
+    console.warn('Logo render skipped:', err);
   }
 
   // Header Right Badge: INVOICE / DUTY SLIP (Anchored on the right)
@@ -83,51 +75,51 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const badgeY = headerY + 2.8;
   const badgeWidth = 53.5;
   const badgeHeight = 25.5;
-  doc.setFillColor(...goldPrimary);
-  doc.roundedRect(badgeX, badgeY, badgeWidth, badgeHeight, 1.5, 1.5, 'F');
+  d.setFillColor(...goldPrimary);
+  d.roundedRect(badgeX, badgeY, badgeWidth, badgeHeight, 1.5, 1.5, 'F');
 
   const badgeCenterX = badgeX + (badgeWidth / 2);
-  doc.setTextColor(...navyDark);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(8.5);
-  doc.text('TRIP INVOICE & DUTY SLIP', badgeCenterX, badgeY + 6.2, { align: 'center' });
+  d.setTextColor(...navyDark);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(8.5);
+  d.text('TRIP INVOICE & DUTY SLIP', badgeCenterX, badgeY + 6.2, { align: 'center' });
 
-  doc.setDrawColor(...navyDark);
-  doc.setLineWidth(0.2);
-  doc.line(badgeX + 6, badgeY + 8.5, badgeX + badgeWidth - 6, badgeY + 8.5);
+  d.setDrawColor(...navyDark);
+  d.setLineWidth(0.2);
+  d.line(badgeX + 6, badgeY + 8.5, badgeX + badgeWidth - 6, badgeY + 8.5);
 
-  doc.setFontSize(7.8);
-  doc.setFont('helvetica', 'bold');
-  doc.text(`Bill No: ${billData.billNo || 'NTT-2026-0001'}`, badgeCenterX, badgeY + 13.5, { align: 'center' });
+  d.setFontSize(7.8);
+  d.setFont('helvetica', 'bold');
+  d.text(`Bill No: ${billData.billNo || 'NTT-2026-0001'}`, badgeCenterX, badgeY + 13.5, { align: 'center' });
 
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(7.2);
-  doc.text(`Date: ${billData.date || new Date().toLocaleDateString('en-GB')}`, badgeCenterX, badgeY + 18.2, { align: 'center' });
-  doc.setFontSize(6.8);
-  doc.text(`Time: ${billData.time || '12:00 PM'}`, badgeCenterX, badgeY + 22.5, { align: 'center' });
+  d.setFont('helvetica', 'normal');
+  d.setFontSize(7.2);
+  d.text(`Date: ${billData.date || new Date().toLocaleDateString('en-GB')}`, badgeCenterX, badgeY + 18.2, { align: 'center' });
+  d.setFontSize(6.8);
+  d.text(`Time: ${billData.time || '12:00 PM'}`, badgeCenterX, badgeY + 22.5, { align: 'center' });
 
   // Company Information (Left Side, with strict maxWidth to avoid badge overlap)
   const textLeftX = 37;
   const textMaxWidth = badgeX - textLeftX - 3; // ~103mm safe width
 
-  doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(11);
+  d.setTextColor(255, 255, 255);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(11);
   const companyName = (billData.cabServiceName || settings?.name || 'NITHAMUDAYAR TOURS & TRAVELS PVT LTD').toUpperCase();
-  doc.text(companyName, textLeftX, headerY + 8, { maxWidth: textMaxWidth });
+  d.text(companyName, textLeftX, headerY + 8, { maxWidth: textMaxWidth });
 
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(7.2);
-  doc.setTextColor(...goldLight);
-  doc.text('Premium Luxury Fleet • Force Urbania • Innova Crysta • Tempo Traveller', textLeftX, headerY + 14, { maxWidth: textMaxWidth });
+  d.setFont('helvetica', 'normal');
+  d.setFontSize(7.2);
+  d.setTextColor(...goldLight);
+  d.text('Premium Luxury Fleet • Force Urbania • Innova Crysta • Tempo Traveller', textLeftX, headerY + 14, { maxWidth: textMaxWidth });
 
-  doc.setTextColor(235, 235, 235);
-  doc.setFontSize(6.8);
-  doc.text('Melawasthachavadi, Abinaya Grand, Pudukkottai Rd, Thanjavur - 613005', textLeftX, headerY + 19.5, { maxWidth: textMaxWidth });
+  d.setTextColor(235, 235, 235);
+  d.setFontSize(6.8);
+  d.text('Melawasthachavadi, Abinaya Grand, Pudukkottai Rd, Thanjavur - 613005', textLeftX, headerY + 19.5, { maxWidth: textMaxWidth });
 
-  doc.setTextColor(...goldLight);
-  doc.setFontSize(6.8);
-  doc.text('24x7 Customer Care: +91 98941 16405 / +91 96261 16405', textLeftX, headerY + 25, { maxWidth: textMaxWidth });
+  d.setTextColor(...goldLight);
+  d.setFontSize(6.8);
+  d.text('24x7 Customer Care: +91 98941 16405 / +91 96261 16405', textLeftX, headerY + 25, { maxWidth: textMaxWidth });
 
   // 3. Build Items List to Determine Dynamic Row Count
   const items = [];
@@ -204,7 +196,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
     });
   }
 
-  // 4. Dynamic Vertical Rhythm Budget (Eliminates Bottom Void & Prevents Overflow)
+  // 4. Dynamic Vertical Rhythm Budget
   const footerHeight = 13.5;
   const footerY = 287.5 - footerHeight; // 274mm
   const contentStartY = headerY + headerHeight; // 41mm
@@ -232,15 +224,15 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const rightCardX = 107;
 
   // Left Card: Customer Details
-  doc.setFillColor(...bgCream);
-  doc.setDrawColor(...borderCream);
-  doc.roundedRect(leftCardX, curY, cardWidth, cardsHeight, 1.5, 1.5, 'FD');
-  doc.setFillColor(...navyDark);
-  doc.rect(leftCardX, curY, cardWidth, 6, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7.5);
-  doc.text('CUSTOMER / PASSENGER DETAILS', leftCardX + 4, curY + 4.2);
+  d.setFillColor(...bgCream);
+  d.setDrawColor(...borderCream);
+  d.roundedRect(leftCardX, curY, cardWidth, cardsHeight, 1.5, 1.5, 'FD');
+  d.setFillColor(...navyDark);
+  d.rect(leftCardX, curY, cardWidth, 6, 'F');
+  d.setTextColor(255, 255, 255);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(7.5);
+  d.text('CUSTOMER / PASSENGER DETAILS', leftCardX + 4, curY + 4.2);
 
   const cardRowH = (cardsHeight - 8) / 4;
   const custLabels = [
@@ -252,25 +244,25 @@ export function generateVectorBillPdf(billData, calculations, settings) {
 
   custLabels.forEach((r, idx) => {
     const rowY = curY + 9.5 + (idx * cardRowH);
-    doc.setTextColor(...grayText);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(7.2);
-    doc.text(r.label, leftCardX + 4, rowY);
-    doc.setTextColor(...darkText);
-    doc.setFont('helvetica', 'bold');
-    doc.text(r.val, leftCardX + 32, rowY, { maxWidth: cardWidth - 34 });
+    d.setTextColor(...grayText);
+    d.setFont('helvetica', 'normal');
+    d.setFontSize(7.2);
+    d.text(r.label, leftCardX + 4, rowY);
+    d.setTextColor(...darkText);
+    d.setFont('helvetica', 'bold');
+    d.text(r.val, leftCardX + 32, rowY, { maxWidth: cardWidth - 34 });
   });
 
   // Right Card: Vehicle & Chauffeur
-  doc.setFillColor(...bgCream);
-  doc.setDrawColor(...borderCream);
-  doc.roundedRect(rightCardX, curY, cardWidth, cardsHeight, 1.5, 1.5, 'FD');
-  doc.setFillColor(...navyDark);
-  doc.rect(rightCardX, curY, cardWidth, 6, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7.5);
-  doc.text('VEHICLE & CHAUFFEUR PARTICULARS', rightCardX + 4, curY + 4.2);
+  d.setFillColor(...bgCream);
+  d.setDrawColor(...borderCream);
+  d.roundedRect(rightCardX, curY, cardWidth, cardsHeight, 1.5, 1.5, 'FD');
+  d.setFillColor(...navyDark);
+  d.rect(rightCardX, curY, cardWidth, 6, 'F');
+  d.setTextColor(255, 255, 255);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(7.5);
+  d.text('VEHICLE & CHAUFFEUR PARTICULARS', rightCardX + 4, curY + 4.2);
 
   const vehLabels = [
     { label: 'Vehicle Model:', val: billData.vehicleModel || 'Commercial Cab' },
@@ -286,20 +278,20 @@ export function generateVectorBillPdf(billData, calculations, settings) {
 
   vehLabels.forEach((r, idx) => {
     const rowY = curY + 9.5 + (idx * cardRowH);
-    doc.setTextColor(...grayText);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(7.2);
-    doc.text(r.label, rightCardX + 4, rowY);
-    doc.setTextColor(...darkText);
-    doc.setFont('helvetica', 'bold');
-    doc.text(r.val, rightCardX + 34, rowY, { maxWidth: cardWidth - 36 });
+    d.setTextColor(...grayText);
+    d.setFont('helvetica', 'normal');
+    d.setFontSize(7.2);
+    d.text(r.label, rightCardX + 4, rowY);
+    d.setTextColor(...darkText);
+    d.setFont('helvetica', 'bold');
+    d.text(r.val, rightCardX + 34, rowY, { maxWidth: cardWidth - 36 });
   });
 
   // 6. Trip Duty Meter / Odometer Bar
   curY += cardsHeight + gap;
-  doc.setFillColor(243, 239, 231);
-  doc.setDrawColor(...borderCream);
-  doc.roundedRect(11, curY, 187, odoHeight, 1.5, 1.5, 'FD');
+  d.setFillColor(243, 239, 231);
+  d.setDrawColor(...borderCream);
+  d.roundedRect(11, curY, 187, odoHeight, 1.5, 1.5, 'FD');
 
   const openingKm = billData.openingKm || 14500;
   const closingKm = billData.closingKm || (Number(openingKm) + Number(billedKm));
@@ -315,17 +307,17 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   odoCols.forEach((col, idx) => {
     const colCenterX = 11 + (idx * colW) + (colW / 2);
     if (idx > 0) {
-      doc.setDrawColor(...borderCream);
-      doc.line(11 + (idx * colW), curY, 11 + (idx * colW), curY + odoHeight);
+      d.setDrawColor(...borderCream);
+      d.line(11 + (idx * colW), curY, 11 + (idx * colW), curY + odoHeight);
     }
-    doc.setFontSize(6.8);
-    doc.setTextColor(...grayText);
-    doc.setFont('helvetica', 'bold');
-    doc.text(col.label, colCenterX, curY + 4.8, { align: 'center' });
+    d.setFontSize(6.8);
+    d.setTextColor(...grayText);
+    d.setFont('helvetica', 'bold');
+    d.text(col.label, colCenterX, curY + 4.8, { align: 'center' });
 
-    doc.setFontSize(8.5);
-    doc.setTextColor(...navyDark);
-    doc.text(col.val, colCenterX, curY + 10.5, { align: 'center' });
+    d.setFontSize(8.5);
+    d.setTextColor(...navyDark);
+    d.text(col.val, colCenterX, curY + 10.5, { align: 'center' });
   });
 
   // 7. Itemized Charges Table
@@ -334,145 +326,145 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const tableW = 187;
 
   // Header
-  doc.setFillColor(...navyDark);
-  doc.rect(tableX, curY, tableW, tableHeaderHeight, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7.5);
-  doc.text('S.NO', tableX + 7, curY + 5, { align: 'center' });
-  doc.text('PARTICULARS / SERVICE DESCRIPTION', tableX + 22, curY + 5);
-  doc.text('QTY / DETAILS', tableX + 118, curY + 5, { align: 'center' });
-  doc.text('RATE (Rs.)', tableX + 152, curY + 5, { align: 'right' });
-  doc.text('AMOUNT (Rs.)', tableX + tableW - 4, curY + 5, { align: 'right' });
+  d.setFillColor(...navyDark);
+  d.rect(tableX, curY, tableW, tableHeaderHeight, 'F');
+  d.setTextColor(255, 255, 255);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(7.5);
+  d.text('S.NO', tableX + 7, curY + 5, { align: 'center' });
+  d.text('PARTICULARS / SERVICE DESCRIPTION', tableX + 22, curY + 5);
+  d.text('QTY / DETAILS', tableX + 118, curY + 5, { align: 'center' });
+  d.text('RATE (Rs.)', tableX + 152, curY + 5, { align: 'right' });
+  d.text('AMOUNT (Rs.)', tableX + tableW - 4, curY + 5, { align: 'right' });
 
   curY += tableHeaderHeight;
 
   items.forEach((item, idx) => {
-    doc.setFillColor(idx % 2 === 0 ? 255 : 250, idx % 2 === 0 ? 255 : 248, idx % 2 === 0 ? 255 : 244);
-    doc.rect(tableX, curY, tableW, rowHeight, 'F');
-    doc.setDrawColor(...borderCream);
-    doc.rect(tableX, curY, tableW, rowHeight);
+    d.setFillColor(idx % 2 === 0 ? 255 : 250, idx % 2 === 0 ? 255 : 248, idx % 2 === 0 ? 255 : 244);
+    d.rect(tableX, curY, tableW, rowHeight, 'F');
+    d.setDrawColor(...borderCream);
+    d.rect(tableX, curY, tableW, rowHeight);
 
     const midY = curY + (rowHeight / 2) + 1.2;
-    doc.setTextColor(...darkText);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(7.5);
-    doc.text(item.no, tableX + 7, midY, { align: 'center' });
-    doc.text(item.desc, tableX + 22, midY);
-    doc.text(item.details, tableX + 118, midY, { align: 'center' });
-    doc.text(item.rate, tableX + 152, midY, { align: 'right' });
-    doc.setFont('helvetica', 'bold');
-    doc.text(item.amt, tableX + tableW - 4, midY, { align: 'right' });
+    d.setTextColor(...darkText);
+    d.setFont('helvetica', 'normal');
+    d.setFontSize(7.5);
+    d.text(item.no, tableX + 7, midY, { align: 'center' });
+    d.text(item.desc, tableX + 22, midY);
+    d.text(item.details, tableX + 118, midY, { align: 'center' });
+    d.text(item.rate, tableX + 152, midY, { align: 'right' });
+    d.setFont('helvetica', 'bold');
+    d.text(item.amt, tableX + tableW - 4, midY, { align: 'right' });
 
     curY += rowHeight;
   });
 
   // Amount in Words Banner
   curY += gap * 0.4;
-  doc.setFillColor(...bgCream);
-  doc.setDrawColor(...borderCream);
-  doc.roundedRect(tableX, curY, tableW, wordsHeight, 1, 1, 'FD');
+  d.setFillColor(...bgCream);
+  d.setDrawColor(...borderCream);
+  d.roundedRect(tableX, curY, tableW, wordsHeight, 1, 1, 'FD');
   const wordsMidY = curY + (wordsHeight / 2) + 1.2;
-  doc.setFontSize(7.5);
-  doc.setFont('helvetica', 'bold');
-  doc.setTextColor(...navyDark);
-  doc.text('AMOUNT IN WORDS:', tableX + 4, wordsMidY);
-  doc.setFont('helvetica', 'normal');
-  doc.setTextColor(...darkText);
-  doc.text(numberToWords(totalFare), tableX + 38, wordsMidY, { maxWidth: tableW - 42 });
+  d.setFontSize(7.5);
+  d.setFont('helvetica', 'bold');
+  d.setTextColor(...navyDark);
+  d.text('AMOUNT IN WORDS:', tableX + 4, wordsMidY);
+  d.setFont('helvetica', 'normal');
+  d.setTextColor(...darkText);
+  d.text(numberToWords(totalFare), tableX + 38, wordsMidY, { maxWidth: tableW - 42 });
 
   // 8. Payment Summary & Settlement Grid
   curY += wordsHeight + gap;
   const summaryY = curY;
-  doc.setFillColor(...bgCream);
-  doc.setDrawColor(...borderCream);
-  doc.roundedRect(tableX, summaryY, tableW, paymentHeight, 1.5, 1.5, 'FD');
+  d.setFillColor(...bgCream);
+  d.setDrawColor(...borderCream);
+  d.roundedRect(tableX, summaryY, tableW, paymentHeight, 1.5, 1.5, 'FD');
   const splitX = tableX + 94;
-  doc.line(splitX, summaryY, splitX, summaryY + paymentHeight);
+  d.line(splitX, summaryY, splitX, summaryY + paymentHeight);
 
   // Left: Payment Mode & UPI ID
-  doc.setTextColor(...navyDark);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(8);
-  doc.text('PAYMENT MODE & SETTLEMENT', tableX + 4, summaryY + 6);
+  d.setTextColor(...navyDark);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(8);
+  d.text('PAYMENT MODE & SETTLEMENT', tableX + 4, summaryY + 6);
 
   const mode = billData.paymentMode || 'UPI';
-  doc.setFontSize(7.5);
-  doc.setTextColor(...darkText);
-  doc.text(
+  d.setFontSize(7.5);
+  d.setTextColor(...darkText);
+  d.text(
     `[${mode.includes('UPI') || mode === 'Online' ? 'X' : ' '}] UPI / GPay      [${mode === 'Cash' ? 'X' : ' '}] Cash      [${mode === 'Bank' ? 'X' : ' '}] Bank Transfer`,
     tableX + 4,
     summaryY + 13
   );
 
-  doc.setTextColor(...grayText);
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(7);
-  doc.text('Official UPI ID for Payment:', tableX + 4, summaryY + 19.5);
+  d.setTextColor(...grayText);
+  d.setFont('helvetica', 'normal');
+  d.setFontSize(7);
+  d.text('Official UPI ID for Payment:', tableX + 4, summaryY + 19.5);
 
-  doc.setFillColor(255, 255, 255);
-  doc.setDrawColor(...goldPrimary);
-  doc.roundedRect(tableX + 4, summaryY + 21.5, splitX - tableX - 8, 7.5, 1, 1, 'FD');
-  doc.setTextColor(...navyDark);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7.5);
-  doc.text(billData.upiId || '9894116405@okaxis', tableX + 7, summaryY + 26.5);
+  d.setFillColor(255, 255, 255);
+  d.setDrawColor(...goldPrimary);
+  d.roundedRect(tableX + 4, summaryY + 21.5, splitX - tableX - 8, 7.5, 1, 1, 'FD');
+  d.setTextColor(...navyDark);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(7.5);
+  d.text(billData.upiId || '9894116405@okaxis', tableX + 7, summaryY + 26.5);
 
-  doc.setTextColor(...grayText);
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(6.8);
-  doc.text('For RTGS / NEFT transfer, kindly contact office billing desk.', tableX + 4, summaryY + 34);
+  d.setTextColor(...grayText);
+  d.setFont('helvetica', 'normal');
+  d.setFontSize(6.8);
+  d.text('For RTGS / NEFT transfer, kindly contact office billing desk.', tableX + 4, summaryY + 34);
 
   // Right: Calculations Breakdown & Net Amount Banner
-  doc.setFontSize(7.8);
-  doc.setTextColor(...grayText);
+  d.setFontSize(7.8);
+  d.setTextColor(...grayText);
   let calcY = summaryY + 7;
-  doc.text('Total Trip Amount:', splitX + 5, calcY);
-  doc.setTextColor(...darkText);
-  doc.setFont('helvetica', 'bold');
-  doc.text(`Rs. ${totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, tableX + tableW - 4, calcY, { align: 'right' });
+  d.text('Total Trip Amount:', splitX + 5, calcY);
+  d.setTextColor(...darkText);
+  d.setFont('helvetica', 'bold');
+  d.text(`Rs. ${totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, tableX + tableW - 4, calcY, { align: 'right' });
 
   if (advance > 0) {
     calcY += 6;
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(...grayText);
-    doc.text('Advance Paid:', splitX + 5, calcY);
-    doc.setTextColor(26, 120, 60);
-    doc.setFont('helvetica', 'bold');
-    doc.text(`Rs. ${advance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, tableX + tableW - 4, calcY, { align: 'right' });
+    d.setFont('helvetica', 'normal');
+    d.setTextColor(...grayText);
+    d.text('Advance Paid:', splitX + 5, calcY);
+    d.setTextColor(26, 120, 60);
+    d.setFont('helvetica', 'bold');
+    d.text(`Rs. ${advance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, tableX + tableW - 4, calcY, { align: 'right' });
 
     calcY += 6;
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(...grayText);
-    doc.text('Balance Due:', splitX + 5, calcY);
-    doc.setTextColor(190, 40, 40);
-    doc.setFont('helvetica', 'bold');
-    doc.text(`Rs. ${balanceAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, tableX + tableW - 4, calcY, { align: 'right' });
+    d.setFont('helvetica', 'normal');
+    d.setTextColor(...grayText);
+    d.text('Balance Due:', splitX + 5, calcY);
+    d.setTextColor(190, 40, 40);
+    d.setFont('helvetica', 'bold');
+    d.text(`Rs. ${balanceAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, tableX + tableW - 4, calcY, { align: 'right' });
   }
 
   // Solid Net Amount Banner
   const netBannerH = 10;
   const netBannerY = summaryY + paymentHeight - netBannerH - 1.5;
-  doc.setFillColor(...navyDark);
-  doc.roundedRect(splitX + 2, netBannerY, tableW - 94 - 4, netBannerH, 1, 1, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(8);
-  doc.text('NET AMOUNT PAYABLE:', splitX + 5, netBannerY + 6.5);
-  doc.setTextColor(...goldPrimary);
-  doc.setFontSize(10.5);
-  doc.text(`Rs. ${totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, tableX + tableW - 5, netBannerY + 6.8, { align: 'right' });
+  d.setFillColor(...navyDark);
+  d.roundedRect(splitX + 2, netBannerY, tableW - 94 - 4, netBannerH, 1, 1, 'F');
+  d.setTextColor(255, 255, 255);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(8);
+  d.text('NET AMOUNT PAYABLE:', splitX + 5, netBannerY + 6.5);
+  d.setTextColor(...goldPrimary);
+  d.setFontSize(10.5);
+  d.text(`Rs. ${totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`, tableX + tableW - 5, netBannerY + 6.8, { align: 'right' });
 
   // 9. Terms & Conditions
   curY += paymentHeight + gap;
-  doc.setTextColor(...navyDark);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7.5);
-  doc.text('TERMS & CONDITIONS:', tableX, curY + 3.5);
+  d.setTextColor(...navyDark);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(7.5);
+  d.text('TERMS & CONDITIONS:', tableX, curY + 3.5);
 
-  doc.setFont('helvetica', 'normal');
-  doc.setTextColor(...grayText);
-  doc.setFontSize(6.8);
+  d.setFont('helvetica', 'normal');
+  d.setTextColor(...grayText);
+  d.setFontSize(6.8);
   const terms = [
     '1. Toll charges, parking fees, interstate permit and hill taxes are payable at actuals unless explicitly inclusive.',
     '2. Kilometer and time calculations are garage-to-garage as per standard Tamil Nadu commercial travel regulations.',
@@ -480,7 +472,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
     '4. Luggage and personal belongings are carried at owner\'s risk. Subject to Tamil Nadu jurisdiction.'
   ];
   terms.forEach((t, i) => {
-    doc.text(t, tableX, curY + 8 + (i * 3.8));
+    d.text(t, tableX, curY + 8 + (i * 3.8));
   });
 
   // 10. Duty Acceptance & Dual Signatures Block
@@ -492,55 +484,244 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const rightSigEndX = tableX + tableW - 8;
 
   // Passenger confirmation declaration
-  doc.setFont('helvetica', 'italic');
-  doc.setFontSize(6.5);
-  doc.setTextColor(...grayText);
-  doc.text('I certify that the vehicle was engaged on duty and service was completed satisfactorily.', 105, curY + 3, { align: 'center' });
+  d.setFont('helvetica', 'italic');
+  d.setFontSize(6.5);
+  d.setTextColor(...grayText);
+  d.text('I certify that the vehicle was engaged on duty and service was completed satisfactorily.', 105, curY + 3, { align: 'center' });
 
   // Signature lines
-  doc.setDrawColor(...borderCream);
-  doc.setLineWidth(0.3);
-  doc.line(leftSigStartX, sigLineY, leftSigEndX, sigLineY);
-  doc.line(rightSigStartX, sigLineY, rightSigEndX, sigLineY);
+  d.setDrawColor(...borderCream);
+  d.setLineWidth(0.3);
+  d.line(leftSigStartX, sigLineY, leftSigEndX, sigLineY);
+  d.line(rightSigStartX, sigLineY, rightSigEndX, sigLineY);
 
   const leftCenter = leftSigStartX + ((leftSigEndX - leftSigStartX) / 2);
   const rightCenter = rightSigStartX + ((rightSigEndX - rightSigStartX) / 2);
 
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7.2);
-  doc.setTextColor(...darkText);
-  doc.text('Customer Signature', leftCenter, sigLineY + 4.5, { align: 'center' });
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(6.5);
-  doc.setTextColor(...grayText);
-  doc.text('(Service Satisfactory)', leftCenter, sigLineY + 8, { align: 'center' });
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(7.2);
+  d.setTextColor(...darkText);
+  d.text('Customer Signature', leftCenter, sigLineY + 4.5, { align: 'center' });
+  d.setFont('helvetica', 'normal');
+  d.setFontSize(6.5);
+  d.setTextColor(...grayText);
+  d.text('(Service Satisfactory)', leftCenter, sigLineY + 8, { align: 'center' });
 
-  doc.setTextColor(...navyDark);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7.2);
-  doc.text('For NITHAMUDAYAR TOURS & TRAVELS PVT LTD', rightCenter, sigLineY + 4.5, { align: 'center' });
-  doc.setTextColor(...grayText);
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(6.5);
-  doc.text('(Authorized Signatory / Chauffeur)', rightCenter, sigLineY + 8, { align: 'center' });
+  d.setTextColor(...navyDark);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(7.2);
+  d.text('For NITHAMUDAYAR TOURS & TRAVELS PVT LTD', rightCenter, sigLineY + 4.5, { align: 'center' });
+  d.setTextColor(...grayText);
+  d.setFont('helvetica', 'normal');
+  d.setFontSize(6.5);
+  d.text('(Authorized Signatory / Chauffeur)', rightCenter, sigLineY + 8, { align: 'center' });
 
   // 11. Bottom Courtesy Banner (Firmly Anchored to Bottom Inner Border)
-  doc.setFillColor(...navyDark);
-  doc.rect(9.5, footerY, 191, footerHeight, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7.5);
-  doc.text('Thank you for traveling with Nithamudayar Tours & Travels Pvt Ltd! Wish you a safe and memorable journey.', 105, footerY + 5.5, { align: 'center' });
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(6.8);
-  doc.setTextColor(...goldLight);
-  doc.text('Computer Generated Travel Bill & Duty Slip • Customer Copy • 24x7 Customer Care: +91 98941 16405 / +91 96261 16405', 105, footerY + 10, { align: 'center' });
+  d.setFillColor(...navyDark);
+  d.rect(9.5, footerY, 191, footerHeight, 'F');
+  d.setTextColor(255, 255, 255);
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(7.5);
+  d.text('Thank you for traveling with Nithamudayar Tours & Travels Pvt Ltd! Wish you a safe and memorable journey.', 105, footerY + 5.5, { align: 'center' });
+  d.setFont('helvetica', 'normal');
+  d.setFontSize(6.8);
+  d.setTextColor(...goldLight);
+  d.text('Computer Generated Travel Bill & Duty Slip • Customer Copy • 24x7 Customer Care: +91 98941 16405 / +91 96261 16405', 105, footerY + 10, { align: 'center' });
+}
 
+/**
+ * Creates a high-fidelity Canvas 2D adapter that implements the exact jsPDF drawing API.
+ * Renders directly via the browser's native 2D canvas engine, eliminating any DOM / CSS squishing.
+ */
+function createCanvasRenderer(ctx, scale, logoImg) {
+  const s = scale;
+  return {
+    fillColor: '#000000',
+    strokeColor: '#000000',
+    textColor: '#000000',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    ptSize: 10,
+    setDrawColor(r, g, b) {
+      this.strokeColor = `rgb(${r},${g},${b})`;
+      ctx.strokeStyle = this.strokeColor;
+    },
+    setFillColor(r, g, b) {
+      this.fillColor = `rgb(${r},${g},${b})`;
+      ctx.fillStyle = this.fillColor;
+    },
+    setTextColor(r, g, b) {
+      this.textColor = `rgb(${r},${g},${b})`;
+    },
+    setLineWidth(w) {
+      ctx.lineWidth = Math.max(1, w * s);
+    },
+    setFont(family, weight) {
+      this.fontWeight = (weight === 'bold' || weight === 'bolditalic') ? 'bold' : 'normal';
+      this.fontStyle = (weight === 'italic' || weight === 'bolditalic') ? 'italic' : 'normal';
+      this.updateFont();
+    },
+    setFontSize(pt) {
+      this.ptSize = pt;
+      this.updateFont();
+    },
+    updateFont() {
+      // 1 pt in millimeters = 0.352778. At scale s, pixel size = pt * 0.352778 * s
+      const px = Math.round(this.ptSize * 0.352778 * s);
+      ctx.font = `${this.fontStyle} ${this.fontWeight} ${px}px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`;
+    },
+    rect(x, y, w, h, style) {
+      if (style === 'F' || style === 'FD') {
+        ctx.fillStyle = this.fillColor;
+        ctx.fillRect(x * s, y * s, w * s, h * s);
+      }
+      if (!style || style === 'D' || style === 'FD') {
+        ctx.strokeStyle = this.strokeColor;
+        ctx.strokeRect(x * s, y * s, w * s, h * s);
+      }
+    },
+    roundedRect(x, y, w, h, rx, ry, style) {
+      const radius = (rx || 1.5) * s;
+      ctx.beginPath();
+      if (typeof ctx.roundRect === 'function') {
+        ctx.roundRect(x * s, y * s, w * s, h * s, radius);
+      } else {
+        const X = x * s, Y = y * s, W = w * s, H = h * s, R = radius;
+        ctx.moveTo(X + R, Y);
+        ctx.lineTo(X + W - R, Y);
+        ctx.quadraticCurveTo(X + W, Y, X + W, Y + R);
+        ctx.lineTo(X + W, Y + H - R);
+        ctx.quadraticCurveTo(X + W, Y + H, X + W - R, Y + H);
+        ctx.lineTo(X + R, Y + H);
+        ctx.quadraticCurveTo(X, Y + H, X, Y + H - R);
+        ctx.lineTo(X, Y + R);
+        ctx.quadraticCurveTo(X, Y, X + R, Y);
+        ctx.closePath();
+      }
+      if (style === 'F' || style === 'FD') {
+        ctx.fillStyle = this.fillColor;
+        ctx.fill();
+      }
+      if (!style || style === 'D' || style === 'FD') {
+        ctx.strokeStyle = this.strokeColor;
+        ctx.stroke();
+      }
+    },
+    line(x1, y1, x2, y2) {
+      ctx.beginPath();
+      ctx.strokeStyle = this.strokeColor;
+      ctx.moveTo(x1 * s, y1 * s);
+      ctx.lineTo(x2 * s, y2 * s);
+      ctx.stroke();
+    },
+    text(str, x, y, options) {
+      ctx.fillStyle = this.textColor;
+      ctx.textAlign = options?.align || 'left';
+      ctx.textBaseline = 'alphabetic';
+      const textStr = String(str ?? '');
+      if (options?.maxWidth) {
+        ctx.fillText(textStr, x * s, y * s, options.maxWidth * s);
+      } else {
+        ctx.fillText(textStr, x * s, y * s);
+      }
+    },
+    addImage(src, type, x, y, w, h) {
+      if (logoImg && (logoImg.complete || logoImg.naturalWidth > 0)) {
+        ctx.drawImage(logoImg, x * s, y * s, w * s, h * s);
+      }
+    }
+  };
+}
+
+/**
+ * Generates an authentic vector PDF document.
+ */
+export function generateVectorBillPdf(billData, calculations, settings) {
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4'
+  });
+
+  renderBillDocument(doc, billData, calculations, settings);
   return doc;
 }
 
 /**
- * Downloads the vector PDF with multi-layer browser fallback (direct download + anchor trigger + blob window).
+ * Generates an ultra-crisp, high-resolution Canvas of the exact vector invoice.
+ * Completely immune to CSS transform squishing, font measurement bugs, or library parsing errors.
+ */
+export async function generateBillCanvas(billData, calculations, settings) {
+  if (typeof document === 'undefined') {
+    throw new Error('generateBillCanvas can only run in a browser environment');
+  }
+
+  const canvas = document.createElement('canvas');
+  const s = 8; // 8 pixels per mm -> 1680 x 2376 px (300 DPI Retina quality)
+  canvas.width = Math.round(210 * s);
+  canvas.height = Math.round(297 * s);
+  const ctx = canvas.getContext('2d');
+
+  // Fill crisp white background
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Pre-load emblem image in memory
+  let logoImg = null;
+  if (NITHAM_LOGO_BASE64) {
+    logoImg = new Image();
+    await new Promise((resolve) => {
+      const timer = setTimeout(resolve, 800);
+      logoImg.onload = () => {
+        clearTimeout(timer);
+        resolve();
+      };
+      logoImg.onerror = () => {
+        clearTimeout(timer);
+        resolve();
+      };
+      logoImg.src = NITHAM_LOGO_BASE64;
+      if (logoImg.complete && logoImg.naturalWidth > 0) {
+        clearTimeout(timer);
+        resolve();
+      }
+    });
+  }
+
+  const renderer = createCanvasRenderer(ctx, s, logoImg);
+  renderBillDocument(renderer, billData, calculations, settings);
+
+  return canvas;
+}
+
+/**
+ * Downloads the vector bill directly as a crisp, full-page PNG image.
+ */
+export async function downloadVectorBillImage(billData, calculations, settings) {
+  try {
+    const canvas = await generateBillCanvas(billData, calculations, settings);
+    const sanitizedName = (billData.customerName || 'Customer').replace(/[^a-zA-Z0-9_-]/g, '_');
+    const fileName = `${billData.billNo || 'TRIP_BILL'}_${sanitizedName}.png`;
+
+    const dataUrl = canvas.toDataURL('image/png', 1.0);
+    const link = document.createElement('a');
+    link.href = dataUrl;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    setTimeout(() => {
+      document.body.removeChild(link);
+    }, 1000);
+
+    return true;
+  } catch (error) {
+    console.error('Fatal error generating vector bill image:', error);
+    throw error;
+  }
+}
+
+/**
+ * Downloads the vector PDF with multi-layer browser fallback.
  */
 export function downloadVectorBillPdf(billData, calculations, settings) {
   try {
