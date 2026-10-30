@@ -1491,6 +1491,7 @@ Driver Charge: ${data.dayDriver || ''}`;
         onClose={() => setBillModal({ isOpen: false, booking: null })}
         booking={billModal.booking}
         settings={settings}
+        cars={cars}
       />
 
     </div>

@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 import { downloadVectorBillPdf, numberToWords } from '../../utils/billPdfGenerator';
 
-export default function TripBillModal({ isOpen, onClose, booking, settings }) {
+export default function TripBillModal({ isOpen, onClose, booking, settings, cars = [] }) {
   const billRef = useRef(null);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
@@ -56,6 +56,8 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
     ratePerKm: 22,
     driverBataDays: 1,
     driverBata: 600,
+    dailyRentDays: 0,
+    dailyRentRate: 3800,
     nightBataDays: 0,
     nightBataRate: 400,
     waitingDetails: '0 hrs',
@@ -73,6 +75,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
       let initialRate = 14;
       let initialBata = 400;
       let initialKm = 250;
+      let initialDailyRent = 2500;
       const vName = (booking.vehicle || '').toLowerCase();
 
       if (vName.includes('suv') || vName.includes('ertiga')) {
@@ -183,7 +186,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-3 md:p-6 bg-black/80 backdrop-blur-xs overflow-hidden">
-          
+
           {/* Printable CSS Hook */}
           <style dangerouslySetInnerHTML={{
             __html: `
@@ -277,11 +280,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                 <button
                   type="button"
                   onClick={() => setMobileTab('form')}
-                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${
-                    mobileTab === 'form'
-                      ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
-                      : 'text-neutral-400 hover:text-white'
-                  }`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${mobileTab === 'form'
+                    ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
+                    : 'text-neutral-400 hover:text-white'
+                    }`}
                 >
                   <Edit3 className="w-3.5 h-3.5" />
                   <span>1. Trip Details</span>
@@ -289,11 +291,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                 <button
                   type="button"
                   onClick={() => setMobileTab('preview')}
-                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${
-                    mobileTab === 'preview'
-                      ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
-                      : 'text-neutral-400 hover:text-white'
-                  }`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${mobileTab === 'preview'
+                    ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
+                    : 'text-neutral-400 hover:text-white'
+                    }`}
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>2. Bill Preview</span>
@@ -303,10 +304,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
 
             {/* Modal Body: Left Inputs (5 Cols on Desktop), Right Preview (7 Cols on Desktop) */}
             <div className="flex-1 overflow-y-auto p-3 sm:p-5 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 bg-[#18110f]">
-              
+
               {/* LEFT COLUMN: Input Controls */}
               <div className={`${mobileTab === 'form' ? 'block' : 'hidden'} lg:block lg:col-span-5 space-y-4 text-xs`}>
-                
+
                 {/* 1. Trip Meta Box */}
                 <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
@@ -472,20 +473,20 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                         value={billData.vehicleNo}
                         onChange={(e) => handleInputChange('vehicleNo', e.target.value)}
                         className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-mono"
-                        placeholder="TN 49 AB 2026"
+                        placeholder=""
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-neutral-400 block mb-1 font-semibold">Chauffeur / Driver Name</label>
+                      <label className="text-neutral-400 block mb-1 font-semibold"> Driver Name</label>
                       <input
                         type="text"
                         value={billData.driverName}
                         onChange={(e) => handleInputChange('driverName', e.target.value)}
                         className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
-                        placeholder="S. Murugesan"
+                        placeholder=""
                       />
                     </div>
                     <div>
@@ -698,11 +699,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                             key={mode}
                             type="button"
                             onClick={() => handleInputChange('paymentMode', mode)}
-                            className={`py-2 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${
-                              billData.paymentMode === mode
-                                ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]'
-                                : 'bg-[#18110f] text-neutral-400 border-white/10 hover:border-white/30'
-                            }`}
+                            className={`py-2 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${billData.paymentMode === mode
+                              ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]'
+                              : 'bg-[#18110f] text-neutral-400 border-white/10 hover:border-white/30'
+                              }`}
                           >
                             {mode}
                           </button>
@@ -738,7 +738,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
 
               {/* RIGHT COLUMN: Realistic Live Tours & Travels Invoice Preview */}
               <div className={`${mobileTab === 'preview' ? 'block' : 'hidden'} lg:block lg:col-span-7 flex flex-col items-center pb-20 lg:pb-0`}>
-                
+
                 {/* Mobile Zoom / Switch Controls Bar (Only on mobile) */}
                 <div className="w-full flex items-center justify-between gap-2 mb-3 bg-[#241815] p-2.5 rounded-xl border border-white/10 lg:hidden">
                   <button
@@ -755,18 +755,16 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                     <button
                       type="button"
                       onClick={() => setMobileFit(true)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${
-                        mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
-                      }`}
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
+                        }`}
                     >
                       Fit Phone
                     </button>
                     <button
                       type="button"
                       onClick={() => setMobileFit(false)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${
-                        !mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
-                      }`}
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${!mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
+                        }`}
                     >
                       100% Zoom
                     </button>
@@ -776,9 +774,8 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                 {/* Invoice Container with Responsive View Scaling */}
                 <div className="w-full overflow-x-auto flex justify-center py-1">
                   <div
-                    className={`transition-transform duration-200 origin-top ${
-                      mobileFit ? 'scale-[0.52] sm:scale-75 md:scale-90 lg:scale-100' : 'scale-100'
-                    }`}
+                    className={`transition-transform duration-200 origin-top ${mobileFit ? 'scale-[0.52] sm:scale-75 md:scale-90 lg:scale-100' : 'scale-100'
+                      }`}
                     style={{
                       // Reduce dead space when scaled on phone screens
                       marginBottom: mobileFit ? '-370px' : '0'
@@ -793,7 +790,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                       {/* Outer Frame Inset */}
                       <div className="p-3 bg-white">
                         <div className="border border-[#1a3c34] p-4 sm:p-5 space-y-3.5">
-                          
+
                           {/* 1. TOP HEADER BANNER */}
                           <div className="bg-[#1a3c34] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
                             <div className="flex items-center gap-3">
@@ -809,7 +806,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
                                   {billData.cabServiceName.toUpperCase()}
                                 </h1>
                                 <p className="text-[10px] text-[#f8e7a2] font-semibold">
-                                  Luxury Commercial Fleet • Force Urbania • Innova Crysta • Tempo Traveller
+                                  • Sedan • SUV • Innova • Force Urbania • Innova Crysta • Tempo Traveller
                                 </p>
                                 <p className="text-[9px] text-neutral-300">
                                   Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Rd, Thanjavur - 613005 | Call: +91 98941 16405 / +91 96261 16405
@@ -833,7 +830,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
 
                           {/* 2. CUSTOMER & VEHICLE ASSIGNMENT (Dual Cards) */}
                           <div className="grid grid-cols-2 gap-3 text-xs">
-                            
+
                             {/* Customer Box */}
                             <div className="border border-[#edeae1] rounded-lg overflow-hidden bg-[#faf8f5]">
                               <div className="bg-[#1a3c34] text-white px-2.5 py-1 font-bold text-[10px] uppercase tracking-wider flex items-center gap-1">
@@ -1008,7 +1005,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings }) {
 
                           {/* 6. PAYMENT SUMMARY & SETTLEMENT */}
                           <div className="grid grid-cols-2 border border-[#edeae1] rounded-lg overflow-hidden text-xs">
-                            
+
                             {/* Left: Mode & UPI ID */}
                             <div className="p-3 bg-[#faf8f5] border-r border-[#edeae1] space-y-1.5">
                               <span className="font-bold text-[#1a3c34] block uppercase text-[10px]">Payment Settlement:</span>

@@ -35,6 +35,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
 
   const {
     distanceFare = 0,
+    dailyRentTotal = 0,
     totalBata = 0,
     nightBata = 0,
     waitingAmt = 0,
@@ -225,7 +226,17 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const items = [];
   let sNo = 1;
 
-  if (distanceFare > 0 || billedKm > 0) {
+  if (dailyRentTotal > 0) {
+    items.push({
+      no: String(sNo++),
+      desc: 'Daily Base Rent / Vehicle Hire Charges',
+      details: `${billData.dailyRentDays || 1} Day(s)`,
+      rate: Number(billData.dailyRentRate || 0).toFixed(2),
+      amt: dailyRentTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })
+    });
+  }
+
+  if (distanceFare > 0 || (dailyRentTotal === 0 && billedKm > 0)) {
     items.push({
       no: String(sNo++),
       desc: 'Base Kilometre Running Charges',
