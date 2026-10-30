@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import html2canvas from 'html2canvas';
 import {
   X,
   Printer,
   Download,
+  Image as ImageIcon,
   Car,
   User,
   MapPin,
@@ -30,6 +32,8 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
   const billRef = useRef(null);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false);
+  const [downloadImageSuccess, setDownloadImageSuccess] = useState(false);
 
   // Mobile responsiveness controls
   const [mobileTab, setMobileTab] = useState('form'); // 'form' | 'preview'
@@ -194,6 +198,52 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     }
   };
 
+  // Direct High-Resolution Image (PNG) Download (Perfect for WhatsApp sharing)
+  const handleDownloadImage = async () => {
+    if (!billRef.current) return;
+    setIsGeneratingImage(true);
+    try {
+      const canvas = await html2canvas(billRef.current, {
+        scale: 2.5, // Ultra-sharp Retina resolution
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+        backgroundColor: '#ffffff',
+        onclone: (clonedDoc) => {
+          const el = clonedDoc.getElementById('printable-bill');
+          if (el) {
+            el.style.transform = 'none';
+            if (el.parentElement) {
+              el.parentElement.style.transform = 'none';
+              el.parentElement.style.marginBottom = '0';
+            }
+          }
+        }
+      });
+
+      const sanitizedName = (billData.customerName || 'Customer').replace(/[^a-zA-Z0-9_-]/g, '_');
+      const fileName = `${billData.billNo || 'TRIP_BILL'}_${sanitizedName}.png`;
+
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const link = document.createElement('a');
+      link.href = imgData;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(() => {
+        document.body.removeChild(link);
+      }, 1000);
+
+      setDownloadImageSuccess(true);
+      setTimeout(() => setDownloadImageSuccess(false), 3000);
+    } catch (err) {
+      console.error('Error generating bill image:', err);
+      alert('Failed to generate image. Please try downloading PDF instead.');
+    } finally {
+      setIsGeneratingImage(false);
+    }
+  };
+
   // Print Handler
   const handlePrint = () => {
     window.print();
@@ -258,6 +308,17 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   >
                     <Printer className="w-4 h-4 text-[#d4af37]" />
                     <span>Print</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleDownloadImage}
+                    disabled={isGeneratingImage}
+                    className="bg-[#241815] hover:bg-[#342521] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors disabled:opacity-50"
+                    title="Download high-resolution PNG image (ideal for WhatsApp)"
+                  >
+                    {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#d4af37]" />}
+                    <span>{isGeneratingImage ? 'Capturing...' : downloadImageSuccess ? 'Saved Image!' : 'Download Image'}</span>
                   </button>
 
                   <button
@@ -952,7 +1013,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                   {billData.cabServiceName.toUpperCase()}
                                 </h1>
                                 <p className="text-[10px] text-[#f8e7a2] font-semibold">
-                                  • Sedan • SUV • Innova • Force Urbania • Innova Crysta • Tempo Traveller
+                                  SEDAN • SUV • Innova • Force Urbania • Innova Crysta • Tempo Traveller
                                 </p>
                                 <p className="text-[9px] text-neutral-300">
                                   Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Rd, Thanjavur - 613005 | Call: +91 98941 16405 / +91 96261 16405
@@ -1276,6 +1337,17 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
 
             {/* Mobile Sticky Bottom Action Bar (Fixed at bottom on phones) */}
             <div className="lg:hidden p-3 bg-[#150d0a] border-t border-white/10 flex items-center gap-2 shrink-0 z-20 shadow-2xl">
+              <button
+                type="button"
+                onClick={handleDownloadImage}
+                disabled={isGeneratingImage}
+                className="flex-1 bg-[#241815] hover:bg-[#342521] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
+                title="Save PNG image for WhatsApp"
+              >
+                {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#d4af37]" />}
+                <span>{isGeneratingImage ? 'Saving...' : downloadImageSuccess ? 'Saved!' : 'Image'}</span>
+              </button>
+
               <button
                 type="button"
                 onClick={handleDownloadPdf}
