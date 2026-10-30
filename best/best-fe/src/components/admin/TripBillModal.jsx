@@ -615,122 +615,6 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     </div>
                   </div>
 
-                  {/* DAILY BASE RENT (DAYS & PRICE) OPTION */}
-                  <div className="pt-2.5 border-t border-white/10 bg-[#140b09]/80 p-3 rounded-xl border border-[#d4af37]/20">
-                    <div className="flex items-center justify-between mb-2">
-                      <label className="text-[#f8e7a2] text-xs font-bold flex items-center gap-1.5">
-                        <Car className="w-4 h-4 text-[#d4af37]" />
-                        <span>Daily Base Rent (Days & Price)</span>
-                      </label>
-                      {dailyRentTotal > 0 ? (
-                        <div className="flex items-center gap-2">
-                          <span className="text-[11px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 border border-[#d4af37]/40 px-2 py-0.5 rounded">
-                            Total: ₹{dailyRentTotal.toLocaleString('en-IN')}
-                          </span>
-                          <button
-                            type="button"
-                            onClick={() => handleInputChange('dailyRentDays', 0)}
-                            className="text-[10px] text-red-400 hover:text-red-300 font-semibold cursor-pointer underline"
-                            title="Remove daily base rent from bill"
-                          >
-                            Reset
-                          </button>
-                        </div>
-                      ) : (
-                        <span className="text-[10px] text-neutral-500 font-mono">
-                          (Optional • Not on bill)
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-                      <div>
-                        <label className="text-neutral-300 block mb-1 font-semibold text-[11px]">Rent Days</label>
-                        <input
-                          type="number"
-                          inputMode="numeric"
-                          min="0"
-                          value={billData.dailyRentDays ?? 0}
-                          onChange={(e) => handleInputChange('dailyRentDays', Math.max(0, Number(e.target.value) || 0))}
-                          placeholder="0"
-                          className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-neutral-300 block mb-1 font-semibold text-[11px]">Daily Price / Rate (₹)</label>
-                        <input
-                          type="number"
-                          inputMode="numeric"
-                          min="0"
-                          value={billData.dailyRentRate ?? ''}
-                          onChange={(e) => handleInputChange('dailyRentRate', e.target.value)}
-                          placeholder="3500"
-                          className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
-                        />
-                      </div>
-                      <div className="col-span-2 sm:col-span-1">
-                        <label className="text-neutral-300 block mb-1 font-semibold text-[11px]">Total Rent (₹)</label>
-                        <input
-                          type="number"
-                          inputMode="numeric"
-                          min="0"
-                          value={dailyRentTotal || ''}
-                          onChange={(e) => {
-                            const val = e.target.value;
-                            if (val === '' || Number(val) === 0) {
-                              handleInputChange('dailyRentDays', 0);
-                            } else {
-                              const currentDays = Number(billData.dailyRentDays) > 0 ? Number(billData.dailyRentDays) : 1;
-                              handleInputChange('dailyRentDays', currentDays);
-                              handleInputChange('dailyRentRate', Math.round(Number(val) / currentDays));
-                            }
-                          }}
-                          placeholder="0"
-                          className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Quick Day Presets */}
-                    <div className="flex items-center gap-1.5 pt-2">
-                      <span className="text-[10px] text-neutral-400 font-medium">Quick Days:</span>
-                      {[1, 2, 3, 4, 5, 7].map((d) => (
-                        <button
-                          key={d}
-                          type="button"
-                          onClick={() => {
-                            handleInputChange('dailyRentDays', d);
-                            if (!billData.dailyRentRate || Number(billData.dailyRentRate) === 0) {
-                              let suggested = 2500;
-                              const v = (billData.vehicleModel || '').toLowerCase();
-                              if (v.includes('suv') || v.includes('ertiga')) suggested = 3000;
-                              else if (v.includes('innova') || v.includes('crysta')) suggested = 3800;
-                              else if (v.includes('tempo')) suggested = 5000;
-                              else if (v.includes('urbania')) suggested = 7000;
-                              handleInputChange('dailyRentRate', suggested);
-                            }
-                          }}
-                          className={`px-2 py-0.5 text-[10px] font-bold rounded-md transition-all cursor-pointer ${
-                            Number(billData.dailyRentDays) === d
-                              ? 'bg-[#d4af37] text-neutral-950 font-black shadow-xs'
-                              : 'bg-white/10 text-neutral-300 hover:text-white hover:bg-white/20 border border-white/10'
-                          }`}
-                        >
-                          {d}D
-                        </button>
-                      ))}
-                      {Number(billData.dailyRentDays) > 0 && (
-                        <button
-                          type="button"
-                          onClick={() => handleInputChange('dailyRentDays', 0)}
-                          className="px-2 py-0.5 text-[10px] text-red-400 hover:text-red-300 bg-red-500/10 border border-red-500/20 rounded-md transition-all cursor-pointer ml-1"
-                        >
-                          Off
-                        </button>
-                      )}
-                    </div>
-                  </div>
-
                   {/* Night Halting Bata Input Option */}
                   <div className="pt-2 border-t border-white/10">
                     <div className="flex items-center justify-between mb-1.5">
@@ -797,14 +681,125 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   </div>
                 </div>
 
-                {/* 5. Additional Charges & Settlement */}
+                {/* 5. Daily Base Rent (Vehicle Rental) Section */}
+                <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
+                      <Car className="w-3.5 h-3.5" />
+                      Daily Base Rent (Vehicle Rental)
+                    </span>
+                    <div className="flex items-center gap-2">
+                      {dailyRentTotal > 0 ? (
+                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 border border-[#d4af37]/40 px-2 py-0.5 rounded">
+                          Total: ₹{dailyRentTotal.toLocaleString('en-IN')}
+                        </span>
+                      ) : (
+                        <span className="text-[10px] text-neutral-500 font-mono">
+                          (Optional • Not on bill)
+                        </span>
+                      )}
+                      <span className="text-[10px] text-neutral-400 font-mono">Step 5</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+                    <div>
+                      <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Rent Days</label>
+                      <input
+                        type="number"
+                        inputMode="numeric"
+                        min="0"
+                        value={billData.dailyRentDays ?? 0}
+                        onChange={(e) => handleInputChange('dailyRentDays', Math.max(0, Number(e.target.value) || 0))}
+                        placeholder="0"
+                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Daily Price / Rate (₹)</label>
+                      <input
+                        type="number"
+                        inputMode="numeric"
+                        min="0"
+                        value={billData.dailyRentRate ?? ''}
+                        onChange={(e) => handleInputChange('dailyRentRate', e.target.value)}
+                        placeholder="3500"
+                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                      />
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Total Rent Amount (₹)</label>
+                      <input
+                        type="number"
+                        inputMode="numeric"
+                        min="0"
+                        value={dailyRentTotal || ''}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          if (val === '' || Number(val) === 0) {
+                            handleInputChange('dailyRentDays', 0);
+                          } else {
+                            const currentDays = Number(billData.dailyRentDays) > 0 ? Number(billData.dailyRentDays) : 1;
+                            handleInputChange('dailyRentDays', currentDays);
+                            handleInputChange('dailyRentRate', Math.round(Number(val) / currentDays));
+                          }
+                        }}
+                        placeholder="0"
+                        className="w-full bg-[#18110f] border border-[#d4af37]/40 rounded-lg px-2.5 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Quick Day Presets */}
+                  <div className="flex items-center justify-between pt-1">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-[10px] text-neutral-400 font-medium">Quick Days:</span>
+                      {[1, 2, 3, 4, 5, 7].map((d) => (
+                        <button
+                          key={d}
+                          type="button"
+                          onClick={() => {
+                            handleInputChange('dailyRentDays', d);
+                            if (!billData.dailyRentRate || Number(billData.dailyRentRate) === 0) {
+                              let suggested = 2500;
+                              const v = (billData.vehicleModel || '').toLowerCase();
+                              if (v.includes('suv') || v.includes('ertiga')) suggested = 3000;
+                              else if (v.includes('innova') || v.includes('crysta')) suggested = 3800;
+                              else if (v.includes('tempo')) suggested = 5000;
+                              else if (v.includes('urbania')) suggested = 7000;
+                              handleInputChange('dailyRentRate', suggested);
+                            }
+                          }}
+                          className={'px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer ' + (
+                            Number(billData.dailyRentDays) === d
+                              ? 'bg-[#d4af37] text-neutral-950 font-black shadow-sm'
+                              : 'bg-white/5 text-neutral-300 hover:text-white hover:bg-white/10 border border-white/10'
+                          )}
+                        >
+                          {d} Day{d > 1 ? 's' : ''}
+                        </button>
+                      ))}
+                    </div>
+                    {Number(billData.dailyRentDays) > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => handleInputChange('dailyRentDays', 0)}
+                        className="text-[10px] text-red-400 hover:text-red-300 font-semibold cursor-pointer underline ml-2 shrink-0"
+                      >
+                        Clear Rent
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* 6. Additional Charges & Settlement */}
                 <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
                       <Calculator className="w-3.5 h-3.5" />
                       Tolls, Advance & Settlement
                     </span>
-                    <span className="text-[10px] text-neutral-400 font-mono">Step 5</span>
+                    <span className="text-[10px] text-neutral-400 font-mono">Step 6</span>
                   </div>
 
                   <div className="grid grid-cols-3 gap-2 sm:gap-3">
