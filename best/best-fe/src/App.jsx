@@ -84,7 +84,7 @@ const AppContent = () => {
                 transition={{ duration: 0.7, ease: 'easeOut' }}
                 className="relative mb-6"
               >
-                <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#342521] shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/40 p-2 flex items-center justify-center overflow-hidden">
+                <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#1b203d] shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/40 p-1 flex items-center justify-center overflow-hidden">
                   <img src={Logo} alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
                 </div>
                 {/* Animated golden ring */}

@@ -36,7 +36,7 @@ export default function Header({ onOpenBooking }) {
           
           {/* Brand Logo - Updated with official emblem */}
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white rounded-2xl p-1 sm:p-1.5 shadow-lg flex items-center justify-center shrink-0 border border-white/25 transition-transform duration-200 group-hover:scale-105">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#1b203d] rounded-2xl p-0.5 sm:p-1 shadow-lg flex items-center justify-center shrink-0 border border-brand-gold/30 overflow-hidden transition-transform duration-200 group-hover:scale-105">
               <img
                 src="/logo.png"
                 alt="Nithamudayar Tours & Travels Pvt Ltd Logo"

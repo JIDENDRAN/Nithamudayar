@@ -47,8 +47,8 @@ export function generateVectorBillPdf(billData, calculations, settings) {
     balanceAmount = 0
   } = calculations || {};
 
-  // Theme Palette: Emerald & Heritage Gold (matches Nithamudayar Tours & Travels Pvt Ltd)
-  const emeraldDark = [26, 60, 52];     // #1a3c34
+  // Theme Palette: Royal Midnight Navy & Heritage Champagne Gold (Exact Logo Colors)
+  const navyDark = [27, 32, 61];        // #1b203d (Dominant Midnight Navy from official logo)
   const goldPrimary = [212, 175, 55];    // #d4af37
   const goldLight = [253, 248, 225];
   const bgCream = [250, 248, 243];
@@ -57,7 +57,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const grayText = [100, 95, 90];
 
   // 1. Outer Double Border Frame (Professional Executive Invoice Look)
-  doc.setDrawColor(...emeraldDark);
+  doc.setDrawColor(...navyDark);
   doc.setLineWidth(0.4);
   doc.rect(8, 8, 194, 281);
   doc.setLineWidth(0.15);
@@ -66,14 +66,16 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   // 2. Top Header Area (Spacious & Overlap-Free)
   const headerY = 9.5;
   const headerHeight = 31.5;
-  doc.setFillColor(...emeraldDark);
+  doc.setFillColor(...navyDark);
   doc.rect(9.5, headerY, 191, headerHeight, 'F');
 
-  // Official Emblem Card
-  doc.setFillColor(255, 255, 255);
-  doc.roundedRect(12, headerY + 2.5, 22, 26, 1.5, 1.5, 'F');
+  // Official Emblem Card (Matching Logo Navy & Gold)
+  doc.setFillColor(...navyDark);
+  doc.setDrawColor(...goldPrimary);
+  doc.setLineWidth(0.3);
+  doc.roundedRect(12, headerY + 2.5, 22, 26, 1.5, 1.5, 'FD');
   try {
-    doc.addImage(NITHAM_LOGO_BASE64, 'PNG', 12.5, headerY + 4.5, 21, 22);
+    doc.addImage(NITHAM_LOGO_BASE64, 'PNG', 12.5, headerY + 3, 21, 25);
   } catch (err) {
     console.warn('PDF logo render skipped:', err);
   }
@@ -87,12 +89,12 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.roundedRect(badgeX, badgeY, badgeWidth, badgeHeight, 1.5, 1.5, 'F');
 
   const badgeCenterX = badgeX + (badgeWidth / 2);
-  doc.setTextColor(...emeraldDark);
+  doc.setTextColor(...navyDark);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8.5);
   doc.text('TRIP INVOICE & DUTY SLIP', badgeCenterX, badgeY + 6.2, { align: 'center' });
 
-  doc.setDrawColor(...emeraldDark);
+  doc.setDrawColor(...navyDark);
   doc.setLineWidth(0.2);
   doc.line(badgeX + 6, badgeY + 8.5, badgeX + badgeWidth - 6, badgeY + 8.5);
 
@@ -235,7 +237,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.setFillColor(...bgCream);
   doc.setDrawColor(...borderCream);
   doc.roundedRect(leftCardX, curY, cardWidth, cardsHeight, 1.5, 1.5, 'FD');
-  doc.setFillColor(...emeraldDark);
+  doc.setFillColor(...navyDark);
   doc.rect(leftCardX, curY, cardWidth, 6, 'F');
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
@@ -265,7 +267,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.setFillColor(...bgCream);
   doc.setDrawColor(...borderCream);
   doc.roundedRect(rightCardX, curY, cardWidth, cardsHeight, 1.5, 1.5, 'FD');
-  doc.setFillColor(...emeraldDark);
+  doc.setFillColor(...navyDark);
   doc.rect(rightCardX, curY, cardWidth, 6, 'F');
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
@@ -324,7 +326,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
     doc.text(col.label, colCenterX, curY + 4.8, { align: 'center' });
 
     doc.setFontSize(8.5);
-    doc.setTextColor(...emeraldDark);
+    doc.setTextColor(...navyDark);
     doc.text(col.val, colCenterX, curY + 10.5, { align: 'center' });
   });
 
@@ -334,7 +336,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const tableW = 187;
 
   // Header
-  doc.setFillColor(...emeraldDark);
+  doc.setFillColor(...navyDark);
   doc.rect(tableX, curY, tableW, tableHeaderHeight, 'F');
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
@@ -375,7 +377,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   const wordsMidY = curY + (wordsHeight / 2) + 1.2;
   doc.setFontSize(7.5);
   doc.setFont('helvetica', 'bold');
-  doc.setTextColor(...emeraldDark);
+  doc.setTextColor(...navyDark);
   doc.text('AMOUNT IN WORDS:', tableX + 4, wordsMidY);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(...darkText);
@@ -391,7 +393,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.line(splitX, summaryY, splitX, summaryY + paymentHeight);
 
   // Left: Payment Mode & UPI ID
-  doc.setTextColor(...emeraldDark);
+  doc.setTextColor(...navyDark);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
   doc.text('PAYMENT MODE & SETTLEMENT', tableX + 4, summaryY + 6);
@@ -413,7 +415,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.setFillColor(255, 255, 255);
   doc.setDrawColor(...goldPrimary);
   doc.roundedRect(tableX + 4, summaryY + 21.5, splitX - tableX - 8, 7.5, 1, 1, 'FD');
-  doc.setTextColor(...emeraldDark);
+  doc.setTextColor(...navyDark);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(7.5);
   doc.text(billData.upiId || '9894116405@okaxis', tableX + 7, summaryY + 26.5);
@@ -453,7 +455,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   // Solid Net Amount Banner
   const netBannerH = 10;
   const netBannerY = summaryY + paymentHeight - netBannerH - 1.5;
-  doc.setFillColor(...emeraldDark);
+  doc.setFillColor(...navyDark);
   doc.roundedRect(splitX + 2, netBannerY, tableW - 94 - 4, netBannerH, 1, 1, 'F');
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
@@ -465,7 +467,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
 
   // 9. Terms & Conditions
   curY += paymentHeight + gap;
-  doc.setTextColor(...emeraldDark);
+  doc.setTextColor(...navyDark);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(7.5);
   doc.text('TERMS & CONDITIONS:', tableX, curY + 3.5);
@@ -515,7 +517,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.setTextColor(...grayText);
   doc.text('(Service Satisfactory)', leftCenter, sigLineY + 8, { align: 'center' });
 
-  doc.setTextColor(...emeraldDark);
+  doc.setTextColor(...navyDark);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(7.2);
   doc.text('For NITHAMUDAYAR TOURS & TRAVELS PVT LTD', rightCenter, sigLineY + 4.5, { align: 'center' });
@@ -525,7 +527,7 @@ export function generateVectorBillPdf(billData, calculations, settings) {
   doc.text('(Authorized Signatory / Chauffeur)', rightCenter, sigLineY + 8, { align: 'center' });
 
   // 11. Bottom Courtesy Banner (Firmly Anchored to Bottom Inner Border)
-  doc.setFillColor(...emeraldDark);
+  doc.setFillColor(...navyDark);
   doc.rect(9.5, footerY, 191, footerHeight, 'F');
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');

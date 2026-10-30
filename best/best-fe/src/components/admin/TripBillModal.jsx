@@ -264,7 +264,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     type="button"
                     onClick={handleDownloadPdf}
                     disabled={isGeneratingPdf}
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-md disabled:opacity-50 transition-colors"
+                    className="bg-[#1b203d] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-md disabled:opacity-50 transition-colors"
                     title="Download razor-sharp vector PDF"
                   >
                     {downloadSuccess ? <Check className="w-4 h-4 text-white" /> : <Download className="w-4 h-4" />}
@@ -930,17 +930,17 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <div
                       id="printable-bill"
                       ref={billRef}
-                      className="w-[640px] shrink-0 bg-white text-neutral-900 rounded-xl shadow-2xl overflow-hidden font-sans border-2 border-[#1a3c34]"
+                      className="w-[640px] shrink-0 bg-white text-neutral-900 rounded-xl shadow-2xl overflow-hidden font-sans border-2 border-[#1b203d]"
                       style={{ minHeight: '840px' }}
                     >
                       {/* Outer Frame Inset */}
                       <div className="p-3 bg-white">
-                        <div className="border border-[#1a3c34] p-4 sm:p-5 space-y-3.5">
+                        <div className="border border-[#1b203d] p-4 sm:p-5 space-y-3.5">
 
                           {/* 1. TOP HEADER BANNER */}
-                          <div className="bg-[#1a3c34] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
+                          <div className="bg-[#1b203d] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
                             <div className="flex items-center gap-3">
-                              <div className="w-14 h-14 bg-white rounded-xl p-1 shadow-md border border-white/30 shrink-0 flex items-center justify-center">
+                              <div className="w-14 h-14 bg-[#1b203d] rounded-xl p-0.5 shadow-md border border-[#d4af37]/40 shrink-0 flex items-center justify-center overflow-hidden">
                                 <img
                                   src="/logo.png"
                                   alt="Logo"
@@ -961,7 +961,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             </div>
 
                             {/* Top-Right Badge */}
-                            <div className="bg-[#d4af37] text-[#1a3c34] px-3 py-2 rounded-md shrink-0 text-right">
+                            <div className="bg-[#d4af37] text-[#1b203d] px-3 py-2 rounded-md shrink-0 text-right">
                               <span className="block text-[11px] font-black uppercase tracking-wider">
                                 TRIP DUTY SLIP & INVOICE
                               </span>
@@ -979,7 +979,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
 
                             {/* Customer Box */}
                             <div className="border border-[#edeae1] rounded-lg overflow-hidden bg-[#faf8f5]">
-                              <div className="bg-[#1a3c34] text-white px-2.5 py-1 font-bold text-[10px] uppercase tracking-wider flex items-center gap-1">
+                              <div className="bg-[#1b203d] text-white px-2.5 py-1 font-bold text-[10px] uppercase tracking-wider flex items-center gap-1">
                                 <User className="w-3 h-3 text-[#d4af37]" />
                                 <span>CUSTOMER / PASSENGER</span>
                               </div>
@@ -1005,7 +1005,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
 
                             {/* Vehicle Box */}
                             <div className="border border-[#edeae1] rounded-lg overflow-hidden bg-[#faf8f5]">
-                              <div className="bg-[#1a3c34] text-white px-2.5 py-1 font-bold text-[10px] uppercase tracking-wider flex items-center gap-1">
+                              <div className="bg-[#1b203d] text-white px-2.5 py-1 font-bold text-[10px] uppercase tracking-wider flex items-center gap-1">
                                 <Car className="w-3 h-3 text-[#d4af37]" />
                                 <span>VEHICLE & CHAUFFEUR</span>
                               </div>
@@ -1024,12 +1024,12 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 </div>
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Trip Nature:</span>
-                                  <span className="font-semibold text-[#1a3c34] truncate">{billData.tripType}</span>
+                                  <span className="font-semibold text-[#1b203d] truncate">{billData.tripType}</span>
                                 </div>
                                 {dailyRentTotal > 0 && (
                                   <div className="flex">
                                     <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Daily Rent:</span>
-                                    <span className="font-bold text-emerald-800 font-mono text-[10px]">
+                                    <span className="font-bold text-[#1b203d] font-bold font-mono text-[10px]">
                                       {billData.dailyRentDays} Day(s) @ ₹{Number(billData.dailyRentRate || 0).toLocaleString('en-IN')}/day
                                     </span>
                                   </div>
@@ -1051,7 +1051,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             </div>
                             <div className="border-r border-[#ded8cb]">
                               <span className="block text-[9px] text-neutral-500 font-bold uppercase">Total Run</span>
-                              <span className="font-mono font-bold text-[#1a3c34] text-xs">{billData.distanceKm} KM</span>
+                              <span className="font-mono font-bold text-[#1b203d] text-xs">{billData.distanceKm} KM</span>
                             </div>
                             <div className="border-r border-[#ded8cb]">
                               <span className="block text-[9px] text-neutral-500 font-bold uppercase">Billed KM</span>
@@ -1069,7 +1069,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           <div>
                             <table className="w-full border-collapse border border-[#edeae1] text-xs">
                               <thead>
-                                <tr className="bg-[#1a3c34] text-white text-[10px] uppercase font-bold tracking-wider">
+                                <tr className="bg-[#1b203d] text-white text-[10px] uppercase font-bold tracking-wider">
                                   <th className="p-2 text-center w-10 border-r border-white/20">S.No</th>
                                   <th className="p-2 text-left border-r border-white/20">Particulars / Description</th>
                                   <th className="p-2 text-center border-r border-white/20">Details / Qty</th>
@@ -1171,7 +1171,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           {/* 5. AMOUNT IN WORDS BANNER */}
                           <div className="bg-[#faf8f5] border border-[#edeae1] rounded-lg px-3 py-2 text-xs flex items-center justify-between">
                             <div>
-                              <span className="font-bold text-[#1a3c34] uppercase text-[10px] mr-2">Amount in Words:</span>
+                              <span className="font-bold text-[#1b203d] uppercase text-[10px] mr-2">Amount in Words:</span>
                               <span className="font-semibold text-neutral-800 italic">{numberToWords(totalFare)}</span>
                             </div>
                           </div>
@@ -1181,21 +1181,21 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
 
                             {/* Left: Mode & UPI ID */}
                             <div className="p-3 bg-[#faf8f5] border-r border-[#edeae1] space-y-1.5">
-                              <span className="font-bold text-[#1a3c34] block uppercase text-[10px]">Payment Settlement:</span>
+                              <span className="font-bold text-[#1b203d] block uppercase text-[10px]">Payment Settlement:</span>
                               <div className="flex items-center gap-2 font-semibold text-neutral-800 text-[11px]">
-                                <span className={billData.paymentMode === 'UPI' ? 'font-bold text-[#1a3c34]' : 'text-neutral-400'}>
+                                <span className={billData.paymentMode === 'UPI' ? 'font-bold text-[#1b203d]' : 'text-neutral-400'}>
                                   [{billData.paymentMode === 'UPI' ? '✓' : ' '}] UPI / GPay
                                 </span>
-                                <span className={billData.paymentMode === 'Cash' ? 'font-bold text-[#1a3c34]' : 'text-neutral-400'}>
+                                <span className={billData.paymentMode === 'Cash' ? 'font-bold text-[#1b203d]' : 'text-neutral-400'}>
                                   [{billData.paymentMode === 'Cash' ? '✓' : ' '}] Cash
                                 </span>
-                                <span className={billData.paymentMode === 'Bank' ? 'font-bold text-[#1a3c34]' : 'text-neutral-400'}>
+                                <span className={billData.paymentMode === 'Bank' ? 'font-bold text-[#1b203d]' : 'text-neutral-400'}>
                                   [{billData.paymentMode === 'Bank' ? '✓' : ' '}] Bank
                                 </span>
                               </div>
                               <div className="pt-1 text-[10px]">
                                 <span className="text-neutral-500 block">Official UPI ID for Payment:</span>
-                                <span className="font-mono font-bold text-[#1a3c34] bg-white px-2 py-0.5 rounded border border-[#edeae1] inline-block mt-0.5">
+                                <span className="font-mono font-bold text-[#1b203d] bg-white px-2 py-0.5 rounded border border-[#edeae1] inline-block mt-0.5">
                                   {billData.upiId || '9894116405@okaxis'}
                                 </span>
                               </div>
@@ -1211,7 +1211,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 <>
                                   <div className="flex justify-between items-center text-xs">
                                     <span className="text-neutral-600">Advance Paid:</span>
-                                    <span className="font-mono font-bold text-emerald-700">₹ {advance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+                                    <span className="font-mono font-bold text-blue-900">₹ {advance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
                                   </div>
                                   <div className="flex justify-between items-center text-xs pb-1 border-b border-[#edeae1]">
                                     <span className="text-neutral-600 font-semibold">Balance Due:</span>
@@ -1221,7 +1221,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                               )}
 
                               {/* Solid Net Amount Banner */}
-                              <div className="bg-[#1a3c34] text-white p-2 rounded-lg flex justify-between items-center mt-1">
+                              <div className="bg-[#1b203d] text-white p-2 rounded-lg flex justify-between items-center mt-1">
                                 <span className="font-extrabold uppercase tracking-wide text-[11px]">Net Amount:</span>
                                 <span className="text-sm font-extrabold font-mono text-[#f8e7a2]">
                                   ₹ {totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
@@ -1233,7 +1233,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
 
                           {/* 7. TERMS & SIGNATURES */}
                           <div className="pt-1">
-                            <span className="block text-[9px] font-bold uppercase text-[#1a3c34] mb-1">Standard Travel Terms:</span>
+                            <span className="block text-[9px] font-bold uppercase text-[#1b203d] mb-1">Standard Travel Terms:</span>
                             <ul className="text-[8px] text-neutral-500 space-y-0.5 list-disc list-inside">
                               <li>Tolls, parking fees, and interstate permits are payable as per actuals.</li>
                               <li>Kilometer and duty hours calculated garage-to-garage as per commercial travel regulations.</li>
@@ -1249,13 +1249,13 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             </div>
                             <div>
                               <div className="w-3/4 mx-auto border-b border-neutral-400 mb-1"></div>
-                              <span className="text-[#1a3c34] font-bold uppercase text-[9px] block">For NITHAMUDAYAR TOURS & TRAVELS PVT LTD</span>
+                              <span className="text-[#1b203d] font-bold uppercase text-[9px] block">For NITHAMUDAYAR TOURS & TRAVELS PVT LTD</span>
                               <span className="text-[8px] text-neutral-400 italic">(Authorized Signatory / Chauffeur)</span>
                             </div>
                           </div>
 
                           {/* 8. FOOTER BANNER */}
-                          <div className="bg-[#1a3c34] text-white text-[10px] text-center py-2 px-3 rounded-lg leading-tight space-y-0.5">
+                          <div className="bg-[#1b203d] text-white text-[10px] text-center py-2 px-3 rounded-lg leading-tight space-y-0.5">
                             <p className="font-bold text-[#f8e7a2]">
                               Thank you for traveling with Nithamudayar Tours & Travels Pvt Ltd! Wish you a pleasant journey.
                             </p>
@@ -1280,7 +1280,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 type="button"
                 onClick={handleDownloadPdf}
                 disabled={isGeneratingPdf}
-                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
+                className="flex-1 bg-[#1b203d] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
               >
                 {downloadSuccess ? <Check className="w-4 h-4 text-white" /> : <Download className="w-4 h-4" />}
                 <span>{isGeneratingPdf ? 'Generating...' : 'Download PDF'}</span>

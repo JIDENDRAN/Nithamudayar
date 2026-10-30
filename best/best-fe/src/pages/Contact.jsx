@@ -492,7 +492,7 @@ export default function Contact({ onOpenBooking }) {
                         Nithamudayar Tours & Travels Pvt Ltd
                       </h3>
                     </div>
-                    <div className="w-10 h-10 rounded-full border border-brand-gold/40 p-0.5 bg-[#342521]">
+                    <div className="w-10 h-10 rounded-xl border border-brand-gold/40 p-0.5 bg-[#1b203d] overflow-hidden">
                       <img src="/logo.png" alt="Emblem" className="w-full h-full object-contain" />
                     </div>
                   </div>

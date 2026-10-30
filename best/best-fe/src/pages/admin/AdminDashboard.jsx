@@ -559,7 +559,7 @@ Driver Charge: ${data.dayDriver || ''}`;
       {/* Sidebar navigation */}
       <div className="w-full md:w-64 bg-[#241815] flex flex-col border-r border-[#342521] shadow-2xl z-20">
         <div className="p-6 flex items-center gap-3 border-b border-[#342521]">
-          <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-md p-1">
+          <div className="w-12 h-12 bg-[#1b203d] rounded-xl flex items-center justify-center shadow-md p-0.5 border border-[#d4af37]/30 overflow-hidden">
             <img src="/logo.png" alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
           </div>
           <div>
@@ -575,7 +575,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                 onClick={() => setActiveTab('bookings')}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all font-medium ${activeTab === 'bookings'
                   ? 'bg-[#d4951e] text-white font-bold shadow-md'
-                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#2d5a4e]'
+                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#283058]'
                   }`}
               >
                 <CalendarCheck className="w-5 h-5" /> Manage Bookings
@@ -587,7 +587,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                 onClick={() => setActiveTab('cars')}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all font-medium ${activeTab === 'cars'
                   ? 'bg-[#d4951e] text-white font-bold shadow-md'
-                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#2d5a4e]'
+                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#283058]'
                   }`}
               >
                 <Car className="w-5 h-5" /> Manage Vehicles
@@ -598,7 +598,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                 onClick={() => setActiveTab('packages')}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all font-medium ${activeTab === 'packages'
                   ? 'bg-[#d4951e] text-white font-bold shadow-md'
-                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#2d5a4e]'
+                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#283058]'
                   }`}
               >
                 <Package className="w-5 h-5" /> Manage Packages
@@ -609,7 +609,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                 onClick={() => setActiveTab('contacts')}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all font-medium ${activeTab === 'contacts'
                   ? 'bg-[#d4951e] text-white font-bold shadow-md'
-                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#2d5a4e]'
+                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#283058]'
                   }`}
               >
                 <MessageSquare className="w-5 h-5" /> Contact Queries
@@ -620,7 +620,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                 onClick={() => setActiveTab('settings')}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all font-medium ${activeTab === 'settings'
                   ? 'bg-[#d4951e] text-white font-bold shadow-md'
-                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#2d5a4e]'
+                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#283058]'
                   }`}
               >
                 <Settings className="w-5 h-5" /> Admin Settings
@@ -631,7 +631,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                 onClick={() => setActiveTab('add-admin')}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all font-medium ${activeTab === 'add-admin'
                   ? 'bg-[#d4951e] text-white font-bold shadow-md'
-                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#2d5a4e]'
+                  : 'text-[#a3b8b1] hover:text-white hover:bg-[#283058]'
                   }`}
               >
                 <UserPlus className="w-5 h-5" /> Add Administrator
@@ -640,7 +640,7 @@ Driver Charge: ${data.dayDriver || ''}`;
           </ul>
         </nav>
 
-        <div className="p-4 border-t border-[#2d5a4e]">
+        <div className="p-4 border-t border-[#283058]">
           <button
             onClick={handleLogout}
             className="w-full flex items-center justify-center gap-2 px-4 py-3.5 bg-red-500/10 text-red-300 hover:bg-red-500 hover:text-white rounded-xl transition-all font-bold text-sm shadow-sm"
@@ -697,12 +697,12 @@ Driver Charge: ${data.dayDriver || ''}`;
                 <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
                   <div className="p-6 border-b border-[#edeae1] flex flex-col sm:flex-row justify-between sm:items-center gap-4">
                     <div>
-                      <h2 className="text-xl font-bold text-[#1a3c34]">Customer Bookings</h2>
+                      <h2 className="text-xl font-bold text-[#1b203d]">Customer Bookings</h2>
                       <p className="text-xs text-gray-500 mt-0.5">Manage customer reservations and generate official trip bills</p>
                     </div>
                     <button
                       onClick={() => setBillModal({ isOpen: true, booking: null })}
-                      className="bg-[#1a3c34] hover:bg-[#2d5a4e] text-white px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer self-start sm:self-auto"
+                      className="bg-[#1b203d] hover:bg-[#283058] text-white px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer self-start sm:self-auto"
                     >
                       <FileText className="w-4 h-4 text-[#d4951e]" />
                       <span>Create Trip Bill / PDF</span>
@@ -739,7 +739,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                           <tbody className="divide-y divide-[#edeae1] text-sm">
                             {bookings.map(booking => (
                               <tr key={booking.id} className="hover:bg-[#f7f5f0]/50 transition-colors">
-                                <td className="px-6 py-4 font-mono font-bold text-xs text-[#1a3c34]">
+                                <td className="px-6 py-4 font-mono font-bold text-xs text-[#1b203d]">
                                   BKG-{String(booking.id).padStart(4, '0')}
                                 </td>
                                 <td className="px-6 py-4">
@@ -748,7 +748,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                 </td>
                                 <td className="px-6 py-4 max-w-[260px]">
                                   <div className="text-xs truncate text-gray-700 font-medium" title={booking.fromLocation}>
-                                    <span className="text-[#1a3c34] mr-1.5 font-bold">●</span>{booking.fromLocation}
+                                    <span className="text-[#1b203d] mr-1.5 font-bold">●</span>{booking.fromLocation}
                                   </div>
                                   <div className="text-xs truncate text-gray-700 mt-1.5 font-medium" title={booking.toLocation}>
                                     <span className="text-[#d4951e] mr-1.5 font-bold">●</span>{booking.toLocation}
@@ -759,7 +759,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                   <div className="text-xs text-gray-500 font-medium">{booking.time || 'Not specified'}</div>
                                 </td>
                                 <td className="px-6 py-4">
-                                  <div className="font-semibold text-[#1a3c34]">{booking.vehicle || 'Not Selected'}</div>
+                                  <div className="font-semibold text-[#1b203d]">{booking.vehicle || 'Not Selected'}</div>
                                   <div className="text-xs text-gray-500 italic">{booking.packageType || 'Custom Trip'}</div>
                                 </td>
                                 <td className="px-6 py-4">
@@ -776,7 +776,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                   <div className="flex gap-2 justify-end items-center">
                                     <button
                                       onClick={() => setBillModal({ isOpen: true, booking })}
-                                      className="bg-[#1a3c34] hover:bg-[#2d5a4e] text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                                      className="bg-[#1b203d] hover:bg-[#283058] text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
                                       title="Generate Trip Bill / PDF"
                                     >
                                       <FileText className="w-3.5 h-3.5 text-[#d4951e]" />
@@ -785,7 +785,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                     <select
                                       value={booking.status || 'Pending'}
                                       onChange={(e) => handleStatusUpdate(booking.id, e.target.value)}
-                                      className="bg-gray-50 text-gray-700 hover:bg-gray-100 font-medium text-xs px-2 py-1.5 rounded-lg border border-gray-200 outline-none transition-all shadow-sm focus:ring-1 focus:ring-[#1a3c34] cursor-pointer"
+                                      className="bg-gray-50 text-gray-700 hover:bg-gray-100 font-medium text-xs px-2 py-1.5 rounded-lg border border-gray-200 outline-none transition-all shadow-sm focus:ring-1 focus:ring-[#1b203d] cursor-pointer"
                                     >
                                       <option value="Pending">Pending</option>
                                       <option value="Approved">Approved</option>
@@ -810,7 +810,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                         {bookings.map(booking => (
                           <div key={booking.id} className="p-4 space-y-3 hover:bg-[#faf8f5]/60 transition-colors">
                             <div className="flex items-center justify-between">
-                              <span className="font-mono font-bold text-xs text-[#1a3c34] bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded">
+                              <span className="font-mono font-bold text-xs text-[#1b203d] bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded">
                                 BKG-{String(booking.id).padStart(4, '0')}
                               </span>
                               <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
@@ -827,19 +827,19 @@ Driver Charge: ${data.dayDriver || ''}`;
                             </div>
 
                             <div className="bg-[#f7f5f0] p-2.5 rounded-xl text-xs space-y-1">
-                              <div className="truncate"><span className="text-[#1a3c34] font-bold mr-1.5">● From:</span>{booking.fromLocation}</div>
+                              <div className="truncate"><span className="text-[#1b203d] font-bold mr-1.5">● From:</span>{booking.fromLocation}</div>
                               <div className="truncate"><span className="text-[#d4951e] font-bold mr-1.5">● To:</span>{booking.toLocation}</div>
                             </div>
 
                             <div className="flex justify-between items-center text-xs text-gray-600 pt-0.5">
                               <div><span className="font-semibold">{booking.date}</span> {booking.time ? `• ${booking.time}` : ''}</div>
-                              <div className="font-bold text-[#1a3c34]">{booking.vehicle || 'Standard'}</div>
+                              <div className="font-bold text-[#1b203d]">{booking.vehicle || 'Standard'}</div>
                             </div>
 
                             <div className="flex items-center justify-between gap-2 pt-1.5">
                               <button
                                 onClick={() => setBillModal({ isOpen: true, booking })}
-                                className="flex-1 bg-[#1a3c34] hover:bg-[#2d5a4e] text-white py-2 px-3 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-98 transition-all"
+                                className="flex-1 bg-[#1b203d] hover:bg-[#283058] text-white py-2 px-3 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-98 transition-all"
                               >
                                 <FileText className="w-3.5 h-3.5 text-[#d4951e]" />
                                 <span>Create Bill</span>
@@ -878,7 +878,7 @@ Driver Charge: ${data.dayDriver || ''}`;
               <motion.div key="cars" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
                 <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
                   <div className="p-6 border-b border-[#edeae1] flex justify-between items-center">
-                    <h2 className="text-xl font-bold text-[#1a3c34]">Fleet Management</h2>
+                    <h2 className="text-xl font-bold text-[#1b203d]">Fleet Management</h2>
                     <button
                       onClick={() => handleOpenCarModal(false)}
                       className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all"
@@ -904,14 +904,14 @@ Driver Charge: ${data.dayDriver || ''}`;
                             <img src={getVehicleImage(car.image)} alt={car.name} className="w-full h-full object-contain absolute inset-0" />
                           </div>
                           <div className="p-4">
-                            <h3 className="font-bold text-lg text-[#1a3c34] truncate">{car.name}</h3>
+                            <h3 className="font-bold text-lg text-[#1b203d] truncate">{car.name}</h3>
                             <div className="flex items-center gap-2 mt-1 text-xs font-semibold text-gray-500">
                               <span className="bg-gray-100 px-2 py-1 rounded-md">{car.seats}</span>
                               <span className="bg-gray-100 px-2 py-1 rounded-md">{car.ac}</span>
                               <span className="bg-gray-100 px-2 py-1 rounded-md text-[#d4951e]">{car.price}</span>
                             </div>
                             <div className="mt-4 flex justify-between items-center pt-3 border-t border-[#edeae1]">
-                              <button onClick={() => handleOpenCarModal(true, car)} className="text-[#1a3c34] hover:text-[#d4951e] font-bold text-sm flex items-center gap-1">
+                              <button onClick={() => handleOpenCarModal(true, car)} className="text-[#1b203d] hover:text-[#d4951e] font-bold text-sm flex items-center gap-1">
                                 <Edit className="w-4 h-4" /> Edit
                               </button>
                               <button onClick={() => handleDeleteCar(car.id)} className="text-red-500 hover:text-red-600 font-bold text-sm flex items-center gap-1">
@@ -932,7 +932,7 @@ Driver Charge: ${data.dayDriver || ''}`;
               <motion.div key="packages" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
                 <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
                   <div className="p-6 border-b border-[#edeae1] flex justify-between items-center">
-                    <h2 className="text-xl font-bold text-[#1a3c34]">Tour Packages</h2>
+                    <h2 className="text-xl font-bold text-[#1b203d]">Tour Packages</h2>
                     <button
                       onClick={() => handleOpenPkgModal(false)}
                       className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all"
@@ -958,14 +958,14 @@ Driver Charge: ${data.dayDriver || ''}`;
                             <img src={getPackageImage(pkg.image)} alt={pkg.name} className="w-full h-full object-cover" />
                           </div>
                           <div className="p-4 flex-grow flex flex-col">
-                            <h3 className="font-bold text-lg text-[#1a3c34] truncate">{pkg.name}</h3>
+                            <h3 className="font-bold text-lg text-[#1b203d] truncate">{pkg.name}</h3>
                             <div className="flex justify-between items-center mt-1 text-xs font-bold">
                               <span className="text-gray-500 flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {pkg.duration}</span>
                               <span className="text-[#d4951e]">{pkg.price}</span>
                             </div>
                             <p className="text-xs text-gray-600 mt-3 line-clamp-3 flex-grow">{pkg.places}</p>
                             <div className="mt-4 flex justify-between items-center pt-3 border-t border-[#edeae1]">
-                              <button onClick={() => handleOpenPkgModal(true, pkg)} className="text-[#1a3c34] hover:text-[#d4951e] font-bold text-sm flex items-center gap-1">
+                              <button onClick={() => handleOpenPkgModal(true, pkg)} className="text-[#1b203d] hover:text-[#d4951e] font-bold text-sm flex items-center gap-1">
                                 <Edit className="w-4 h-4" /> Edit
                               </button>
                               <button onClick={() => handleDeletePackage(pkg.id)} className="text-red-500 hover:text-red-600 font-bold text-sm flex items-center gap-1">
@@ -1002,7 +1002,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                           <div className="space-y-2 w-full max-w-3xl">
                             <div className="flex flex-wrap items-center gap-3">
                               <span className="font-bold text-gray-800 text-lg">{c.name}</span>
-                              <span className="text-xs text-[#1a3c34] bg-[#1a3c34]/5 px-2.5 py-1 rounded-md border border-[#1a3c34]/10 font-bold">
+                              <span className="text-xs text-[#1b203d] bg-[#1b203d]/5 px-2.5 py-1 rounded-md border border-[#1b203d]/10 font-bold">
                                 {new Date(c.createdAt).toLocaleDateString()}
                               </span>
                             </div>
@@ -1034,7 +1034,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Settings form card */}
                   <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-8">
-                    <h3 className="text-xl font-bold text-[#1a3c34] mb-6 pb-3 border-b border-[#edeae1] flex items-center gap-2 font-poppins">
+                    <h3 className="text-xl font-bold text-[#1b203d] mb-6 pb-3 border-b border-[#edeae1] flex items-center gap-2 font-poppins">
                       <Settings className="w-5 h-5 text-[#d4951e]" /> Superadmin Profile Configurations
                     </h3>
 
@@ -1100,7 +1100,7 @@ Driver Charge: ${data.dayDriver || ''}`;
 
                       <button
                         type="submit"
-                        className="w-full bg-[#1a3c34] hover:bg-[#2d5a4e] text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-poppins text-sm uppercase tracking-wider"
+                        className="w-full bg-[#1b203d] hover:bg-[#283058] text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-poppins text-sm uppercase tracking-wider"
                       >
                         Save Configuration Settings
                       </button>
@@ -1110,7 +1110,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                   {/* WhatsApp Bot Connection Manager Card */}
                   <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-8 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-xl font-bold text-[#1a3c34] mb-6 pb-3 border-b border-[#edeae1] flex items-center gap-2 font-poppins">
+                      <h3 className="text-xl font-bold text-[#1b203d] mb-6 pb-3 border-b border-[#edeae1] flex items-center gap-2 font-poppins">
                         <span className="text-[#d4951e]">⚡</span> WhatsApp Notification Bot Status
                       </h3>
 
@@ -1131,7 +1131,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                               <button
                                 onClick={handleWhatsappTest}
                                 disabled={loadingWhatsapp}
-                                className="bg-[#1a3c34] hover:bg-[#2d5a4e] text-white border border-[#1a3c34] shadow-sm px-4 py-2 rounded-xl text-xs font-bold transition-all disabled:opacity-50"
+                                className="bg-[#1b203d] hover:bg-[#283058] text-white border border-[#1b203d] shadow-sm px-4 py-2 rounded-xl text-xs font-bold transition-all disabled:opacity-50"
                               >
                                 Test Message
                               </button>
@@ -1185,7 +1185,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                           
                           {/* Send Custom Message UI */}
                           <div className="bg-[#f7f5f0] border border-[#edeae1] rounded-2xl p-5 shadow-sm">
-                            <h4 className="text-sm font-bold text-[#1a3c34] mb-4 flex items-center gap-2">
+                            <h4 className="text-sm font-bold text-[#1b203d] mb-4 flex items-center gap-2">
                               <MessageSquare className="w-4 h-4" /> Send Custom Message
                             </h4>
                             <div className="space-y-3">
@@ -1208,7 +1208,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                               <button
                                 onClick={handleSendCustomMessage}
                                 disabled={sendingCustomMsg || !customMsgPhone || !customMsgText}
-                                className="w-full bg-[#1a3c34] hover:bg-[#2d5a4e] text-white font-bold py-3 rounded-xl transition-all shadow-sm text-xs disabled:opacity-50 flex items-center justify-center gap-2"
+                                className="w-full bg-[#1b203d] hover:bg-[#283058] text-white font-bold py-3 rounded-xl transition-all shadow-sm text-xs disabled:opacity-50 flex items-center justify-center gap-2"
                               >
                                 {sendingCustomMsg ? 'Sending...' : 'Send Custom Message'}
                               </button>
@@ -1230,7 +1230,7 @@ Driver Charge: ${data.dayDriver || ''}`;
             {activeTab === 'add-admin' && (
               <motion.div key="add-admin" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
                 <div className="max-w-2xl bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-8">
-                  <h3 className="text-xl font-bold text-[#1a3c34] mb-6 pb-3 border-b border-[#edeae1] flex items-center gap-2 font-poppins">
+                  <h3 className="text-xl font-bold text-[#1b203d] mb-6 pb-3 border-b border-[#edeae1] flex items-center gap-2 font-poppins">
                     <UserPlus className="w-5 h-5 text-[#d4951e]" /> Create Administrator Account
                   </h3>
 
@@ -1297,7 +1297,7 @@ Driver Charge: ${data.dayDriver || ''}`;
 
                     <button
                       type="submit"
-                      className="w-full bg-[#1a3c34] hover:bg-[#2d5a4e] text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-poppins text-sm uppercase tracking-wider"
+                      className="w-full bg-[#1b203d] hover:bg-[#283058] text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-poppins text-sm uppercase tracking-wider"
                     >
                       Register Admin Account
                     </button>
@@ -1324,7 +1324,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                   className="bg-white rounded-3xl p-6 w-full max-w-2xl shadow-2xl max-h-[90vh] overflow-y-auto"
                 >
                   <div className="flex justify-between items-center mb-6 border-b border-[#edeae1] pb-3">
-                    <h3 className="text-xl font-bold text-[#1a3c34] font-poppins">{carModal.isEdit ? 'Edit Vehicle' : 'Add New Vehicle'}</h3>
+                    <h3 className="text-xl font-bold text-[#1b203d] font-poppins">{carModal.isEdit ? 'Edit Vehicle' : 'Add New Vehicle'}</h3>
                     <button onClick={() => setCarModal({ isOpen: false, isEdit: false, data: null })} className="text-gray-400 hover:text-gray-600"><X className="w-6 h-6" /></button>
                   </div>
                   <form onSubmit={handleCarSubmit} className="space-y-4">
@@ -1355,7 +1355,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                           {carModal.data.image && (
                             <img src={getVehicleImage(carModal.data.image)} alt="Preview" className="h-12 w-16 object-contain bg-white rounded-lg border border-gray-200 shadow-sm" />
                           )}
-                          <label className="bg-[#1a3c34] hover:bg-[#2d5a4e] text-white px-4 py-2 rounded-xl cursor-pointer transition-all shadow-sm flex items-center gap-2">
+                          <label className="bg-[#1b203d] hover:bg-[#283058] text-white px-4 py-2 rounded-xl cursor-pointer transition-all shadow-sm flex items-center gap-2">
                             <Upload className="w-4 h-4" />
                             <span className="text-sm font-bold">Upload Image</span>
                             <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, setCarModal, 'image')} />
@@ -1365,7 +1365,7 @@ Driver Charge: ${data.dayDriver || ''}`;
 
                     </div>
                     <div className="pt-4 border-t border-[#edeae1]">
-                      <h4 className="text-sm font-bold text-[#1a3c34] mb-3 uppercase tracking-wider">Outstation Plan Details</h4>
+                      <h4 className="text-sm font-bold text-[#1b203d] mb-3 uppercase tracking-wider">Outstation Plan Details</h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div>
                           <label className="text-[10px] font-bold text-gray-500 uppercase">Rate (e.g. ₹14/km)</label>
@@ -1383,7 +1383,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                     </div>
 
                     <div className="pt-4 border-t border-[#edeae1]">
-                      <h4 className="text-sm font-bold text-[#1a3c34] mb-3 uppercase tracking-wider">Day Rental Plan Details</h4>
+                      <h4 className="text-sm font-bold text-[#1b203d] mb-3 uppercase tracking-wider">Day Rental Plan Details</h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div>
                           <label className="text-[10px] font-bold text-gray-500 uppercase">Base Rent</label>
@@ -1399,7 +1399,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                         </div>
                       </div>
                     </div>
-                    <button type="submit" className="w-full bg-[#1a3c34] text-white font-bold py-3 rounded-xl mt-4 hover:bg-[#2d5a4e] transition-all">
+                    <button type="submit" className="w-full bg-[#1b203d] text-white font-bold py-3 rounded-xl mt-4 hover:bg-[#283058] transition-all">
                       {carModal.isEdit ? 'Save Changes' : 'Add Vehicle'}
                     </button>
                   </form>
@@ -1424,7 +1424,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                   className="bg-white rounded-3xl p-6 w-full max-w-2xl shadow-2xl max-h-[90vh] overflow-y-auto"
                 >
                   <div className="flex justify-between items-center mb-6 border-b border-[#edeae1] pb-3">
-                    <h3 className="text-xl font-bold text-[#1a3c34] font-poppins">{pkgModal.isEdit ? 'Edit Package' : 'Add New Package'}</h3>
+                    <h3 className="text-xl font-bold text-[#1b203d] font-poppins">{pkgModal.isEdit ? 'Edit Package' : 'Add New Package'}</h3>
                     <button onClick={() => setPkgModal({ isOpen: false, isEdit: false, data: null })} className="text-gray-400 hover:text-gray-600"><X className="w-6 h-6" /></button>
                   </div>
                   <form onSubmit={handlePkgSubmit} className="space-y-4">
@@ -1447,7 +1447,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                           {pkgModal.data.image && (
                             <img src={getPackageImage(pkgModal.data.image)} alt="Preview" className="h-12 w-16 object-cover bg-white rounded-lg border border-gray-200 shadow-sm" />
                           )}
-                          <label className="bg-[#1a3c34] hover:bg-[#2d5a4e] text-white px-4 py-2 rounded-xl cursor-pointer transition-all shadow-sm flex items-center gap-2">
+                          <label className="bg-[#1b203d] hover:bg-[#283058] text-white px-4 py-2 rounded-xl cursor-pointer transition-all shadow-sm flex items-center gap-2">
                             <Upload className="w-4 h-4" />
                             <span className="text-sm font-bold">Upload Image</span>
                             <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, setPkgModal, 'image')} />
@@ -1473,7 +1473,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                       <label className="text-xs font-bold text-gray-500 uppercase">Places Covered (Description)</label>
                       <textarea value={pkgModal.data.places} onChange={e => setPkgModal({ ...pkgModal, data: { ...pkgModal.data, places: e.target.value } })} className="w-full mt-1 bg-[#f7f5f0] border border-[#edeae1] p-3 rounded-xl focus:outline-none focus:border-[#d4951e] h-24" required></textarea>
                     </div>
-                    <button type="submit" className="w-full bg-[#1a3c34] text-white font-bold py-3 rounded-xl mt-4 hover:bg-[#2d5a4e] transition-all">
+                    <button type="submit" className="w-full bg-[#1b203d] text-white font-bold py-3 rounded-xl mt-4 hover:bg-[#283058] transition-all">
                       {pkgModal.isEdit ? 'Save Changes' : 'Add Package'}
                     </button>
                   </form>
