@@ -77,8 +77,11 @@ export const packageImageMap = {
 // Helper functions
 const resolveImage = (name, staticMap, fallback) => {
   if (!name) return fallback;
-  if (name.startsWith('data:') || name.startsWith('http')) return name;
+  if (name.startsWith('data:') || name.startsWith('http://') || name.startsWith('https://')) return name;
   if (name.startsWith('/uploads/')) return `${API_BASE_URL}${name}`;
+  if (name.startsWith('uploads/')) return `${API_BASE_URL}/${name}`;
+  if (name.startsWith('/images/')) return name;
+  if (name.startsWith('images/')) return `/${name}`;
   return staticMap[name] || fallback;
 };
 

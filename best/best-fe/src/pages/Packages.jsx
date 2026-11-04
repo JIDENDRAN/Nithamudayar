@@ -444,6 +444,10 @@ export default function PackagesPage({ onOpenBooking }) {
                           alt={pkg.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = '/images/destinations/thanjavur.jpg';
+                          }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
 

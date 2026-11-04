@@ -180,7 +180,41 @@ export default function HomePage({ onOpenBooking }) {
     }
   ];
 
-  const featuredPackages = dbPackages.length > 0 ? dbPackages.slice(0, 4) : defaultFeaturedPackages;
+  const resolvePackageImage = (img, name = '') => {
+    if (!img) {
+      const n = (name || '').toLowerCase();
+      if (n.includes('murugan') || n.includes('palani') || n.includes('tiruchendur')) return '/images/destinations/murugan.jpg';
+      if (n.includes('mountain') || n.includes('hill') || n.includes('kodaikanal') || n.includes('ooty') || n.includes('kerala')) return '/images/destinations/kodaikanal.jpg';
+      if (n.includes('backwater') || n.includes('alleppey') || n.includes('alappuzha')) return '/images/destinations/alleppey.jpg';
+      if (n.includes('chola') || n.includes('thanjavur') || n.includes('kumbakonam') || n.includes('navagraha')) return '/images/destinations/kumbakonam.jpg';
+      if (n.includes('rameswaram') || n.includes('pandya') || n.includes('madurai')) return '/images/destinations/rameswaram.jpg';
+      if (n.includes('airport') || n.includes('corporate') || n.includes('chennai')) return '/images/destinations/chennai.jpg';
+      return '/images/destinations/thanjavur.jpg';
+    }
+    if (img.startsWith('http://') || img.startsWith('https://') || img.startsWith('data:')) {
+      return img;
+    }
+    if (img.startsWith('/uploads/')) {
+      return `${API_BASE_URL}${img}`;
+    }
+    if (img.startsWith('uploads/')) {
+      return `${API_BASE_URL}/${img}`;
+    }
+    if (img.startsWith('/images/')) {
+      return img;
+    }
+    if (img.startsWith('images/')) {
+      return `/${img}`;
+    }
+    return img;
+  };
+
+  const featuredPackages = dbPackages.length > 0 
+    ? dbPackages.slice(0, 8).map(pkg => ({
+        ...pkg,
+        image: resolvePackageImage(pkg.image, pkg.name)
+      })) 
+    : defaultFeaturedPackages;
 
   const destinations = [
     { city: 'Tamil Nadu Heritage Circuit', image: '/images/destinations/thanjavur.jpg', tag: 'Trichy • Thanjavur • Madurai • Rameshwaram' },
@@ -341,7 +375,11 @@ export default function HomePage({ onOpenBooking }) {
                 <div>
                   <div className="relative h-44 w-full overflow-hidden bg-neutral-100">
                     <img
-                      src={pkg.image || '/images/destinations/thanjavur.jpg'}
+                      src={resolvePackageImage(pkg.image, pkg.name)}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = resolvePackageImage('', pkg.name);
+                      }}
                       alt={pkg.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
