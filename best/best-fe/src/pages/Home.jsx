@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import MobileHero from '../components/mobile/MobileHero';
 import QuickBookingBar from '../components/QuickBookingBar';
 import TravelHubsSections from '../components/TravelHubsSections';
+import VehicleDetailCard from '../components/VehicleDetailCard';
 import { ArrowRight, Shield, Award, Clock, Users, CheckCircle2, ChevronRight, Sparkles, MapPin, Plane, Navigation, Briefcase, Heart, Check, Car, Wind, ShieldCheck } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
 
@@ -29,89 +30,109 @@ export default function HomePage({ onOpenBooking }) {
 
   const defaultFeaturedFleet = [
     {
+      id: 'innova-crysta',
+      name: 'Innova Crysta',
+      category: 'Premium SUV',
+      image: '/images/vehicles/innova.png',
+      seats: '7 Passengers',
+      seatsMobile: '7 Seater',
+      seaterLabel: '7 Seater',
+      luggage: '4 Large Bags',
+      luggageMobile: '4 Bags',
+      ac: 'Dual Zone Climate AC',
+      rate: '₹20/km',
+      outstationRate: '₹20/km',
+      minDistance: 'Above 300 kms',
+      driverCharge: 'Rs. 300 / day',
+      dayBaseRent: 'Rs. 2500',
+      dayPerKm: 'Rs. 16/km',
+      dayDriverCharge: 'Rs. 300 / day',
+      startingFrom: '₹20/km',
+      idealFor: 'Executive travel, family pilgrimages & luxury tours',
+    },
+    {
       id: 'sedan-dzire',
-      name: 'Sedan (Dzire / Etios)',
-      category: 'Comfort Sedan (4+1)',
+      name: 'Swift Dzire / Etios',
+      category: 'Comfort Sedan',
       image: '/images/vehicles/sedan.png',
       seats: '4 + 1 Passengers',
+      seatsMobile: '4 Seater',
+      seaterLabel: '4 Seater',
       luggage: '2 Large Bags',
+      luggageMobile: '2 Bags',
       ac: 'Climate Control AC',
-      rate: '₹14 / km',
-      minKm: '250 km / day',
-      driverBata: '₹400 / day',
+      rate: '₹14/km',
+      outstationRate: '₹14/km',
+      minDistance: 'Above 250 kms',
+      driverCharge: 'Rs. 300 / day',
+      dayBaseRent: 'Rs. 2200',
+      dayPerKm: 'Rs. 14/km',
+      dayDriverCharge: 'Rs. 300 / day',
+      startingFrom: '₹14/km',
       idealFor: 'Couples, small families & executive travel',
-      specs: [
-        'Silent cabin with smooth suspension',
-        'Economical city & outstation travel',
-      ],
     },
     {
       id: 'suv-ertiga',
-      name: 'SUV (Ertiga / Carens)',
-      category: 'Family SUV (6+1)',
+      name: 'Maruti Ertiga / Carens',
+      category: 'Family SUV',
       image: '/images/vehicles/suv.png',
       seats: '6 + 1 Passengers',
+      seatsMobile: '6 Seater',
+      seaterLabel: '6 Seater',
       luggage: '3 Large Bags + Carrier',
-      ac: 'Dual AC Vents',
-      rate: '₹19 / km',
-      minKm: '300 km / day',
-      driverBata: '₹500 / day',
+      luggageMobile: '3 Bags',
+      ac: 'Dual AC',
+      rate: '₹19/km',
+      outstationRate: '₹19/km',
+      minDistance: 'Above 300 kms',
+      driverCharge: 'Rs. 350 / day',
+      dayBaseRent: 'Rs. 2800',
+      dayPerKm: 'Rs. 16/km',
+      dayDriverCharge: 'Rs. 350 / day',
+      startingFrom: '₹19/km',
       idealFor: 'Families & long-distance outstation travel',
-      specs: [
-        'Rooftop carrier for family luggage',
-        'Flexible 3rd row comfortable seating',
-      ],
-    },
-    {
-      id: 'innova-crysta',
-      name: 'Toyota Innova Crysta',
-      category: 'Premium SUV (6+1 / 7+1)',
-      image: '/images/vehicles/innova.png',
-      seats: '6 + 1 / 7 + 1 Passengers',
-      luggage: '4 Large Bags',
-      ac: 'Dual Zone Climate AC',
-      rate: '₹22 / km',
-      minKm: '350 km / day',
-      driverBata: '₹600 / day',
-      idealFor: 'Family temple circuits & luxury journeys',
-      specs: [
-        'Reclining plush captain seats',
-        'High highway stability & safety',
-      ],
     },
     {
       id: 'tempo-traveller',
       name: 'Force Tempo Traveller',
-      category: 'Mini Coach (12/14/17 Seater)',
+      category: 'Mini Coach',
       image: '/images/vehicles/tempo.png',
-      seats: '12 / 14 / 17 Passengers',
-      luggage: '10 Bags + Roof Carrier',
-      ac: 'Individual Overhead AC',
-      rate: '₹25 / km',
-      minKm: '300 km / day',
-      driverBata: '₹700 / day',
+      seats: '12 / 17 Passengers',
+      seatsMobile: '12-17 Seater',
+      seaterLabel: '12-17 Seater',
+      luggage: '10 Large Bags + Roof Carrier',
+      luggageMobile: '10 Bags',
+      ac: 'Individual Overhead AC Vents',
+      rate: '₹25/km',
+      outstationRate: '₹25/km',
+      minDistance: 'Above 300 kms',
+      driverCharge: 'Rs. 500 / day',
+      dayBaseRent: 'Rs. 5500',
+      dayPerKm: 'Rs. 22/km',
+      dayDriverCharge: 'Rs. 500 / day',
+      startingFrom: '₹25/km',
       idealFor: 'Navagraha temple groups & family events',
-      specs: [
-        '2x1 executive pushback luxury seats',
-        'LED lighting, audio system & high roof',
-      ],
     },
     {
       id: 'force-urbania',
       name: 'Force Urbania Luxury Van',
-      category: 'Ultra-Luxury (12/17 Seater)',
+      category: 'Luxury Van',
       image: '/images/vehicles/urbania.png',
       seats: '12 / 17 Luxury Passengers',
-      luggage: 'Dedicated Rear Hold',
+      seatsMobile: '12-17 Seater',
+      seaterLabel: '12-17 Seater',
+      luggage: 'Dedicated Rear Luggage Hold',
+      luggageMobile: 'Hold Cargo',
       ac: 'Panoramic Climate Control',
-      rate: '₹33 / km',
-      minKm: '300 km / day',
-      driverBata: '₹800 / day',
+      rate: '₹33/km',
+      outstationRate: '₹33/km',
+      minDistance: 'Above 300 kms',
+      driverCharge: 'Rs. 600 / day',
+      dayBaseRent: 'Rs. 7500',
+      dayPerKm: 'Rs. 28/km',
+      dayDriverCharge: 'Rs. 600 / day',
+      startingFrom: '₹33/km',
       idealFor: 'VIP delegations, weddings & luxury groups',
-      specs: [
-        'European styling with reclining armchairs',
-        'Panoramic picture windows & soft cabin',
-      ],
     },
   ];
 
@@ -120,24 +141,61 @@ export default function HomePage({ onOpenBooking }) {
     if (img.startsWith('/uploads/')) {
       img = `${API_BASE_URL}${img}`;
     }
-    const desc = c.desc || '';
-    const bataMatch = desc.match(/bata[:\s]*₹?\s*(\d+)/i);
-    const minKmMatch = desc.match(/minimum[:\s]*(\d+)\s*km/i);
-    const specsList = c.specs || (c.desc ? c.desc.split(/[|\n]+/).map(s => s.trim()).filter(Boolean) : ['Commercial tourist permit', 'Verified highway chauffeur']);
+    const nameLower = (c.name || '').toLowerCase();
+    let seater = c.seaterLabel || (c.seats ? c.seats.split(' ')[0] + ' Seater' : '7 Seater');
+    let outstationRate = c.outstationRate || (c.rate || c.price || '₹20/km').replace('/ km', '/km');
+    let minKm = c.minDistance || 'Above 300 kms';
+    let drvCharge = c.driverCharge || 'Rs. 300 / day';
+    let baseRent = c.dayBaseRent || 'Rs. 2500';
+    let perKm = c.dayPerKm || 'Rs. 16/km';
+    let dayDrv = c.dayDriverCharge || 'Rs. 300 / day';
+
+    if (nameLower.includes('innova') || nameLower.includes('crysta')) {
+      seater = '7 Seater';
+      minKm = 'Above 300 kms';
+      baseRent = 'Rs. 2500';
+      perKm = 'Rs. 16/km';
+      drvCharge = 'Rs. 300 / day';
+    } else if (nameLower.includes('suv') || nameLower.includes('ertiga') || nameLower.includes('carens')) {
+      seater = '6 Seater';
+      minKm = 'Above 300 kms';
+      baseRent = 'Rs. 2800';
+      perKm = 'Rs. 16/km';
+      drvCharge = 'Rs. 350 / day';
+    } else if (nameLower.includes('urbania')) {
+      seater = '12-17 Seater';
+      minKm = 'Above 300 kms';
+      baseRent = 'Rs. 7500';
+      perKm = 'Rs. 28/km';
+      drvCharge = 'Rs. 600 / day';
+    } else if (nameLower.includes('tempo') || nameLower.includes('traveller')) {
+      seater = '12-17 Seater';
+      minKm = 'Above 300 kms';
+      baseRent = 'Rs. 5500';
+      perKm = 'Rs. 22/km';
+      drvCharge = 'Rs. 500 / day';
+    }
 
     return {
       id: c.id || c.name,
       name: c.name,
-      category: c.category || c.seats || 'Chauffeur Driven',
+      category: c.category || seater,
+      seaterLabel: seater,
+      seatsMobile: seater,
       image: img,
-      rate: c.rate || c.price || '₹14 / km',
-      seats: c.seats || '4 + 1 Passengers',
-      luggage: c.luggage || '2 Large Bags',
-      ac: c.ac || 'Climate Control AC',
-      minKm: c.minKm || (minKmMatch ? `${minKmMatch[1]} km / day` : '300 km / day'),
-      driverBata: c.driverBata || (bataMatch ? `₹${bataMatch[1]} / day` : 'Standard Bata'),
+      rate: outstationRate,
+      outstationRate: outstationRate,
+      minDistance: minKm,
+      driverCharge: drvCharge,
+      dayBaseRent: baseRent,
+      dayPerKm: perKm,
+      dayDriverCharge: dayDrv,
+      startingFrom: outstationRate,
+      seats: c.seats || seater,
+      luggage: c.luggage || '4 Large Bags',
+      luggageMobile: c.luggageMobile || '4 Bags',
+      ac: c.ac || 'AC',
       idealFor: c.idealFor || (c.desc ? c.desc.split('|')[0].trim() : 'Chauffeur Driven Travel'),
-      specs: specsList.slice(0, 2),
     };
   });
 
@@ -541,120 +599,17 @@ export default function HomePage({ onOpenBooking }) {
             </Link>
           </div>
 
-          {/* Fleet Grid: 2 Columns on Desktop, Single Column on Mobile */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          {/* Vehicle Details Cards (Exact requested structure) */}
+          <div className="space-y-6 sm:space-y-8 max-w-5xl mx-auto">
             {featuredFleet.map((vehicle, idx) => (
-              <div
+              <VehicleDetailCard
                 key={vehicle.id || idx}
-                className="fleet-showroom-card group flex flex-col justify-between bg-[#1b203d] border border-brand-gold/30 rounded-2xl overflow-hidden hover:border-brand-gold/70 hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="fleet-shimmer"></div>
-
-                <div>
-                  {/* Fitted Stage with Vehicle Image & Badges */}
-                  <div className="fleet-stage relative h-48 sm:h-56 w-full flex flex-col items-center justify-center p-4 border-b border-white/10 overflow-hidden bg-gradient-to-b from-[#252c54] to-[#0f1426]">
-                    <div className="absolute inset-0 bg-radial from-brand-gold/25 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                    <div className="relative z-10 w-full h-32 sm:h-40 flex items-center justify-center">
-                      <img
-                        src={vehicle.image}
-                        alt={vehicle.name}
-                        className="w-full h-full object-contain fleet-car-image group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="w-2/3 h-2.5 bg-black/80 rounded-full blur-xs mx-auto -mt-1 fleet-ground-shadow pointer-events-none"></div>
-
-                    {/* Top Badges */}
-                    <div className="absolute top-3 left-3 bg-[#0f1426]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold text-brand-gold border border-brand-gold/40 shadow-sm">
-                      {vehicle.category}
-                    </div>
-                    <div className="absolute top-3 right-3 bg-gradient-to-r from-brand-gold-dark via-brand-gold to-brand-gold text-neutral-950 text-xs sm:text-sm font-black font-heading px-3 py-1 rounded-lg shadow-md">
-                      {vehicle.rate}
-                    </div>
-                  </div>
-
-                  {/* Clean Vehicle Details: Required Info Only */}
-                  <div className="p-4 sm:p-5 space-y-3.5">
-                    <div>
-                      <div className="flex items-center justify-between gap-2">
-                        <h3 className="text-base sm:text-lg font-bold font-heading text-white group-hover:text-brand-gold transition-colors">
-                          {vehicle.name}
-                        </h3>
-                        <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800/40 px-2 py-0.5 rounded-full shrink-0">
-                          AC Commercial
-                        </span>
-                      </div>
-                      <p className="text-xs text-neutral-300 mt-1 line-clamp-1">
-                        {vehicle.idealFor}
-                      </p>
-                    </div>
-
-                    {/* 1. KEY SPECS: 3 Clean Stat Boxes */}
-                    <div className="grid grid-cols-3 gap-2">
-                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
-                        <Users className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
-                        <span className="text-[9px] uppercase font-bold text-neutral-400 block">Capacity</span>
-                        <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
-                          {vehicle.seatsMobile || (vehicle.seats.includes('+') ? vehicle.seats.split(' ')[0] + ' ' + vehicle.seats.split(' ')[1] : vehicle.seats.split(' ')[0] + ' Seats')}
-                        </span>
-                      </div>
-
-                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
-                        <Briefcase className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
-                        <span className="text-[9px] uppercase font-bold text-neutral-400 block">Luggage</span>
-                        <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
-                          {vehicle.luggageMobile || (vehicle.luggage.includes('Bag') ? vehicle.luggage.split('Bag')[0].trim() + ' Bags' : 'Luggage Space')}
-                        </span>
-                      </div>
-
-                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
-                        <Wind className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
-                        <span className="text-[9px] uppercase font-bold text-neutral-400 block">Climate</span>
-                        <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
-                          {vehicle.acMobile || (vehicle.ac.includes('Dual') ? 'Dual AC' : vehicle.ac.includes('Panoramic') ? 'Panoramic AC' : 'Climate AC')}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* 2. TRANSPARENT TARIFF STRIP */}
-                    <div className="bg-[#0f1426] border border-brand-gold/25 rounded-xl p-2.5">
-                      <div className="grid grid-cols-3 divide-x divide-white/10 text-center">
-                        <div className="px-1">
-                          <span className="text-[9px] uppercase font-bold text-neutral-400 block">Outstation</span>
-                          <span className="text-xs sm:text-sm font-extrabold text-brand-gold font-mono block">
-                            {vehicle.rate.replace(' / km', '/km')}
-                          </span>
-                        </div>
-                        <div className="px-1">
-                          <span className="text-[9px] uppercase font-bold text-neutral-400 block">Min Distance</span>
-                          <span className="text-xs sm:text-sm font-bold text-white font-mono block">
-                            {vehicle.minKm.split('/')[0].trim()}
-                          </span>
-                        </div>
-                        <div className="px-1">
-                          <span className="text-[9px] uppercase font-bold text-neutral-400 block">Driver Bata</span>
-                          <span className="text-xs sm:text-sm font-bold text-white font-mono block">
-                            {vehicle.driverBata.replace(' / day', '/d')}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Primary Booking Button */}
-                <div className="p-4 sm:p-5 pt-0">
-                  <button
-                    onClick={() => onOpenBooking(vehicle)}
-                    className="w-full btn-gold py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-md hover:scale-[1.01] active:scale-98 transition-all"
-                  >
-                    <span>Book {vehicle.name.split(' ')[0]}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
+                vehicle={vehicle}
+                onOpenBooking={onOpenBooking}
+              />
             ))}
           </div>
+
         </div>
       </section>
 
