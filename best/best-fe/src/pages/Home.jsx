@@ -18,14 +18,14 @@ export default function HomePage({ onOpenBooking }) {
       .then(data => {
         if (Array.isArray(data) && data.length > 0) setDbCars(data);
       })
-      .catch(() => {});
+      .catch(() => { });
 
     fetch(`${API_BASE_URL}/api/packages`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) setDbPackages(data);
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   const defaultFeaturedFleet = [
@@ -267,11 +267,11 @@ export default function HomePage({ onOpenBooking }) {
     return img;
   };
 
-  const featuredPackages = dbPackages.length > 0 
+  const featuredPackages = dbPackages.length > 0
     ? dbPackages.slice(0, 8).map(pkg => ({
-        ...pkg,
-        image: resolvePackageImage(pkg.image, pkg.name)
-      })) 
+      ...pkg,
+      image: resolvePackageImage(pkg.image, pkg.name)
+    }))
     : defaultFeaturedPackages;
 
   const destinations = [
@@ -579,7 +579,7 @@ export default function HomePage({ onOpenBooking }) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto">
-          
+
           {/* Section Header */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-14 border-b border-brand-gold/25 pb-4 sm:pb-6">
             <div>

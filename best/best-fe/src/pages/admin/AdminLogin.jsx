@@ -44,23 +44,23 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-[#f5f0e8] flex items-center justify-center relative overflow-hidden font-outfit px-4 sm:px-6">
-      
+
       {/* Decorative background blur elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#d4951e]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#1b203d]/5 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
 
       <div className="w-full max-w-md relative z-10">
-        
+
         {/* Brand Logo / Header */}
         <div className="text-center mb-8">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-block bg-[#1b203d] p-1.5 rounded-2xl shadow-sm border border-[#d4af37]/50 mb-4 overflow-hidden"
           >
             <img src="/logo.png" alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-14 h-14 object-contain rounded-xl" />
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -68,7 +68,7 @@ const AdminLogin = () => {
           >
             Admin <span className="text-[#D4AF37]">Portal</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -139,22 +139,7 @@ const AdminLogin = () => {
             </button>
           </form>
 
-          {/* Helper details with 1-click autofill */}
-          <div className="mt-6 p-3.5 rounded-2xl bg-[#f7f5f0] border border-[#edeae1] text-xs text-gray-600 flex items-center justify-between gap-2">
-            <div>
-              <span className="font-semibold text-[#252c54]">Default Login:</span> <code className="bg-white px-1.5 py-0.5 rounded border border-[#e4dfd5] text-[#966b1a] font-mono">admin</code> / <code className="bg-white px-1.5 py-0.5 rounded border border-[#e4dfd5] text-[#966b1a] font-mono">admin123</code>
-            </div>
-            <button
-              type="button"
-              onClick={() => {
-                setUsername('admin');
-                setPassword('admin123');
-              }}
-              className="px-2.5 py-1 rounded-lg bg-[#252c54] text-[#D4AF37] font-bold text-xs hover:bg-[#283058] transition-all cursor-pointer whitespace-nowrap"
-            >
-              Auto-fill
-            </button>
-          </div>
+
         </motion.div>
 
         <div className="text-center mt-8 text-sm text-gray-500">
