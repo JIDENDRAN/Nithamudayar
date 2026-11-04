@@ -315,7 +315,7 @@ export default function FleetPage({ onOpenBooking }) {
       </section>
 
       {/* 3. Detailed Fleet Cards with Interactive Filter & Showroom Animations */}
-      <section className="py-12 sm:py-20 px-4 sm:px-10 bg-[#201512] text-white relative overflow-hidden">
+      <section className="py-12 sm:py-20 px-4 sm:px-10 bg-[#1b203d] text-white relative overflow-hidden">
         {/* Ambient radial gold glow behind section */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
@@ -336,7 +336,7 @@ export default function FleetPage({ onOpenBooking }) {
             </div>
 
             {/* Quick trust badge */}
-            <div className="flex items-center gap-2 text-xs text-brand-gold bg-[#2d1e1a] border border-brand-gold/30 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg shrink-0 whitespace-nowrap">
+            <div className="flex items-center gap-2 text-xs text-brand-gold bg-[#1b203d] border border-brand-gold/30 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg shrink-0 whitespace-nowrap">
               <ShieldCheck className="w-4 h-4 text-brand-gold shrink-0" />
               <span className="font-semibold text-neutral-200">100% Commercial Tourist Permits</span>
             </div>
@@ -351,7 +351,7 @@ export default function FleetPage({ onOpenBooking }) {
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer whitespace-nowrap shrink-0 ${
                   fleetFilter === tab.id
                     ? 'btn-gold shadow-md scale-[1.02]'
-                    : 'bg-[#2a1c18] border border-brand-gold/20 text-neutral-300 hover:border-brand-gold/60 hover:text-white'
+                    : 'bg-[#1b203d] border border-brand-gold/20 text-neutral-300 hover:border-brand-gold/60 hover:text-white'
                 }`}
               >
                 {tab.label}
@@ -364,14 +364,14 @@ export default function FleetPage({ onOpenBooking }) {
             {(fleetFilter === 'all' ? fleet : fleet.filter(item => item.category === fleetFilter)).map((item) => (
               <div
                 key={item.id}
-                className="fleet-showroom-card group flex flex-col justify-between bg-[#201512] border border-brand-gold/30 rounded-2xl overflow-hidden hover:border-brand-gold/70 hover:shadow-2xl transition-all duration-300"
+                className="fleet-showroom-card group flex flex-col justify-between bg-[#1b203d] border border-brand-gold/30 rounded-2xl overflow-hidden hover:border-brand-gold/70 hover:shadow-2xl transition-all duration-300"
               >
                 {/* Gold Shimmer Bar on Hover */}
                 <div className="fleet-shimmer"></div>
 
                 <div>
                   {/* Fitted Showroom Stage with Radial Spotlight */}
-                  <div className="fleet-stage relative h-48 sm:h-56 w-full flex flex-col items-center justify-center p-4 border-b border-white/10 overflow-hidden bg-gradient-to-b from-[#2a1b17] to-[#180e0c]">
+                  <div className="fleet-stage relative h-48 sm:h-56 w-full flex flex-col items-center justify-center p-4 border-b border-white/10 overflow-hidden bg-gradient-to-b from-[#252c54] to-[#0f1426]">
                     <div className="absolute inset-0 bg-radial from-brand-gold/25 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                     {/* Floating Studio Vehicle Image with Ground Shadow */}
@@ -386,7 +386,7 @@ export default function FleetPage({ onOpenBooking }) {
                     <div className="w-2/3 h-2.5 bg-black/80 rounded-full blur-xs mx-auto -mt-1 fleet-ground-shadow pointer-events-none"></div>
 
                     {/* Category Tag on Stage Top Left */}
-                    <div className="absolute top-3 left-3 bg-[#1b100e]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold text-brand-gold border border-brand-gold/40 shadow-sm whitespace-nowrap">
+                    <div className="absolute top-3 left-3 bg-[#0f1426]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold text-brand-gold border border-brand-gold/40 shadow-sm whitespace-nowrap">
                       {item.category}
                     </div>
 
@@ -414,7 +414,7 @@ export default function FleetPage({ onOpenBooking }) {
 
                     {/* 1. KEY SPECS: 3 Clean Stat Boxes */}
                     <div className="grid grid-cols-3 gap-2">
-                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
                         <Users className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
                         <span className="text-[9px] uppercase font-bold text-neutral-400 block">Capacity</span>
                         <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
@@ -422,7 +422,7 @@ export default function FleetPage({ onOpenBooking }) {
                         </span>
                       </div>
 
-                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
                         <Briefcase className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
                         <span className="text-[9px] uppercase font-bold text-neutral-400 block">Luggage</span>
                         <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
@@ -430,7 +430,7 @@ export default function FleetPage({ onOpenBooking }) {
                         </span>
                       </div>
 
-                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
                         <Wind className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
                         <span className="text-[9px] uppercase font-bold text-neutral-400 block">Climate</span>
                         <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
@@ -440,7 +440,7 @@ export default function FleetPage({ onOpenBooking }) {
                     </div>
 
                     {/* 2. TRANSPARENT TARIFF STRIP */}
-                    <div className="bg-[#180f0d] border border-brand-gold/25 rounded-xl p-2.5">
+                    <div className="bg-[#0f1426] border border-brand-gold/25 rounded-xl p-2.5">
                       <div className="grid grid-cols-3 divide-x divide-white/10 text-center">
                         <div className="px-1">
                           <span className="text-[9px] uppercase font-bold text-neutral-400 block">Outstation</span>
@@ -513,7 +513,7 @@ export default function FleetPage({ onOpenBooking }) {
                 onClick={() => setTariffMobileMode('cards')}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-md transition-all ${
                   tariffMobileMode === 'cards'
-                    ? 'bg-[#241815] text-brand-gold shadow-xs'
+                    ? 'bg-[#1b203d] text-brand-gold shadow-xs'
                     : 'text-neutral-600 hover:text-neutral-900'
                 }`}
               >
@@ -524,7 +524,7 @@ export default function FleetPage({ onOpenBooking }) {
                 onClick={() => setTariffMobileMode('table')}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-md transition-all ${
                   tariffMobileMode === 'table'
-                    ? 'bg-[#241815] text-brand-gold shadow-xs'
+                    ? 'bg-[#1b203d] text-brand-gold shadow-xs'
                     : 'text-neutral-600 hover:text-neutral-900'
                 }`}
               >
@@ -597,7 +597,7 @@ export default function FleetPage({ onOpenBooking }) {
                     
                     {/* Rich Dark Header with Single-line fit */}
                     <thead>
-                      <tr className="bg-gradient-to-r from-[#201512] via-[#291b17] to-[#180e0c] text-white">
+                      <tr className="bg-gradient-to-r from-[#1b203d] via-[#1b203d] to-[#0f1426] text-white">
                         <th className="py-3 px-3.5 sm:py-4 sm:px-5 font-bold uppercase text-[10px] sm:text-[11px] tracking-wider text-brand-gold border-r border-white/10 whitespace-nowrap">
                           Vehicle Category
                         </th>

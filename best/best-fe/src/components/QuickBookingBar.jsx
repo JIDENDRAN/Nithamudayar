@@ -17,7 +17,7 @@ export default function QuickBookingBar({ onOpenBooking }) {
   return (
     <section className="relative z-20 py-3.5 sm:py-8 px-3 sm:px-10 bg-[#FAF8F5] border-b border-neutral-200">
       <div className="max-w-md lg:max-w-7xl mx-auto">
-        <div className="bg-[#241815] rounded-xl sm:rounded-2xl border border-brand-gold/35 p-3 sm:p-7 shadow-xl relative overflow-hidden">
+        <div className="bg-[#1b203d] rounded-xl sm:rounded-2xl border border-brand-gold/35 p-3 sm:p-7 shadow-xl relative overflow-hidden">
           
           {/* Subtle Top Gold Shimmer Line */}
           <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-80"></div>
@@ -42,7 +42,7 @@ export default function QuickBookingBar({ onOpenBooking }) {
               <select
                 value={pickupCity}
                 onChange={(e) => setPickupCity(e.target.value)}
-                className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold transition-colors truncate"
+                className="w-full bg-[#12162b] border border-white/20 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold transition-colors truncate"
               >
                 <option value="Thanjavur">Thanjavur</option>
                 <option value="Trichy">Trichy</option>
@@ -61,7 +61,7 @@ export default function QuickBookingBar({ onOpenBooking }) {
               <select
                 value={destinationCity}
                 onChange={(e) => setDestinationCity(e.target.value)}
-                className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold transition-colors truncate"
+                className="w-full bg-[#12162b] border border-white/20 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold transition-colors truncate"
               >
                 <option value="Airport pickup and drop">Airport pickup and drop</option>
                 <option value="Local trip">Local trip (City & Sightseeing)</option>
@@ -86,7 +86,7 @@ export default function QuickBookingBar({ onOpenBooking }) {
                 min={todayStr}
                 value={travelDate}
                 onChange={(e) => setTravelDate(e.target.value)}
-                className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold transition-colors"
+                className="w-full bg-[#12162b] border border-white/20 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold transition-colors"
               >
               </input>
             </div>
@@ -100,7 +100,7 @@ export default function QuickBookingBar({ onOpenBooking }) {
               <select
                 value={passengers}
                 onChange={(e) => setPassengers(e.target.value)}
-                className="w-full bg-[#18110f] border border-white/20 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold transition-colors truncate"
+                className="w-full bg-[#12162b] border border-white/20 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold transition-colors truncate"
               >
                 <option value="Sedan (Dzire / Etios) - ₹14/km">Sedan (4+1) - ₹14/km</option>
                 <option value="SUV (Ertiga / Carens) - ₹19/km">SUV (6+1) - ₹19/km</option>

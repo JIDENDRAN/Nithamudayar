@@ -557,8 +557,8 @@ Driver Charge: ${data.dayDriver || ''}`;
     <div className="min-h-screen bg-[#f5f0e8] text-gray-800 flex flex-col md:flex-row font-outfit">
 
       {/* Sidebar navigation */}
-      <div className="w-full md:w-64 bg-[#241815] flex flex-col border-r border-[#342521] shadow-2xl z-20">
-        <div className="p-6 flex items-center gap-3 border-b border-[#342521]">
+      <div className="w-full md:w-64 bg-[#1b203d] flex flex-col border-r border-[#252c54] shadow-2xl z-20">
+        <div className="p-6 flex items-center gap-3 border-b border-[#252c54]">
           <div className="w-12 h-12 bg-[#1b203d] rounded-xl flex items-center justify-center shadow-md p-0.5 border border-[#d4af37]/50 overflow-hidden">
             <img src="/logo.png" alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
           </div>
@@ -670,12 +670,12 @@ Driver Charge: ${data.dayDriver || ''}`;
       <div className="flex-1 flex flex-col min-w-0 bg-[#f5f0e8] text-gray-800">
 
         <header className="bg-white border-b border-[#edeae1] px-6 py-4 md:px-8 flex justify-between items-center shadow-sm relative z-10">
-          <h1 className="text-xl md:text-2xl font-bold text-[#342521] uppercase tracking-wider flex items-center gap-2 font-heading">
+          <h1 className="text-xl md:text-2xl font-bold text-[#252c54] uppercase tracking-wider flex items-center gap-2 font-heading">
             <span className="text-[#D4AF37]">●</span> {activeTab.replace('-', ' ')}
           </h1>
           <div className="flex items-center gap-3">
             <div className="text-right hidden sm:block">
-              <span className="block text-sm font-semibold text-[#342521]">Superadmin Panel</span>
+              <span className="block text-sm font-semibold text-[#252c54]">Superadmin Panel</span>
               <span className="block text-xs text-[#D4AF37] font-medium tracking-wide">Nithamudayar Tours & Travels Pvt Ltd</span>
             </div>
             <div className="w-12 h-12 bg-[#1b203d] rounded-xl p-0.5 shadow-md border border-[#d4af37]/50 flex items-center justify-center shrink-0">

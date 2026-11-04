@@ -28,7 +28,7 @@ export default function Header({ onOpenBooking }) {
       <nav
         className={`transition-all duration-300 px-6 sm:px-10 ${
           isScrolled
-            ? 'bg-[#342521]/95 backdrop-blur-md shadow-xl py-3 border-b border-brand-gold/20'
+            ? 'bg-[#252c54]/95 backdrop-blur-md shadow-xl py-3 border-b border-brand-gold/20'
             : 'bg-transparent py-4 border-b border-transparent'
         }`}
       >
@@ -105,7 +105,7 @@ export default function Header({ onOpenBooking }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#241815] border-b border-brand-gold/30 px-6 py-5 space-y-3">
+        <div className="lg:hidden bg-[#1b203d] border-b border-brand-gold/30 px-6 py-5 space-y-3">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -124,7 +124,7 @@ export default function Header({ onOpenBooking }) {
           <div className="pt-3 border-t border-white/10 flex items-center gap-3">
             <a
               href="tel:+919894116405"
-              className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#241815] transition-all"
+              className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#1b203d] transition-all"
               aria-label="Call +91 98941 16405"
               title="Call +91 98941 16405"
             >

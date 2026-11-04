@@ -29,8 +29,8 @@ export default function Navbar({ onOpenBooking }) {
       <nav
         className={`transition-all duration-300 px-4 sm:px-10 ${
           isScrolled
-            ? 'bg-[#241815]/95 backdrop-blur-md shadow-xl py-3 border-b border-brand-gold/20'
-            : 'bg-gradient-to-b from-[#180e0c]/90 via-[#241815]/50 to-transparent py-4 border-b border-transparent'
+            ? 'bg-[#1b203d]/95 backdrop-blur-md shadow-xl py-3 border-b border-brand-gold/20'
+            : 'bg-gradient-to-b from-[#0f1426]/90 via-[#1b203d]/50 to-transparent py-4 border-b border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -118,7 +118,7 @@ export default function Navbar({ onOpenBooking }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#241815] border-b border-brand-gold/30 px-6 py-5 space-y-3 shadow-2xl">
+        <div className="lg:hidden bg-[#1b203d] border-b border-brand-gold/30 px-6 py-5 space-y-3 shadow-2xl">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -150,7 +150,7 @@ export default function Navbar({ onOpenBooking }) {
             <div className="flex items-center gap-3">
               <a
                 href="tel:+919894116405"
-                className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#241815] transition-all"
+                className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#1b203d] transition-all"
                 aria-label="Call +91 98941 16405"
               >
                 <Phone className="w-4 h-4" />

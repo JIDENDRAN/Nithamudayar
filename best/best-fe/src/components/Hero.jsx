@@ -6,24 +6,24 @@ export default function Hero({ onOpenBooking }) {
   return (
     <section 
       id="home" 
-      className="relative w-full pt-28 sm:pt-36 pb-16 sm:pb-24 bg-[#241815] text-white overflow-hidden bg-cover bg-[position:75%_bottom] sm:bg-[position:right_bottom] lg:bg-[position:right_bottom] bg-no-repeat min-h-[620px] sm:min-h-[720px] lg:min-h-[820px] xl:min-h-[880px] flex items-center"
+      className="relative w-full pt-28 sm:pt-36 pb-16 sm:pb-24 bg-[#1b203d] text-white overflow-hidden bg-cover bg-[position:75%_bottom] sm:bg-[position:right_bottom] lg:bg-[position:right_bottom] bg-no-repeat min-h-[620px] sm:min-h-[720px] lg:min-h-[820px] xl:min-h-[880px] flex items-center"
       style={{
-        backgroundImage: `url('/hero-bg-full.png')`,
+        backgroundImage: `url('/hero-thanjavur-car.png')`,
       }}
     >
       {/* Soft gradient blend for readability while keeping the car & temple vibrant on the right */}
-      <div className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-3/5 lg:w-1/2 bg-gradient-to-r from-[#241815]/90 via-[#241815]/60 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-3/5 lg:w-1/2 bg-gradient-to-r from-[#1b203d]/90 via-[#1b203d]/60 to-transparent pointer-events-none z-10"></div>
       
       {/* Subtle top edge shading */}
-      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#241815]/80 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
       {/* Very soft bottom blend so car wheels and ground are 100% visible */}
-      <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#241815]/30 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#1b203d]/30 to-transparent pointer-events-none z-10"></div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-10 w-full">
         <div className="max-w-lg lg:max-w-xl space-y-4 py-4 sm:py-8">
           
           {/* Eyebrow Tag */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#18110f]/80 border border-brand-gold/40 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#12162b]/80 border border-brand-gold/40 backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-brand-gold shrink-0" />
             <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#FCF6BA] uppercase">
               Tamil Nadu Tour & Travel Services

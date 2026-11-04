@@ -61,7 +61,7 @@ export const travelHubsData = [
     route: 'Trichy • Thanjavur • Madurai • Rameshwaram',
     desc: 'Journey through 2,000 years of glorious Tamil architectural genius, soaring granite temple towers (Vimana), sculpted corridors, and legendary sacred sea bridges.',
     vehicles: 'Innova Crysta • Force Urbania • Tempo Traveller',
-    accentColor: 'from-[#342521] via-[#44322d] to-[#241815]',
+    accentColor: 'from-[#252c54] via-[#283058] to-[#1b203d]',
     badgeBg: 'bg-amber-500/20 text-[#FCF6BA] border-amber-500/40',
     places: [
       {
@@ -100,7 +100,7 @@ export const travelHubsData = [
     route: 'Tiruchendur • Palani • Thiruparankundram • Swamimalai',
     desc: 'A deeply sacred devotional pilgrimage covering the six holy battle grounds and abodes of Lord Murugan with comfortable halts, early morning darshan timings, and child/elder friendly driving.',
     vehicles: 'Force Urbania (12/17 Seater) • Innova Crysta • AC Sedans',
-    accentColor: 'from-[#4a2e12] via-[#35200c] to-[#241508]',
+    accentColor: 'from-[#283058] via-[#1b203d] to-[#12162b]',
     badgeBg: 'bg-orange-500/20 text-orange-200 border-orange-500/40',
     places: [
       {
@@ -377,7 +377,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                 onClick={handlePrevHub}
                 title="Previous Hub"
                 aria-label="Previous Hub"
-                className="w-10 h-10 rounded-xl bg-white border border-neutral-300 hover:border-brand-gold hover:bg-[#241815] hover:text-white text-neutral-800 flex items-center justify-center shadow-sm transition-all cursor-pointer active:scale-95"
+                className="w-10 h-10 rounded-xl bg-white border border-neutral-300 hover:border-brand-gold hover:bg-[#1b203d] hover:text-white text-neutral-800 flex items-center justify-center shadow-sm transition-all cursor-pointer active:scale-95"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -385,7 +385,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                 onClick={handleNextHub}
                 title="Next Hub"
                 aria-label="Next Hub"
-                className="w-10 h-10 rounded-xl bg-white border border-neutral-300 hover:border-brand-gold hover:bg-[#241815] hover:text-white text-neutral-800 flex items-center justify-center shadow-sm transition-all cursor-pointer active:scale-95"
+                className="w-10 h-10 rounded-xl bg-white border border-neutral-300 hover:border-brand-gold hover:bg-[#1b203d] hover:text-white text-neutral-800 flex items-center justify-center shadow-sm transition-all cursor-pointer active:scale-95"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -403,7 +403,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                 onClick={() => handleSelectHub(idx)}
                 className={`relative px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 snap-start flex items-center gap-2 cursor-pointer border ${
                   isSelected
-                    ? 'bg-[#241815] text-[#FCF6BA] border-brand-gold shadow-lg scale-102 z-10'
+                    ? 'bg-[#1b203d] text-[#FCF6BA] border-brand-gold shadow-lg scale-102 z-10'
                     : 'bg-white text-neutral-700 hover:bg-neutral-50 border-neutral-200'
                 }`}
               >
@@ -449,7 +449,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                   <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-bold border border-white/20">
                     {currentHub.title}
                   </span>
-                  <span className="px-2.5 py-1 rounded-full bg-brand-gold text-[#241815] text-[10px] font-black uppercase tracking-wider shadow-sm">
+                  <span className="px-2.5 py-1 rounded-full bg-brand-gold text-[#1b203d] text-[10px] font-black uppercase tracking-wider shadow-sm">
                     Slide {activeImageIndex + 1} of {currentHub.places.length}
                   </span>
                 </div>
@@ -557,7 +557,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                   </Link>
                   <Link
                     to="/packages"
-                    className="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-[#241815] hover:bg-[#342521] text-[#FCF6BA] transition-colors border border-brand-gold/30"
+                    className="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-[#1b203d] hover:bg-[#252c54] text-[#FCF6BA] transition-colors border border-brand-gold/30"
                   >
                     Explore Packages
                   </Link>
@@ -621,7 +621,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                       
                       {isActive && (
-                        <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-brand-gold text-[#241815] text-[9px] font-black uppercase tracking-wider shadow">
+                        <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-brand-gold text-[#1b203d] text-[9px] font-black uppercase tracking-wider shadow">
                           Now Sliding
                         </div>
                       )}

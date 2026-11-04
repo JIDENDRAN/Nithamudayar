@@ -64,7 +64,7 @@ const AdminLogin = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-2xl sm:text-3xl font-heading font-bold text-[#342521]"
+            className="text-2xl sm:text-3xl font-heading font-bold text-[#252c54]"
           >
             Admin <span className="text-[#D4AF37]">Portal</span>
           </motion.h1>
@@ -92,7 +92,7 @@ const AdminLogin = () => {
             )}
 
             <div className="space-y-1.5">
-              <label className="text-[#342521] text-xs font-bold uppercase tracking-wider pl-1">Username</label>
+              <label className="text-[#252c54] text-xs font-bold uppercase tracking-wider pl-1">Username</label>
               <div className="relative">
                 <input
                   type="text"
@@ -107,7 +107,7 @@ const AdminLogin = () => {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[#342521] text-xs font-bold uppercase tracking-wider pl-1">Password</label>
+              <label className="text-[#252c54] text-xs font-bold uppercase tracking-wider pl-1">Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
@@ -117,7 +117,7 @@ const AdminLogin = () => {
                   placeholder="••••••••"
                   required
                 />
-                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#342521] transition-colors">
+                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#252c54] transition-colors">
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
@@ -126,7 +126,7 @@ const AdminLogin = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 bg-[#342521] hover:bg-[#4a352f] disabled:bg-[#342521]/70 text-[#D4AF37] font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 font-heading shadow-md hover:shadow-lg disabled:cursor-not-allowed group border border-[#D4AF37]/30"
+              className="w-full mt-2 bg-[#252c54] hover:bg-[#283058] disabled:bg-[#252c54]/70 text-[#D4AF37] font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 font-heading shadow-md hover:shadow-lg disabled:cursor-not-allowed group border border-[#D4AF37]/30"
             >
               {isLoading ? (
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
@@ -142,7 +142,7 @@ const AdminLogin = () => {
           {/* Helper details with 1-click autofill */}
           <div className="mt-6 p-3.5 rounded-2xl bg-[#f7f5f0] border border-[#edeae1] text-xs text-gray-600 flex items-center justify-between gap-2">
             <div>
-              <span className="font-semibold text-[#342521]">Default Login:</span> <code className="bg-white px-1.5 py-0.5 rounded border border-[#e4dfd5] text-[#966b1a] font-mono">admin</code> / <code className="bg-white px-1.5 py-0.5 rounded border border-[#e4dfd5] text-[#966b1a] font-mono">admin123</code>
+              <span className="font-semibold text-[#252c54]">Default Login:</span> <code className="bg-white px-1.5 py-0.5 rounded border border-[#e4dfd5] text-[#966b1a] font-mono">admin</code> / <code className="bg-white px-1.5 py-0.5 rounded border border-[#e4dfd5] text-[#966b1a] font-mono">admin123</code>
             </div>
             <button
               type="button"
@@ -150,7 +150,7 @@ const AdminLogin = () => {
                 setUsername('admin');
                 setPassword('admin123');
               }}
-              className="px-2.5 py-1 rounded-lg bg-[#342521] text-[#D4AF37] font-bold text-xs hover:bg-[#4a352f] transition-all cursor-pointer whitespace-nowrap"
+              className="px-2.5 py-1 rounded-lg bg-[#252c54] text-[#D4AF37] font-bold text-xs hover:bg-[#283058] transition-all cursor-pointer whitespace-nowrap"
             >
               Auto-fill
             </button>

@@ -199,7 +199,7 @@ export default function AboutPage({ onOpenBooking }) {
       </section>
 
       {/* 4. How It Works - Luxury Dark Themed 3-Step Journey */}
-      <section className="relative py-12 sm:py-24 px-4 sm:px-10 bg-gradient-to-b from-[#201512] via-[#291b17] to-[#180e0c] text-white overflow-hidden">
+      <section className="relative py-12 sm:py-24 px-4 sm:px-10 bg-gradient-to-b from-[#1b203d] via-[#1b203d] to-[#0f1426] text-white overflow-hidden">
         {/* Golden ambient radial light aura */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
@@ -221,7 +221,7 @@ export default function AboutPage({ onOpenBooking }) {
             {steps.map((st, i) => (
               <div
                 key={i}
-                className={`bg-[#2a1c18] border border-brand-gold/30 rounded-xl p-3.5 sm:p-7 md:p-8 hover:border-brand-gold transition-colors flex flex-col justify-between shadow-lg ${
+                className={`bg-[#1b203d] border border-brand-gold/30 rounded-xl p-3.5 sm:p-7 md:p-8 hover:border-brand-gold transition-colors flex flex-col justify-between shadow-lg ${
                   i === 2 
                     ? 'col-span-2 md:col-span-1 w-full max-w-xs md:max-w-none mx-auto' 
                     : ''

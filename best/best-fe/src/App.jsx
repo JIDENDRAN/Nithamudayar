@@ -72,7 +72,7 @@ const AppContent = () => {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             transition={{ duration: 0.7, ease: 'easeInOut' }}
-            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#241815] text-white select-none overflow-hidden"
+            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1b203d] text-white select-none overflow-hidden"
           >
             {/* Ambient golden glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0%,transparent_60%)] pointer-events-none" />

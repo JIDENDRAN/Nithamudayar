@@ -19,7 +19,7 @@ export default function AboutSection({ onOpenBooking }) {
             </div>
 
             {/* Experience badge overlay */}
-            <div className="absolute -bottom-6 -right-4 sm:right-6 bg-[#342521] text-white p-5 rounded-xl border border-brand-gold/30 shadow-2xl max-w-[220px]">
+            <div className="absolute -bottom-6 -right-4 sm:right-6 bg-[#252c54] text-white p-5 rounded-xl border border-brand-gold/30 shadow-2xl max-w-[220px]">
               <p className="text-3xl font-black font-heading text-brand-gold">15+ Years</p>
               <p className="text-xs text-neutral-300 font-medium mt-1">
                 Trusted travel operations across South India

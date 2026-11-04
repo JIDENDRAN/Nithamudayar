@@ -267,10 +267,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.96, opacity: 0 }}
-            className="bg-[#1e1310] border-0 sm:border border-[#d4af37]/40 sm:rounded-3xl w-full max-w-7xl h-full sm:h-auto sm:max-h-[96vh] shadow-2xl flex flex-col overflow-hidden text-white"
+            className="bg-[#12162b] border-0 sm:border border-[#d4af37]/40 sm:rounded-3xl w-full max-w-7xl h-full sm:h-auto sm:max-h-[96vh] shadow-2xl flex flex-col overflow-hidden text-white"
           >
             {/* Top Modal Navigation Header */}
-            <div className="p-3.5 sm:p-5 border-b border-white/10 bg-[#150d0a] shrink-0">
+            <div className="p-3.5 sm:p-5 border-b border-white/10 bg-[#0f1426] shrink-0">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 sm:gap-3">
                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center font-bold shrink-0">
@@ -292,7 +292,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   <button
                     type="button"
                     onClick={handlePrint}
-                    className="bg-[#241815] hover:bg-[#342521] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors"
+                    className="bg-[#1b203d] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors"
                     title="Print or Save as PDF via browser"
                   >
                     <Printer className="w-4 h-4 text-[#d4af37]" />
@@ -303,7 +303,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     type="button"
                     onClick={handleDownloadImage}
                     disabled={isGeneratingImage}
-                    className="bg-[#241815] hover:bg-[#342521] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors disabled:opacity-50"
+                    className="bg-[#1b203d] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors disabled:opacity-50"
                     title="Download high-resolution PNG image (ideal for WhatsApp)"
                   >
                     {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#d4af37]" />}
@@ -341,7 +341,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
               </div>
 
               {/* Mobile View Tab Switcher (Visible only on screens below lg) */}
-              <div className="flex lg:hidden w-full bg-[#18110f] p-1 rounded-xl border border-white/10 mt-3">
+              <div className="flex lg:hidden w-full bg-[#12162b] p-1 rounded-xl border border-white/10 mt-3">
                 <button
                   type="button"
                   onClick={() => setMobileTab('form')}
@@ -368,13 +368,13 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
             </div>
 
             {/* Modal Body: Left Inputs (5 Cols on Desktop), Right Preview (7 Cols on Desktop) */}
-            <div className="flex-1 overflow-y-auto p-3 sm:p-5 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 bg-[#18110f]">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-5 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 bg-[#12162b]">
 
               {/* LEFT COLUMN: Input Controls */}
               <div className={`${mobileTab === 'form' ? 'block' : 'hidden'} lg:block lg:col-span-5 space-y-4 text-xs`}>
 
                 {/* 1. Trip Meta Box */}
-                <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
+                <div className="bg-[#1b203d] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" />
@@ -390,7 +390,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.billNo}
                         onChange={(e) => handleInputChange('billNo', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                     <div>
@@ -404,7 +404,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             handleInputChange('dailyRentDays', 1);
                           }
                         }}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                       >
                         <option value="Outstation Round Trip">Outstation Round Trip</option>
                         <option value="Daily Base Rental">Daily Base Rental</option>
@@ -425,7 +425,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.date}
                         onChange={(e) => handleInputChange('date', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                     <div>
@@ -434,14 +434,14 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.time}
                         onChange={(e) => handleInputChange('time', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* 2. Customer & Route Information */}
-                <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
+                <div className="bg-[#1b203d] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
                       <User className="w-3.5 h-3.5" />
@@ -457,7 +457,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.customerName}
                         onChange={(e) => handleInputChange('customerName', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-semibold"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-semibold"
                         placeholder="e.g. Murugan Swamy"
                       />
                     </div>
@@ -467,7 +467,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                         placeholder="+91 98765 43210"
                       />
                     </div>
@@ -480,7 +480,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.fromLocation}
                         onChange={(e) => handleInputChange('fromLocation', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                         placeholder="e.g. Madurai Meenakshi Temple"
                       />
                     </div>
@@ -490,7 +490,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.toLocation}
                         onChange={(e) => handleInputChange('toLocation', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                         placeholder="e.g. Rameswaram Temple"
                       />
                     </div>
@@ -498,7 +498,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 </div>
 
                 {/* 3. Vehicle & Chauffeur Particulars */}
-                <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
+                <div className="bg-[#1b203d] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
                       <Car className="w-3.5 h-3.5" />
@@ -541,7 +541,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             dailyRentRate: (prev.dailyRentRate === 0 || !prev.dailyRentDays) ? dr : prev.dailyRentRate
                           }));
                         }}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                       >
                         <option value="Sedan (Dzire / Etios)">Sedan (Dzire/Etios) - ₹14/km</option>
                         <option value="SUV (Ertiga / Marazzo)">SUV (Ertiga/Marazzo) - ₹19/km</option>
@@ -557,7 +557,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.vehicleNo || ''}
                         onChange={(e) => handleInputChange('vehicleNo', e.target.value.toUpperCase())}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-mono uppercase"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-mono uppercase"
                         style={{ textTransform: 'uppercase' }}
                         placeholder="e.g. TN 49 AB 2026"
                       />
@@ -571,7 +571,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.driverName}
                         onChange={(e) => handleInputChange('driverName', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                         placeholder="e.g. S. Murugesan"
                       />
                     </div>
@@ -581,7 +581,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.driverPhone}
                         onChange={(e) => handleInputChange('driverPhone', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
                         placeholder="+91 98941 16405"
                       />
                     </div>
@@ -589,7 +589,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 </div>
 
                 {/* 4. Odometer / Meter Duty Log & Rates */}
-                <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
+                <div className="bg-[#1b203d] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
                       <Gauge className="w-3.5 h-3.5" />
@@ -606,7 +606,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.openingKm}
                         onChange={(e) => handleInputChange('openingKm', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                     <div>
@@ -616,7 +616,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.closingKm}
                         onChange={(e) => handleInputChange('closingKm', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                     <div>
@@ -626,7 +626,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.distanceKm}
                         onChange={(e) => handleInputChange('distanceKm', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                   </div>
@@ -639,7 +639,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.ratePerKm}
                         onChange={(e) => handleInputChange('ratePerKm', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                     <div>
@@ -649,7 +649,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.driverBata}
                         onChange={(e) => handleInputChange('driverBata', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                     <div>
@@ -659,7 +659,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.driverBataDays}
                         onChange={(e) => handleInputChange('driverBataDays', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                   </div>
@@ -691,7 +691,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.nightBataDays ?? 0}
                           onChange={(e) => handleInputChange('nightBataDays', e.target.value)}
                           placeholder="0"
-                          className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                          className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                         />
                       </div>
                       <div>
@@ -703,7 +703,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.nightBataRate ?? 400}
                           onChange={(e) => handleInputChange('nightBataRate', e.target.value)}
                           placeholder="400"
-                          className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                          className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                         />
                       </div>
                       <div className="col-span-2 sm:col-span-1">
@@ -723,7 +723,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             }
                           }}
                           placeholder="0"
-                          className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                          className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
                         />
                       </div>
                     </div>
@@ -731,7 +731,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 </div>
 
                 {/* 5. Daily Base Rent (Vehicle Rental) Section */}
-                <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
+                <div className="bg-[#1b203d] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
                       <Car className="w-3.5 h-3.5" />
@@ -761,7 +761,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.dailyRentDays ?? 0}
                         onChange={(e) => handleInputChange('dailyRentDays', Math.max(0, Number(e.target.value) || 0))}
                         placeholder="0"
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
                       />
                     </div>
                     <div>
@@ -773,7 +773,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.dailyRentRate ?? ''}
                         onChange={(e) => handleInputChange('dailyRentRate', e.target.value)}
                         placeholder="3500"
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
                       />
                     </div>
                     <div className="col-span-2 sm:col-span-1">
@@ -794,7 +794,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           }
                         }}
                         placeholder="0"
-                        className="w-full bg-[#18110f] border border-[#d4af37]/40 rounded-lg px-2.5 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-[#d4af37]/40 rounded-lg px-2.5 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
                       />
                     </div>
                   </div>
@@ -842,7 +842,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 </div>
 
                 {/* 6. Additional Charges & Settlement */}
-                <div className="bg-[#241815] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
+                <div className="bg-[#1b203d] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
                       <Calculator className="w-3.5 h-3.5" />
@@ -859,7 +859,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.tollParking}
                         onChange={(e) => handleInputChange('tollParking', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                         placeholder="0"
                       />
                     </div>
@@ -870,7 +870,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.permitAmt}
                         onChange={(e) => handleInputChange('permitAmt', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                         placeholder="0"
                       />
                     </div>
@@ -881,7 +881,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.advancePaid}
                         onChange={(e) => handleInputChange('advancePaid', e.target.value)}
-                        className="w-full bg-[#18110f] border border-emerald-500/40 rounded-lg px-2 py-2 text-emerald-400 font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-emerald-500/40 rounded-lg px-2 py-2 text-emerald-400 font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
                         placeholder="0"
                       />
                     </div>
@@ -898,7 +898,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             onClick={() => handleInputChange('paymentMode', mode)}
                             className={`py-2 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${billData.paymentMode === mode
                               ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]'
-                              : 'bg-[#18110f] text-neutral-400 border-white/10 hover:border-white/30'
+                              : 'bg-[#12162b] text-neutral-400 border-white/10 hover:border-white/30'
                               }`}
                           >
                             {mode}
@@ -912,7 +912,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.upiId}
                         onChange={(e) => handleInputChange('upiId', e.target.value)}
-                        className="w-full bg-[#18110f] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                         placeholder=""
                       />
                     </div>
@@ -937,7 +937,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
               <div className={`${mobileTab === 'preview' ? 'block' : 'hidden'} lg:block lg:col-span-7 flex flex-col items-center pb-20 lg:pb-0`}>
 
                 {/* Mobile Zoom / Switch Controls Bar (Only on mobile) */}
-                <div className="w-full flex items-center justify-between gap-2 mb-3 bg-[#241815] p-2.5 rounded-xl border border-white/10 lg:hidden">
+                <div className="w-full flex items-center justify-between gap-2 mb-3 bg-[#1b203d] p-2.5 rounded-xl border border-white/10 lg:hidden">
                   <button
                     type="button"
                     onClick={() => setMobileTab('form')}
@@ -952,7 +952,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <button
                       type="button"
                       onClick={() => setMobileFit(true)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#12162b] text-neutral-400 border-white/10'
                         }`}
                     >
                       Fit Phone
@@ -960,7 +960,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <button
                       type="button"
                       onClick={() => setMobileFit(false)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${!mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#18110f] text-neutral-400 border-white/10'
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${!mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#12162b] text-neutral-400 border-white/10'
                         }`}
                     >
                       100% Zoom
@@ -1326,12 +1326,12 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
             </div>
 
             {/* Mobile Sticky Bottom Action Bar (Fixed at bottom on phones) */}
-            <div className="lg:hidden p-3 bg-[#150d0a] border-t border-white/10 flex items-center gap-2 shrink-0 z-20 shadow-2xl">
+            <div className="lg:hidden p-3 bg-[#0f1426] border-t border-white/10 flex items-center gap-2 shrink-0 z-20 shadow-2xl">
               <button
                 type="button"
                 onClick={handleDownloadImage}
                 disabled={isGeneratingImage}
-                className="flex-1 bg-[#241815] hover:bg-[#342521] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
+                className="flex-1 bg-[#1b203d] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
                 title="Save PNG image for WhatsApp"
               >
                 {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#d4af37]" />}
@@ -1351,7 +1351,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
               <button
                 type="button"
                 onClick={handlePrint}
-                className="bg-[#241815] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-colors cursor-pointer"
+                className="bg-[#1b203d] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-colors cursor-pointer"
                 title="Print"
               >
                 <Printer className="w-4 h-4 text-[#d4af37]" />

@@ -516,7 +516,7 @@ export default function HomePage({ onOpenBooking }) {
       </section>
 
       {/* 7. Fleet Showcase Section with Luxury Gradient & Showcase Animations */}
-      <section className="relative py-14 sm:py-24 px-4 sm:px-10 bg-gradient-to-b from-[#18100e] via-[#281a16] to-[#140c0a] text-white overflow-hidden">
+      <section className="relative py-14 sm:py-24 px-4 sm:px-10 bg-gradient-to-b from-[#0f1426] via-[#1b203d] to-[#0b0e1a] text-white overflow-hidden">
         {/* Golden ambient radial light aura */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
@@ -546,13 +546,13 @@ export default function HomePage({ onOpenBooking }) {
             {featuredFleet.map((vehicle, idx) => (
               <div
                 key={vehicle.id || idx}
-                className="fleet-showroom-card group flex flex-col justify-between bg-[#201512] border border-brand-gold/30 rounded-2xl overflow-hidden hover:border-brand-gold/70 hover:shadow-2xl transition-all duration-300"
+                className="fleet-showroom-card group flex flex-col justify-between bg-[#1b203d] border border-brand-gold/30 rounded-2xl overflow-hidden hover:border-brand-gold/70 hover:shadow-2xl transition-all duration-300"
               >
                 <div className="fleet-shimmer"></div>
 
                 <div>
                   {/* Fitted Stage with Vehicle Image & Badges */}
-                  <div className="fleet-stage relative h-48 sm:h-56 w-full flex flex-col items-center justify-center p-4 border-b border-white/10 overflow-hidden bg-gradient-to-b from-[#2a1b17] to-[#180e0c]">
+                  <div className="fleet-stage relative h-48 sm:h-56 w-full flex flex-col items-center justify-center p-4 border-b border-white/10 overflow-hidden bg-gradient-to-b from-[#252c54] to-[#0f1426]">
                     <div className="absolute inset-0 bg-radial from-brand-gold/25 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                     <div className="relative z-10 w-full h-32 sm:h-40 flex items-center justify-center">
                       <img
@@ -565,7 +565,7 @@ export default function HomePage({ onOpenBooking }) {
                     <div className="w-2/3 h-2.5 bg-black/80 rounded-full blur-xs mx-auto -mt-1 fleet-ground-shadow pointer-events-none"></div>
 
                     {/* Top Badges */}
-                    <div className="absolute top-3 left-3 bg-[#1b100e]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold text-brand-gold border border-brand-gold/40 shadow-sm">
+                    <div className="absolute top-3 left-3 bg-[#0f1426]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold text-brand-gold border border-brand-gold/40 shadow-sm">
                       {vehicle.category}
                     </div>
                     <div className="absolute top-3 right-3 bg-gradient-to-r from-brand-gold-dark via-brand-gold to-brand-gold text-neutral-950 text-xs sm:text-sm font-black font-heading px-3 py-1 rounded-lg shadow-md">
@@ -591,7 +591,7 @@ export default function HomePage({ onOpenBooking }) {
 
                     {/* 1. KEY SPECS: 3 Clean Stat Boxes */}
                     <div className="grid grid-cols-3 gap-2">
-                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
                         <Users className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
                         <span className="text-[9px] uppercase font-bold text-neutral-400 block">Capacity</span>
                         <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
@@ -599,7 +599,7 @@ export default function HomePage({ onOpenBooking }) {
                         </span>
                       </div>
 
-                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
                         <Briefcase className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
                         <span className="text-[9px] uppercase font-bold text-neutral-400 block">Luggage</span>
                         <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
@@ -607,7 +607,7 @@ export default function HomePage({ onOpenBooking }) {
                         </span>
                       </div>
 
-                      <div className="bg-[#180f0d] border border-white/10 rounded-xl p-2 text-center">
+                      <div className="bg-[#0f1426] border border-white/10 rounded-xl p-2 text-center">
                         <Wind className="w-3.5 h-3.5 text-brand-gold mx-auto mb-1" />
                         <span className="text-[9px] uppercase font-bold text-neutral-400 block">Climate</span>
                         <span className="text-[11px] sm:text-xs font-bold text-white block truncate">
@@ -617,7 +617,7 @@ export default function HomePage({ onOpenBooking }) {
                     </div>
 
                     {/* 2. TRANSPARENT TARIFF STRIP */}
-                    <div className="bg-[#180f0d] border border-brand-gold/25 rounded-xl p-2.5">
+                    <div className="bg-[#0f1426] border border-brand-gold/25 rounded-xl p-2.5">
                       <div className="grid grid-cols-3 divide-x divide-white/10 text-center">
                         <div className="px-1">
                           <span className="text-[9px] uppercase font-bold text-neutral-400 block">Outstation</span>
@@ -681,7 +681,7 @@ export default function HomePage({ onOpenBooking }) {
               href="https://wa.me/919894116405?text=Hello%2C%20I%20would%20like%20to%20plan%20a%20tour%20with%20Nithamudayar%20Travels"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-[#241815] text-white hover:bg-[#342521] py-3 px-8 rounded-xl text-sm font-bold transition-all inline-flex items-center justify-center gap-2 border border-brand-gold/30"
+              className="w-full sm:w-auto bg-[#1b203d] text-white hover:bg-[#252c54] py-3 px-8 rounded-xl text-sm font-bold transition-all inline-flex items-center justify-center gap-2 border border-brand-gold/30"
             >
               <span>Instant WhatsApp Quote</span>
               <ArrowRight className="w-4 h-4 text-brand-gold" />

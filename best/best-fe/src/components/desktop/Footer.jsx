@@ -47,7 +47,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
   ];
 
   return (
-    <footer className="bg-[#241815] text-neutral-300 border-t border-brand-gold/20">
+    <footer className="bg-[#1b203d] text-neutral-300 border-t border-brand-gold/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-10 pt-8 sm:pt-16 pb-4 sm:pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-10">
           
@@ -191,7 +191,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-white/5 bg-[#1a110e] py-3 px-4 sm:px-10">
+      <div className="border-t border-white/5 bg-[#0f1426] py-3 px-4 sm:px-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Nithamudayar Tours & Travels Pvt Ltd. All rights reserved.</p>
           <div className="flex items-center gap-3">

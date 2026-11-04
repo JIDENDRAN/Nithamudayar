@@ -552,8 +552,8 @@ export default function PackagesPage({ onOpenBooking }) {
 
                   {/* BACK SIDE (Detailed Itinerary) */}
                   <div 
-                    className="flip-card-back !bg-[#241815] border-2 border-brand-gold/50 text-white rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-2xl"
-                    style={{ backgroundColor: '#241815', color: '#ffffff' }}
+                    className="flip-card-back !bg-[#1b203d] border-2 border-brand-gold/50 text-white rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-2xl"
+                    style={{ backgroundColor: '#1b203d', color: '#ffffff' }}
                   >
                     <div>
                       {/* Back Header */}
@@ -578,14 +578,14 @@ export default function PackagesPage({ onOpenBooking }) {
                             <MapPin className="w-4 h-4 text-brand-gold" />
                             <span>Places Covered ({pkg.highlights.length}):</span>
                           </span>
-                          <span className="text-[11px] font-bold text-[#241815] bg-[#D4AF37] px-2.5 py-0.5 rounded-full shadow-sm font-heading">
+                          <span className="text-[11px] font-bold text-[#1b203d] bg-[#D4AF37] px-2.5 py-0.5 rounded-full shadow-sm font-heading">
                             {pkg.duration}
                           </span>
                         </div>
                         <ul className="space-y-1.5 text-xs text-white max-h-52 overflow-y-auto pr-1">
                           {pkg.highlights.map((h, i) => (
-                            <li key={i} className="flex items-center gap-2.5 bg-[#31201b] hover:bg-[#3d2822] p-2 rounded-lg border border-brand-gold/30 hover:border-brand-gold/60 transition-colors">
-                              <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#FCF6BA] to-[#BF953F] text-[#241815] font-black text-[11px] flex items-center justify-center shrink-0 shadow-xs">
+                            <li key={i} className="flex items-center gap-2.5 bg-[#1b203d] hover:bg-[#283058] p-2 rounded-lg border border-brand-gold/30 hover:border-brand-gold/60 transition-colors">
+                              <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#FCF6BA] to-[#BF953F] text-[#1b203d] font-black text-[11px] flex items-center justify-center shrink-0 shadow-xs">
                                 {i + 1}
                               </span>
                               <span className="text-white font-bold text-xs sm:text-sm leading-snug">{h}</span>
@@ -595,7 +595,7 @@ export default function PackagesPage({ onOpenBooking }) {
                       </div>
 
                       {/* Package Inclusions */}
-                      <div className="bg-[#18110f] border border-brand-gold/35 rounded-xl p-3 text-xs">
+                      <div className="bg-[#12162b] border border-brand-gold/35 rounded-xl p-3 text-xs">
                         <span className="text-[#D4AF37] font-bold block mb-1">Package Inclusions:</span>
                         <p className="text-neutral-200 leading-relaxed text-[11px]">{pkg.includes}</p>
                       </div>

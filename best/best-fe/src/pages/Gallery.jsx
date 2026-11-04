@@ -153,7 +153,7 @@ const Gallery = () => {
             alt="Nithamudayar Tours & Travels Pvt Ltd Gallery" 
             className="w-full h-full object-cover object-center scale-105"
           />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#241815]/90 via-[#342521]/70 to-[#180e0c]/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1b203d]/90 via-[#252c54]/70 to-[#0f1426]/95" />
           {/* Accent Glows */}
           <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[150px] bg-brand-gold/15 rounded-full blur-[100px] pointer-events-none" />
         </div>

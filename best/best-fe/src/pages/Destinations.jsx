@@ -353,7 +353,7 @@ export default function DestinationsPage({ onOpenBooking }) {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/25 pointer-events-none"></div>
 
                       {/* Category Tag Top Left */}
-                      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#241815]/90 backdrop-blur-md text-brand-gold text-[8px] sm:text-[11px] font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-brand-gold/30 shadow-sm">
+                      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#1b203d]/90 backdrop-blur-md text-brand-gold text-[8px] sm:text-[11px] font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-brand-gold/30 shadow-sm">
                         {dest.tag}
                       </div>
 
@@ -424,7 +424,7 @@ export default function DestinationsPage({ onOpenBooking }) {
       {/* 4. Custom Route Callout - Modern Animated Route Pathway (No photo background) */}
       <section className="py-10 sm:py-20 px-4 sm:px-10 bg-[#FAF8F5]">
         <div className="max-w-6xl mx-auto">
-          <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#241815] via-[#1c1210] to-[#2e1d18] border border-brand-gold/30 p-5 sm:p-12 overflow-hidden shadow-2xl group hover:border-brand-gold/60 transition-all duration-500">
+          <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1b203d] via-[#0f1426] to-[#1b203d] border border-brand-gold/30 p-5 sm:p-12 overflow-hidden shadow-2xl group hover:border-brand-gold/60 transition-all duration-500">
             
             {/* 1. Ambient Golden Radial Glows */}
             <div className="absolute -top-24 -left-24 w-72 h-72 bg-brand-gold/15 rounded-full blur-[90px] pointer-events-none"></div>

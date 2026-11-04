@@ -6,7 +6,7 @@ export default function PageHeader({
   title, 
   bgImage, 
   breadcrumb, 
-  overlayClassName = "bg-[#241815]/75 backdrop-blur-[1px]",
+  overlayClassName = "bg-[#1b203d]/75 backdrop-blur-[1px]",
   bgPosition = "bg-center",
   className = "pt-32 pb-16 sm:pt-36 sm:pb-20"
 }) {

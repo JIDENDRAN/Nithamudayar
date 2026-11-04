@@ -50,7 +50,7 @@ export default function FleetSection({ onSelectVehicle }) {
   ];
 
   return (
-    <section id="fleet" className="py-20 px-6 sm:px-10 bg-[#241815] text-white">
+    <section id="fleet" className="py-20 px-6 sm:px-10 bg-[#1b203d] text-white">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -73,7 +73,7 @@ export default function FleetSection({ onSelectVehicle }) {
           {fleet.map((vehicle) => (
             <div
               key={vehicle.id}
-              className="bg-[#2e1f1c] border border-brand-gold/20 rounded-xl overflow-hidden flex flex-col justify-between hover:border-brand-gold/50 transition-all duration-300"
+              className="bg-[#1b203d] border border-brand-gold/20 rounded-xl overflow-hidden flex flex-col justify-between hover:border-brand-gold/50 transition-all duration-300"
             >
               <div>
                 {/* Vehicle Image */}

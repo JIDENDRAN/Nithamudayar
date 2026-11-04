@@ -12,17 +12,17 @@ export default function ContactHero({ onOpenBooking }) {
   return (
     <section 
       id="contact-hero" 
-      className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#352016] text-white overflow-hidden bg-cover bg-[position:65%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[460px] sm:min-h-[520px] flex items-center"
+      className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#1b203d] text-white overflow-hidden bg-cover bg-[position:65%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[460px] sm:min-h-[520px] flex items-center"
       style={{
         backgroundImage: `url('/images/backgrounds/contact-hero.png')`,
       }}
     >
       {/* Soft gradient blend: warm brown shade on mobile view alone, rich blend on desktop */}
-      <div className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-3/5 lg:w-1/2 bg-gradient-to-r from-[#352016]/65 via-[#352016]/40 to-transparent sm:from-[#352016] sm:via-[#352016]/85 sm:to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-3/5 lg:w-1/2 bg-gradient-to-r from-[#1b203d]/65 via-[#1b203d]/40 to-transparent sm:from-[#1b203d] sm:via-[#1b203d]/85 sm:to-transparent pointer-events-none z-10"></div>
 
       {/* Subtle top/bottom vignette: warm brown framing on mobile view alone */}
-      <div className="absolute inset-x-0 top-0 h-12 sm:h-16 bg-gradient-to-b from-[#352016]/55 sm:from-[#352016]/80 to-transparent pointer-events-none z-10"></div>
-      <div className="absolute inset-x-0 bottom-0 h-12 sm:h-14 bg-gradient-to-t from-[#352016]/50 sm:from-[#352016]/80 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-x-0 top-0 h-12 sm:h-16 bg-gradient-to-b from-[#1b203d]/55 sm:from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-x-0 bottom-0 h-12 sm:h-14 bg-gradient-to-t from-[#1b203d]/50 sm:from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-10 w-full">
         {/* Left Content */}

@@ -6,7 +6,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-[#241815] border border-brand-gold/30 rounded-2xl shadow-2xl p-6 sm:p-8 text-neutral-200">
+      <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-[#1b203d] border border-brand-gold/30 rounded-2xl shadow-2xl p-6 sm:p-8 text-neutral-200">
         
         {/* Close Button */}
         <button
