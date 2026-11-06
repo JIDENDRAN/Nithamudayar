@@ -66,6 +66,8 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     nightBataRate: 400,
     waitingDetails: '0 hrs',
     waitingAmt: "",
+    tollCharges: "",
+    parkingCharges: "",
     tollParking: "",
     permitAmt: "",
     advancePaid: "",
@@ -146,9 +148,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
   const totalBata = (Number(billData.driverBataDays) || 1) * (Number(billData.driverBata) || 0);
   const nightBata = (Number(billData.nightBataDays) || 0) * (Number(billData.nightBataRate) || 0);
   const waitingAmt = Number(billData.waitingAmt) || 0;
-  const tollAmt = Number(billData.tollParking) || 0;
+  const tollAmt = Number(billData.tollCharges) || (billData.tollParking ? Number(billData.tollParking) : 0);
+  const parkingAmt = Number(billData.parkingCharges) || 0;
   const permitAmt = Number(billData.permitAmt) || 0;
-  const totalFare = distanceFare + dailyRentTotal + totalBata + nightBata + waitingAmt + tollAmt + permitAmt;
+  const totalFare = distanceFare + dailyRentTotal + totalBata + nightBata + waitingAmt + tollAmt + parkingAmt + permitAmt;
   const advance = Number(billData.advancePaid) || 0;
   const balanceAmount = Math.max(0, totalFare - advance);
 
@@ -186,6 +189,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
           nightBata,
           waitingAmt,
           tollAmt,
+          parkingAmt,
           permitAmt,
           totalFare,
           advance,
@@ -216,6 +220,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
           nightBata,
           waitingAmt,
           tollAmt,
+          parkingAmt,
           permitAmt,
           totalFare,
           advance,
@@ -851,20 +856,34 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <span className="text-[10px] text-neutral-400 font-mono">Step 6</span>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                     <div>
-                      <label className="text-neutral-400 block mb-1 font-semibold truncate">Toll / Parking (₹)</label>
+                      <label className="text-neutral-400 block mb-1 font-semibold truncate text-[11px] sm:text-xs">Toll Charges (₹)</label>
                       <input
                         type="number"
                         inputMode="numeric"
-                        value={billData.tollParking}
-                        onChange={(e) => handleInputChange('tollParking', e.target.value)}
+                        value={billData.tollCharges !== undefined && billData.tollCharges !== "" ? billData.tollCharges : (billData.tollParking || "")}
+                        onChange={(e) => {
+                          handleInputChange('tollCharges', e.target.value);
+                          if (billData.tollParking) handleInputChange('tollParking', '');
+                        }}
                         className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
                         placeholder="0"
                       />
                     </div>
                     <div>
-                      <label className="text-neutral-400 block mb-1 font-semibold truncate">Permit / Extra (₹)</label>
+                      <label className="text-neutral-400 block mb-1 font-semibold truncate text-[11px] sm:text-xs">Parking Charges (₹)</label>
+                      <input
+                        type="number"
+                        inputMode="numeric"
+                        value={billData.parkingCharges || ""}
+                        onChange={(e) => handleInputChange('parkingCharges', e.target.value)}
+                        className="w-full bg-[#12162b] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        placeholder="0"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-neutral-400 block mb-1 font-semibold truncate text-[11px] sm:text-xs">Permit / Extra (₹)</label>
                       <input
                         type="number"
                         inputMode="numeric"
@@ -875,7 +894,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                       />
                     </div>
                     <div>
-                      <label className="text-neutral-400 block mb-1 font-semibold truncate">Advance Paid (₹)</label>
+                      <label className="text-neutral-400 block mb-1 font-semibold truncate text-[11px] sm:text-xs">Advance Paid (₹)</label>
                       <input
                         type="number"
                         inputMode="numeric"
@@ -1002,8 +1021,8 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 <h1 className="text-base sm:text-lg font-black tracking-wide font-heading text-white">
                                   {billData.cabServiceName.toUpperCase()}
                                 </h1>
-                                <p className="text-[10px] text-[#f8e7a2] font-semibold">
-                                  SEDAN • SUV • Innova • Force Urbania • Innova Crysta • Tempo Traveller
+                                <p className="text-[9.5px] sm:text-[10px] text-[#f8e7a2] font-semibold tracking-tight">
+                                  Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •
                                 </p>
                                 <p className="text-[9px] text-neutral-300">
                                   Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Rd, Thanjavur - 613005 | Call: +91 98941 16405 / +91 96261 16405
@@ -1179,10 +1198,19 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                   if (tollAmt > 0) {
                                     rows.push({
                                       sNo: sNo++,
-                                      desc: 'Toll Plaza & Parking Charges (At Actuals)',
+                                      desc: 'Toll Plaza Charges (Fastag / Actuals)',
                                       details: 'Actuals',
                                       rate: '-',
                                       amount: tollAmt
+                                    });
+                                  }
+                                  if (parkingAmt > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Parking Charges (At Actuals)',
+                                      details: 'Actuals',
+                                      rate: '-',
+                                      amount: parkingAmt
                                     });
                                   }
                                   if ((waitingAmt + permitAmt) > 0) {

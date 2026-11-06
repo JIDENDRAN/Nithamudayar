@@ -33,6 +33,7 @@ function renderBillDocument(d, billData, calculations, settings) {
     nightBata = 0,
     waitingAmt = 0,
     tollAmt = 0,
+    parkingAmt = 0,
     permitAmt = 0,
     totalFare = 0,
     advance = 0,
@@ -114,9 +115,9 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.text(companyName, textLeftX, headerY + 8, { maxWidth: textMaxWidth });
 
   d.setFont('helvetica', 'normal');
-  d.setFontSize(7.2);
+  d.setFontSize(6.8);
   d.setTextColor(...goldLight);
-  d.text('Premium Luxury Fleet • Force Urbania • Innova Crysta • Tempo Traveller', textLeftX, headerY + 14, { maxWidth: textMaxWidth });
+  d.text('Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •', textLeftX, headerY + 14, { maxWidth: textMaxWidth });
 
   d.setTextColor(235, 235, 235);
   d.setFontSize(6.8);
@@ -174,10 +175,20 @@ function renderBillDocument(d, billData, calculations, settings) {
   if (tollAmt > 0) {
     items.push({
       no: String(sNo++),
-      desc: 'Toll Plaza & Parking Charges (At Actuals)',
+      desc: 'Toll Plaza Charges (Fastag / Actuals)',
       details: 'Actuals',
       rate: '-',
       amt: tollAmt.toLocaleString('en-IN', { minimumFractionDigits: 2 })
+    });
+  }
+
+  if (parkingAmt > 0) {
+    items.push({
+      no: String(sNo++),
+      desc: 'Parking Charges (At Actuals)',
+      details: 'Actuals',
+      rate: '-',
+      amt: parkingAmt.toLocaleString('en-IN', { minimumFractionDigits: 2 })
     });
   }
 
