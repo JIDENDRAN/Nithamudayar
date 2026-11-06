@@ -58,21 +58,12 @@ export const travelHubsData = [
     id: 'tamilnadu-heritage',
     title: 'Tamil Nadu Heritage Circuit',
     subtitle: 'UNESCO World Monuments & Great Living Dravidian Temples',
-    route: 'Trichy • Thanjavur • Madurai • Rameshwaram',
-    desc: 'Journey through 2,000 years of glorious Tamil architectural genius, soaring granite temple towers (Vimana), sculpted corridors, and legendary sacred sea bridges.',
+    route: 'Trichy • Madurai • Rameshwaram • Kanyakumari',
+    desc: 'Journey through 2,000 years of glorious Tamil architectural genius, soaring granite temple towers (Vimana), sculpted corridors, and legendary sacred sea bridges down to the ocean confluence.',
     vehicles: 'Innova Crysta • Force Urbania • Tempo Traveller',
     accentColor: 'from-[#252c54] via-[#283058] to-[#1b203d]',
     badgeBg: 'bg-amber-500/20 text-[#FCF6BA] border-amber-500/40',
     places: [
-      {
-        name: 'Thanjavur',
-        state: 'Tamil Nadu',
-        tagline: 'Chola Capital & Great Living Temples',
-        image: '/images/destinations/thanjavur.jpg',
-        attractions: 'Brihadisvara Periya Kovil • Maratha Royal Palace • Saraswathi Mahal Library • Art Gallery',
-        highlight: 'UNESCO World Heritage • 1000+ Yrs Vimana',
-        desc: 'Behold the architectural wonder of Raja Raja Cholas 216-foot monolithic granite tower, giant Nandi, and priceless bronze casting galleries.'
-      },
       {
         name: 'Madurai',
         state: 'Tamil Nadu',
@@ -90,6 +81,15 @@ export const travelHubsData = [
         attractions: 'Pamban Sea Bridge • Ramanathaswamy 22 Holy Theerthams • Dhanushkodi Ghost Town',
         highlight: 'Char Dham Pilgrimage • Pamban Bridge',
         desc: 'Cross the majestic sea bridge over the turquoise ocean to purify in 22 sacred temple wells and stand at Dhanushkodi where two seas merge.'
+      },
+      {
+        name: 'Kanyakumari',
+        state: 'Tamil Nadu',
+        tagline: 'Lands End & Triveni Sangam',
+        image: '/images/destinations/kanyakumari.jpg',
+        attractions: 'Vivekananda Rock Memorial • 133ft Thiruvalluvar Statue • Sunrise & Sunset Point',
+        highlight: 'Confluence of 3 Oceans',
+        desc: 'The southernmost tip of mainland India where the Indian Ocean, Arabian Sea, and Bay of Bengal unite under stunning sunrises and sunsets.'
       }
     ]
   },
@@ -97,47 +97,74 @@ export const travelHubsData = [
     id: 'murugan-circuit',
     title: 'Arupadai Murugan Temple Tour',
     subtitle: 'Six Divine Abodes of Lord Murugan (Arupadai Veedu)',
-    route: 'Tiruchendur • Palani • Thiruparankundram • Swamimalai',
-    desc: 'A deeply sacred devotional pilgrimage covering the six holy battle grounds and abodes of Lord Murugan with comfortable halts, early morning darshan timings, and child/elder friendly driving.',
+    route: 'Thiruparankundram • Tiruchendur • Palani • Swamimalai • Thiruthani • Pazhamudircholai',
+    desc: 'A deeply sacred devotional pilgrimage covering all six holy battle grounds and divine abodes of Lord Murugan with comfortable halts, early morning darshan timings, and child/elder friendly driving.',
     vehicles: 'Force Urbania (12/17 Seater) • Innova Crysta • AC Sedans',
     accentColor: 'from-[#283058] via-[#1b203d] to-[#12162b]',
     badgeBg: 'bg-orange-500/20 text-orange-200 border-orange-500/40',
     places: [
       {
+        name: 'Thiruparankundram',
+        state: 'Tamil Nadu',
+        tagline: 'Cave Temple & Divine Wedding Shrine (1st Abode)',
+        image: '/images/destinations/madurai.jpg',
+        attractions: 'Rock-cut Cave Sanctum • Marriage of Lord Murugan & Deivanai • Saravana Poigai',
+        highlight: '1st Abode • Rock-Cut Heritage',
+        desc: 'The first abode of Lord Murugan carved into a massive granite hill, commemorating the divine victory over Surapadman and sacred marriage with Deivanai.'
+      },
+      {
         name: 'Tiruchendur',
         state: 'Tamil Nadu',
-        tagline: 'Seaside Coastal Shrine (2nd Abode)',
+        tagline: 'Seaside Coastal Shrine & Victory Ground (2nd Abode)',
         image: '/images/destinations/murugan.jpg',
-        attractions: 'Lord Subramanya Sea Shore Temple • Holy Nazhikinaru Spring • Beach Promenade',
+        attractions: 'Lord Subramanya Sea Shore Temple • Nazhikinaru Sacred Spring • Ocean Promenade',
         highlight: 'Seafront Temple • Soorasamharam Holy Spot',
         desc: 'The only seashore abode of Lord Murugan, with cool ocean breezes, temple darshan, and the miraculous sweet freshwater well on the beach.'
       },
       {
         name: 'Palani',
         state: 'Tamil Nadu',
-        tagline: 'Dhandayuthapani Hill (3rd Abode)',
+        tagline: 'Dhandayuthapani Hill & Renunciation Shrine (3rd Abode)',
         image: '/images/destinations/kodaikanal.jpg',
         attractions: 'Sivagiri Hilltop Temple • Winch & Ropeway Car • Divine Panchamirtham Prasad',
         highlight: 'Hilltop Shrine • Navabashanam Idol',
         desc: 'Ascend the holy Palani hill via modern rope car or steps to worship Lord Murugan as an ascetic recluse with world-famous Panchamirtham.'
       },
       {
-        name: 'Swamimalai & Kumbakonam',
+        name: 'Swamimalai',
         state: 'Tamil Nadu',
-        tagline: 'Gnana Upadesham (4th Abode)',
+        tagline: 'Gnana Upadesham & Guru Sthalam (4th Abode)',
         image: '/images/destinations/kumbakonam.jpg',
-        attractions: '60 Granite Steps (Tamil Years) • Son teaching Father Lord Shiva • Chola Architecture',
+        attractions: '60 Granite Steps (Tamil Years) • Son Teaching Father Lord Shiva • Pranava Mantra',
         highlight: 'Guru Shrine • 60 Sacred Steps',
         desc: 'Built on a hillock with 60 steps representing the 60 Tamil cycle years, where child Murugan expounded the secrets of the Pranava Mantra Om.'
+      },
+      {
+        name: 'Thiruthani',
+        state: 'Tamil Nadu',
+        tagline: 'Tanikasalam Hill & Peace Abode (5th Abode)',
+        image: '/images/destinations/chennai.jpg',
+        attractions: '365 Hill Steps (Days of the Year) • Marriage with Valli • Shanti Stalam',
+        highlight: 'Peace Shrine • 365 Sacred Steps',
+        desc: 'Perched on the Tanikasalam hillock with 365 steps, where Lord Murugan pacified his inner battle fury and married goddess Valli.'
+      },
+      {
+        name: 'Pazhamudircholai',
+        state: 'Tamil Nadu',
+        tagline: 'Solaimalai Forest & Fruition Abode (6th Abode)',
+        image: '/images/destinations/madurai.jpg',
+        attractions: 'Lord Murugan with Valli & Deivanai • Holy Noopura Ganga Spring • Azhagar Hills',
+        highlight: 'Forest Abode • Sacred Noopura Ganga',
+        desc: 'Nestled amidst lush forested Azhagar hills near Madurai, worshipped alongside both consorts Valli & Deivanai with sacred natural spring waters.'
       }
     ]
   },
   {
     id: 'backwater-coastal',
     title: 'Backwater & Coastal Tourism',
-    subtitle: 'Palm Lagoons, Houseboats & Ocean Confluence',
-    route: 'Alappuzha • Kumarakom • Kanyakumari • Fort Kochi',
-    desc: 'Unwind along shimmering backwater canals on deluxe houseboats, witness sunset over the Arabian Sea, and stand at the tip of the Indian subcontinent where three oceans unite.',
+    subtitle: 'Palm Lagoons, Houseboats & Royal Arabian Coast',
+    route: 'Alappuzha • Kumarakom • Varkala • Thiruvananthapuram • Fort Kochi',
+    desc: 'Unwind along shimmering backwater canals on deluxe houseboats, witness sunset over the red geological cliffs of Varkala, and explore Travancore royal heritage in Thiruvananthapuram.',
     vehicles: 'Sedan (Dzire/Etios) • SUV (Ertiga) • Innova Crysta',
     accentColor: 'from-[#0e2a38] via-[#123648] to-[#0a1e28]',
     badgeBg: 'bg-cyan-500/20 text-cyan-200 border-cyan-500/40',
@@ -161,13 +188,22 @@ export const travelHubsData = [
         desc: 'A serene archipelago on Vembanad Lake offering bird watching, traditional shikara boat cruises, village canoeing, and peaceful water retreats.'
       },
       {
-        name: 'Kanyakumari',
-        state: 'Tamil Nadu',
-        tagline: 'Lands End & Triveni Sangam',
-        image: '/images/destinations/kanyakumari.jpg',
-        attractions: 'Vivekananda Rock Memorial • 133ft Thiruvalluvar Statue • Sunrise & Sunset Point',
-        highlight: 'Confluence of 3 Oceans',
-        desc: 'The southernmost tip of mainland India where the Indian Ocean, Arabian Sea, and Bay of Bengal unite under stunning sunrises and sunsets.'
+        name: 'Varkala',
+        state: 'Kerala',
+        tagline: 'Cliff Beach & Papanasam Sacred Coast',
+        image: '/images/destinations/varkala.jpg',
+        attractions: 'Red Geological Cliffs • Natural Mineral Springs • 2,000-Yr Janardhana Swamy Temple • Sunset Walk',
+        highlight: 'Red Geological Cliffs & Holy Waters',
+        desc: 'Famed for its dramatic red cliffs bordering the Arabian Sea, holy Papanasam beach waters believed to cleanse sins, and vibrant cliff-top cafes.'
+      },
+      {
+        name: 'Thiruvananthapuram',
+        state: 'Kerala',
+        tagline: 'Royal Heritage City & Padmanabhaswamy Shrine',
+        image: '/images/destinations/trivandrum.jpg',
+        attractions: 'Anantha Padmanabhaswamy Temple • Kovalam Crescent Beach • Napier Museum • Kuthiramalika Palace',
+        highlight: 'World-Renowned Padmanabhaswamy Temple',
+        desc: 'Keralas royal capital featuring the magnificent gold-gilded Anantha Padmanabhaswamy Temple, Kovalam iconic lighthouse beaches, and Travancore royal palaces.'
       }
     ]
   },
@@ -175,8 +211,8 @@ export const travelHubsData = [
     id: 'mountain-tourism',
     title: 'Mountain Area Tourism',
     subtitle: 'Chilly Hill Station Escapes & Misty Valleys',
-    route: 'Ooty • Kodaikanal • Munnar • Valparai • Thekkady',
-    desc: 'Breathtaking Western Ghats panoramas, lush rolling tea plantations, cool misty climate, and serene mountain lakes. Chauffeur-driven luxury travel with expert ghat-road drivers.',
+    route: 'Ooty • Kodaikanal • Munnar • Wayanad • Valparai • Thekkady',
+    desc: 'Breathtaking Western Ghats panoramas, lush rolling tea plantations, cool misty climate, ancient rainforest caves, and serene mountain lakes. Chauffeur-driven luxury travel with expert ghat-road drivers.',
     vehicles: 'Toyota Innova Crysta • Force Urbania • 4x4 SUVs',
     accentColor: 'from-emerald-900 via-[#1e3a2f] to-[#12221b]',
     badgeBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
@@ -207,6 +243,15 @@ export const travelHubsData = [
         attractions: 'Anamudi Peak • Mattupetty Dam • Eravikulam National Park • Tea Museum • Attukal Falls',
         highlight: '1,600 m Altitude • Cloud Mist Valleys',
         desc: 'Unending expanse of emerald-green tea valleys, winding scenic mist roads, wildlife sanctuaries, and cascading gushing mountain waterfalls.'
+      },
+      {
+        name: 'Wayanad',
+        state: 'Kerala',
+        tagline: 'Misty Rainforests, Spice Hills & Ancient Caves',
+        image: '/images/destinations/wayanad.jpg',
+        attractions: 'Banasura Sagar Earthen Dam • Edakkal Prehistoric Caves • Chembra Heart Lake • Lakkidi Viewpoint',
+        highlight: 'Rainforest Ghats • Wildlife & Spice Reserves',
+        desc: 'A pristine high-altitude plateau of mist-draped rainforests, prehistoric petroglyphs at Edakkal Caves, sprawling spice groves, and tranquil hill resorts.'
       }
     ]
   },
@@ -239,13 +284,22 @@ export const travelHubsData = [
         desc: 'Corporate delegate fleet management, business visits to industrial belts, and scenic transit to nearby Ooty and Valparai hill resorts.'
       },
       {
-        name: 'Trichy & Madurai Terminals',
+        name: 'Trichy International Air Terminal',
         state: 'Tamil Nadu',
-        tagline: 'Central Tamil Nadu Air Terminals',
+        tagline: 'Central Delta Gateway & International Terminal',
         image: '/images/destinations/trichy.jpg',
-        attractions: 'International Flight Transfers • Highway Outstation Express • Round-Trip Drops',
-        highlight: 'Direct Highway Transit',
-        desc: 'Seamless connections for overseas pilgrims and families arriving at Trichy and Madurai airports bound for delta and southern temple towns.'
+        attractions: 'Tiruchirappalli International Airport (TRZ) • Express Highway Transit • Delta Region Connections',
+        highlight: '24/7 International Flight Transfers',
+        desc: 'Dedicated round-the-clock airport transfers connecting overseas travelers and VIPs directly to Thanjavur, Kumbakonam, Pudukkottai, and the Cauvery delta.'
+      },
+      {
+        name: 'Madurai Business & Air Terminal',
+        state: 'Tamil Nadu',
+        tagline: 'Southern Cultural & Commercial Air Terminal',
+        image: '/images/destinations/madurai.jpg',
+        attractions: 'Madurai Airport (IXM) • Southern Industrial Belt • Direct Transit to Rameshwaram & Kanyakumari',
+        highlight: 'Southern Transit Hub',
+        desc: 'Fast, chauffeur-driven transit from Madurai airport for corporate delegations, pilgrimage groups, and tourists heading to southern heritage circuits.'
       }
     ]
   }

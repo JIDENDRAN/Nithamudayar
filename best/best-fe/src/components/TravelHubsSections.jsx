@@ -32,44 +32,48 @@ export const travelHubsCategories = [
     number: '02',
     title: 'Tamil Nadu Heritage Circuit',
     subtitle: 'UNESCO World Heritage & Living Dravidian Temples',
-    route: 'Trichy • Thanjavur • Madurai • Rameshwaram',
-    desc: 'Journey through 2,000 years of glorious Tamil architectural genius, soaring monolithic granite temple towers (Vimana), sculpted corridors, and legendary sacred sea bridges.',
+    route: 'Trichy • Madurai • Rameshwaram • Kanyakumari',
+    desc: 'Journey through 2,000 years of glorious Tamil architectural genius, soaring monolithic granite temple towers (Vimana), sculpted corridors, and legendary sacred sea bridges down to the ocean confluence.',
     fleet: 'Innova Crysta • Force Urbania • Tempo Traveller',
     badge: 'UNESCO Heritage & Ancient Temples',
     places: [
-      { name: 'Thanjavur', image: '/images/destinations/thanjavur.jpg', tagline: 'Brihadisvara Periya Kovil • Chola Capital' },
       { name: 'Madurai', image: '/images/destinations/madurai.jpg', tagline: 'Meenakshi Amman Temple • 14 Gopurams' },
-      { name: 'Rameshwaram', image: '/images/destinations/rameswaram.jpg', tagline: 'Pamban Sea Bridge • 22 Holy Theerthams' }
+      { name: 'Rameshwaram', image: '/images/destinations/rameswaram.jpg', tagline: 'Pamban Sea Bridge • 22 Holy Theerthams' },
+      { name: 'Kanyakumari', image: '/images/destinations/kanyakumari.jpg', tagline: 'Vivekananda Rock • 3 Oceans Confluence' }
     ]
   },
   {
     id: 'murugan-circuit',
     number: '03',
     title: 'Arupadai Murugan Temple Tour',
-    subtitle: 'Six Divine Abodes of Lord Murugan (Arupadai Veedu)',
-    route: 'Tiruchendur • Palani • Thiruparankundram • Swamimalai',
-    desc: 'A deeply sacred devotional pilgrimage covering the six holy battle grounds and abodes of Lord Murugan with comfortable halts, early morning darshan timings, and child/elder friendly driving.',
+    subtitle: 'All Six Sacred Abodes of Lord Murugan (Arupadai Veedu)',
+    route: 'Thiruparankundram • Tiruchendur • Palani • Swamimalai • Thiruthani • Pazhamudircholai',
+    desc: 'A deeply sacred devotional pilgrimage covering all six holy battle grounds and divine abodes of Lord Murugan with comfortable halts, early morning darshan timings, and child/elder friendly driving.',
     fleet: 'Force Urbania (12/17 Seater) • Innova Crysta • AC Sedans',
     badge: 'Divine Pilgrimage Circuit',
     places: [
-      { name: 'Tiruchendur', image: '/images/destinations/murugan.jpg', tagline: 'Seaside Coastal Shrine • 2nd Abode' },
+      { name: 'Thiruparankundram', image: '/images/destinations/madurai.jpg', tagline: 'Cave Temple & Divine Wedding • 1st Abode' },
+      { name: 'Tiruchendur', image: '/images/destinations/murugan.jpg', tagline: 'Seaside Coastal Shrine & Victory • 2nd Abode' },
       { name: 'Palani', image: '/images/destinations/kodaikanal.jpg', tagline: 'Dhandayuthapani Swamy Hill • 3rd Abode' },
-      { name: 'Swamimalai', image: '/images/destinations/kumbakonam.jpg', tagline: 'Gnana Upadesham • 4th Abode' }
+      { name: 'Swamimalai', image: '/images/destinations/kumbakonam.jpg', tagline: 'Gnana Upadesham & Guru Sthalam • 4th Abode' },
+      { name: 'Thiruthani', image: '/images/destinations/chennai.jpg', tagline: 'Tanikasalam Hill & 365 Steps • 5th Abode' },
+      { name: 'Pazhamudircholai', image: '/images/destinations/madurai.jpg', tagline: 'Solaimalai Forest & Fruition • 6th Abode' }
     ]
   },
   {
     id: 'backwater-coastal',
     number: '04',
     title: 'Backwater & Coastal Tourism',
-    subtitle: 'Palm Lagoons, Luxury Houseboats & Ocean Confluence',
-    route: 'Alappuzha • Kumarakom • Kanyakumari • Fort Kochi',
-    desc: 'Unwind along shimmering backwater canals on deluxe houseboats, witness sunset over the Arabian Sea, and stand at the tip of the Indian subcontinent where three oceans unite.',
+    subtitle: 'Palm Lagoons, Luxury Houseboats & Royal Arabian Coast',
+    route: 'Alappuzha • Kumarakom • Varkala • Thiruvananthapuram • Fort Kochi',
+    desc: 'Unwind along shimmering backwater canals on deluxe houseboats, witness sunset over the red geological cliffs of Varkala, and explore Travancore royal heritage in Thiruvananthapuram.',
     fleet: 'Sedan (Dzire/Etios) • SUV (Ertiga) • Innova Crysta',
     badge: 'Houseboats & Coastal Escapes',
     places: [
       { name: 'Alappuzha (Alleppey)', image: '/images/destinations/alleppey.jpg', tagline: 'Venice of the East • Deluxe Houseboats' },
       { name: 'Kumarakom', image: '/images/destinations/backwater.jpg', tagline: 'Tranquil Lake Lagoons & Bird Sanctuary' },
-      { name: 'Kanyakumari', image: '/images/destinations/kanyakumari.jpg', tagline: 'Confluence of 3 Oceans • Sunset Point' }
+      { name: 'Varkala', image: '/images/destinations/varkala.jpg', tagline: 'Dramatic Red Cliffs & Papanasam Beach' },
+      { name: 'Thiruvananthapuram', image: '/images/destinations/trivandrum.jpg', tagline: 'Padmanabhaswamy Temple & Kovalam Coast' }
     ]
   },
   {
@@ -77,14 +81,15 @@ export const travelHubsCategories = [
     number: '05',
     title: 'Mountain Area Tourism',
     subtitle: 'Chilly Hill Station Escapes & Misty Western Ghats',
-    route: 'Ooty • Kodaikanal • Munnar • Valparai • Thekkady',
-    desc: 'Experience breathtaking hill station panoramas, rolling Nilgiri tea estates, mist-covered valleys, and cool pine forests with expert mountain-road chauffeurs.',
+    route: 'Ooty • Kodaikanal • Munnar • Wayanad • Valparai • Thekkady',
+    desc: 'Experience breathtaking hill station panoramas, rolling Nilgiri tea estates, mist-covered valleys, ancient rainforest caves, and cool pine forests with expert mountain-road chauffeurs.',
     fleet: 'Toyota Innova Crysta • Force Urbania • 4x4 SUVs',
     badge: 'Hill Stations & Tea Valleys',
     places: [
       { name: 'Ooty', image: '/images/destinations/ooty.jpg', tagline: 'Queen of Hill Stations • 2,240 m' },
       { name: 'Kodaikanal', image: '/images/destinations/kodaikanal.jpg', tagline: 'Princess of Hill Stations • 2,133 m' },
-      { name: 'Munnar', image: '/images/destinations/munnar.jpg', tagline: 'Emerald Tea Paradise • 1,600 m' }
+      { name: 'Munnar', image: '/images/destinations/munnar.jpg', tagline: 'Emerald Tea Paradise • 1,600 m' },
+      { name: 'Wayanad', image: '/images/destinations/wayanad.jpg', tagline: 'Misty Rainforests, Spice Hills & Caves' }
     ]
   },
   {
@@ -99,7 +104,8 @@ export const travelHubsCategories = [
     places: [
       { name: 'Chennai', image: '/images/destinations/chennai.jpg', tagline: 'Gateway of South India • T1/T2 Airport' },
       { name: 'Coimbatore', image: '/images/destinations/coimbatore.jpg', tagline: 'Manchester of South India • Industrial Hub' },
-      { name: 'Trichy & Madurai', image: '/images/destinations/trichy.jpg', tagline: 'International Air Terminals & Transit' }
+      { name: 'Trichy Air Terminal', image: '/images/destinations/trichy.jpg', tagline: 'International Air Terminal • Delta Express' },
+      { name: 'Madurai Air Terminal', image: '/images/destinations/madurai.jpg', tagline: 'Southern Commercial & Air Gateway' }
     ]
   }
 ];
