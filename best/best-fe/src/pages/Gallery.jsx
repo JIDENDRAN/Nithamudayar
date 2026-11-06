@@ -14,10 +14,11 @@ import {
   Map, 
   Car, 
   Smile,
-  Info
+  Plane,
+  Waves
 } from 'lucide-react';
 
-// Static imports of the 8 images from the gallery folder
+// Static imports of the 8 original gallery photos
 import imgMeenakshi from '../assets/gallery/51714.png';
 import imgAlagar from '../assets/gallery/51887.jpg.jpeg';
 import imgThirumalai from '../assets/gallery/51893.jpg.jpeg';
@@ -27,79 +28,261 @@ import imgOoty from '../assets/gallery/WhatsApp Image 2026-05-29 at 4.14.14 PM.j
 import imgKanyakumari from '../assets/gallery/WhatsApp Image 2026-05-29 at 4.14.16 PM.jpeg';
 import imgCustomers from '../assets/gallery/WhatsApp Image 2026-05-29 at 4.14.18 PM.jpeg';
 
-// Import a hero background image
-import heroBg from '../assets/meenakshi_desktop.png';
-
 const Gallery = () => {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-  // Gallery items matching the mockup and actual assets
+  // Comprehensive 30+ item gallery with all 24 South India sightseeing spots + customer diaries
   const galleryItems = [
+    // ─── Arupadai Murugan Temples ─────────────────────────────────────
     {
-      id: 1,
-      title: 'Meenakshi Amman Temple',
+      id: 'murugan-1',
+      title: 'Thiruparankundram Murugan Temple',
       location: 'Madurai',
       category: 'temple',
-      image: imgMeenakshi,
-      desc: 'An architectural marvel and a spiritual beacon of South India.'
+      image: '/images/destinations/thiruparankundram.jpg',
+      desc: 'First divine abode of Lord Murugan carved into ancient monolithic rock, celebrating the divine wedding.'
     },
     {
-      id: 2,
-      title: 'Alagar Kovil',
-      location: 'Madurai',
+      id: 'murugan-2',
+      title: 'Tiruchendur Murugan Temple',
+      location: 'Tuticorin Coast',
       category: 'temple',
-      image: imgAlagar,
-      desc: 'A historic temple dedicated to Lord Vishnu, nestled at the foot of Alagar Hills.'
+      image: '/images/destinations/tiruchendur.jpg',
+      desc: 'Second sacred abode situated majestically along the crashing turquoise waves of the Bay of Bengal.'
     },
     {
-      id: 3,
+      id: 'murugan-3',
+      title: 'Palani Dhandayuthapani Swamy',
+      location: 'Dindigul',
+      category: 'temple',
+      image: '/images/destinations/palani.jpg',
+      desc: 'Third sacred abode atop the Sivagiri hill, famous for sacred Panchamirtham and spiritual grace.'
+    },
+    {
+      id: 'murugan-4',
+      title: 'Swamimalai Murugan Temple',
+      location: 'Kumbakonam',
+      category: 'temple',
+      image: '/images/destinations/swamimalai.jpg',
+      desc: 'Fourth abode where Lord Murugan expounded the sacred Pranava Mantra Om to his father Lord Shiva.'
+    },
+    {
+      id: 'murugan-5',
+      title: 'Thiruthani Subramanya Swamy',
+      location: 'Thiruvallur',
+      category: 'temple',
+      image: '/images/destinations/thiruthani.jpg',
+      desc: 'Fifth sacred abode atop Tanikasalam hill approached by 365 steps representing days of the year.'
+    },
+    {
+      id: 'murugan-6',
+      title: 'Pazhamudircholai Murugan Temple',
+      location: 'Alagar Hills, Madurai',
+      category: 'temple',
+      image: '/images/destinations/pazhamudircholai.jpg',
+      desc: 'Sixth and final abode nestled amidst fragrant forest groves and natural springs in Solaimalai.'
+    },
+
+    // ─── Cauvery Delta & Chola Architecture ───────────────────────────
+    {
+      id: 'delta-1',
+      title: 'Brihadeeswarar Big Temple',
+      location: 'Thanjavur',
+      category: 'heritage',
+      image: '/images/destinations/thanjavur.jpg',
+      desc: 'Thousand-year-old UNESCO monument featuring an 80-tonne monolithic granite Vimana dome.'
+    },
+    {
+      id: 'delta-2',
+      title: 'Kumbakonam Mahamaham & Navagraha',
+      location: 'Kumbakonam',
+      category: 'temple',
+      image: '/images/destinations/kumbakonam.jpg',
+      desc: 'The vibrant temple town hub for all 9 planetary Navagraha parihara sthalams and sacred tank.'
+    },
+    {
+      id: 'delta-3',
+      title: 'Kallanai Grand Anicut Dam',
+      location: 'Trichy',
+      category: 'heritage',
+      image: '/images/destinations/trichy.jpg',
+      desc: 'Built by King Karikala Chola in the 2nd century AD, one of the oldest working water-diversion dams in the world.'
+    },
+
+    // ─── Tamil Nadu Heritage Circuit ──────────────────────────────────
+    {
+      id: 'heritage-1',
+      title: 'Meenakshi Amman Temple & 14 Gopurams',
+      location: 'Madurai',
+      category: 'heritage',
+      image: '/images/destinations/madurai.jpg',
+      desc: 'Iconic Dravidian marvel featuring thousands of vibrant stucco sculptures and sacred Lotus Tank.'
+    },
+    {
+      id: 'heritage-2',
+      title: 'Ramanathaswamy Temple & Pamban Bridge',
+      location: 'Rameshwaram',
+      category: 'temple',
+      image: '/images/destinations/rameswaram.jpg',
+      desc: 'Sacred coastal island Jyotirlinga shrine featuring the world’s longest sculpted sandstone corridor.'
+    },
+    {
+      id: 'heritage-3',
+      title: 'Vivekananda Rock & 3 Oceans Confluence',
+      location: 'Kanyakumari',
+      category: 'coastal',
+      image: '/images/destinations/kanyakumari.jpg',
+      desc: 'India’s southernmost tip where the Arabian Sea, Bay of Bengal, and Indian Ocean meet.'
+    },
+
+    // ─── Mountain & Hill Stations ─────────────────────────────────────
+    {
+      id: 'hill-1',
+      title: 'Ooty Nilgiri Tea Hills',
+      location: 'Ooty (2,240 m)',
+      category: 'hills',
+      image: '/images/destinations/ooty.jpg',
+      desc: 'The Queen of Hill Stations with rolling botanical gardens, pine forests, and cool mountain breezes.'
+    },
+    {
+      id: 'hill-2',
+      title: 'Kodaikanal Lake & Pillar Rocks',
+      location: 'Kodaikanal (2,133 m)',
+      category: 'hills',
+      image: '/images/destinations/kodaikanal.jpg',
+      desc: 'The Princess of Hill Stations with star-shaped lake, misty viewpoints, and eucalyptus woods.'
+    },
+    {
+      id: 'hill-3',
+      title: 'Munnar Emerald Tea Valley',
+      location: 'Munnar (1,600 m)',
+      category: 'hills',
+      image: '/images/destinations/munnar.jpg',
+      desc: 'Sprawling carpet of lush green tea plantations, misty mountain peaks, and cool waterfalls.'
+    },
+    {
+      id: 'hill-4',
+      title: 'Wayanad Banasura Sagar Dam & Hills',
+      location: 'Wayanad, Western Ghats',
+      category: 'hills',
+      image: '/images/destinations/wayanad.jpg',
+      desc: 'Asia’s second-largest earthen dam nestled amidst pristine rainforest valleys and spice plantations.'
+    },
+
+    // ─── Coastal & Backwaters ─────────────────────────────────────────
+    {
+      id: 'coastal-1',
+      title: 'Alappuzha (Alleppey) Deluxe Houseboats',
+      location: 'Alleppey, Kerala',
+      category: 'coastal',
+      image: '/images/destinations/alleppey.jpg',
+      desc: 'Tranquil palm-fringed backwater lagoons and luxury houseboats through the Venice of the East.'
+    },
+    {
+      id: 'coastal-2',
+      title: 'Kumarakom & Vembanad Lake',
+      location: 'Kumarakom',
+      category: 'coastal',
+      image: '/images/destinations/kumarakom.jpg',
+      desc: 'Serene mangrove waterways, migratory bird sanctuary, and tranquil backwater retreats.'
+    },
+    {
+      id: 'coastal-3',
+      title: 'Varkala Cliff & Arabian Sea Coast',
+      location: 'Varkala',
+      category: 'coastal',
+      image: '/images/destinations/varkala.jpg',
+      desc: 'Unique geological red laterite cliffs towering over the golden sands of Papanasam Beach.'
+    },
+    {
+      id: 'coastal-4',
+      title: 'Thiruvananthapuram & Padmanabhaswamy',
+      location: 'Trivandrum',
+      category: 'temple',
+      image: '/images/destinations/trivandrum.jpg',
+      desc: 'Historic Travancore royal capital home to the sacred Lord Anantha Padmanabhaswamy Temple.'
+    },
+
+    // ─── Airport & Corporate Hubs ─────────────────────────────────────
+    {
+      id: 'airport-1',
+      title: 'Chennai International Airport (MAA)',
+      location: 'Chennai Gateway',
+      category: 'corporate',
+      image: '/images/destinations/chennai-airport.jpg',
+      desc: '24/7 dedicated door-to-terminal airport pickup, drop, and corporate delegations.'
+    },
+    {
+      id: 'airport-2',
+      title: 'Coimbatore Airport & Industrial Corridor',
+      location: 'Coimbatore (CJB)',
+      category: 'corporate',
+      image: '/images/destinations/coimbatore-airport.jpg',
+      desc: 'Fast express chauffeur transfers connecting Western Tamil Nadu industrial hubs.'
+    },
+    {
+      id: 'airport-3',
+      title: 'Tiruchirappalli International Airport (TRZ)',
+      location: 'Trichy Airport',
+      category: 'corporate',
+      image: '/images/destinations/trichy-airport.jpg',
+      desc: 'Primary international air travel connection for Thanjavur and the entire Cauvery Delta.'
+    },
+    {
+      id: 'airport-4',
+      title: 'Madurai Airport (IXM)',
+      location: 'Madurai Airport',
+      category: 'corporate',
+      image: '/images/destinations/madurai-airport.jpg',
+      desc: 'Convenient terminal connectivity for Southern Tamil Nadu business and temple visitors.'
+    },
+
+    // ─── Heritage Palaces & Historic Sights ───────────────────────────
+    {
+      id: 'heritage-4',
       title: 'Thirumalai Nayakkar Mahal',
       location: 'Madurai',
       category: 'heritage',
       image: imgThirumalai,
-      desc: 'A magnificent 17th-century palace showcasing Indo-Saracenic architecture.'
+      desc: 'A magnificent 17th-century palace showcasing grand Indo-Saracenic columns and domes.'
     },
     {
-      id: 4,
-      title: 'Rameswaram Temple',
-      location: 'Rameswaram',
+      id: 'temple-alagar',
+      title: 'Alagar Kovil Temple',
+      location: 'Madurai',
       category: 'temple',
-      image: imgRameswaram,
-      desc: 'One of the twelve sacred Jyotirlinga temples with spectacular corridors.'
+      image: imgAlagar,
+      desc: 'A historic temple dedicated to Lord Vishnu, nestled at the foot of scenic Alagar Hills.'
+    },
+
+    // ─── Commercial Fleet ─────────────────────────────────────────────
+    {
+      id: 'fleet-innova',
+      title: 'Toyota Innova Crysta Luxury Fleet',
+      location: 'Commercial Fleet',
+      category: 'vehicles',
+      image: '/images/vehicles/innova.png',
+      desc: 'The gold standard in corporate and family long-distance touring with captain seating.'
     },
     {
-      id: 5,
-      title: 'Kodaikanal Hills',
-      location: 'Kodaikanal',
-      category: 'hills',
-      image: imgKodaikanal,
-      desc: 'Mist-clad mountains, deep valleys, and beautiful pine forests in the Princess of Hill Stations.'
+      id: 'fleet-urbania',
+      title: 'Force Urbania Luxury Group Van',
+      location: 'Executive Fleet',
+      category: 'vehicles',
+      image: '/images/vehicles/urbania.png',
+      desc: 'European styling, panoramic windows, and armchairs for VIP delegations and big families.'
     },
+
+    // ─── Customer Diaries ─────────────────────────────────────────────
     {
-      id: 6,
-      title: 'Ooty Tea Gardens',
-      location: 'Ooty',
-      category: 'hills',
-      image: imgOoty,
-      desc: 'Vibrant green tea plantations sprawling across the scenic slopes of Nilgiri Hills.'
-    },
-    {
-      id: 7,
-      title: 'Kanyakumari Sunset',
-      location: 'Kanyakumari',
-      category: 'outstation',
-      image: imgKanyakumari,
-      desc: 'The spectacular confluence of three seas meeting under a magical sunset sky.'
-    },
-    {
-      id: 8,
-      title: 'Our Happy Customers',
+      id: 'customer-diaries',
+      title: 'Happy Pilgrims & Tourists',
       location: 'Customer Diaries',
       category: 'customers',
       image: imgCustomers,
-      desc: 'Creating golden memories and providing safe journeys for families worldwide.'
+      desc: 'Creating golden memories and providing safe journeys for families and travelers worldwide.'
     }
   ];
 
@@ -110,18 +293,18 @@ const Gallery = () => {
 
   // Categories definition
   const filters = [
-    { id: 'all', name: 'All', icon: <Image className="w-4 h-4" /> },
-    { id: 'temple', name: 'Temple Tours', icon: <Compass className="w-4 h-4" /> },
+    { id: 'all', name: 'All Sightseeing', icon: <Image className="w-4 h-4" /> },
+    { id: 'temple', name: 'Temples & Pilgrimage', icon: <Compass className="w-4 h-4" /> },
+    { id: 'heritage', name: 'Chola & Heritage', icon: <Building className="w-4 h-4" /> },
     { id: 'hills', name: 'Hill Stations', icon: <Mountain className="w-4 h-4" /> },
-    { id: 'heritage', name: 'Heritage Places', icon: <Building className="w-4 h-4" /> },
-    { id: 'outstation', name: 'Outstation Trips', icon: <Map className="w-4 h-4" /> },
-    { id: 'vehicles', name: 'Vehicles', icon: <Car className="w-4 h-4" /> },
-    { id: 'customers', name: 'Happy Customers', icon: <Smile className="w-4 h-4" /> }
+    { id: 'coastal', name: 'Coastal & Backwaters', icon: <Waves className="w-4 h-4" /> },
+    { id: 'corporate', name: 'Airports & Corporate', icon: <Plane className="w-4 h-4" /> },
+    { id: 'vehicles', name: 'Our Fleet', icon: <Car className="w-4 h-4" /> },
+    { id: 'customers', name: 'Customer Diaries', icon: <Smile className="w-4 h-4" /> }
   ];
 
   // Lightbox handlers
   const handleOpenLightbox = (index) => {
-    // Find absolute index in the filtered list
     setSelectedImageIndex(index);
   };
 
@@ -150,7 +333,7 @@ const Gallery = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/backgrounds/hero-palani-car.jpg" 
-            alt="Nithamudayar Tours & Travels Pvt Ltd Gallery" 
+            alt="Nithamudayar Tours & Travels Pvt Ltd Sightseeing Gallery" 
             className="w-full h-full object-cover object-[position:75%_center] lg:object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1b203d]/90 via-[#1b203d]/60 to-transparent" />
@@ -174,208 +357,196 @@ const Gallery = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-3xl md:text-5xl font-heading font-black text-white tracking-wide uppercase drop-shadow-md"
           >
-            Memories from Our Journeys
+            South India Sightseeing Gallery
           </motion.h1>
           <motion.div 
             initial={{ width: 0 }}
-            animate={{ width: 140 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="h-0.5 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-4 mb-4 rounded-full flex items-center justify-center"
-          >
-            <div className="w-2.5 h-2.5 rounded-full bg-brand-gold shadow-[0_0_8px_#D4AF37]" />
-          </motion.div>
+            animate={{ width: "80px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="h-1 bg-brand-gold mx-auto my-3"
+          />
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xs sm:text-base text-neutral-300 font-normal max-w-2xl mx-auto leading-relaxed"
+            className="text-xs sm:text-base text-neutral-200 max-w-xl mx-auto font-light leading-relaxed"
           >
-            Glimpses of beautiful temple circuits, hill stations, and fleet journeys across Tamil Nadu.
+            Experience all 24 iconic pilgrimage temples, Chola UNESCO marvels, misty hill stations, and palm backwaters.
           </motion.p>
         </div>
       </div>
 
-      {/* 2. FILTER SECTION */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-10">
-        <div className="flex items-center justify-start lg:justify-center overflow-x-auto pb-4 scrollbar-none gap-2.5 -mx-4 px-4 sm:mx-0 sm:px-0">
+      {/* 2. GALLERY CONTROLS & GRID */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
           {filters.map((filter) => {
             const isActive = activeFilter === filter.id;
             return (
-              <motion.button
+              <button
                 key={filter.id}
-                onClick={() => {
-                  setActiveFilter(filter.id);
-                  setSelectedImageIndex(null);
-                }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className={`flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl font-heading font-bold text-xs transition-all duration-300 shrink-0 shadow-sm cursor-pointer border ${
+                onClick={() => setActiveFilter(filter.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
                   isActive 
-                    ? 'btn-gold shadow-md' 
-                    : 'bg-white text-neutral-700 border-neutral-300 hover:border-brand-gold-dark hover:text-neutral-900'
+                    ? 'bg-[#1b203d] text-[#FCF6BA] shadow-md scale-105 border border-brand-gold/30' 
+                    : 'bg-white text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 border border-neutral-200 shadow-2xs'
                 }`}
               >
-                <span>{filter.icon}</span>
+                {filter.icon}
                 <span>{filter.name}</span>
-              </motion.button>
+                {filter.id === 'all' && (
+                  <span className="text-[11px] opacity-70">({galleryItems.length})</span>
+                )}
+              </button>
             );
           })}
         </div>
-      </div>
 
-      {/* 3. CARD GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Dynamic Image Grid */}
         <motion.div 
-          layout 
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
-          <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => {
-              // Find the global index of this item in the filtered items array
-              return (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4 }}
-                  onClick={() => handleOpenLightbox(index)}
-                  className="group relative h-[240px] rounded-3xl overflow-hidden cursor-pointer shadow-md bg-slate-950 card-3d-lift"
-                >
+          <AnimatePresence>
+            {filteredItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: index * 0.03 }}
+                onClick={() => handleOpenLightbox(index)}
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col border border-neutral-200/90"
+              >
+                {/* Image Container with Zoom effect */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-900">
                   <img 
                     src={item.image} 
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" 
+                    alt={item.title} 
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Subtle glass reflection sweep on hover */}
-                  <div className="reflection-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.div>
-              );
-            })}
+                  
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+                  {/* Category Pill Tag */}
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="bg-black/60 backdrop-blur-md text-[#FCF6BA] border border-white/20 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                      {item.location}
+                    </span>
+                  </div>
+
+                  {/* View Icon Badge */}
+                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                      <Image className="w-4 h-4" />
+                    </span>
+                  </div>
+
+                  {/* Title overlay at bottom of image */}
+                  <div className="absolute bottom-3 left-3 right-3 z-10">
+                    <h3 className="text-base sm:text-lg font-bold font-heading text-white drop-shadow-md group-hover:text-brand-gold transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Content description */}
+                <div className="p-4 flex-1 flex flex-col justify-between space-y-2 bg-white">
+                  <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed">
+                    {item.desc}
+                  </p>
+                  <div className="pt-2 border-t border-neutral-100 flex items-center justify-between text-[11px] font-bold text-brand-gold-dark">
+                    <span>Click to view photo</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </AnimatePresence>
         </motion.div>
-      </div>
 
-      {/* 4. INSTAGRAM CALL TO ACTION BAR */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-[rgba(26,60,52,0.08)] border border-[rgba(26,60,52,0.2)] rounded-[32px] p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden backdrop-blur-sm"
-        >
-          <div className="absolute -top-12 -left-12 w-32 h-32 bg-yellow-400/10 rounded-full blur-2xl" />
-          
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-            <div className="w-14 h-14 bg-[#d4951e] rounded-full flex items-center justify-center shadow-lg shadow-[rgba(212,149,30,0.3)] shrink-0">
-              <svg className="w-7 h-7 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </div>
-            <div>
-              <h4 className="text-xl font-poppins font-black text-[#1a3c34] tracking-wide">
-                {t('Want to share your travel moments with us?')}
-              </h4>
-              <p className="text-slate-600 font-medium mt-1">
-                {t('Tag us on Instagram')} <span className="text-[#d4951e] font-bold">@madurai.travels</span>
-              </p>
-            </div>
+        {/* Empty State */}
+        {filteredItems.length === 0 && (
+          <div className="text-center py-20 bg-white rounded-2xl border border-neutral-200 mt-6">
+            <Image className="w-12 h-12 text-neutral-400 mx-auto mb-3" />
+            <h3 className="text-lg font-bold text-neutral-800">No photos found</h3>
+            <p className="text-xs text-neutral-500 mt-1">Try selecting another sightseeing category.</p>
           </div>
-          
-          <motion.a 
-            href="https://instagram.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 bg-[#1a3c34] hover:bg-[#2d5a4e] text-white font-poppins font-bold px-8 py-4 rounded-2xl shadow-lg transition-all text-sm shrink-0 cursor-pointer"
-          >
-            <svg className="w-4 h-4 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-            <span>{t('Follow Us')}</span>
-          </motion.a>
-        </motion.div>
+        )}
       </div>
 
-      {/* 5. LIGHTBOX OVERLAY MODAL */}
+      {/* 3. LIGHTBOX MODAL */}
       <AnimatePresence>
         {selectedImageIndex !== null && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
             onClick={handleCloseLightbox}
-            className="fixed inset-0 z-[100] bg-[rgba(15,36,32,0.95)] backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
           >
             {/* Close Button */}
             <button 
               onClick={handleCloseLightbox}
-              className="absolute top-6 right-6 z-[110] bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors cursor-pointer border border-white/10 shadow-lg"
+              className="absolute top-4 right-4 z-50 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
             >
               <X className="w-6 h-6" />
             </button>
 
-            {/* Left Nav Arrow */}
+            {/* Previous Button */}
             <button 
               onClick={handlePrev}
-              className="absolute left-6 z-[110] bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors cursor-pointer border border-white/10 shadow-lg hidden sm:block"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors hidden sm:block cursor-pointer"
             >
-              <ChevronLeft className="w-8 h-8" />
+              <ChevronLeft className="w-6 h-6" />
             </button>
 
-            {/* Right Nav Arrow */}
+            {/* Next Button */}
             <button 
               onClick={handleNext}
-              className="absolute right-6 z-[110] bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors cursor-pointer border border-white/10 shadow-lg hidden sm:block"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors hidden sm:block cursor-pointer"
             >
-              <ChevronRight className="w-8 h-8" />
+              <ChevronRight className="w-6 h-6" />
             </button>
 
-            {/* Main Lightbox Content */}
-            <motion.div 
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              transition={{ type: 'spring', damping: 25 }}
-              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking content
-              className="relative max-w-5xl w-full flex flex-col items-center"
+            {/* Modal Content */}
+            <div 
+              className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
             >
-              {/* Image Container */}
-              <div className="relative max-h-[70vh] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center bg-slate-900">
+              <div className="relative rounded-2xl overflow-hidden bg-black/50 shadow-2xl max-h-[75vh] flex items-center justify-center">
                 <img 
-                  src={filteredItems[selectedImageIndex].image} 
-                  alt={filteredItems[selectedImageIndex].title}
-                  className="max-h-[70vh] w-auto max-w-full object-contain object-center rounded-3xl"
+                  src={filteredItems[selectedImageIndex]?.image} 
+                  alt={filteredItems[selectedImageIndex]?.title} 
+                  className="max-h-[75vh] w-auto max-w-full object-contain"
                 />
               </div>
 
-              {/* Details Overlay (Placed below the image) */}
-              <div className="w-full text-center mt-6 text-white max-w-2xl px-4">
-                <div className="inline-flex items-center gap-1.5 justify-center opacity-85">
-                  <MapPin className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm font-semibold tracking-widest uppercase text-slate-300">
-                    {t(filteredItems[selectedImageIndex].location)}
-                  </span>
+              {/* Caption & Details */}
+              <div className="w-full mt-4 text-center px-4">
+                <div className="inline-block px-3 py-1 bg-brand-gold/20 text-[#FCF6BA] rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-brand-gold/40">
+                  {filteredItems[selectedImageIndex]?.location}
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-poppins font-black mt-2 text-yellow-400 tracking-wide drop-shadow-md">
-                  {t(filteredItems[selectedImageIndex].title)}
+                <h2 className="text-xl sm:text-2xl font-bold font-heading text-white">
+                  {filteredItems[selectedImageIndex]?.title}
                 </h2>
-                {filteredItems[selectedImageIndex].desc && (
-                  <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed mt-3 drop-shadow-sm max-w-lg mx-auto">
-                    {t(filteredItems[selectedImageIndex].desc)}
-                  </p>
-                )}
+                <p className="text-xs sm:text-sm text-neutral-300 mt-1 max-w-xl mx-auto leading-relaxed">
+                  {filteredItems[selectedImageIndex]?.desc}
+                </p>
+                <p className="text-[11px] text-neutral-400 mt-2 font-mono">
+                  {selectedImageIndex + 1} of {filteredItems.length}
+                </p>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </div>
   );
 };

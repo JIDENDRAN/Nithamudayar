@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, Wind, Briefcase, Info, X, ShieldCheck } from 'lucide-react';
+import { Users, Wind, Info, X, ShieldCheck } from 'lucide-react';
 import { getVehicleImage } from '../utils/imageImports.js';
 
 export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
@@ -24,47 +24,54 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
   const startingFrom = vehicle.startingFrom || outstationRate;
 
   // Key specs row
-  const acText = vehicle.ac ? (vehicle.ac.includes('Dual') ? 'Dual AC' : vehicle.ac.includes('Climate') ? 'Climate AC' : 'AC') : 'AC';
-  const luggageText = vehicle.luggageMobile || vehicle.luggage || (name.toLowerCase().includes('tempo') || name.toLowerCase().includes('urbania') ? '10 Bags' : name.toLowerCase().includes('innova') ? '4 Bags' : '2 Bags');
+  const acText = vehicle.ac ? (vehicle.ac.includes('Dual') ? 'AC' : vehicle.ac.includes('Climate') ? 'AC' : 'AC') : 'AC';
 
   return (
-    <div className="bg-[#FAF6F0] border border-neutral-300/80 rounded-3xl p-3 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col md:flex-row gap-3 sm:gap-4 overflow-hidden">
+    <div className="bg-white rounded-3xl md:rounded-[28px] border border-neutral-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col md:flex-row items-stretch overflow-hidden">
       
-      {/* ─── LEFT COLUMN: Vehicle Showcase & Specs ─────────────────────── */}
-      <div className="w-full md:w-[42%] lg:w-[38%] flex flex-col justify-between items-center p-3 sm:p-5">
+      {/* ─── LEFT COLUMN: Vehicle Showcase & Specs (Cream Background) ───────── */}
+      <div className="w-full md:w-[42%] lg:w-[40%] bg-[#F5EFEB] flex flex-col justify-between items-center p-6 sm:p-8 shrink-0">
         
         {/* Centered Vehicle Image */}
-        <div className="w-full h-44 sm:h-56 md:h-64 flex items-center justify-center p-2 relative group">
+        <div className="w-full h-44 sm:h-56 md:h-64 flex items-center justify-center p-2 relative group my-auto">
           <img
             src={image}
             alt={name}
-            className="max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+            className="max-h-full max-w-full object-contain drop-shadow-[0_12px_16px_rgba(0,0,0,0.18)] group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
         </div>
 
-        {/* Specs Row Below Vehicle */}
-        <div className="flex items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-neutral-700 pt-2 pb-1 border-t border-neutral-300/60 w-full">
+        {/* Specs Row Below Vehicle (Exact: 7 Seater, AC, Luggage Suitcase) */}
+        <div className="flex items-center justify-center gap-4 text-xs font-semibold text-neutral-700 pt-3 w-full">
+          {/* Seater */}
           <div className="inline-flex items-center gap-1.5">
             <Users className="w-3.5 h-3.5 text-neutral-500" />
             <span>{seaterLabel}</span>
           </div>
-          <span className="text-neutral-300">•</span>
+
+          {/* AC */}
           <div className="inline-flex items-center gap-1.5">
             <Wind className="w-3.5 h-3.5 text-neutral-500" />
             <span>{acText}</span>
           </div>
-          <span className="text-neutral-300">•</span>
+
+          {/* Blue Suitcase Luggage */}
           <div className="inline-flex items-center gap-1.5">
-            <Briefcase className="w-3.5 h-3.5 text-neutral-500" />
-            <span>{luggageText.split('+')[0].trim()}</span>
+            <svg
+              className="w-3.5 h-3.5 text-[#3b82f6] shrink-0"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M9 2a2 2 0 00-2 2v2H5a2 2 0 00-2 2v11a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-2V4a2 2 0 00-2-2H9zm2 2h2v2h-2V4zM5 8h14v11H5V8z" />
+            </svg>
           </div>
         </div>
 
       </div>
 
-      {/* ─── RIGHT COLUMN: White Detailed Plan Card ────────────────────── */}
-      <div className="w-full md:w-[58%] lg:w-[62%] bg-white rounded-2xl md:rounded-[22px] p-5 sm:p-7 flex flex-col justify-between shadow-2xs border border-neutral-200/60">
+      {/* ─── RIGHT COLUMN: White Detailed Plan Card ───────────────────────── */}
+      <div className="w-full md:w-[58%] lg:w-[60%] bg-white p-6 sm:p-8 flex flex-col justify-between flex-1">
         
         <div>
           {/* Top Row: Seater Eyebrow & VEHICLE Badge */}
@@ -83,10 +90,10 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
           </h3>
 
           {/* 1. OUTSTATION PLAN BOX */}
-          <div className="border border-neutral-200/90 rounded-2xl p-3.5 sm:p-4 mb-3 bg-white space-y-2.5">
+          <div className="border border-neutral-200/90 rounded-2xl p-3.5 sm:p-4 mb-3.5 bg-white space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
             <div className="flex items-center gap-2 mb-1">
               <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span>
-              <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-neutral-600">
+              <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-neutral-500">
                 OUTSTATION PLAN
               </span>
             </div>
@@ -94,7 +101,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
             {/* Rate */}
             <div className="flex items-center justify-between text-xs sm:text-sm">
               <span className="text-neutral-600 font-medium">Rate</span>
-              <span className="bg-neutral-50 border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono">
+              <span className="bg-white border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono text-xs sm:text-sm">
                 {outstationRate}
               </span>
             </div>
@@ -102,7 +109,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
             {/* Min Distance */}
             <div className="flex items-center justify-between text-xs sm:text-sm">
               <span className="text-neutral-600 font-medium">Min Distance</span>
-              <span className="bg-neutral-50 border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono">
+              <span className="bg-white border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono text-xs sm:text-sm">
                 {minDistance}
               </span>
             </div>
@@ -110,17 +117,17 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
             {/* Driver Charge */}
             <div className="flex items-center justify-between text-xs sm:text-sm">
               <span className="text-neutral-600 font-medium">Driver Charge</span>
-              <span className="bg-neutral-50 border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono">
+              <span className="bg-white border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono text-xs sm:text-sm">
                 {driverCharge}
               </span>
             </div>
           </div>
 
           {/* 2. DAY RENTAL PLAN BOX */}
-          <div className="border border-neutral-200/90 rounded-2xl p-3.5 sm:p-4 mb-5 bg-white space-y-2.5">
+          <div className="border border-neutral-200/90 rounded-2xl p-3.5 sm:p-4 mb-5 bg-white space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
             <div className="flex items-center gap-2 mb-1">
               <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-              <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-neutral-600">
+              <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-neutral-500">
                 DAY RENTAL PLAN
               </span>
             </div>
@@ -128,7 +135,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
             {/* Base Rent */}
             <div className="flex items-center justify-between text-xs sm:text-sm">
               <span className="text-neutral-600 font-medium">Base Rent</span>
-              <span className="bg-neutral-50 border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono">
+              <span className="bg-white border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono text-xs sm:text-sm">
                 {dayBaseRent}
               </span>
             </div>
@@ -136,7 +143,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
             {/* Per km Charge */}
             <div className="flex items-center justify-between text-xs sm:text-sm">
               <span className="text-neutral-600 font-medium">Per km Charge</span>
-              <span className="bg-neutral-50 border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono">
+              <span className="bg-white border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono text-xs sm:text-sm">
                 {dayPerKm}
               </span>
             </div>
@@ -144,7 +151,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
             {/* Driver Charge */}
             <div className="flex items-center justify-between text-xs sm:text-sm">
               <span className="text-neutral-600 font-medium">Driver Charge</span>
-              <span className="bg-neutral-50 border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono">
+              <span className="bg-white border border-neutral-200/90 px-3.5 py-1 rounded-lg font-bold text-neutral-900 font-mono text-xs sm:text-sm">
                 {dayDriverCharge}
               </span>
             </div>
@@ -156,7 +163,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
           <div className="mb-4 p-3 bg-neutral-50 border border-neutral-200 rounded-xl text-xs text-neutral-600 space-y-1 relative animate-in fade-in duration-200">
             <button
               onClick={() => setShowInfo(false)}
-              className="absolute top-2 right-2 text-neutral-400 hover:text-neutral-700"
+              className="absolute top-2 right-2 text-neutral-400 hover:text-neutral-700 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -171,7 +178,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
         )}
 
         {/* ─── BOTTOM ACTION BAR ────────────────────────────────────────── */}
-        <div className="flex items-center justify-between pt-2 border-t border-neutral-100">
+        <div className="flex items-center justify-between pt-3 border-t border-neutral-100">
           <div>
             <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest block mb-0.5">
               STARTING FROM
@@ -194,7 +201,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
             <button
               type="button"
               onClick={() => onOpenBooking(vehicle)}
-              className="bg-[#1b203d] hover:bg-neutral-900 text-white font-bold px-6 sm:px-8 py-3 rounded-xl shadow-md hover:scale-[1.02] active:scale-95 transition-all text-xs sm:text-sm cursor-pointer whitespace-nowrap"
+              className="bg-[#0f172a] hover:bg-black text-white font-bold px-6 sm:px-8 py-3 rounded-xl shadow-md hover:scale-[1.02] active:scale-95 transition-all text-xs sm:text-sm cursor-pointer whitespace-nowrap"
             >
               Book Now
             </button>
@@ -206,4 +213,3 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
     </div>
   );
 }
-
