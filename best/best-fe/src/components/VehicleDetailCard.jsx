@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Users, Wind, Briefcase, Info, X, ShieldCheck } from 'lucide-react';
+import { getVehicleImage } from '../utils/imageImports.js';
 
 export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
   const [showInfo, setShowInfo] = useState(false);
 
   // Derive specs and plans with smart defaults matching the requested structure
-  const seaterLabel = vehicle.seatsMobile || vehicle.seaterLabel || (vehicle.seats ? vehicle.seats.split(' ')[0] + ' Seater' : '7 Seater');
+  const seaterLabel = vehicle.seaterLabel || vehicle.seatsMobile || (vehicle.seats ? (vehicle.seats.toLowerCase().includes('seater') ? vehicle.seats : vehicle.seats.split(' ')[0] + ' Seater') : '7 Seater');
   const name = vehicle.name || 'Innova Crysta';
-  const image = vehicle.image || '/images/vehicles/innova.png';
+  const image = getVehicleImage(vehicle.image) || '/images/vehicles/innova.png';
 
   // Outstation plan values
   const outstationRate = vehicle.outstationRate || vehicle.rate?.split('(')[0]?.trim() || vehicle.rate || '₹20/km';
@@ -17,14 +18,13 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
   // Day rental plan values
   const dayBaseRent = vehicle.dayBaseRent || (name.toLowerCase().includes('innova') ? 'Rs. 2500' : name.toLowerCase().includes('suv') ? 'Rs. 2800' : name.toLowerCase().includes('tempo') ? 'Rs. 5500' : name.toLowerCase().includes('urbania') ? 'Rs. 7500' : 'Rs. 2200');
   const dayPerKm = vehicle.dayPerKm || (name.toLowerCase().includes('innova') ? 'Rs. 16/km' : name.toLowerCase().includes('suv') ? 'Rs. 16/km' : name.toLowerCase().includes('tempo') ? 'Rs. 22/km' : name.toLowerCase().includes('urbania') ? 'Rs. 28/km' : 'Rs. 14/km');
-  const dayDriverCharge = vehicle.dayDriverCharge || 'Rs. 300 / day';
+  const dayDriverCharge = vehicle.dayDriverCharge || vehicle.driverCharge || 'Rs. 300 / day';
 
   // Starting from rate
   const startingFrom = vehicle.startingFrom || outstationRate;
 
   // Key specs row
-  const seatsText = vehicle.seats || `${seaterLabel}`;
-  const acText = vehicle.ac ? (vehicle.ac.includes('Dual') ? 'Dual AC' : 'AC') : 'AC';
+  const acText = vehicle.ac ? (vehicle.ac.includes('Dual') ? 'Dual AC' : vehicle.ac.includes('Climate') ? 'Climate AC' : 'AC') : 'AC';
   const luggageText = vehicle.luggageMobile || vehicle.luggage || (name.toLowerCase().includes('tempo') || name.toLowerCase().includes('urbania') ? '10 Bags' : name.toLowerCase().includes('innova') ? '4 Bags' : '2 Bags');
 
   return (
@@ -47,7 +47,7 @@ export default function VehicleDetailCard({ vehicle, onOpenBooking }) {
         <div className="flex items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-neutral-700 pt-2 pb-1 border-t border-neutral-300/60 w-full">
           <div className="inline-flex items-center gap-1.5">
             <Users className="w-3.5 h-3.5 text-neutral-500" />
-            <span>{seatsText.split(' ')[0]} Seater</span>
+            <span>{seaterLabel}</span>
           </div>
           <span className="text-neutral-300">•</span>
           <div className="inline-flex items-center gap-1.5">

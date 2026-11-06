@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  ArrowRight, 
-  MapPin, 
-  Sparkles, 
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  MapPin,
+  Sparkles,
   Car,
   Calendar,
   CheckCircle2
@@ -104,8 +104,8 @@ export const travelHubsCategories = [
     places: [
       { name: 'Chennai', image: '/images/destinations/chennai.jpg', tagline: 'Gateway of South India • T1/T2 Airport' },
       { name: 'Coimbatore', image: '/images/destinations/coimbatore.jpg', tagline: 'Manchester of South India • Industrial Hub' },
-      { name: 'Trichy Air Terminal', image: '/images/destinations/trichy.jpg', tagline: 'International Air Terminal • Delta Express' },
-      { name: 'Madurai Air Terminal', image: '/images/destinations/madurai.jpg', tagline: 'Southern Commercial & Air Gateway' }
+      { name: 'Trichy Airport & Corporate', image: '/images/destinations/trichy.jpg', tagline: 'International Air Terminal • Delta Express' },
+      { name: 'Madurai Airport & Corporate', image: '/images/destinations/madurai.jpg', tagline: 'Southern Commercial & Air Gateway' }
     ]
   }
 ];
@@ -145,7 +145,7 @@ function HubSectionItem({ hub, onOpenBooking, isReversed }) {
   };
 
   return (
-    <div 
+    <div
       className="bg-white rounded-3xl border border-neutral-200/90 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -157,11 +157,11 @@ function HubSectionItem({ hub, onOpenBooking, isReversed }) {
 
       {/* Content + Swipe Image Grid (Desktop 2-Col, Mobile 1-Col) */}
       <div className="grid grid-cols-1 md:grid-cols-12 items-stretch">
-        
+
         {/* DESKTOP-ONLY CONTENT COLUMN (Hidden on Mobile) */}
         <div className={`hidden md:flex md:col-span-5 p-6 lg:p-8 flex-col justify-between space-y-4 bg-white ${isReversed ? 'md:order-2 border-l border-neutral-100' : 'md:order-1 border-r border-neutral-100'}`}>
           <div className="space-y-3.5">
-            
+
             {/* Category Number & Badge */}
             <div className="flex items-center gap-2">
               <span className="w-7 h-7 rounded-lg bg-[#1b203d] text-[#FCF6BA] font-black text-xs flex items-center justify-center shadow-sm">
@@ -227,7 +227,7 @@ function HubSectionItem({ hub, onOpenBooking, isReversed }) {
 
         {/* SWIPE IMAGE COLUMN (Full Width on Mobile, 7 Cols on Desktop) */}
         <div className={`col-span-1 md:col-span-7 relative ${isReversed ? 'md:order-1' : 'md:order-2'} p-3 sm:p-4 bg-neutral-900 flex flex-col justify-center`}>
-          
+
           {/* Mobile Header: Visible ONLY on mobile so the section title is clear */}
           <div className="md:hidden flex items-center justify-between pb-2 text-white">
             <h4 className="text-lg font-bold font-heading flex items-center gap-1.5">
@@ -240,7 +240,7 @@ function HubSectionItem({ hub, onOpenBooking, isReversed }) {
           </div>
 
           {/* The Swipe Image Card (Only this image is shown, no thumbnails below) */}
-          <div 
+          <div
             onClick={() => handleBook(currentPlace.name)}
             className="relative h-72 sm:h-80 md:h-96 lg:h-[420px] w-full rounded-2xl overflow-hidden bg-neutral-900 shadow-md group cursor-pointer"
           >
@@ -265,9 +265,8 @@ function HubSectionItem({ hub, onOpenBooking, isReversed }) {
                 {hub.places.map((place, idx) => (
                   <span
                     key={place.name}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      idx === activeIdx ? 'w-5 bg-brand-gold' : 'w-1.5 bg-white/50'
-                    }`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIdx ? 'w-5 bg-brand-gold' : 'w-1.5 bg-white/50'
+                      }`}
                   />
                 ))}
               </div>
@@ -323,7 +322,7 @@ export default function TravelHubsSections({ onOpenBooking }) {
   return (
     <section className="py-12 sm:py-20 px-4 sm:px-10 bg-[#FAF8F5] border-t border-neutral-200">
       <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
-        
+
         {/* Master Section Header */}
         <div className="text-center sm:text-left border-b border-neutral-200 pb-4 sm:pb-6">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-espresso mb-2">
@@ -340,10 +339,10 @@ export default function TravelHubsSections({ onOpenBooking }) {
         {/* 6 Sections One by One */}
         <div className="space-y-8 sm:space-y-10">
           {travelHubsCategories.map((hub, idx) => (
-            <HubSectionItem 
-              key={hub.id} 
-              hub={hub} 
-              onOpenBooking={onOpenBooking} 
+            <HubSectionItem
+              key={hub.id}
+              hub={hub}
+              onOpenBooking={onOpenBooking}
               isReversed={idx % 2 === 1}
             />
           ))}

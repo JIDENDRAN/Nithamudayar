@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  ArrowRight, 
-  MapPin, 
-  Sparkles, 
-  Car, 
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  MapPin,
+  Sparkles,
+  Car,
   Compass,
   Pause,
   Play,
@@ -284,7 +284,7 @@ export const travelHubsData = [
         desc: 'Corporate delegate fleet management, business visits to industrial belts, and scenic transit to nearby Ooty and Valparai hill resorts.'
       },
       {
-        name: 'Trichy International Air Terminal',
+        name: 'Trichy Airport & Corporate',
         state: 'Tamil Nadu',
         tagline: 'Central Delta Gateway & International Terminal',
         image: '/images/destinations/trichy.jpg',
@@ -293,7 +293,7 @@ export const travelHubsData = [
         desc: 'Dedicated round-the-clock airport transfers connecting overseas travelers and VIPs directly to Thanjavur, Kumbakonam, Pudukkottai, and the Cauvery delta.'
       },
       {
-        name: 'Madurai Business & Air Terminal',
+        name: 'Madurai Airport & Corporate',
         state: 'Tamil Nadu',
         tagline: 'Southern Cultural & Commercial Air Terminal',
         image: '/images/destinations/madurai.jpg',
@@ -388,7 +388,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
   };
 
   return (
-    <section 
+    <section
       className="py-12 sm:py-20 px-4 sm:px-10 bg-[#FAF8F5] border-t border-neutral-200 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -455,11 +455,10 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
               <button
                 key={hub.id}
                 onClick={() => handleSelectHub(idx)}
-                className={`relative px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 snap-start flex items-center gap-2 cursor-pointer border ${
-                  isSelected
+                className={`relative px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 snap-start flex items-center gap-2 cursor-pointer border ${isSelected
                     ? 'bg-[#1b203d] text-[#FCF6BA] border-brand-gold shadow-lg scale-102 z-10'
                     : 'bg-white text-neutral-700 hover:bg-neutral-50 border-neutral-200'
-                }`}
+                  }`}
               >
                 <Compass className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#D4AF37]' : 'text-neutral-400'}`} />
                 <span>{hub.title}</span>
@@ -473,10 +472,10 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
 
         {/* 3. ACTIVE HUB SPOTLIGHT CONTAINER */}
         <div className="bg-white rounded-3xl border border-neutral-200 shadow-2xl overflow-hidden">
-          
+
           {/* Top Gold Shimmer Progress Bar */}
           <div className="h-1.5 bg-neutral-200 relative overflow-hidden">
-            <div 
+            <div
               className="h-full bg-gradient-to-r from-brand-gold via-[#F3C64F] to-brand-gold transition-all duration-75"
               style={{ width: `${progress}%` }}
             />
@@ -484,7 +483,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
 
           {/* 4. MAIN SLIDING SHOWCASE FOR ACTIVE HUB CATEGORY */}
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px] sm:min-h-[520px]">
-            
+
             {/* Left 7 Columns: Big Sliding Image Stage */}
             <div className="lg:col-span-7 relative h-72 sm:h-96 lg:h-auto min-h-[320px] lg:min-h-[520px] bg-neutral-900 overflow-hidden group">
               <img
@@ -547,7 +546,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
 
             {/* Right 5 Columns: Category Details & Active Itinerary */}
             <div className="lg:col-span-5 p-5 sm:p-8 flex flex-col justify-between bg-white space-y-6">
-              
+
               {/* Category Info */}
               <div className="space-y-4">
                 <div className="space-y-1">
@@ -641,11 +640,10 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                     key={place.name}
                     onClick={() => { setActiveImageIndex(pIdx); setProgress(0); }}
                     aria-label={`Slide to ${place.name}`}
-                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      pIdx === activeImageIndex
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${pIdx === activeImageIndex
                         ? 'w-7 bg-brand-gold'
                         : 'w-2 bg-neutral-300 hover:bg-neutral-400'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
@@ -659,11 +657,10 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                   <div
                     key={place.name}
                     onClick={() => { setActiveImageIndex(pIdx); setProgress(0); }}
-                    className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border-2 bg-white flex flex-row sm:flex-col ${
-                      isActive
+                    className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border-2 bg-white flex flex-row sm:flex-col ${isActive
                         ? 'border-brand-gold ring-4 ring-brand-gold/20 shadow-lg -translate-y-1'
                         : 'border-neutral-200 hover:border-neutral-300 hover:shadow-md'
-                    }`}
+                      }`}
                   >
                     {/* Thumbnail Image */}
                     <div className="relative w-32 sm:w-full h-24 sm:h-36 overflow-hidden bg-neutral-900 shrink-0">
@@ -673,7 +670,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                      
+
                       {isActive && (
                         <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-brand-gold text-[#1b203d] text-[9px] font-black uppercase tracking-wider shadow">
                           Now Sliding

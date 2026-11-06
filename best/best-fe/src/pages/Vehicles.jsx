@@ -4,6 +4,7 @@ import MobileFleetHero from '../components/mobile/MobileFleetHero';
 import VehicleDetailCard from '../components/VehicleDetailCard';
 import { Users, Briefcase, Wind, CheckCircle2, ArrowRight, Car, ShieldCheck, Check, LayoutGrid, Table } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
+import { parseVehicleFromDb } from '../utils/vehicleParser';
 
 export default function FleetPage({ onOpenBooking }) {
   const [fleetFilter, setFleetFilter] = useState('all');
@@ -22,12 +23,12 @@ export default function FleetPage({ onOpenBooking }) {
   }, []);
 
   const fleetFilterTabs = [
-    { id: 'all', label: 'All Fleet Models (5)' },
-    { id: 'Comfort Sedan', label: 'Sedans (₹14/km)' },
-    { id: 'Family SUV', label: 'SUVs (₹19/km)' },
-    { id: 'Premium SUV', label: 'Innova Crysta (₹22/km)' },
-    { id: 'Mini Coach', label: 'Tempo Traveller (₹25/km)' },
-    { id: 'Luxury Van', label: 'Force Urbania (₹33/km)' },
+    { id: 'all', label: 'All Fleet Models' },
+    { id: 'Comfort Sedan', label: 'Sedans' },
+    { id: 'Family SUV', label: 'SUVs' },
+    { id: 'Premium SUV', label: 'Innova Crysta' },
+    { id: 'Mini Coach', label: 'Tempo Traveller' },
+    { id: 'Luxury Van', label: 'Force Urbania' },
   ];
 
   const fleetTypes = [
@@ -195,106 +196,20 @@ export default function FleetPage({ onOpenBooking }) {
     },
   ];
 
-  // Dynamically map fleet models from DB
-  // Dynamically map fleet models from DB
-  const formattedDbFleet = dbCars.map((c) => {
-    let cat = 'Comfort Sedan';
-    const nameLower = (c.name || '').toLowerCase();
-    let seater = '4 Seater';
-    let minKm = 'Above 300 kms';
-    let outstationRate = c.price ? c.price.replace('/ km', '/km') : '₹20/km';
-    let baseRent = 'Rs. 2500';
-    let perKm = 'Rs. 16/km';
-    let drvCharge = 'Rs. 300 / day';
-
-    if (nameLower.includes('innova') || nameLower.includes('crysta')) {
-      cat = 'Premium SUV';
-      seater = '7 Seater';
-      minKm = 'Above 300 kms';
-      baseRent = 'Rs. 2500';
-      perKm = 'Rs. 16/km';
-      drvCharge = 'Rs. 300 / day';
-    } else if (nameLower.includes('suv') || nameLower.includes('ertiga') || nameLower.includes('carens')) {
-      cat = 'Family SUV';
-      seater = '6 Seater';
-      minKm = 'Above 300 kms';
-      baseRent = 'Rs. 2800';
-      perKm = 'Rs. 16/km';
-      drvCharge = 'Rs. 350 / day';
-    } else if (nameLower.includes('urbania')) {
-      cat = 'Luxury Van';
-      seater = '12-17 Seater';
-      minKm = 'Above 300 kms';
-      baseRent = 'Rs. 7500';
-      perKm = 'Rs. 28/km';
-      drvCharge = 'Rs. 600 / day';
-    } else if (nameLower.includes('tempo') || nameLower.includes('traveller')) {
-      cat = 'Mini Coach';
-      seater = '12-17 Seater';
-      minKm = 'Above 300 kms';
-      baseRent = 'Rs. 5500';
-      perKm = 'Rs. 22/km';
-      drvCharge = 'Rs. 500 / day';
-    } else if (nameLower.includes('bus') || nameLower.includes('coach')) {
-      cat = 'Bus Charter';
-      seater = '36-49 Seater';
-      minKm = 'By Itinerary';
-      baseRent = 'Custom Quote';
-      perKm = 'Custom Quote';
-      drvCharge = 'Included';
-    } else {
-      seater = c.seats ? c.seats.split(' ')[0] + ' Seater' : '4 Seater';
-      minKm = 'Above 250 kms';
-      baseRent = 'Rs. 2200';
-      perKm = 'Rs. 14/km';
-      drvCharge = 'Rs. 300 / day';
-    }
-
-    const desc = c.desc || '';
-    const bataMatch = desc.match(/bata[:\s]*₹?\s*(\d+)/i);
-    const minKmMatch = desc.match(/minimum[:\s]*(\d+)\s*km/i);
-    if (bataMatch) drvCharge = 'Rs. ' + bataMatch[1] + ' / day';
-    if (minKmMatch) minKm = 'Above ' + minKmMatch[1] + ' kms';
-
-    return {
-      id: c.id,
-      name: c.name,
-      category: cat,
-      image: c.image ? (c.image.startsWith('/uploads/') ? `${API_BASE_URL}${c.image}` : c.image) : '/images/vehicles/sedan.png',
-      seats: c.seats || seater,
-      seatsMobile: seater,
-      seaterLabel: seater,
-      luggage: '2-4 Large Bags',
-      luggageMobile: 'Luggage Space',
-      ac: c.ac || 'AC',
-      rate: c.price,
-      outstationRate: outstationRate,
-      minDistance: minKm,
-      driverCharge: drvCharge,
-      dayBaseRent: baseRent,
-      dayPerKm: perKm,
-      dayDriverCharge: drvCharge,
-      startingFrom: outstationRate,
-      specs: desc ? desc.split(/[|\n]+/).map(s => s.trim()).filter(Boolean) : ['Well-maintained commercial vehicle', 'Chauffeur driven'],
-      idealFor: c.desc || 'Chauffeur Driven Travel',
-    };
-  });
+  // Dynamically map fleet models directly from DB records
+  const formattedDbFleet = dbCars.map(c => parseVehicleFromDb(c)).filter(Boolean);
 
   const fleet = formattedDbFleet.length > 0 ? formattedDbFleet : defaultFleet;
 
   // Build dynamic tariffs list directly from DB records
   const dynamicTariffs = dbCars.map((c) => {
-    const desc = c.desc || '';
-    const bataMatch = desc.match(/bata[:\s]*₹?\s*(\d+)/i);
-    const minKmMatch = desc.match(/minimum[:\s]*(\d+)\s*km/i);
-    const nightMatch = desc.match(/night\s*halt[:\s]*₹?\s*(\d+)/i);
-
+    const parsed = parseVehicleFromDb(c);
     return {
-      vehicle: c.name,
-      perKm: c.price,
-      minKm: minKmMatch ? `${minKmMatch[1]} km / day` : (c.price.includes('Custom') ? 'By Itinerary' : '300 km / day'),
-      driverBata: bataMatch ? `₹${bataMatch[1]} / day` : (c.price.includes('Custom') ? 'Included in Quote' : 'Standard Bata'),
-      nightCharge: nightMatch ? `₹${nightMatch[1]} (after 10 PM)` : (c.price.includes('Custom') ? 'Included in Quote' : '₹400 (after 10 PM)')
+      vehicle: `${c.name} (${parsed.seaterLabel})`,
+      perKm: parsed.outstationRate,
+      minKm: parsed.minDistance,
+      driverBata: parsed.driverCharge,
+      nightCharge: '₹400 (after 10 PM)'
     };
   });
 
@@ -382,7 +297,7 @@ export default function FleetPage({ onOpenBooking }) {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto space-y-6 sm:space-y-8">
-          
+
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-brand-gold/20 pb-5 sm:pb-6 gap-3 sm:gap-4">
             <div>
@@ -410,11 +325,10 @@ export default function FleetPage({ onOpenBooking }) {
               <button
                 key={tab.id}
                 onClick={() => setFleetFilter(tab.id)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer whitespace-nowrap shrink-0 ${
-                  fleetFilter === tab.id
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer whitespace-nowrap shrink-0 ${fleetFilter === tab.id
                     ? 'btn-gold shadow-md scale-[1.02]'
                     : 'bg-[#1b203d] border border-brand-gold/20 text-neutral-300 hover:border-brand-gold/60 hover:text-white'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -435,225 +349,7 @@ export default function FleetPage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* 4. Tariff Schedule Table with Single-line Mobile & Desktop Alignment */}
-      <section id="tariff-table" className="py-10 sm:py-20 px-3.5 sm:px-10 bg-[#FAF8F5] border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-8 pb-4 sm:pb-5 border-b border-neutral-300 gap-3 sm:gap-4">
-            <div>
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-brand-gold-dark block mb-1">
-                Transparent Tariffs
-              </span>
-              <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-neutral-900">
-                Standard Tariff Schedule
-              </h2>
-              <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-xl">
-                Transparent outstation per-km rates with verified drivers. Toll charges, parking fees, and interstate permits are billed as actuals.
-              </p>
-            </div>
 
-            <div className="flex items-center gap-2 text-xs font-semibold text-brand-gold-dark bg-white border border-brand-gold/40 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg shadow-2xs shrink-0 whitespace-nowrap">
-              <ShieldCheck className="w-4 h-4 text-brand-gold-dark shrink-0" />
-              <span>No Hidden Charges • Clear Allowances</span>
-            </div>
-          </div>
-
-          {/* Mobile Display Mode Switcher (Cards vs Table) */}
-          <div className="flex md:hidden items-center justify-between mb-3 px-1">
-            <span className="text-[11px] text-neutral-500 font-semibold">Tariff View:</span>
-            <div className="inline-flex p-0.5 bg-neutral-200/90 rounded-lg text-[11px] font-bold">
-              <button
-                onClick={() => setTariffMobileMode('cards')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded-md transition-all ${
-                  tariffMobileMode === 'cards'
-                    ? 'bg-[#1b203d] text-brand-gold shadow-xs'
-                    : 'text-neutral-600 hover:text-neutral-900'
-                }`}
-              >
-                <LayoutGrid className="w-3 h-3" />
-                <span>Cards</span>
-              </button>
-              <button
-                onClick={() => setTariffMobileMode('table')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded-md transition-all ${
-                  tariffMobileMode === 'table'
-                    ? 'bg-[#1b203d] text-brand-gold shadow-xs'
-                    : 'text-neutral-600 hover:text-neutral-900'
-                }`}
-              >
-                <Table className="w-3 h-3" />
-                <span>Table</span>
-              </button>
-            </div>
-          </div>
-
-          {/* 1. Dedicated Mobile-Optimized Tariff Cards (100% Single-Line Fit on Mobile) */}
-          <div className={`md:hidden ${tariffMobileMode === 'cards' ? 'block' : 'hidden'} space-y-2.5 mb-6`}>
-            {tariffs.map((t) => (
-              <div 
-                key={t.vehicle} 
-                className="bg-white rounded-xl border border-brand-gold/35 p-3.5 shadow-sm space-y-2.5 transition-all"
-              >
-                {/* Row 1: Vehicle & Base Rate Single Line */}
-                <div className="flex items-center justify-between gap-2 border-b border-neutral-100 pb-2">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <Car className="w-4 h-4 text-brand-gold-dark shrink-0" />
-                    <span className="text-xs font-bold text-neutral-900 truncate whitespace-nowrap">{t.vehicle}</span>
-                  </div>
-                  <span className="bg-brand-gold/15 text-brand-gold-dark font-mono font-extrabold text-xs px-2.5 py-0.5 rounded-full border border-brand-gold/30 shrink-0 whitespace-nowrap">
-                    {t.perKm}
-                  </span>
-                </div>
-
-                {/* Row 2: 3 Metrics in Single-Line Row */}
-                <div className="grid grid-cols-3 gap-1.5 text-center bg-[#FAF8F5] rounded-lg p-2 border border-neutral-100 text-[11px]">
-                  <div className="truncate overflow-hidden">
-                    <span className="text-[9px] uppercase font-bold text-neutral-400 block whitespace-nowrap">Min Km</span>
-                    <span className="font-semibold text-neutral-800 whitespace-nowrap text-[11px]">{t.minKm.split('/')[0].trim()}</span>
-                  </div>
-                  <div className="truncate overflow-hidden border-x border-neutral-200 px-1">
-                    <span className="text-[9px] uppercase font-bold text-neutral-400 block whitespace-nowrap">Driver Bata</span>
-                    <span className="font-semibold text-neutral-800 whitespace-nowrap text-[11px]">{t.driverBata.replace(' / day', '/d')}</span>
-                  </div>
-                  <div className="truncate overflow-hidden">
-                    <span className="text-[9px] uppercase font-bold text-neutral-400 block whitespace-nowrap">Night Halt</span>
-                    <span className="font-semibold text-neutral-800 whitespace-nowrap text-[11px]">{t.nightCharge.split('(')[0].trim()}</span>
-                  </div>
-                </div>
-
-                {/* Row 3: Single Line Booking Button */}
-                <button
-                  onClick={() => onOpenBooking({ vehicle: t.vehicle })}
-                  className="w-full btn-gold py-1.5 px-3 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-sm active:scale-95 transition-all whitespace-nowrap"
-                >
-                  <span>Book {t.vehicle.split('(')[0].trim()}</span>
-                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {/* 2. Full Table Container (Always shown on desktop, toggleable on mobile with Single-Line Cells) */}
-          <div className={`${tariffMobileMode === 'table' ? 'block' : 'hidden md:block'}`}>
-            
-            {/* Mobile Horizontal Swipe Indicator */}
-            <div className="md:hidden flex items-center justify-between text-[11px] text-neutral-500 mb-2 px-1">
-              <span>Swipe horizontally to view all columns</span>
-              <span className="text-brand-gold-dark font-bold font-mono">⇄ Scroll</span>
-            </div>
-
-            <div className="p-[2px] rounded-xl sm:rounded-2xl bg-gradient-to-r from-brand-gold via-amber-200 to-brand-gold shadow-lg shadow-brand-gold/15">
-              <div className="rounded-[calc(0.75rem-1px)] sm:rounded-[calc(1rem-1px)] overflow-hidden bg-white">
-                
-                <div className="overflow-x-auto no-scrollbar sm:scrollbar-thin">
-                  <table className="w-full text-left border-collapse">
-                    
-                    {/* Rich Dark Header with Single-line fit */}
-                    <thead>
-                      <tr className="bg-gradient-to-r from-[#1b203d] via-[#1b203d] to-[#0f1426] text-white">
-                        <th className="py-3 px-3.5 sm:py-4 sm:px-5 font-bold uppercase text-[10px] sm:text-[11px] tracking-wider text-brand-gold border-r border-white/10 whitespace-nowrap">
-                          Vehicle Category
-                        </th>
-                        <th className="py-3 px-3.5 sm:py-4 sm:px-5 font-bold uppercase text-[10px] sm:text-[11px] tracking-wider text-brand-gold border-r border-white/10 whitespace-nowrap">
-                          Base Tariff
-                        </th>
-                        <th className="py-3 px-3.5 sm:py-4 sm:px-5 font-bold uppercase text-[10px] sm:text-[11px] tracking-wider text-neutral-200 border-r border-white/10 whitespace-nowrap">
-                          Min Km / Day
-                        </th>
-                        <th className="py-3 px-3.5 sm:py-4 sm:px-5 font-bold uppercase text-[10px] sm:text-[11px] tracking-wider text-neutral-200 border-r border-white/10 whitespace-nowrap">
-                          Driver Bata
-                        </th>
-                        <th className="py-3 px-3.5 sm:py-4 sm:px-5 font-bold uppercase text-[10px] sm:text-[11px] tracking-wider text-neutral-200 border-r border-white/10 whitespace-nowrap">
-                          Night Halt
-                        </th>
-                        <th className="py-3 px-3.5 sm:py-4 sm:px-5 font-bold uppercase text-[10px] sm:text-[11px] tracking-wider text-brand-gold text-center whitespace-nowrap">
-                          Action
-                        </th>
-                      </tr>
-                    </thead>
-
-                    {/* Body with Single-line fit for all data cells */}
-                    <tbody className="divide-y divide-neutral-200 text-xs sm:text-sm">
-                      {tariffs.map((t, idx) => (
-                        <tr 
-                          key={t.vehicle} 
-                          className={`transition-colors duration-200 hover:bg-amber-50/70 ${
-                            idx % 2 === 0 ? 'bg-white' : 'bg-[#FAF8F5]/80'
-                          }`}
-                        >
-                          {/* Vehicle Category */}
-                          <td className="py-3 px-3.5 sm:py-4 sm:px-5 font-bold text-neutral-900 border-r border-neutral-100 whitespace-nowrap">
-                            <div className="flex items-center gap-2 sm:gap-2.5">
-                              <Car className="w-4 h-4 text-brand-gold-dark shrink-0" />
-                              <span className="text-xs sm:text-sm font-semibold whitespace-nowrap">{t.vehicle}</span>
-                            </div>
-                          </td>
-
-                          {/* Base Tariff Badge */}
-                          <td className="py-3 px-3.5 sm:py-4 sm:px-5 border-r border-neutral-100 whitespace-nowrap">
-                            <span className="inline-block bg-brand-gold/15 text-brand-gold-dark font-extrabold font-mono text-xs sm:text-sm px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-brand-gold/30 shadow-2xs whitespace-nowrap">
-                              {t.perKm}
-                            </span>
-                          </td>
-
-                          {/* Min Km */}
-                          <td className="py-3 px-3.5 sm:py-4 sm:px-5 font-medium text-neutral-700 border-r border-neutral-100 whitespace-nowrap">
-                            <span className="bg-neutral-100 text-neutral-800 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded text-xs font-semibold whitespace-nowrap">
-                              {t.minKm}
-                            </span>
-                          </td>
-
-                          {/* Driver Bata */}
-                          <td className="py-3 px-3.5 sm:py-4 sm:px-5 font-semibold text-neutral-800 border-r border-neutral-100 whitespace-nowrap text-xs sm:text-sm">
-                            {t.driverBata}
-                          </td>
-
-                          {/* Night Halt */}
-                          <td className="py-3 px-3.5 sm:py-4 sm:px-5 text-neutral-600 border-r border-neutral-100 text-xs sm:text-sm whitespace-nowrap">
-                            {t.nightCharge}
-                          </td>
-
-                          {/* Direct Booking CTA */}
-                          <td className="py-3 px-3.5 sm:py-4 sm:px-5 text-center whitespace-nowrap">
-                            <button
-                              onClick={() => onOpenBooking({ vehicle: t.vehicle })}
-                              className="btn-gold px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold inline-flex items-center gap-1 cursor-pointer shadow-sm hover:scale-105 active:scale-95 transition-transform whitespace-nowrap"
-                            >
-                              <span>Book</span>
-                              <ArrowRight className="w-3 h-3 shrink-0" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-
-                  </table>
-                </div>
-
-                {/* Bottom Clarification Notice */}
-                <div className="bg-[#FAF8F5] p-3 sm:p-4 border-t border-neutral-200 text-[11px] sm:text-xs text-neutral-600 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
-                  <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="text-brand-gold-dark font-bold font-mono">NOTE:</span>
-                    <span>Garage-to-garage basis • 6:00 AM to 10:00 PM calendar day.</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-neutral-700 font-medium whitespace-nowrap">
-                    <span className="flex items-center gap-1">
-                      <Check className="w-3.5 h-3.5 text-brand-gold-dark" />
-                      <span>No Hidden Fees</span>
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Check className="w-3.5 h-3.5 text-brand-gold-dark" />
-                      <span>GST Bill on Request</span>
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
 
     </div>
   );

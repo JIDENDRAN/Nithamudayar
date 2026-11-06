@@ -7,6 +7,7 @@ import TravelHubsSections from '../components/TravelHubsSections';
 import VehicleDetailCard from '../components/VehicleDetailCard';
 import { ArrowRight, Shield, Award, Clock, Users, CheckCircle2, ChevronRight, Sparkles, MapPin, Plane, Navigation, Briefcase, Heart, Check, Car, Wind, ShieldCheck } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
+import { parseVehicleFromDb } from '../utils/vehicleParser';
 
 export default function HomePage({ onOpenBooking }) {
   const [dbCars, setDbCars] = useState([]);
@@ -136,68 +137,17 @@ export default function HomePage({ onOpenBooking }) {
     },
   ];
 
-  const featuredFleet = (dbCars.length > 0 ? dbCars : defaultFeaturedFleet).map(c => {
-    let img = c.image || '/images/vehicles/sedan.png';
-    if (img.startsWith('/uploads/')) {
-      img = `${API_BASE_URL}${img}`;
-    }
-    const nameLower = (c.name || '').toLowerCase();
-    let seater = c.seaterLabel || (c.seats ? c.seats.split(' ')[0] + ' Seater' : '7 Seater');
-    let outstationRate = c.outstationRate || (c.rate || c.price || '₹20/km').replace('/ km', '/km');
-    let minKm = c.minDistance || 'Above 300 kms';
-    let drvCharge = c.driverCharge || 'Rs. 300 / day';
-    let baseRent = c.dayBaseRent || 'Rs. 2500';
-    let perKm = c.dayPerKm || 'Rs. 16/km';
-    let dayDrv = c.dayDriverCharge || 'Rs. 300 / day';
-
-    if (nameLower.includes('innova') || nameLower.includes('crysta')) {
-      seater = '7 Seater';
-      minKm = 'Above 300 kms';
-      baseRent = 'Rs. 2500';
-      perKm = 'Rs. 16/km';
-      drvCharge = 'Rs. 300 / day';
-    } else if (nameLower.includes('suv') || nameLower.includes('ertiga') || nameLower.includes('carens')) {
-      seater = '6 Seater';
-      minKm = 'Above 300 kms';
-      baseRent = 'Rs. 2800';
-      perKm = 'Rs. 16/km';
-      drvCharge = 'Rs. 350 / day';
-    } else if (nameLower.includes('urbania')) {
-      seater = '12-17 Seater';
-      minKm = 'Above 300 kms';
-      baseRent = 'Rs. 7500';
-      perKm = 'Rs. 28/km';
-      drvCharge = 'Rs. 600 / day';
-    } else if (nameLower.includes('tempo') || nameLower.includes('traveller')) {
-      seater = '12-17 Seater';
-      minKm = 'Above 300 kms';
-      baseRent = 'Rs. 5500';
-      perKm = 'Rs. 22/km';
-      drvCharge = 'Rs. 500 / day';
-    }
-
-    return {
-      id: c.id || c.name,
-      name: c.name,
-      category: c.category || seater,
-      seaterLabel: seater,
-      seatsMobile: seater,
-      image: img,
-      rate: outstationRate,
-      outstationRate: outstationRate,
-      minDistance: minKm,
-      driverCharge: drvCharge,
-      dayBaseRent: baseRent,
-      dayPerKm: perKm,
-      dayDriverCharge: dayDrv,
-      startingFrom: outstationRate,
-      seats: c.seats || seater,
-      luggage: c.luggage || '4 Large Bags',
-      luggageMobile: c.luggageMobile || '4 Bags',
-      ac: c.ac || 'AC',
-      idealFor: c.idealFor || (c.desc ? c.desc.split('|')[0].trim() : 'Chauffeur Driven Travel'),
-    };
-  });
+  const featuredFleet = (dbCars.length > 0
+    ? [...dbCars].sort((a, b) => {
+        // Feature Innova Crysta first to match showcase design, then by ID
+        const aInnova = (a.name || '').toLowerCase().includes('innova');
+        const bInnova = (b.name || '').toLowerCase().includes('innova');
+        if (aInnova && !bInnova) return -1;
+        if (!aInnova && bInnova) return 1;
+        return (a.id || 0) - (b.id || 0);
+      }).map(c => parseVehicleFromDb(c)).filter(Boolean)
+    : defaultFeaturedFleet
+  );
 
   const defaultFeaturedPackages = [
     {
