@@ -117,7 +117,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
                   <Link to="/fleet" className="hover:text-brand-gold transition-colors">Vehicles & Fleet</Link>
                 </li>
                 <li>
-                  <Link to="/destinations" className="hover:text-brand-gold transition-colors">Destinations</Link>
+                  <Link to="/gallery" className="hover:text-brand-gold transition-colors">Photo Gallery</Link>
                 </li>
                 <li>
                   <Link to="/contact" className="hover:text-brand-gold transition-colors">Contact</Link>
@@ -132,22 +132,22 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
               </h4>
               <ul className="space-y-1.5 text-xs text-neutral-400">
                 <li>
-                  <Link to="/destinations" className="hover:text-white transition-colors">Thanjavur</Link>
+                  <Link to="/gallery" className="hover:text-white transition-colors">Thanjavur</Link>
                 </li>
                 <li>
-                  <Link to="/destinations" className="hover:text-white transition-colors">Kumbakonam</Link>
+                  <Link to="/gallery" className="hover:text-white transition-colors">Kumbakonam</Link>
                 </li>
                 <li>
-                  <Link to="/destinations" className="hover:text-white transition-colors">Trichy</Link>
+                  <Link to="/gallery" className="hover:text-white transition-colors">Trichy</Link>
                 </li>
                 <li>
-                  <Link to="/destinations" className="hover:text-white transition-colors">Madurai</Link>
+                  <Link to="/gallery" className="hover:text-white transition-colors">Madurai</Link>
                 </li>
                 <li>
-                  <Link to="/destinations" className="hover:text-white transition-colors">Coimbatore</Link>
+                  <Link to="/gallery" className="hover:text-white transition-colors">Coimbatore</Link>
                 </li>
                 <li>
-                  <Link to="/destinations" className="hover:text-white transition-colors">Chennai</Link>
+                  <Link to="/gallery" className="hover:text-white transition-colors">Chennai</Link>
                 </li>
               </ul>
             </div>

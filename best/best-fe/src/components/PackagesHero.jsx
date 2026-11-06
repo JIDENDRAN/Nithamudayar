@@ -45,10 +45,10 @@ export default function PackagesHero({ onOpenBooking }) {
             </button>
 
             <Link
-              to="/destinations"
+              to="/gallery"
               className="px-4 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-black/60 hover:bg-black/80 border border-brand-gold/40 text-brand-gold hover:text-white transition-all backdrop-blur-sm shadow-md"
             >
-              Explore Hubs
+              Explore Gallery
             </Link>
           </div>
         </div>

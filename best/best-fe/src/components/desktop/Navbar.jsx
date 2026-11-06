@@ -19,7 +19,6 @@ export default function Navbar({ onOpenBooking }) {
     { label: 'About Us', path: '/about' },
     { label: 'Tour Packages', path: '/packages' },
     { label: 'Vehicles & Fleet', path: '/fleet' },
-    { label: 'Destinations', path: '/destinations' },
     { label: 'Gallery', path: '/gallery' },
     { label: 'Contact', path: '/contact' },
   ];

@@ -804,46 +804,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     </div>
                   </div>
 
-                  {/* Quick Day Presets */}
-                  <div className="flex items-center justify-between pt-1">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="text-[10px] text-neutral-400 font-medium">Quick Days:</span>
-                      {[1, 2, 3, 4, 5, 7].map((d) => (
-                        <button
-                          key={d}
-                          type="button"
-                          onClick={() => {
-                            handleInputChange('dailyRentDays', d);
-                            if (!billData.dailyRentRate || Number(billData.dailyRentRate) === 0) {
-                              let suggested = 2500;
-                              const v = (billData.vehicleModel || '').toLowerCase();
-                              if (v.includes('suv') || v.includes('ertiga')) suggested = 3000;
-                              else if (v.includes('innova') || v.includes('crysta')) suggested = 3800;
-                              else if (v.includes('tempo')) suggested = 5000;
-                              else if (v.includes('urbania')) suggested = 7000;
-                              handleInputChange('dailyRentRate', suggested);
-                            }
-                          }}
-                          className={'px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer ' + (
-                            Number(billData.dailyRentDays) === d
-                              ? 'bg-[#d4af37] text-neutral-950 font-black shadow-sm'
-                              : 'bg-white/5 text-neutral-300 hover:text-white hover:bg-white/10 border border-white/10'
-                          )}
-                        >
-                          {d} Day{d > 1 ? 's' : ''}
-                        </button>
-                      ))}
-                    </div>
-                    {Number(billData.dailyRentDays) > 0 && (
-                      <button
-                        type="button"
-                        onClick={() => handleInputChange('dailyRentDays', 0)}
-                        className="text-[10px] text-red-400 hover:text-red-300 font-semibold cursor-pointer underline ml-2 shrink-0"
-                      >
-                        Clear Rent
-                      </button>
-                    )}
-                  </div>
+
                 </div>
 
                 {/* 6. Additional Charges & Settlement */}

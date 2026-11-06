@@ -186,10 +186,10 @@ export default function TravelHubsSections({ onOpenBooking }) {
 
           <div className="flex items-center gap-3">
             <Link
-              to="/destinations"
+              to="/gallery"
               className="btn-gold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 shadow-sm hover:scale-[1.02] active:scale-95 transition-all"
             >
-              <span>Circuit Details</span>
+              <span>View Photo Gallery</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

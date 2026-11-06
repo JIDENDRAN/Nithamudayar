@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Home from '../../pages/Home';
 import About from '../../pages/About';
 import Vehicles from '../../pages/Vehicles';
 import Packages from '../../pages/Packages';
-import Destinations from '../../pages/Destinations';
 import Contact from '../../pages/Contact';
 import Gallery from '../../pages/Gallery';
 import PrivacyPolicy from '../../pages/PrivacyPolicy';
@@ -40,7 +39,7 @@ export default function DesktopLayout() {
           <Route path="/packages" element={<Packages onOpenBooking={handleOpenBooking} />} />
           <Route path="/fleet" element={<Vehicles onOpenBooking={handleOpenBooking} />} />
           <Route path="/vehicles" element={<Vehicles onOpenBooking={handleOpenBooking} />} />
-          <Route path="/destinations" element={<Destinations onOpenBooking={handleOpenBooking} />} />
+          <Route path="/destinations" element={<Navigate to="/gallery" replace />} />
           <Route path="/contact" element={<Contact onOpenBooking={handleOpenBooking} />} />
           <Route path="/gallery" element={<Gallery onOpenBooking={handleOpenBooking} />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

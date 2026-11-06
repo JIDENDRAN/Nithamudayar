@@ -17,7 +17,6 @@ const routes = [
   '/about',
   '/vehicles',
   '/packages',
-  '/destinations',
   '/gallery',
   '/contact',
   '/privacy-policy',

@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Package, Car, MapPin, PhoneCall, ShieldCheck } from 'lucide-react';
+import { Home, Package, Car, Image, PhoneCall, ShieldCheck } from 'lucide-react';
 
 export default function MobileBottomNav({ onOpenBooking }) {
   const items = [
     { label: 'Home', path: '/', icon: Home },
     { label: 'Packages', path: '/packages', icon: Package },
     { label: 'Fleet', path: '/fleet', icon: Car },
-    { label: 'Places', path: '/destinations', icon: MapPin },
+    { label: 'Gallery', path: '/gallery', icon: Image },
     { label: 'Admin', path: '/admin/dashboard', icon: ShieldCheck },
   ];
 
