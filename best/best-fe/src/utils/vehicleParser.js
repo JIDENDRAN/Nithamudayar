@@ -207,3 +207,4 @@ export function parseVehicleFromDb(c) {
     idealFor: c.desc || 'Chauffeur Driven Travel'
   };
 }
+

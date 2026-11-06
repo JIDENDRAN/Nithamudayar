@@ -12,17 +12,17 @@ export default function FleetHero({ onOpenBooking }) {
   return (
     <section 
       id="fleet-hero" 
-      className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#1b203d] text-white overflow-hidden bg-cover bg-[position:65%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[460px] sm:min-h-[520px] flex items-center"
+      className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#1b203d] text-white overflow-hidden bg-cover bg-[position:75%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[480px] sm:min-h-[540px] flex items-center"
       style={{
-        backgroundImage: `url('/images/backgrounds/fleet-hero-landscape.jpg')`,
+        backgroundImage: `url('/images/backgrounds/hero-madurai-car.jpg')`,
       }}
     >
-      {/* Soft gradient blend: warm brown shade on mobile view alone, rich blend on desktop */}
-      <div className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-3/5 lg:w-1/2 bg-gradient-to-r from-[#1b203d]/65 via-[#1b203d]/40 to-transparent sm:from-[#1b203d] sm:via-[#1b203d]/85 sm:to-transparent pointer-events-none z-10"></div>
+      {/* Soft royal navy gradient blend for crisp text readability while showcasing the temple & car */}
+      <div className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-3/5 lg:w-1/2 bg-gradient-to-r from-[#1b203d]/90 via-[#1b203d]/70 to-transparent pointer-events-none z-10"></div>
 
-      {/* Subtle top/bottom vignette: warm brown framing on mobile view alone */}
-      <div className="absolute inset-x-0 top-0 h-12 sm:h-16 bg-gradient-to-b from-[#1b203d]/55 sm:from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
-      <div className="absolute inset-x-0 bottom-0 h-12 sm:h-14 bg-gradient-to-t from-[#1b203d]/50 sm:from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
+      {/* Subtle top/bottom framing */}
+      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-10 w-full">
         {/* Left Content */}

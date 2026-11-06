@@ -146,14 +146,15 @@ const Gallery = () => {
   return (
     <div className="bg-[#FAF8F5] min-h-screen pb-16 overflow-hidden select-none">
       {/* 1. HERO SECTION */}
-      <div className="relative h-[44vh] lg:h-[52vh] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[48vh] lg:h-[56vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/backgrounds/destinations-hero-landscape.jpg" 
+            src="/images/backgrounds/hero-palani-car.jpg" 
             alt="Nithamudayar Tours & Travels Pvt Ltd Gallery" 
-            className="w-full h-full object-cover object-center scale-105"
+            className="w-full h-full object-cover object-[position:75%_center] lg:object-center"
           />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1b203d]/90 via-[#252c54]/70 to-[#0f1426]/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1b203d]/90 via-[#1b203d]/60 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#1b203d] to-transparent" />
           {/* Accent Glows */}
           <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[150px] bg-brand-gold/15 rounded-full blur-[100px] pointer-events-none" />
         </div>
