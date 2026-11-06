@@ -16,41 +16,41 @@ import {
 
 export const travelHubsData = [
   {
-    id: 'mountain-tourism',
-    title: 'Mountain Area Tourism',
-    subtitle: 'Chilly Hill Station Escapes & Misty Valleys',
-    route: 'Ooty • Kodaikanal • Munnar • Valparai • Thekkady',
-    desc: 'Breathtaking Western Ghats panoramas, lush rolling tea plantations, cool misty climate, and serene mountain lakes. Chauffeur-driven luxury travel with expert ghat-road drivers.',
-    vehicles: 'Toyota Innova Crysta • Force Urbania • 4x4 SUVs',
-    accentColor: 'from-emerald-900 via-[#1e3a2f] to-[#12221b]',
-    badgeBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    id: 'cauvery-delta',
+    title: 'Cauvery Delta & Chola Trail',
+    subtitle: 'Navagraha Shrines, Kallanai Dam & Temple Architecture',
+    route: 'Kumbakonam • Gangaikonda Cholapuram • Thanjavur • Trichy',
+    desc: 'Explore the fertile river Kaveri cradle, home to 9 planetary Navagraha parihara temples, ancient Chola stone masonry, and centuries-old handloom silk weaving traditions.',
+    vehicles: 'Innova Crysta • Force Urbania • Tempo Traveller',
+    accentColor: 'from-[#2e2617] via-[#3a301d] to-[#1f190f]',
+    badgeBg: 'bg-yellow-500/20 text-yellow-200 border-yellow-500/40',
     places: [
       {
-        name: 'Ooty',
+        name: 'Kumbakonam',
         state: 'Tamil Nadu',
-        tagline: 'Queen of Hill Stations',
-        image: '/images/destinations/ooty.jpg',
-        attractions: 'Botanical Gardens • Pykara Waterfalls • Nilgiri Mountain Railway • Doddabetta Peak',
-        highlight: '2,240 m Altitude • Rolling Tea Hills',
-        desc: 'Escape into the cool Nilgiri mist, explore sprawling aromatic tea estates, ride the UNESCO toy train, and boat on pristine Pykara lake.'
+        tagline: 'The Temple Town & Navagraha Hub',
+        image: '/images/destinations/kumbakonam.jpg',
+        attractions: 'Adi Kumbeswarar • Mahamaham Tank • 9 Navagraha Planetary Shrines Around City',
+        highlight: '9 Navagraha Parihara Circuit',
+        desc: 'The hub for all nine planetary Navagraha temples (Suryanar, Thingaloor, Vaitheeswaran, Thirunallar, etc.) with experienced pilgrimage drivers.'
       },
       {
-        name: 'Kodaikanal',
+        name: 'Trichy Kaveri Basin',
         state: 'Tamil Nadu',
-        tagline: 'Princess of Hill Stations',
-        image: '/images/destinations/kodaikanal.jpg',
-        attractions: 'Star-Shaped Kodai Lake • Pillar Rocks • Coakers Walk • Pine Forests • Silver Cascade',
-        highlight: '2,133 m Altitude • Forest Lakes',
-        desc: 'A romantic haven of misty cliffs, century-old pine forest walking trails, boating on the scenic star-shaped lake, and panoramic viewpoint halts.'
+        tagline: 'Grand Anicut & Rockfort Summit',
+        image: '/images/destinations/trichy.jpg',
+        attractions: '2nd Century Kallanai Dam • Monolithic Rockfort • Srirangam Ranganathaswamy Temple',
+        highlight: 'Karikala Chola 2nd-Century Dam',
+        desc: 'Marvel at the ancient Kallanai dam still irrigating the delta after 1,800 years, climb the 83m monolithic Rockfort, and visit 156-acre Srirangam.'
       },
       {
-        name: 'Munnar',
-        state: 'Kerala',
-        tagline: 'Emerald Tea Paradise',
-        image: '/images/destinations/munnar.jpg',
-        attractions: 'Anamudi Peak • Mattupetty Dam • Eravikulam National Park • Tea Museum • Attukal Falls',
-        highlight: '1,600 m Altitude • Cloud Mist Valleys',
-        desc: 'Unending expanse of emerald-green tea valleys, winding scenic mist roads, wildlife sanctuaries, and cascading gushing mountain waterfalls.'
+        name: 'Living Chola Marvels',
+        state: 'Tamil Nadu',
+        tagline: 'Heritage & Bronze Arts',
+        image: '/images/destinations/thanjavur.jpg',
+        attractions: 'Gangaikonda Cholapuram • Airavatesvara Temple Darasuram • Royal Art Plate Weavers',
+        highlight: 'UNESCO Triad of Chola Temples',
+        desc: 'Explore intricate stone chariot carvings, acoustic musical steps at Darasuram, and royal Thanjavur silk and art plate workshops.'
       }
     ]
   },
@@ -172,41 +172,41 @@ export const travelHubsData = [
     ]
   },
   {
-    id: 'cauvery-delta',
-    title: 'Cauvery Delta & Chola Trail',
-    subtitle: 'Navagraha Shrines, Kallanai Dam & Temple Architecture',
-    route: 'Kumbakonam • Gangaikonda Cholapuram • Thanjavur • Trichy',
-    desc: 'Explore the fertile river Kaveri cradle, home to 9 planetary Navagraha parihara temples, ancient Chola stone masonry, and centuries-old handloom silk weaving traditions.',
-    vehicles: 'Innova Crysta • Force Urbania • Tempo Traveller',
-    accentColor: 'from-[#2e2617] via-[#3a301d] to-[#1f190f]',
-    badgeBg: 'bg-yellow-500/20 text-yellow-200 border-yellow-500/40',
+    id: 'mountain-tourism',
+    title: 'Mountain Area Tourism',
+    subtitle: 'Chilly Hill Station Escapes & Misty Valleys',
+    route: 'Ooty • Kodaikanal • Munnar • Valparai • Thekkady',
+    desc: 'Breathtaking Western Ghats panoramas, lush rolling tea plantations, cool misty climate, and serene mountain lakes. Chauffeur-driven luxury travel with expert ghat-road drivers.',
+    vehicles: 'Toyota Innova Crysta • Force Urbania • 4x4 SUVs',
+    accentColor: 'from-emerald-900 via-[#1e3a2f] to-[#12221b]',
+    badgeBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
     places: [
       {
-        name: 'Kumbakonam',
+        name: 'Ooty',
         state: 'Tamil Nadu',
-        tagline: 'The Temple Town & Navagraha Hub',
-        image: '/images/destinations/kumbakonam.jpg',
-        attractions: 'Adi Kumbeswarar • Mahamaham Tank • 9 Navagraha Planetary Shrines Around City',
-        highlight: '9 Navagraha Parihara Circuit',
-        desc: 'The hub for all nine planetary Navagraha temples (Suryanar, Thingaloor, Vaitheeswaran, Thirunallar, etc.) with experienced pilgrimage drivers.'
+        tagline: 'Queen of Hill Stations',
+        image: '/images/destinations/ooty.jpg',
+        attractions: 'Botanical Gardens • Pykara Waterfalls • Nilgiri Mountain Railway • Doddabetta Peak',
+        highlight: '2,240 m Altitude • Rolling Tea Hills',
+        desc: 'Escape into the cool Nilgiri mist, explore sprawling aromatic tea estates, ride the UNESCO toy train, and boat on pristine Pykara lake.'
       },
       {
-        name: 'Trichy Kaveri Basin',
+        name: 'Kodaikanal',
         state: 'Tamil Nadu',
-        tagline: 'Grand Anicut & Rockfort Summit',
-        image: '/images/destinations/trichy.jpg',
-        attractions: '2nd Century Kallanai Dam • Monolithic Rockfort • Srirangam Ranganathaswamy Temple',
-        highlight: 'Karikala Chola 2nd-Century Dam',
-        desc: 'Marvel at the ancient Kallanai dam still irrigating the delta after 1,800 years, climb the 83m monolithic Rockfort, and visit 156-acre Srirangam.'
+        tagline: 'Princess of Hill Stations',
+        image: '/images/destinations/kodaikanal.jpg',
+        attractions: 'Star-Shaped Kodai Lake • Pillar Rocks • Coakers Walk • Pine Forests • Silver Cascade',
+        highlight: '2,133 m Altitude • Forest Lakes',
+        desc: 'A romantic haven of misty cliffs, century-old pine forest walking trails, boating on the scenic star-shaped lake, and panoramic viewpoint halts.'
       },
       {
-        name: 'Living Chola Marvels',
-        state: 'Tamil Nadu',
-        tagline: 'Heritage & Bronze Arts',
-        image: '/images/destinations/thanjavur.jpg',
-        attractions: 'Gangaikonda Cholapuram • Airavatesvara Temple Darasuram • Royal Art Plate Weavers',
-        highlight: 'UNESCO Triad of Chola Temples',
-        desc: 'Explore intricate stone chariot carvings, acoustic musical steps at Darasuram, and royal Thanjavur silk and art plate workshops.'
+        name: 'Munnar',
+        state: 'Kerala',
+        tagline: 'Emerald Tea Paradise',
+        image: '/images/destinations/munnar.jpg',
+        attractions: 'Anamudi Peak • Mattupetty Dam • Eravikulam National Park • Tea Museum • Attukal Falls',
+        highlight: '1,600 m Altitude • Cloud Mist Valleys',
+        desc: 'Unending expanse of emerald-green tea valleys, winding scenic mist roads, wildlife sanctuaries, and cascading gushing mountain waterfalls.'
       }
     ]
   },

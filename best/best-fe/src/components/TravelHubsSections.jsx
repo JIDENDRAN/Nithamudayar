@@ -13,18 +13,18 @@ import {
 
 export const travelHubsCategories = [
   {
-    id: 'mountain-tourism',
+    id: 'cauvery-delta',
     number: '01',
-    title: 'Mountain Area Tourism',
-    subtitle: 'Chilly Hill Station Escapes & Misty Western Ghats',
-    route: 'Ooty • Kodaikanal • Munnar • Valparai • Thekkady',
-    desc: 'Experience breathtaking hill station panoramas, rolling Nilgiri tea estates, mist-covered valleys, and cool pine forests with expert mountain-road chauffeurs.',
-    fleet: 'Toyota Innova Crysta • Force Urbania • 4x4 SUVs',
-    badge: 'Hill Stations & Tea Valleys',
+    title: 'Cauvery Delta & Chola Trail',
+    subtitle: 'Navagraha Shrines, Kallanai Dam & Silk Weaving Villages',
+    route: 'Kumbakonam • Gangaikonda Cholapuram • Thanjavur • Trichy',
+    desc: 'Explore the fertile river Kaveri cradle, home to 9 planetary Navagraha parihara temples, ancient Chola stone masonry, and centuries-old handloom silk weaving traditions.',
+    fleet: 'Innova Crysta • Force Urbania • Tempo Traveller',
+    badge: 'Navagraha & Chola Architecture',
     places: [
-      { name: 'Ooty', image: '/images/destinations/ooty.jpg', tagline: 'Queen of Hill Stations • 2,240 m' },
-      { name: 'Kodaikanal', image: '/images/destinations/kodaikanal.jpg', tagline: 'Princess of Hill Stations • 2,133 m' },
-      { name: 'Munnar', image: '/images/destinations/munnar.jpg', tagline: 'Emerald Tea Paradise • 1,600 m' }
+      { name: 'Kumbakonam', image: '/images/destinations/kumbakonam.jpg', tagline: 'The Temple Town & 9 Navagraha Shrines' },
+      { name: 'Trichy', image: '/images/destinations/trichy.jpg', tagline: '2nd-Century Kallanai Dam & Rockfort' },
+      { name: 'Thanjavur Chola Marvels', image: '/images/destinations/thanjavur.jpg', tagline: 'Living Chola Temples & Bronze Arts' }
     ]
   },
   {
@@ -73,18 +73,18 @@ export const travelHubsCategories = [
     ]
   },
   {
-    id: 'cauvery-delta',
+    id: 'mountain-tourism',
     number: '05',
-    title: 'Cauvery Delta & Chola Trail',
-    subtitle: 'Navagraha Shrines, Kallanai Dam & Silk Weaving Villages',
-    route: 'Kumbakonam • Gangaikonda Cholapuram • Thanjavur • Trichy',
-    desc: 'Explore the fertile river Kaveri cradle, home to 9 planetary Navagraha parihara temples, ancient Chola stone masonry, and centuries-old handloom silk weaving traditions.',
-    fleet: 'Innova Crysta • Force Urbania • Tempo Traveller',
-    badge: 'Navagraha & Chola Architecture',
+    title: 'Mountain Area Tourism',
+    subtitle: 'Chilly Hill Station Escapes & Misty Western Ghats',
+    route: 'Ooty • Kodaikanal • Munnar • Valparai • Thekkady',
+    desc: 'Experience breathtaking hill station panoramas, rolling Nilgiri tea estates, mist-covered valleys, and cool pine forests with expert mountain-road chauffeurs.',
+    fleet: 'Toyota Innova Crysta • Force Urbania • 4x4 SUVs',
+    badge: 'Hill Stations & Tea Valleys',
     places: [
-      { name: 'Kumbakonam', image: '/images/destinations/kumbakonam.jpg', tagline: 'The Temple Town & 9 Navagraha Shrines' },
-      { name: 'Trichy', image: '/images/destinations/trichy.jpg', tagline: '2nd-Century Kallanai Dam & Rockfort' },
-      { name: 'Thanjavur Chola Marvels', image: '/images/destinations/thanjavur.jpg', tagline: 'Living Chola Temples & Bronze Arts' }
+      { name: 'Ooty', image: '/images/destinations/ooty.jpg', tagline: 'Queen of Hill Stations • 2,240 m' },
+      { name: 'Kodaikanal', image: '/images/destinations/kodaikanal.jpg', tagline: 'Princess of Hill Stations • 2,133 m' },
+      { name: 'Munnar', image: '/images/destinations/munnar.jpg', tagline: 'Emerald Tea Paradise • 1,600 m' }
     ]
   },
   {
