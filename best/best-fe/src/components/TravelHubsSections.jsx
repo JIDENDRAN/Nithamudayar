@@ -52,12 +52,12 @@ export const travelHubsCategories = [
     fleet: 'Force Urbania (12/17 Seater) • Innova Crysta • AC Sedans',
     badge: 'Divine Pilgrimage Circuit',
     places: [
-      { name: 'Thiruparankundram', image: '/images/destinations/madurai.jpg', tagline: 'Cave Temple & Divine Wedding • 1st Abode' },
-      { name: 'Tiruchendur', image: '/images/destinations/murugan.jpg', tagline: 'Seaside Coastal Shrine & Victory • 2nd Abode' },
-      { name: 'Palani', image: '/images/destinations/kodaikanal.jpg', tagline: 'Dhandayuthapani Swamy Hill • 3rd Abode' },
-      { name: 'Swamimalai', image: '/images/destinations/kumbakonam.jpg', tagline: 'Gnana Upadesham & Guru Sthalam • 4th Abode' },
-      { name: 'Thiruthani', image: '/images/destinations/chennai.jpg', tagline: 'Tanikasalam Hill & 365 Steps • 5th Abode' },
-      { name: 'Pazhamudircholai', image: '/images/destinations/madurai.jpg', tagline: 'Solaimalai Forest & Fruition • 6th Abode' }
+      { name: 'Thiruparankundram', image: '/images/destinations/thiruparankundram.jpg', tagline: 'Cave Temple & Divine Wedding • 1st Abode' },
+      { name: 'Tiruchendur', image: '/images/destinations/tiruchendur.jpg', tagline: 'Seaside Coastal Shrine & Victory • 2nd Abode' },
+      { name: 'Palani', image: '/images/destinations/palani.jpg', tagline: 'Dhandayuthapani Swamy Hill • 3rd Abode' },
+      { name: 'Swamimalai', image: '/images/destinations/swamimalai.jpg', tagline: 'Gnana Upadesham & Guru Sthalam • 4th Abode' },
+      { name: 'Thiruthani', image: '/images/destinations/thiruthani.jpg', tagline: 'Tanikasalam Hill & 365 Steps • 5th Abode' },
+      { name: 'Pazhamudircholai', image: '/images/destinations/pazhamudircholai.jpg', tagline: 'Solaimalai Forest & Fruition • 6th Abode' }
     ]
   },
   {
@@ -71,7 +71,7 @@ export const travelHubsCategories = [
     badge: 'Houseboats & Coastal Escapes',
     places: [
       { name: 'Alappuzha (Alleppey)', image: '/images/destinations/alleppey.jpg', tagline: 'Venice of the East • Deluxe Houseboats' },
-      { name: 'Kumarakom', image: '/images/destinations/backwater.jpg', tagline: 'Tranquil Lake Lagoons & Bird Sanctuary' },
+      { name: 'Kumarakom', image: '/images/destinations/kumarakom.jpg', tagline: 'Tranquil Lake Lagoons & Bird Sanctuary' },
       { name: 'Varkala', image: '/images/destinations/varkala.jpg', tagline: 'Dramatic Red Cliffs & Papanasam Beach' },
       { name: 'Thiruvananthapuram', image: '/images/destinations/trivandrum.jpg', tagline: 'Padmanabhaswamy Temple & Kovalam Coast' }
     ]
@@ -102,10 +102,10 @@ export const travelHubsCategories = [
     fleet: 'Force Urbania • Innova Crysta • Executive Sedans',
     badge: '24/7 Flight Schedule Transfers',
     places: [
-      { name: 'Chennai', image: '/images/destinations/chennai.jpg', tagline: 'Gateway of South India • T1/T2 Airport' },
-      { name: 'Coimbatore', image: '/images/destinations/coimbatore.jpg', tagline: 'Manchester of South India • Industrial Hub' },
-      { name: 'Trichy Airport & Corporate', image: '/images/destinations/trichy.jpg', tagline: 'International Air Terminal • Delta Express' },
-      { name: 'Madurai Airport & Corporate', image: '/images/destinations/madurai.jpg', tagline: 'Southern Commercial & Air Gateway' }
+      { name: 'Chennai Airport & Corporate', image: '/images/destinations/chennai-airport.jpg', tagline: 'Gateway of South India • T1/T2 Airport' },
+      { name: 'Coimbatore Airport & Corporate', image: '/images/destinations/coimbatore-airport.jpg', tagline: 'Manchester of South India • Industrial Hub' },
+      { name: 'Trichy Airport & Corporate', image: '/images/destinations/trichy-airport.jpg', tagline: 'International Air Terminal • Delta Express' },
+      { name: 'Madurai Airport & Corporate', image: '/images/destinations/madurai-airport.jpg', tagline: 'Southern Commercial & Air Gateway' }
     ]
   }
 ];

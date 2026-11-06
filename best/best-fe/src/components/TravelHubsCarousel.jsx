@@ -107,7 +107,7 @@ export const travelHubsData = [
         name: 'Thiruparankundram',
         state: 'Tamil Nadu',
         tagline: 'Cave Temple & Divine Wedding Shrine (1st Abode)',
-        image: '/images/destinations/madurai.jpg',
+        image: '/images/destinations/thiruparankundram.jpg',
         attractions: 'Rock-cut Cave Sanctum • Marriage of Lord Murugan & Deivanai • Saravana Poigai',
         highlight: '1st Abode • Rock-Cut Heritage',
         desc: 'The first abode of Lord Murugan carved into a massive granite hill, commemorating the divine victory over Surapadman and sacred marriage with Deivanai.'
@@ -116,7 +116,7 @@ export const travelHubsData = [
         name: 'Tiruchendur',
         state: 'Tamil Nadu',
         tagline: 'Seaside Coastal Shrine & Victory Ground (2nd Abode)',
-        image: '/images/destinations/murugan.jpg',
+        image: '/images/destinations/tiruchendur.jpg',
         attractions: 'Lord Subramanya Sea Shore Temple • Nazhikinaru Sacred Spring • Ocean Promenade',
         highlight: 'Seafront Temple • Soorasamharam Holy Spot',
         desc: 'The only seashore abode of Lord Murugan, with cool ocean breezes, temple darshan, and the miraculous sweet freshwater well on the beach.'
@@ -125,7 +125,7 @@ export const travelHubsData = [
         name: 'Palani',
         state: 'Tamil Nadu',
         tagline: 'Dhandayuthapani Hill & Renunciation Shrine (3rd Abode)',
-        image: '/images/destinations/kodaikanal.jpg',
+        image: '/images/destinations/palani.jpg',
         attractions: 'Sivagiri Hilltop Temple • Winch & Ropeway Car • Divine Panchamirtham Prasad',
         highlight: 'Hilltop Shrine • Navabashanam Idol',
         desc: 'Ascend the holy Palani hill via modern rope car or steps to worship Lord Murugan as an ascetic recluse with world-famous Panchamirtham.'
@@ -134,7 +134,7 @@ export const travelHubsData = [
         name: 'Swamimalai',
         state: 'Tamil Nadu',
         tagline: 'Gnana Upadesham & Guru Sthalam (4th Abode)',
-        image: '/images/destinations/kumbakonam.jpg',
+        image: '/images/destinations/swamimalai.jpg',
         attractions: '60 Granite Steps (Tamil Years) • Son Teaching Father Lord Shiva • Pranava Mantra',
         highlight: 'Guru Shrine • 60 Sacred Steps',
         desc: 'Built on a hillock with 60 steps representing the 60 Tamil cycle years, where child Murugan expounded the secrets of the Pranava Mantra Om.'
@@ -143,7 +143,7 @@ export const travelHubsData = [
         name: 'Thiruthani',
         state: 'Tamil Nadu',
         tagline: 'Tanikasalam Hill & Peace Abode (5th Abode)',
-        image: '/images/destinations/chennai.jpg',
+        image: '/images/destinations/thiruthani.jpg',
         attractions: '365 Hill Steps (Days of the Year) • Marriage with Valli • Shanti Stalam',
         highlight: 'Peace Shrine • 365 Sacred Steps',
         desc: 'Perched on the Tanikasalam hillock with 365 steps, where Lord Murugan pacified his inner battle fury and married goddess Valli.'
@@ -152,7 +152,7 @@ export const travelHubsData = [
         name: 'Pazhamudircholai',
         state: 'Tamil Nadu',
         tagline: 'Solaimalai Forest & Fruition Abode (6th Abode)',
-        image: '/images/destinations/madurai.jpg',
+        image: '/images/destinations/pazhamudircholai.jpg',
         attractions: 'Lord Murugan with Valli & Deivanai • Holy Noopura Ganga Spring • Azhagar Hills',
         highlight: 'Forest Abode • Sacred Noopura Ganga',
         desc: 'Nestled amidst lush forested Azhagar hills near Madurai, worshipped alongside both consorts Valli & Deivanai with sacred natural spring waters.'
@@ -182,7 +182,7 @@ export const travelHubsData = [
         name: 'Kumarakom Backwaters',
         state: 'Kerala',
         tagline: 'Bird Sanctuary & Lake Retreat',
-        image: '/images/destinations/backwater.jpg',
+        image: '/images/destinations/kumarakom.jpg',
         attractions: 'Vembanad Lake Sanctuary • Lotus Lagoons • Ayurvedic Spa & Heritage Resorts',
         highlight: 'Tranquil Lake Lagoons',
         desc: 'A serene archipelago on Vembanad Lake offering bird watching, traditional shikara boat cruises, village canoeing, and peaceful water retreats.'
@@ -266,19 +266,19 @@ export const travelHubsData = [
     badgeBg: 'bg-blue-500/20 text-blue-200 border-blue-500/40',
     places: [
       {
-        name: 'Chennai Metropolis',
+        name: 'Chennai Airport & Corporate',
         state: 'Tamil Nadu',
         tagline: 'International Gateway of South India',
-        image: '/images/destinations/chennai.jpg',
+        image: '/images/destinations/chennai-airport.jpg',
         attractions: 'Chennai Airport T1/T2 • OMR IT Expressway • Marina Coastline • Mahabalipuram',
         highlight: '24/7 Flight Tracking & VIP Pickup',
         desc: 'Punctual flight transfers with real-time arrival tracking, executive meet-and-greet, and smooth intercity drops across Tamil Nadu.'
       },
       {
-        name: 'Coimbatore Industrial Hub',
+        name: 'Coimbatore Airport & Corporate',
         state: 'Tamil Nadu',
         tagline: 'Manchester of South India',
-        image: '/images/destinations/coimbatore.jpg',
+        image: '/images/destinations/coimbatore-airport.jpg',
         attractions: 'Coimbatore Airport • Adiyogi Shiva Statue • Nilgiri Foothills • Tirupur Industrial Tour',
         highlight: 'Textile & Tech Gateway',
         desc: 'Corporate delegate fleet management, business visits to industrial belts, and scenic transit to nearby Ooty and Valparai hill resorts.'
@@ -287,7 +287,7 @@ export const travelHubsData = [
         name: 'Trichy Airport & Corporate',
         state: 'Tamil Nadu',
         tagline: 'Central Delta Gateway & International Terminal',
-        image: '/images/destinations/trichy.jpg',
+        image: '/images/destinations/trichy-airport.jpg',
         attractions: 'Tiruchirappalli International Airport (TRZ) • Express Highway Transit • Delta Region Connections',
         highlight: '24/7 International Flight Transfers',
         desc: 'Dedicated round-the-clock airport transfers connecting overseas travelers and VIPs directly to Thanjavur, Kumbakonam, Pudukkottai, and the Cauvery delta.'
@@ -296,7 +296,7 @@ export const travelHubsData = [
         name: 'Madurai Airport & Corporate',
         state: 'Tamil Nadu',
         tagline: 'Southern Cultural & Commercial Air Terminal',
-        image: '/images/destinations/madurai.jpg',
+        image: '/images/destinations/madurai-airport.jpg',
         attractions: 'Madurai Airport (IXM) • Southern Industrial Belt • Direct Transit to Rameshwaram & Kanyakumari',
         highlight: 'Southern Transit Hub',
         desc: 'Fast, chauffeur-driven transit from Madurai airport for corporate delegations, pilgrimage groups, and tourists heading to southern heritage circuits.'
