@@ -375,14 +375,14 @@ export default function HomePage({ onOpenBooking }) {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {featuredPackages.slice(0, 2).map((pkg) => (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+            {featuredPackages.slice(0, 4).map((pkg) => (
               <div
                 key={pkg.id}
-                className="bg-white rounded-2xl border border-neutral-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-xl sm:rounded-2xl border border-neutral-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="relative h-44 w-full overflow-hidden bg-neutral-100">
+                  <div className="relative h-28 sm:h-44 w-full overflow-hidden bg-neutral-100">
                     <img
                       src={resolvePackageImage(pkg.image, pkg.name)}
                       onError={(e) => {
@@ -394,39 +394,39 @@ export default function HomePage({ onOpenBooking }) {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
-                    <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-end justify-between text-white">
-                      <span className="text-[11px] font-bold truncate pr-2">{pkg.location || 'South India'}</span>
+                    <div className="absolute bottom-1.5 sm:bottom-2.5 left-2 sm:left-2.5 right-2 sm:right-2.5 flex items-end justify-between text-white">
+                      <span className="text-[10px] sm:text-[11px] font-bold truncate pr-1 sm:pr-2">{pkg.location || 'South India'}</span>
                       <div className="text-right shrink-0">
-                        <span className="text-[10px] font-bold text-[#FCF6BA] bg-black/75 border border-brand-gold/40 px-2.5 py-0.5 rounded backdrop-blur-xs block shadow-xs">
+                        <span className="text-[9px] sm:text-[10px] font-bold text-[#FCF6BA] bg-black/75 border border-brand-gold/40 px-1.5 sm:px-2.5 py-0.5 rounded backdrop-blur-xs block shadow-xs">
                           {pkg.places ? pkg.places.split(/[,•\n]+/).filter(Boolean).length : 5} Places
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-4 space-y-2.5">
-                    <h3 className="text-sm sm:text-base font-bold font-heading text-neutral-900 group-hover:text-brand-gold-dark transition-colors line-clamp-1">
+                  <div className="p-2.5 sm:p-4 space-y-1.5 sm:space-y-2.5">
+                    <h3 className="text-xs sm:text-base font-bold font-heading text-neutral-900 group-hover:text-brand-gold-dark transition-colors line-clamp-1">
                       {pkg.name}
                     </h3>
-                    <div className="flex items-center gap-2 text-xs text-neutral-500">
-                      <Clock className="w-3.5 h-3.5 text-brand-gold-dark shrink-0" />
-                      <span>{pkg.duration}</span>
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-neutral-500">
+                      <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-gold-dark shrink-0" />
+                      <span className="truncate">{pkg.duration}</span>
                     </div>
 
                     {/* All Covered Places visible on front */}
                     <div className="pt-1 border-t border-neutral-100">
-                      <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider block mb-1.5 flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-brand-gold-dark" />
+                      <span className="text-[9px] sm:text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-1 flex items-center gap-1">
+                        <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-brand-gold-dark" />
                         Covered Places:
                       </span>
-                      <div className="flex flex-wrap gap-1 max-h-24 overflow-y-auto pr-0.5">
-                        {(pkg.places || '').split(/[,•\n]+/).slice(0, 5).map((place, idx) => (
+                      <div className="flex flex-wrap gap-1 max-h-16 sm:max-h-24 overflow-y-auto pr-0.5">
+                        {(pkg.places || '').split(/[,•\n]+/).slice(0, 4).map((place, idx) => (
                           <span
                             key={idx}
-                            className="inline-flex items-center text-[10px] font-medium bg-neutral-100 hover:bg-brand-gold/15 text-neutral-800 border border-neutral-200/80 px-1.5 py-0.5 rounded transition-colors"
+                            className="inline-flex items-center text-[9px] sm:text-[10px] font-medium bg-neutral-100 hover:bg-brand-gold/15 text-neutral-800 border border-neutral-200/80 px-1.5 py-0.5 rounded transition-colors"
                           >
                             <span className="w-1 h-1 rounded-full bg-brand-gold mr-1 shrink-0"></span>
-                            {place.trim()}
+                            <span className="truncate max-w-[70px] sm:max-w-none">{place.trim()}</span>
                           </span>
                         ))}
                       </div>
@@ -434,17 +434,17 @@ export default function HomePage({ onOpenBooking }) {
                   </div>
                 </div>
 
-                <div className="p-4 pt-0 flex items-center gap-2">
+                <div className="p-2.5 sm:p-4 pt-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2">
                   <button
                     onClick={() => onOpenBooking({ title: pkg.name, packageType: pkg.name })}
-                    className="flex-1 btn-gold py-2 px-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-xs active:scale-95 transition-all"
+                    className="flex-1 btn-gold py-1.5 sm:py-2 px-2 sm:px-2.5 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-xs active:scale-95 transition-all"
                   >
-                    <span>Book Package</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Book</span>
+                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </button>
                   <Link
                     to="/packages"
-                    className="py-2 px-2.5 rounded-xl border border-neutral-300 hover:border-brand-gold hover:bg-neutral-50 text-neutral-700 text-xs font-semibold flex items-center gap-1 transition-colors shrink-0"
+                    className="py-1.5 sm:py-2 px-2 sm:px-2.5 rounded-lg sm:rounded-xl border border-neutral-300 hover:border-brand-gold hover:bg-neutral-50 text-neutral-700 text-[10px] sm:text-xs font-semibold flex items-center justify-center gap-1 transition-colors shrink-0"
                   >
                     <span>Itinerary</span>
                   </Link>
@@ -561,9 +561,9 @@ export default function HomePage({ onOpenBooking }) {
             </Link>
           </div>
 
-          {/* Sample Fleet Showcase Grid (2 Featured Vehicles on Home) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {featuredFleet.slice(0, 2).map((vehicle) => {
+          {/* Sample Fleet Showcase Grid (4 Featured Vehicles on Home - 2x2 Grid on Mobile, 4-Cols on Desktop) */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+            {featuredFleet.slice(0, 4).map((vehicle) => {
               const seater = vehicle.seaterLabel || vehicle.seatsMobile || (vehicle.seats ? vehicle.seats.split(' ')[0] + ' Seater' : '7 Seater');
               const startingRate = vehicle.startingFrom || vehicle.outstationRate || vehicle.rate || '₹14/km';
               const image = getVehicleImage(vehicle.image) || '/images/vehicles/innova.png';
@@ -571,26 +571,26 @@ export default function HomePage({ onOpenBooking }) {
               return (
                 <div
                   key={vehicle.id}
-                  className="bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/90 p-4 sm:p-5 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-brand-gold/60 transition-all duration-300 group"
+                  className="bg-white rounded-xl sm:rounded-3xl border border-neutral-200/90 p-3 sm:p-5 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-brand-gold/60 transition-all duration-300 group"
                 >
                   <div>
                     {/* Top Row: Seater & Category Pill */}
-                    <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-[11px] font-bold text-[#b38328] uppercase tracking-wider">
+                    <div className="flex items-center justify-between mb-1 sm:mb-1.5 gap-1">
+                      <span className="text-[10px] sm:text-[11px] font-bold text-[#b38328] uppercase tracking-wider shrink-0">
                         {seater}
                       </span>
-                      <span className="bg-neutral-100 text-neutral-600 text-[10px] font-bold tracking-widest px-2.5 py-0.5 rounded-full uppercase border border-neutral-200/80">
+                      <span className="bg-neutral-100 text-neutral-600 text-[9px] sm:text-[10px] font-bold tracking-wider px-1.5 sm:px-2.5 py-0.5 rounded-full uppercase border border-neutral-200/80 truncate max-w-[85px] sm:max-w-none">
                         {vehicle.category || 'Tourist Cab'}
                       </span>
                     </div>
 
                     {/* Vehicle Title */}
-                    <h3 className="text-base sm:text-lg font-black font-heading text-neutral-900 tracking-tight group-hover:text-brand-gold-dark transition-colors truncate">
+                    <h3 className="text-xs sm:text-lg font-black font-heading text-neutral-900 tracking-tight group-hover:text-brand-gold-dark transition-colors truncate">
                       {vehicle.name}
                     </h3>
 
                     {/* Centered Vehicle Image Container */}
-                    <div className="h-36 sm:h-40 w-full flex items-center justify-center p-2 relative my-3 bg-[#F5EFEB]/70 rounded-2xl overflow-hidden">
+                    <div className="h-24 sm:h-40 w-full flex items-center justify-center p-1.5 sm:p-2 relative my-2 sm:my-3 bg-[#F5EFEB]/70 rounded-xl sm:rounded-2xl overflow-hidden">
                       <img
                         src={image}
                         alt={vehicle.name}
@@ -600,49 +600,44 @@ export default function HomePage({ onOpenBooking }) {
                     </div>
 
                     {/* Concise Specs Row */}
-                    <div className="flex items-center justify-center gap-3 text-xs font-semibold text-neutral-600 py-1 border-b border-neutral-100">
-                      <div className="inline-flex items-center gap-1">
-                        <Users className="w-3.5 h-3.5 text-neutral-400" />
-                        <span>{seater}</span>
+                    <div className="flex items-center justify-center gap-1.5 sm:gap-3 text-[10px] sm:text-xs font-semibold text-neutral-600 py-1 border-b border-neutral-100">
+                      <div className="inline-flex items-center gap-0.5 sm:gap-1">
+                        <Users className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-neutral-400" />
+                        <span className="truncate">{seater.split(' ')[0]} Seats</span>
                       </div>
                       <span className="text-neutral-300">•</span>
-                      <div className="inline-flex items-center gap-1">
-                        <Wind className="w-3.5 h-3.5 text-neutral-400" />
+                      <div className="inline-flex items-center gap-0.5 sm:gap-1">
+                        <Wind className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-neutral-400" />
                         <span>AC</span>
-                      </div>
-                      <span className="text-neutral-300">•</span>
-                      <div className="inline-flex items-center gap-1">
-                        <Briefcase className="w-3.5 h-3.5 text-neutral-400" />
-                        <span>Luggage</span>
                       </div>
                     </div>
 
                     {/* Rate preview */}
-                    <div className="mt-3.5 flex items-baseline justify-between">
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">
-                        Starting From
+                    <div className="mt-2 sm:mt-3.5 flex items-baseline justify-between">
+                      <span className="text-[9px] sm:text-[10px] font-bold text-neutral-400 uppercase tracking-wider">
+                        From
                       </span>
-                      <span className="text-xl font-black text-neutral-950 font-heading">
+                      <span className="text-sm sm:text-xl font-black text-neutral-950 font-heading">
                         {startingRate}
                       </span>
                     </div>
                   </div>
 
                   {/* Actions: Book Cab + Explore Details */}
-                  <div className="pt-4 mt-2 border-t border-neutral-100 flex items-center gap-2">
+                  <div className="pt-2 sm:pt-4 mt-1.5 sm:mt-2 border-t border-neutral-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2">
                     <button
                       onClick={() => onOpenBooking(vehicle)}
-                      className="flex-1 btn-gold py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-xs active:scale-95 transition-all whitespace-nowrap"
+                      className="flex-1 btn-gold py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-xs active:scale-95 transition-all whitespace-nowrap"
                     >
-                      <span>Book Cab</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>Book</span>
+                      <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </button>
                     <Link
                       to="/vehicles"
-                      className="py-2 px-3 rounded-xl border border-neutral-300 hover:border-brand-gold hover:bg-neutral-50 text-neutral-700 text-xs font-semibold flex items-center gap-1 transition-colors shrink-0"
+                      className="py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg sm:rounded-xl border border-neutral-300 hover:border-brand-gold hover:bg-neutral-50 text-neutral-700 text-[10px] sm:text-xs font-semibold flex items-center justify-center gap-1 transition-colors shrink-0"
                     >
                       <span>Explore</span>
-                      <ArrowRight className="w-3 h-3" />
+                      <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                     </Link>
                   </div>
                 </div>
