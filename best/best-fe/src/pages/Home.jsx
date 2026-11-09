@@ -8,6 +8,7 @@ import VehicleDetailCard from '../components/VehicleDetailCard';
 import { ArrowRight, Shield, Award, Clock, Users, CheckCircle2, ChevronRight, Sparkles, MapPin, Plane, Navigation, Briefcase, Heart, Check, Car, Wind, ShieldCheck } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
 import { parseVehicleFromDb } from '../utils/vehicleParser';
+import { getVehicleImage } from '../utils/imageImports';
 
 export default function HomePage({ onOpenBooking }) {
   const [dbCars, setDbCars] = useState([]);
@@ -375,7 +376,7 @@ export default function HomePage({ onOpenBooking }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {featuredPackages.map((pkg) => (
+            {featuredPackages.slice(0, 4).map((pkg) => (
               <div
                 key={pkg.id}
                 className="bg-white rounded-2xl border border-neutral-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
@@ -418,8 +419,8 @@ export default function HomePage({ onOpenBooking }) {
                         <MapPin className="w-3 h-3 text-brand-gold-dark" />
                         Covered Places:
                       </span>
-                      <div className="flex flex-wrap gap-1 max-h-28 overflow-y-auto pr-0.5">
-                        {(pkg.places || '').split(/[,•\n]+/).map((place, idx) => (
+                      <div className="flex flex-wrap gap-1 max-h-24 overflow-y-auto pr-0.5">
+                        {(pkg.places || '').split(/[,•\n]+/).slice(0, 5).map((place, idx) => (
                           <span
                             key={idx}
                             className="inline-flex items-center text-[10px] font-medium bg-neutral-100 hover:bg-brand-gold/15 text-neutral-800 border border-neutral-200/80 px-1.5 py-0.5 rounded transition-colors"
@@ -450,6 +451,17 @@ export default function HomePage({ onOpenBooking }) {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Explore All Packages CTA Button */}
+          <div className="mt-10 sm:mt-12 text-center">
+            <Link
+              to="/packages"
+              className="inline-flex items-center gap-2 btn-gold px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-md hover:scale-105 active:scale-95 transition-all"
+            >
+              <span>Explore All Tour Packages & Circuits</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -549,15 +561,104 @@ export default function HomePage({ onOpenBooking }) {
             </Link>
           </div>
 
-          {/* Vehicle Details Cards (Exact requested structure) */}
-          <div className="space-y-6 sm:space-y-8 max-w-5xl mx-auto">
-            {featuredFleet.map((vehicle, idx) => (
-              <VehicleDetailCard
-                key={vehicle.id || idx}
-                vehicle={vehicle}
-                onOpenBooking={onOpenBooking}
-              />
-            ))}
+          {/* Sample Fleet Showcase Grid (4 Featured Vehicles on Home) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {featuredFleet.slice(0, 4).map((vehicle) => {
+              const seater = vehicle.seaterLabel || vehicle.seatsMobile || (vehicle.seats ? vehicle.seats.split(' ')[0] + ' Seater' : '7 Seater');
+              const startingRate = vehicle.startingFrom || vehicle.outstationRate || vehicle.rate || '₹14/km';
+              const image = getVehicleImage(vehicle.image) || '/images/vehicles/innova.png';
+
+              return (
+                <div
+                  key={vehicle.id}
+                  className="bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/90 p-4 sm:p-5 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-brand-gold/60 transition-all duration-300 group"
+                >
+                  <div>
+                    {/* Top Row: Seater & Category Pill */}
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-[11px] font-bold text-[#b38328] uppercase tracking-wider">
+                        {seater}
+                      </span>
+                      <span className="bg-neutral-100 text-neutral-600 text-[10px] font-bold tracking-widest px-2.5 py-0.5 rounded-full uppercase border border-neutral-200/80">
+                        {vehicle.category || 'Tourist Cab'}
+                      </span>
+                    </div>
+
+                    {/* Vehicle Title */}
+                    <h3 className="text-base sm:text-lg font-black font-heading text-neutral-900 tracking-tight group-hover:text-brand-gold-dark transition-colors truncate">
+                      {vehicle.name}
+                    </h3>
+
+                    {/* Centered Vehicle Image Container */}
+                    <div className="h-36 sm:h-40 w-full flex items-center justify-center p-2 relative my-3 bg-[#F5EFEB]/70 rounded-2xl overflow-hidden">
+                      <img
+                        src={image}
+                        alt={vehicle.name}
+                        className="max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-108 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {/* Concise Specs Row */}
+                    <div className="flex items-center justify-center gap-3 text-xs font-semibold text-neutral-600 py-1 border-b border-neutral-100">
+                      <div className="inline-flex items-center gap-1">
+                        <Users className="w-3.5 h-3.5 text-neutral-400" />
+                        <span>{seater}</span>
+                      </div>
+                      <span className="text-neutral-300">•</span>
+                      <div className="inline-flex items-center gap-1">
+                        <Wind className="w-3.5 h-3.5 text-neutral-400" />
+                        <span>AC</span>
+                      </div>
+                      <span className="text-neutral-300">•</span>
+                      <div className="inline-flex items-center gap-1">
+                        <Briefcase className="w-3.5 h-3.5 text-neutral-400" />
+                        <span>Luggage</span>
+                      </div>
+                    </div>
+
+                    {/* Rate preview */}
+                    <div className="mt-3.5 flex items-baseline justify-between">
+                      <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">
+                        Starting From
+                      </span>
+                      <span className="text-xl font-black text-neutral-950 font-heading">
+                        {startingRate}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Actions: Book Cab + Explore Details */}
+                  <div className="pt-4 mt-2 border-t border-neutral-100 flex items-center gap-2">
+                    <button
+                      onClick={() => onOpenBooking(vehicle)}
+                      className="flex-1 btn-gold py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-xs active:scale-95 transition-all whitespace-nowrap"
+                    >
+                      <span>Book Cab</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                    <Link
+                      to="/vehicles"
+                      className="py-2 px-3 rounded-xl border border-neutral-300 hover:border-brand-gold hover:bg-neutral-50 text-neutral-700 text-xs font-semibold flex items-center gap-1 transition-colors shrink-0"
+                    >
+                      <span>Explore</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Explore Button to go to Vehicles page */}
+          <div className="mt-10 sm:mt-12 text-center">
+            <Link
+              to="/vehicles"
+              className="inline-flex items-center gap-2 btn-gold px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-xl hover:scale-105 active:scale-95 transition-all"
+            >
+              <span>Explore All Vehicles, Tariffs & Outstation Plans</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
         </div>
