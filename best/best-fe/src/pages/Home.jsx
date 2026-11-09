@@ -375,8 +375,8 @@ export default function HomePage({ onOpenBooking }) {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {featuredPackages.slice(0, 4).map((pkg) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {featuredPackages.slice(0, 2).map((pkg) => (
               <div
                 key={pkg.id}
                 className="bg-white rounded-2xl border border-neutral-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
@@ -561,9 +561,9 @@ export default function HomePage({ onOpenBooking }) {
             </Link>
           </div>
 
-          {/* Sample Fleet Showcase Grid (4 Featured Vehicles on Home) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {featuredFleet.slice(0, 4).map((vehicle) => {
+          {/* Sample Fleet Showcase Grid (2 Featured Vehicles on Home) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {featuredFleet.slice(0, 2).map((vehicle) => {
               const seater = vehicle.seaterLabel || vehicle.seatsMobile || (vehicle.seats ? vehicle.seats.split(' ')[0] + ' Seater' : '7 Seater');
               const startingRate = vehicle.startingFrom || vehicle.outstationRate || vehicle.rate || '₹14/km';
               const image = getVehicleImage(vehicle.image) || '/images/vehicles/innova.png';
