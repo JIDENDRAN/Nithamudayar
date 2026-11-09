@@ -4,10 +4,10 @@ import Hero from '../components/Hero';
 import MobileHero from '../components/mobile/MobileHero';
 import QuickBookingBar from '../components/QuickBookingBar';
 import TravelHubsSections from '../components/TravelHubsSections';
+import VehicleDetailCard from '../components/VehicleDetailCard';
 import { ArrowRight, Shield, Award, Clock, Users, CheckCircle2, ChevronRight, Sparkles, MapPin, Plane, Navigation, Briefcase, Heart, Check, Car, Wind, ShieldCheck } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
 import { parseVehicleFromDb } from '../utils/vehicleParser';
-import { getVehicleImage } from '../utils/imageImports';
 
 export default function HomePage({ onOpenBooking }) {
   const [dbCars, setDbCars] = useState([]);
@@ -367,112 +367,89 @@ export default function HomePage({ onOpenBooking }) {
             </div>
             <Link
               to="/packages"
-              className="mt-3 sm:mt-0 text-xs sm:text-sm font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1.5 transition-colors group"
+              className="mt-3 sm:mt-0 text-xs sm:text-sm font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1.5 transition-colors"
             >
-              <span>Explore All Tour Packages</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Clean Teaser Packages Grid (Less details on Home, explore button to /packages) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {featuredPackages.slice(0, 4).map((pkg) => {
-              const routeSummary = pkg.places
-                ? pkg.places.split(/[,•\n]+/).slice(0, 4).join(' • ') + (pkg.places.split(/[,•\n]+/).length > 4 ? ' • ...' : '')
-                : (pkg.location || 'South India Circuit');
-
-              return (
-                <div
-                  key={pkg.id}
-                  className="bg-white rounded-2xl border border-neutral-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    {/* Package Image Banner with Duration Tag */}
-                    <div className="relative h-44 w-full overflow-hidden bg-neutral-100">
-                      <img
-                        src={resolvePackageImage(pkg.image, pkg.name)}
-                        onError={(e) => {
-                          e.currentTarget.onerror = null;
-                          e.currentTarget.src = resolvePackageImage('', pkg.name);
-                        }}
-                        alt={pkg.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
-                      
-                      <div className="absolute top-2.5 right-2.5">
-                        <span className="text-[10px] font-bold text-[#FCF6BA] bg-black/75 border border-brand-gold/40 px-2.5 py-0.5 rounded-full backdrop-blur-xs block shadow-xs">
-                          {pkg.duration}
-                        </span>
-                      </div>
-
-                      <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
-                        <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">
-                          {pkg.location || 'South India'}
-                        </span>
-                        <h3 className="text-sm sm:text-base font-bold font-heading text-white drop-shadow-sm line-clamp-1">
-                          {pkg.name}
-                        </h3>
-                      </div>
-                    </div>
-
-                    {/* Concise Summary Info */}
-                    <div className="p-4 space-y-2.5">
-                      <div className="flex items-center gap-1.5 text-xs text-neutral-500">
-                        <Clock className="w-3.5 h-3.5 text-brand-gold-dark shrink-0" />
-                        <span>{pkg.duration}</span>
-                      </div>
-
-                      <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed">
-                        <span className="font-semibold text-neutral-800">Route: </span>
-                        {routeSummary}
-                      </p>
-
-                      {pkg.price && (
-                        <div className="pt-2 border-t border-neutral-100 flex items-baseline justify-between">
-                          <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">
-                            Starting From
-                          </span>
-                          <span className="text-base font-extrabold text-neutral-900 font-heading">
-                            {pkg.price}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Actions: Book Now + Explore Details */}
-                  <div className="p-4 pt-0 flex items-center gap-2">
-                    <button
-                      onClick={() => onOpenBooking({ title: pkg.name, packageType: pkg.name })}
-                      className="flex-1 btn-gold py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-xs active:scale-95 transition-all whitespace-nowrap"
-                    >
-                      <span>Book Now</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                    <Link
-                      to="/packages"
-                      className="py-2 px-3 rounded-xl border border-neutral-300 hover:border-brand-gold hover:bg-neutral-50 text-neutral-700 text-xs font-semibold flex items-center gap-1 transition-colors shrink-0"
-                    >
-                      <span>Explore</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Bottom Explore Button to go to Packages page */}
-          <div className="mt-8 sm:mt-10 text-center">
-            <Link
-              to="/packages"
-              className="inline-flex items-center gap-2 btn-gold px-8 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-md hover:scale-105 active:scale-95 transition-all"
-            >
-              <span>Explore All Tour Packages</span>
+              <span>View All Tour Packages</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {featuredPackages.map((pkg) => (
+              <div
+                key={pkg.id}
+                className="bg-white rounded-2xl border border-neutral-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="relative h-44 w-full overflow-hidden bg-neutral-100">
+                    <img
+                      src={resolvePackageImage(pkg.image, pkg.name)}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = resolvePackageImage('', pkg.name);
+                      }}
+                      alt={pkg.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+                    <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-end justify-between text-white">
+                      <span className="text-[11px] font-bold truncate pr-2">{pkg.location || 'South India'}</span>
+                      <div className="text-right shrink-0">
+                        <span className="text-[10px] font-bold text-[#FCF6BA] bg-black/75 border border-brand-gold/40 px-2.5 py-0.5 rounded backdrop-blur-xs block shadow-xs">
+                          {pkg.places ? pkg.places.split(/[,•\n]+/).filter(Boolean).length : 5} Places
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 space-y-2.5">
+                    <h3 className="text-sm sm:text-base font-bold font-heading text-neutral-900 group-hover:text-brand-gold-dark transition-colors line-clamp-1">
+                      {pkg.name}
+                    </h3>
+                    <div className="flex items-center gap-2 text-xs text-neutral-500">
+                      <Clock className="w-3.5 h-3.5 text-brand-gold-dark shrink-0" />
+                      <span>{pkg.duration}</span>
+                    </div>
+
+                    {/* All Covered Places visible on front */}
+                    <div className="pt-1 border-t border-neutral-100">
+                      <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider block mb-1.5 flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-brand-gold-dark" />
+                        Covered Places:
+                      </span>
+                      <div className="flex flex-wrap gap-1 max-h-28 overflow-y-auto pr-0.5">
+                        {(pkg.places || '').split(/[,•\n]+/).map((place, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center text-[10px] font-medium bg-neutral-100 hover:bg-brand-gold/15 text-neutral-800 border border-neutral-200/80 px-1.5 py-0.5 rounded transition-colors"
+                          >
+                            <span className="w-1 h-1 rounded-full bg-brand-gold mr-1 shrink-0"></span>
+                            {place.trim()}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 pt-0 flex items-center gap-2">
+                  <button
+                    onClick={() => onOpenBooking({ title: pkg.name, packageType: pkg.name })}
+                    className="flex-1 btn-gold py-2 px-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-xs active:scale-95 transition-all"
+                  >
+                    <span>Book Package</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                  <Link
+                    to="/packages"
+                    className="py-2 px-2.5 rounded-xl border border-neutral-300 hover:border-brand-gold hover:bg-neutral-50 text-neutral-700 text-xs font-semibold flex items-center gap-1 transition-colors shrink-0"
+                  >
+                    <span>Itinerary</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -554,10 +531,10 @@ export default function HomePage({ onOpenBooking }) {
         <div className="relative z-10 max-w-7xl mx-auto">
 
           {/* Section Header */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 border-b border-brand-gold/25 pb-4 sm:pb-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-14 border-b border-brand-gold/25 pb-4 sm:pb-6">
             <div>
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-brand-gold block mb-1">
-                Commercial Vehicles • Chauffeur-Driven
+                Commercial Vehicles
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white">
                 Our Fleet & Tariffs
@@ -567,109 +544,20 @@ export default function HomePage({ onOpenBooking }) {
               to="/vehicles"
               className="mt-3 sm:mt-0 text-xs sm:text-sm font-bold text-brand-gold hover:text-white flex items-center gap-1.5 transition-colors group"
             >
-              <span>Explore Full Fleet & All Tariffs</span>
+              <span>View Full Fleet & Tariffs</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {/* Compact Fleet Showcase Cards (Less details on Home, explore button to /vehicles) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {featuredFleet.slice(0, 4).map((vehicle) => {
-              const image = getVehicleImage(vehicle.image) || '/images/vehicles/innova.png';
-              const startingRate = vehicle.startingFrom || vehicle.outstationRate || vehicle.rate || '₹20/km';
-              const seater = vehicle.seaterLabel || vehicle.seatsMobile || (vehicle.seats ? vehicle.seats.split(' ')[0] + ' Seater' : '7 Seater');
-
-              return (
-                <div
-                  key={vehicle.id}
-                  className="bg-white rounded-2xl border border-neutral-200/90 hover:border-brand-gold/60 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group active:scale-[0.99] text-neutral-900"
-                >
-                  <div>
-                    {/* Top Eyebrow & Category Badge */}
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[11px] font-bold text-[#b38328] uppercase tracking-wider">
-                        {seater}
-                      </span>
-                      <span className="bg-neutral-100 text-neutral-600 text-[10px] font-bold tracking-widest px-2.5 py-0.5 rounded-full uppercase border border-neutral-200/80">
-                        {vehicle.category || 'Tourist Cab'}
-                      </span>
-                    </div>
-
-                    {/* Vehicle Title */}
-                    <h3 className="text-base sm:text-lg font-black font-heading text-neutral-900 tracking-tight group-hover:text-brand-gold-dark transition-colors truncate">
-                      {vehicle.name}
-                    </h3>
-
-                    {/* Centered Vehicle Image Container */}
-                    <div className="h-36 sm:h-40 w-full flex items-center justify-center p-2 relative my-3 bg-[#F5EFEB]/70 rounded-xl overflow-hidden">
-                      <img
-                        src={image}
-                        alt={vehicle.name}
-                        className="max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-108 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    {/* Concise Specs Row */}
-                    <div className="flex items-center justify-center gap-3 text-xs font-semibold text-neutral-600 py-1 border-b border-neutral-100">
-                      <div className="inline-flex items-center gap-1">
-                        <Users className="w-3.5 h-3.5 text-neutral-400" />
-                        <span>{seater}</span>
-                      </div>
-                      <span className="text-neutral-300">•</span>
-                      <div className="inline-flex items-center gap-1">
-                        <Wind className="w-3.5 h-3.5 text-neutral-400" />
-                        <span>AC</span>
-                      </div>
-                      <span className="text-neutral-300">•</span>
-                      <div className="inline-flex items-center gap-1">
-                        <Briefcase className="w-3.5 h-3.5 text-neutral-400" />
-                        <span>Luggage</span>
-                      </div>
-                    </div>
-
-                    {/* Rate preview */}
-                    <div className="mt-3.5 flex items-baseline justify-between">
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">
-                        Starting From
-                      </span>
-                      <span className="text-xl font-black text-neutral-950 font-heading">
-                        {startingRate}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Actions: Book Cab + Explore Details */}
-                  <div className="pt-4 mt-2 border-t border-neutral-100 flex items-center gap-2">
-                    <button
-                      onClick={() => onOpenBooking(vehicle)}
-                      className="flex-1 btn-gold py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1 cursor-pointer shadow-xs active:scale-95 transition-all whitespace-nowrap"
-                    >
-                      <span>Book Cab</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                    <Link
-                      to="/vehicles"
-                      className="py-2 px-3 rounded-xl border border-neutral-300 hover:border-brand-gold hover:bg-neutral-50 text-neutral-700 text-xs font-semibold flex items-center gap-1 transition-colors shrink-0"
-                    >
-                      <span>Explore</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Bottom Explore Button to go to Vehicles page */}
-          <div className="mt-10 sm:mt-12 text-center">
-            <Link
-              to="/vehicles"
-              className="inline-flex items-center gap-2 btn-gold px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-xl hover:scale-105 active:scale-95 transition-all"
-            >
-              <span>Explore All Vehicles, Tariffs & Outstation Plans</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          {/* Vehicle Details Cards (Exact requested structure) */}
+          <div className="space-y-6 sm:space-y-8 max-w-5xl mx-auto">
+            {featuredFleet.map((vehicle, idx) => (
+              <VehicleDetailCard
+                key={vehicle.id || idx}
+                vehicle={vehicle}
+                onOpenBooking={onOpenBooking}
+              />
+            ))}
           </div>
 
         </div>
