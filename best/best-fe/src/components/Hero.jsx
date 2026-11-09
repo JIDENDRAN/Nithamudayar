@@ -36,13 +36,13 @@ export default function Hero({ onOpenBooking }) {
               <span className="text-white block text-2xl sm:text-3xl lg:text-4xl tracking-wide uppercase">
                 NITHAMUDAYAR
               </span>
-              <span className="text-gold-shine block text-xl sm:text-2xl lg:text-3xl font-extrabold mt-0.5">
+              <span className="text-[#FFDD00] block text-xl sm:text-2xl lg:text-3xl font-extrabold mt-0.5">
                 TOURS & TRAVELS PVT LTD
               </span>
             </h1>
 
             {/* Best Single Business Slogan */}
-            <p className="text-base sm:text-xl lg:text-2xl font-bold text-[#FCF6BA] drop-shadow mt-2">
+            <p className="text-base sm:text-xl lg:text-2xl font-bold text-[#FFDD00] drop-shadow mt-2">
               “Your Royal Journey Across Tamil Nadu”
             </p>
           </div>
