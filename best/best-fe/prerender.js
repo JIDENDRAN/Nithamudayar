@@ -20,7 +20,9 @@ const routes = [
   '/gallery',
   '/contact',
   '/privacy-policy',
-  '/terms-and-conditions'
+  '/terms-and-conditions',
+  '/airport-taxi',
+  '/madurai-airport-taxi'
 ];
 
 // Define static SEO metadata for each route
@@ -60,6 +62,14 @@ const routeMetadata = {
   '/terms-and-conditions': {
     title: 'Terms & Conditions | Nithamudayar Tours & Travels Pvt Ltd',
     description: 'Review the terms and conditions for booking taxis, cabs, and tour packages with Nithamudayar Tours & Travels Pvt Ltd.'
+  },
+  '/airport-taxi': {
+    title: 'Airport Taxi & Outstation Drops | Nithamudayar Tours & Travels Pvt Ltd',
+    description: 'Punctual 24/7 airport taxi and chauffeur transfers with flight delay tracking and direct outstation drops across South India.'
+  },
+  '/madurai-airport-taxi': {
+    title: 'Madurai Airport Taxi & Transfers | Nithamudayar Tours & Travels Pvt Ltd',
+    description: 'Book on-time Madurai Airport (IXM) taxi and direct outstation drops to Rameswaram, Kodaikanal, and temple circuits.'
   }
 };
 

@@ -29,6 +29,8 @@ const AppContent = () => {
       '/gallery': 'Journey Highlights & Gallery | Nithamudayar Tours & Travels Pvt Ltd',
       '/privacy-policy': 'Privacy Policy | Nithamudayar Tours & Travels Pvt Ltd',
       '/terms-and-conditions': 'Terms & Conditions | Nithamudayar Tours & Travels Pvt Ltd',
+      '/airport-taxi': 'Airport Taxi & Outstation Drops | Nithamudayar Tours & Travels Pvt Ltd',
+      '/madurai-airport-taxi': 'Madurai Airport Taxi & Transfers | Nithamudayar Tours & Travels Pvt Ltd',
     };
 
     const routeDescriptions = {
@@ -41,7 +43,9 @@ const AppContent = () => {
       '/contact': 'Contact Nithamudayar Tours & Travels Pvt Ltd 24/7. Call +91 98941 16405 or chat via WhatsApp for instant quotation and transparent booking confirmation.',
       '/gallery': 'View travel memories, heritage monuments, and fleet journeys across Tamil Nadu with Nithamudayar Tours & Travels Pvt Ltd.',
       '/privacy-policy': 'Read the privacy policy of Nithamudayar Tours & Travels Pvt Ltd regarding customer information and trip enquiries.',
-      '/terms-and-conditions': 'Review the terms and conditions for booking tourist cabs, tempo travellers, and bus charters with Nithamudayar Tours & Travels Pvt Ltd.'
+      '/terms-and-conditions': 'Review the terms and conditions for booking tourist cabs, tempo travellers, and bus charters with Nithamudayar Tours & Travels Pvt Ltd.',
+      '/airport-taxi': 'Punctual 24/7 airport taxi and chauffeur transfers with flight delay tracking and direct outstation drops across South India.',
+      '/madurai-airport-taxi': 'Book on-time Madurai Airport (IXM) taxi and direct outstation drops to Rameswaram, Kodaikanal, and temple circuits.'
     };
 
     const title = routeTitles[location.pathname] || routeTitles['/'];

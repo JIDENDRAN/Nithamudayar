@@ -10,6 +10,7 @@ import Contact from '../../pages/Contact';
 import Gallery from '../../pages/Gallery';
 import PrivacyPolicy from '../../pages/PrivacyPolicy';
 import TermsAndConditions from '../../pages/TermsAndConditions';
+import MaduraiAirportTaxi from '../../pages/seo/MaduraiAirportTaxi';
 
 import MobileBottomNav from '../mobile/MobileBottomNav';
 import WhatsAppFloatingButton from '../WhatsAppFloatingButton';
@@ -42,6 +43,8 @@ export default function DesktopLayout() {
           <Route path="/destinations" element={<Navigate to="/gallery" replace />} />
           <Route path="/contact" element={<Contact onOpenBooking={handleOpenBooking} />} />
           <Route path="/gallery" element={<Gallery onOpenBooking={handleOpenBooking} />} />
+          <Route path="/madurai-airport-taxi" element={<MaduraiAirportTaxi onOpenBooking={handleOpenBooking} />} />
+          <Route path="/airport-taxi" element={<MaduraiAirportTaxi onOpenBooking={handleOpenBooking} />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         </Routes>
