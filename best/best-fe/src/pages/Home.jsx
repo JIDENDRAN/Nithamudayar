@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import MobileHero from '../components/mobile/MobileHero';
 import QuickBookingBar from '../components/QuickBookingBar';
 import TravelHubsSections from '../components/TravelHubsSections';
+import GoogleReviews from '../components/GoogleReviews';
 import { ArrowRight, Shield, Award, Clock, Users, ChevronLeft, ChevronRight, Sparkles, MapPin, Plane, Navigation, Briefcase, Heart, Check, Car, Wind, ShieldCheck } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
 import { parseVehicleFromDb } from '../utils/vehicleParser';
@@ -786,7 +787,10 @@ export default function HomePage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* 8. Bottom Booking Callout Banner */}
+      {/* 8. Google Business Reviews Showcase (Initials Badge, Zero Client Photos) */}
+      <GoogleReviews />
+
+      {/* 9. Bottom Booking Callout Banner */}
       <section className="py-14 sm:py-20 px-4 sm:px-10 bg-[#FAF8F5]">
         <div className="max-w-5xl mx-auto rounded-3xl bg-brand-gold/10 border border-brand-gold/30 p-6 sm:p-12 text-center space-y-4 sm:space-y-6">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark">

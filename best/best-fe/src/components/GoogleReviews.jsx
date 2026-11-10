@@ -129,30 +129,29 @@ const GoogleReviews = () => {
   };
 
   return (
-    <section className="py-12 lg:py-20 bg-[#0f2420] relative overflow-hidden text-white">
-      {/* Background overlay */}
-      <div className="absolute inset-0 z-0">
-        <img src={MeenakshiBg} alt="" className="w-full h-full object-cover opacity-10" />
-        <div className="absolute inset-0 bg-[#0f2420]/90" />
-      </div>
+    <section className="py-14 sm:py-20 bg-gradient-to-b from-[#1b203d] via-[#14182e] to-[#0b0e1a] relative overflow-hidden text-white border-t border-brand-gold/20">
+      {/* Golden ambient radial light aura */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-10">
-          <span className="text-[#f5c842] text-xs font-bold uppercase tracking-widest block mb-2">
-            {t('WHAT OUR TRAVELERS SAY')}
-          </span>
-          <h2 className="text-3xl lg:text-4xl font-poppins font-black text-white">
-            {t('Stories from')}{' '}
-            <span className="text-[#f5c842] font-dancing text-4xl lg:text-5xl normal-case font-bold">
-              {t('Happy Travelers')}
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#FCF6BA]">
+              Verified Google Business Reviews
             </span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-heading font-black text-white tracking-tight">
+            Stories from <span className="text-[#E8C148]">Happy Travelers</span>
           </h2>
-          <div className="w-16 h-0.5 bg-[#d4951e] mx-auto mt-3" />
+          <p className="text-xs sm:text-sm text-neutral-300 mt-2 max-w-xl mx-auto leading-relaxed">
+            Real feedback from pilgrims, corporate teams, and families who traveled across Tamil Nadu with our chauffeur service.
+          </p>
         </div>
 
         {/* Dynamic Reviews Statistics Bar */}
-        <div className="bg-white/5 border border-white/10 rounded-3xl p-6 max-w-4xl mx-auto mb-12 shadow-2xl backdrop-blur-sm">
+        <div className="bg-white/5 border border-brand-gold/25 rounded-3xl p-5 sm:p-6 max-w-4xl mx-auto mb-10 shadow-xl backdrop-blur-md">
           {loading ? (
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 animate-pulse">
               <div className="space-y-3 w-full md:w-1/2">
@@ -169,23 +168,23 @@ const GoogleReviews = () => {
                   <svg className="w-5.5 h-5.5 text-white fill-current" viewBox="0 0 24 24">
                     <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.2-5.136 4.2A5.72 5.72 0 0 1 8.24 12.8a5.72 5.72 0 0 1 5.751-5.8 5.6 5.6 0 0 1 3.931 1.6l3.11-3.1A10.027 10.027 0 0 0 13.99 2C8.47 2 4 6.47 4 12s4.47 10 9.99 10c5.75 0 9.77-4.04 9.77-9.92 0-.67-.06-1.3-.17-1.8H12.24Z" />
                   </svg>
-                  <span className="font-poppins font-black text-sm uppercase tracking-wider text-white">
+                  <span className="font-heading font-black text-xs sm:text-sm uppercase tracking-wider text-white">
                     Google Reviews Rating
                   </span>
                   {isFallback && (
-                    <span className="flex items-center gap-1 ml-2 bg-yellow-400/20 text-yellow-400 border border-yellow-400/30 px-2 py-0.5 rounded-full text-[9px] font-bold">
-                      <Sparkles className="w-2.5 h-2.5" /> Verified Testimonials
+                    <span className="flex items-center gap-1 ml-2 bg-brand-gold/20 text-[#FCF6BA] border border-brand-gold/40 px-2 py-0.5 rounded-full text-[9px] font-bold">
+                      <Sparkles className="w-2.5 h-2.5 text-brand-gold" /> Verified Testimonials
                     </span>
                   )}
                 </div>
 
                 {/* Score & Star Breakdown */}
                 <div className="flex flex-col sm:flex-row items-center gap-3">
-                  <span className="text-4xl font-extrabold font-poppins text-white">
+                  <span className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
                     {ratingData.rating.toFixed(1)}
                   </span>
                   <div className="flex flex-col items-center sm:items-start">
-                    <div className="flex gap-0.5">
+                    <div className="flex gap-1">
                       {[...Array(5)].map((_, idx) => {
                         const isFull = idx < Math.floor(ratingData.rating);
                         const isHalf = !isFull && idx < Math.ceil(ratingData.rating);
@@ -193,15 +192,15 @@ const GoogleReviews = () => {
                           <Star
                             key={idx}
                             className={`w-4 h-4 ${
-                              isFull ? 'text-[#f5c842] fill-[#f5c842]' : isHalf ? 'text-[#f5c842] fill-[#f5c842] opacity-70' : 'text-white/20'
+                              isFull ? 'text-[#E8C148] fill-[#E8C148]' : isHalf ? 'text-[#E8C148] fill-[#E8C148] opacity-70' : 'text-white/20'
                             }`}
                           />
                         );
                       })}
                     </div>
-                    <span className="text-xs text-white/50 mt-1 font-semibold">
+                    <span className="text-[11px] sm:text-xs text-neutral-300 mt-1 font-semibold">
                       {isFallback 
-                        ? t('Based on 250+ local booking feedbacks') 
+                        ? t('Based on 250+ verified local traveler reviews') 
                         : t('Based on {{count}} Google Business reviews', { count: ratingData.userRatingCount })}
                     </span>
                   </div>
@@ -213,9 +212,9 @@ const GoogleReviews = () => {
                 href={ratingData.googleReviewUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 px-6 py-3.5 bg-[#d4951e] hover:bg-[#f0a93a] text-white font-extrabold text-xs uppercase tracking-wider rounded-full shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                className="btn-gold px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2 cursor-pointer"
               >
-                {t('View all reviews on Google')}
+                <span>View All Reviews on Google</span>
               </a>
             </div>
           )}
@@ -228,13 +227,13 @@ const GoogleReviews = () => {
             <>
               <button
                 onClick={handlePrev}
-                className="absolute -left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/20 hover:border-[#f5c842] bg-white/5 hover:bg-[#f5c842] hover:text-[#0f2420] text-white flex items-center justify-center transition-all z-20 cursor-pointer md:flex hidden"
+                className="absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-white/20 hover:border-brand-gold bg-white/10 hover:bg-brand-gold hover:text-[#1b203d] text-white flex items-center justify-center transition-all z-20 cursor-pointer md:flex hidden shadow-md active:scale-95"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
-                className="absolute -right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/20 hover:border-[#f5c842] bg-white/5 hover:bg-[#f5c842] hover:text-[#0f2420] text-white flex items-center justify-center transition-all z-20 cursor-pointer md:flex hidden"
+                className="absolute -right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-white/20 hover:border-brand-gold bg-white/10 hover:bg-brand-gold hover:text-[#1b203d] text-white flex items-center justify-center transition-all z-20 cursor-pointer md:flex hidden shadow-md active:scale-95"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -267,7 +266,7 @@ const GoogleReviews = () => {
                 key={di}
                 onClick={() => setSlideIndex(di)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  slideIndex === di ? 'bg-[#f5c842] w-5' : 'bg-white/30 hover:bg-white/50'
+                  slideIndex === di ? 'bg-[#E8C148] w-5' : 'bg-white/30 hover:bg-white/50'
                 }`}
               />
             ))}
