@@ -157,8 +157,9 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight max-w-3xl">
-            Madurai Airport Taxi & Outstation Drops
+          <h1 className="text-3xl sm:text-5xl font-black font-heading tracking-tight leading-tight max-w-3xl">
+            <span className="text-white block sm:inline">MADURAI AIRPORT TAXI </span>
+            <span className="text-[#E8C148] block sm:inline">& OUTSTATION DROPS</span>
           </h1>
 
           <p className="text-xs sm:text-base text-neutral-300 max-w-2xl leading-relaxed">

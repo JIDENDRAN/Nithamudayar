@@ -53,21 +53,33 @@ const SEOLandingPage = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-poppins font-black text-white leading-tight mb-6">
-                {title}
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-poppins font-black leading-tight mb-6">
+                {title.includes(' - ') ? (
+                  <>
+                    <span className="text-white">{title.split(' - ')[0]}</span>
+                    <span className="text-[#E8C148] block text-2xl lg:text-3xl xl:text-4xl mt-2 font-extrabold">{title.split(' - ')[1]}</span>
+                  </>
+                ) : title.includes(' & ') ? (
+                  <>
+                    <span className="text-white">{title.split(' & ')[0]}</span>
+                    <span className="text-[#E8C148] block text-2xl lg:text-3xl xl:text-4xl mt-2 font-extrabold">& {title.split(' & ')[1]}</span>
+                  </>
+                ) : (
+                  <span className="text-white">{title}</span>
+                )}
               </h1>
               <p className="text-white/80 text-lg lg:text-xl max-w-2xl mb-8 leading-relaxed">
                 {heroSubtitle}
               </p>
               
-              <div className="w-24 h-1 bg-[#d4951e] mb-10 rounded-full" />
+              <div className="w-24 h-1 bg-[#E8C148] mb-10 rounded-full" />
 
               <div className="flex flex-wrap gap-4">
                 <button 
                   onClick={() => setModalOpen(true)}
-                  className="flex items-center gap-2.5 px-8 py-4 bg-[#d4951e] hover:bg-[#f0a93a] text-white font-bold rounded-full transition-all text-sm uppercase tracking-wider shadow-xl shadow-[#d4951e]/20"
+                  className="flex items-center gap-2.5 px-8 py-4 bg-[#E8C148] hover:bg-[#f6d058] text-neutral-950 font-bold rounded-full transition-all text-sm uppercase tracking-wider shadow-xl shadow-[#E8C148]/20"
                 >
-                  <Navigation className="w-5 h-5" /> Book Your Ride Now
+                  <Navigation className="w-5 h-5 text-neutral-950" /> Book Your Ride Now
                 </button>
                 <a 
                   href="tel:6382513075" 

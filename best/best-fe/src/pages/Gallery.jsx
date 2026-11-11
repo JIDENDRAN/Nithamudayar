@@ -411,8 +411,9 @@ const Gallery = () => {
             <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
             <span>Memories & Destinations Collage</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-heading font-black text-white tracking-wide uppercase drop-shadow-md">
-            South India Sightseeing Collage
+          <h1 className="text-3xl md:text-5xl font-heading font-black tracking-wide uppercase drop-shadow-md">
+            <span className="text-white block sm:inline">SOUTH INDIA </span>
+            <span className="text-[#E8C148] block sm:inline">SIGHTSEEING COLLAGE</span>
           </h1>
           <div className="h-1 w-20 bg-brand-gold mx-auto my-3 rounded-full" />
           <p className="text-xs sm:text-base text-neutral-200 max-w-2xl mx-auto font-light leading-relaxed">

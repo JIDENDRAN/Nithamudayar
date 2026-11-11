@@ -26,11 +26,11 @@ export default function AboutHero({ onOpenBooking }) {
           </span>
 
           <h1 className="font-black font-heading leading-tight tracking-tight drop-shadow-md">
-            <span className="text-white block text-2xl sm:text-3xl lg:text-4xl">
+            <span className="text-white block text-2xl sm:text-3xl lg:text-4xl tracking-wide uppercase">
               ABOUT NITHAMUDAYAR
             </span>
-            <span className="text-gold-shine block text-xl sm:text-2xl lg:text-3xl mt-0.5 sm:mt-1">
-              TOURS & TRAVELS
+            <span className="text-[#E8C148] block text-xl sm:text-2xl lg:text-3xl font-extrabold mt-0.5 sm:mt-1">
+              TOURS & TRAVELS PVT LTD
             </span>
           </h1>
 
