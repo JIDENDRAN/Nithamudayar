@@ -26,18 +26,6 @@ Please share tariff quotation & confirm vehicle availability. Thank you!`;
 
     const whatsappUrl = `https://wa.me/919894116405?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
-
-    if (onOpenBooking) {
-      onOpenBooking({
-        pickupCity: pickupPlace,
-        destinationCity: dropPlace,
-        fromLocation: pickupPlace,
-        toLocation: dropPlace,
-        travelDate,
-        travelTime,
-        vehicle: carType
-      });
-    }
   };
 
   return (
