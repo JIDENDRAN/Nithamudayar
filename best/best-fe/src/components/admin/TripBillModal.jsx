@@ -69,6 +69,11 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     tollCharges: "",
     parkingCharges: "",
     tollParking: "",
+    hillCharges: "",
+    hillChargesDetails: "Hill Station / Ghat Road",
+    hourChargesHrs: "",
+    hourChargesRate: "",
+    hourChargesTotal: "",
     permitAmt: "",
     advancePaid: "",
     paymentMode: 'UPI', // 'UPI' | 'Cash' | 'Bank'
@@ -150,8 +155,14 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
   const waitingAmt = Number(billData.waitingAmt) || 0;
   const tollAmt = Number(billData.tollCharges) || (billData.tollParking ? Number(billData.tollParking) : 0);
   const parkingAmt = Number(billData.parkingCharges) || 0;
+  const hillCharges = Number(billData.hillCharges) || 0;
+  const hourChargesHrs = Number(billData.hourChargesHrs) || 0;
+  const hourChargesRate = Number(billData.hourChargesRate) || 0;
+  const hourChargesAmt = billData.hourChargesTotal !== "" && billData.hourChargesTotal !== undefined
+    ? Number(billData.hourChargesTotal) || 0
+    : (hourChargesHrs * hourChargesRate);
   const permitAmt = Number(billData.permitAmt) || 0;
-  const totalFare = distanceFare + dailyRentTotal + totalBata + nightBata + waitingAmt + tollAmt + parkingAmt + permitAmt;
+  const totalFare = distanceFare + dailyRentTotal + totalBata + nightBata + waitingAmt + tollAmt + parkingAmt + permitAmt + hillCharges + hourChargesAmt;
   const advance = Number(billData.advancePaid) || 0;
   const balanceAmount = Math.max(0, totalFare - advance);
 
@@ -171,6 +182,21 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
         const op = Number(prev.openingKm) || 0;
         const dist = Number(value) || 0;
         updated.closingKm = op + dist;
+      } else if (field === 'hourChargesHrs' || field === 'hourChargesRate') {
+        const hrs = Number(field === 'hourChargesHrs' ? value : prev.hourChargesHrs) || 0;
+        const rate = Number(field === 'hourChargesRate' ? value : prev.hourChargesRate) || 0;
+        if (hrs > 0 && rate > 0) {
+          updated.hourChargesTotal = hrs * rate;
+        } else if (value === '') {
+          if (field === 'hourChargesHrs' && !prev.hourChargesRate) updated.hourChargesTotal = '';
+          if (field === 'hourChargesRate' && !prev.hourChargesHrs) updated.hourChargesTotal = '';
+        }
+      } else if (field === 'hourChargesTotal') {
+        const total = Number(value) || 0;
+        const hrs = Number(prev.hourChargesHrs) || 0;
+        if (hrs > 0 && total > 0) {
+          updated.hourChargesRate = Math.round(total / hrs);
+        }
       }
       return updated;
     });
@@ -191,6 +217,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
           tollAmt,
           parkingAmt,
           permitAmt,
+          hillCharges,
+          hourChargesHrs,
+          hourChargesRate,
+          hourChargesAmt,
           totalFare,
           advance,
           balanceAmount
@@ -222,6 +252,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
           tollAmt,
           parkingAmt,
           permitAmt,
+          hillCharges,
+          hourChargesHrs,
+          hourChargesRate,
+          hourChargesAmt,
           totalFare,
           advance,
           balanceAmount
@@ -808,15 +842,117 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 </div>
 
                 {/* 6. Additional Charges & Settlement */}
-                <div className="bg-[#1b203d] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
+                <div className="bg-[#1b203d] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3.5 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
                       <Calculator className="w-3.5 h-3.5" />
-                      Tolls, Advance & Settlement
+                      Additional Charges & Settlement
                     </span>
                     <span className="text-[10px] text-neutral-400 font-mono">Step 6</span>
                   </div>
 
+                  {/* 1. Hill Charges Option (Manual Typing) */}
+                  <div className="bg-[#12162b] border border-white/10 rounded-xl p-3 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-neutral-300 text-xs font-bold flex items-center gap-1.5">
+                        <Compass className="w-3.5 h-3.5 text-[#d4af37]" />
+                        Hill Charges (Ghat Road / Hill Station)
+                      </label>
+                      {hillCharges > 0 ? (
+                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 border border-[#d4af37]/40 px-2 py-0.5 rounded">
+                          Total: ₹{hillCharges.toLocaleString('en-IN')}
+                        </span>
+                      ) : (
+                        <span className="text-[10px] text-neutral-500 font-mono">
+                          (Optional • Manual)
+                        </span>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div>
+                        <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Hill Charges Amount (₹)</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={billData.hillCharges || ''}
+                          onChange={(e) => handleInputChange('hillCharges', e.target.value)}
+                          placeholder="e.g. 500"
+                          className="w-full bg-[#1b203d] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Hill Route / Notes</label>
+                        <input
+                          type="text"
+                          value={billData.hillChargesDetails || ''}
+                          onChange={(e) => handleInputChange('hillChargesDetails', e.target.value)}
+                          placeholder="e.g. Kodaikanal / Ooty Ghat Road"
+                          className="w-full bg-[#1b203d] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2. Hour Charges Option (Hours & Price Manually Typed) */}
+                  <div className="bg-[#12162b] border border-white/10 rounded-xl p-3 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-neutral-300 text-xs font-bold flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
+                        Hour Charges (Extra Hours / Waiting)
+                      </label>
+                      {hourChargesAmt > 0 ? (
+                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 border border-[#d4af37]/40 px-2 py-0.5 rounded">
+                          Total: ₹{hourChargesAmt.toLocaleString('en-IN')}
+                        </span>
+                      ) : (
+                        <span className="text-[10px] text-neutral-500 font-mono">
+                          (Optional • Manual)
+                        </span>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
+                      <div>
+                        <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Hours (Hrs)</label>
+                        <input
+                          type="number"
+                          inputMode="decimal"
+                          step="0.5"
+                          min="0"
+                          value={billData.hourChargesHrs || ''}
+                          onChange={(e) => handleInputChange('hourChargesHrs', e.target.value)}
+                          placeholder="0"
+                          className="w-full bg-[#1b203d] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Price / Rate (₹/hr)</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={billData.hourChargesRate || ''}
+                          onChange={(e) => handleInputChange('hourChargesRate', e.target.value)}
+                          placeholder="0"
+                          className="w-full bg-[#1b203d] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-neutral-400 block mb-1 font-semibold text-[11px]">Total Price (₹)</label>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          value={billData.hourChargesTotal !== undefined && billData.hourChargesTotal !== "" ? billData.hourChargesTotal : (hourChargesAmt || '')}
+                          onChange={(e) => handleInputChange('hourChargesTotal', e.target.value)}
+                          placeholder="0"
+                          className="w-full bg-[#1b203d] border border-[#d4af37]/40 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 3. Tolls, Parking, Permit & Advance */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                     <div>
                       <label className="text-neutral-400 block mb-1 font-semibold truncate text-[11px] sm:text-xs">Toll Charges (₹)</label>
@@ -844,7 +980,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                       />
                     </div>
                     <div>
-                      <label className="text-neutral-400 block mb-1 font-semibold truncate text-[11px] sm:text-xs">Permit / Extra (₹)</label>
+                      <label className="text-neutral-400 block mb-1 font-semibold truncate text-[11px] sm:text-xs">Permit / Border (₹)</label>
                       <input
                         type="number"
                         inputMode="numeric"
@@ -1174,13 +1310,41 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                       amount: parkingAmt
                                     });
                                   }
-                                  if ((waitingAmt + permitAmt) > 0) {
+                                  if (hillCharges > 0) {
                                     rows.push({
                                       sNo: sNo++,
-                                      desc: 'Permit / Hill Station / Extra Allowance',
+                                      desc: 'Hill Station / Ghat Road Charges',
+                                      details: billData.hillChargesDetails || 'Hill Charges',
+                                      rate: `₹ ${Number(hillCharges).toFixed(2)}`,
+                                      amount: hillCharges
+                                    });
+                                  }
+                                  if (hourChargesAmt > 0) {
+                                    const hrsVal = billData.hourChargesHrs || hourChargesHrs;
+                                    const rateVal = billData.hourChargesRate || hourChargesRate;
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Hourly / Extra Time Charges',
+                                      details: hrsVal ? `${hrsVal} Hr(s)` : 'Hourly Usage',
+                                      rate: rateVal ? `₹ ${Number(rateVal).toFixed(2)} / hr` : '-',
+                                      amount: hourChargesAmt
+                                    });
+                                  }
+                                  if (permitAmt > 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Permit / Border State Tax Charges',
+                                      details: 'Actuals',
+                                      rate: '-',
+                                      amount: permitAmt
+                                    });
+                                  } else if (waitingAmt > 0 && hourChargesAmt === 0) {
+                                    rows.push({
+                                      sNo: sNo++,
+                                      desc: 'Waiting / Extra Hour Charges',
                                       details: billData.waitingDetails || '-',
                                       rate: '-',
-                                      amount: (waitingAmt + permitAmt)
+                                      amount: waitingAmt
                                     });
                                   }
 

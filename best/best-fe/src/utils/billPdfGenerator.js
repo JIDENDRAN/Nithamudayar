@@ -35,6 +35,10 @@ function renderBillDocument(d, billData, calculations, settings) {
     tollAmt = 0,
     parkingAmt = 0,
     permitAmt = 0,
+    hillCharges = (Number(billData?.hillCharges) || 0),
+    hourChargesHrs = (Number(billData?.hourChargesHrs) || 0),
+    hourChargesRate = (Number(billData?.hourChargesRate) || 0),
+    hourChargesAmt = (billData?.hourChargesTotal !== "" && billData?.hourChargesTotal !== undefined ? (Number(billData?.hourChargesTotal) || 0) : ((Number(billData?.hourChargesHrs) || 0) * (Number(billData?.hourChargesRate) || 0))),
     totalFare = 0,
     advance = 0,
     balanceAmount = 0
@@ -192,13 +196,45 @@ function renderBillDocument(d, billData, calculations, settings) {
     });
   }
 
-  if ((waitingAmt + permitAmt) > 0) {
+  if (hillCharges > 0) {
     items.push({
       no: String(sNo++),
-      desc: 'Permit / Hill Station / Extra Allowance',
+      desc: 'Hill Station / Ghat Road Charges',
+      details: billData.hillChargesDetails || 'Hill Charges',
+      rate: Number(hillCharges).toFixed(2),
+      amt: hillCharges.toLocaleString('en-IN', { minimumFractionDigits: 2 })
+    });
+  }
+
+  if (hourChargesAmt > 0) {
+    const hrsVal = billData.hourChargesHrs || hourChargesHrs;
+    const rateVal = billData.hourChargesRate || hourChargesRate;
+    const hrsText = hrsVal ? `${hrsVal} Hr(s)` : 'Hourly Usage';
+    const rateText = rateVal ? `Rs. ${Number(rateVal).toFixed(2)}/hr` : '-';
+    items.push({
+      no: String(sNo++),
+      desc: 'Hourly / Extra Time Charges',
+      details: hrsText,
+      rate: rateText,
+      amt: hourChargesAmt.toLocaleString('en-IN', { minimumFractionDigits: 2 })
+    });
+  }
+
+  if (permitAmt > 0) {
+    items.push({
+      no: String(sNo++),
+      desc: 'Permit / Border State Tax Charges',
+      details: 'Actuals',
+      rate: '-',
+      amt: permitAmt.toLocaleString('en-IN', { minimumFractionDigits: 2 })
+    });
+  } else if (waitingAmt > 0 && hourChargesAmt === 0) {
+    items.push({
+      no: String(sNo++),
+      desc: 'Waiting / Extra Hour Charges',
       details: billData.waitingDetails || '-',
       rate: '-',
-      amt: (waitingAmt + permitAmt).toLocaleString('en-IN', { minimumFractionDigits: 2 })
+      amt: waitingAmt.toLocaleString('en-IN', { minimumFractionDigits: 2 })
     });
   }
 
@@ -220,11 +256,11 @@ function renderBillDocument(d, billData, calculations, settings) {
   const cardsHeight = 36;
   const odoHeight = 14;
   const tableHeaderHeight = 7.5;
-  const rowHeight = items.length <= 3 ? 9 : (items.length <= 4 ? 8.2 : 7.2);
+  const rowHeight = items.length <= 3 ? 9 : (items.length <= 4 ? 8.2 : (items.length <= 6 ? 7.2 : 6.3));
   const tableRowsHeight = items.length * rowHeight;
   const wordsHeight = 8;
   const paymentHeight = 38;
-  const termsHeight = 20;
+  const termsHeight = items.length > 6 ? 16 : 20;
 
   const fixedContentSum = cardsHeight + odoHeight + tableHeaderHeight + tableRowsHeight + wordsHeight + paymentHeight + termsHeight;
   const totalAvailable = footerY - contentStartY;
