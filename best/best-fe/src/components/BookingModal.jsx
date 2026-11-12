@@ -95,7 +95,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-xl bg-[#1b203d] border border-brand-gold/40 rounded-2xl shadow-2xl p-5 sm:p-8 text-white max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-xl bg-[#10194E] border border-brand-gold/40 rounded-2xl shadow-2xl p-5 sm:p-8 text-white max-h-[90vh] overflow-y-auto">
         
         {/* Top Gold Shimmer Line */}
         <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-80"></div>
@@ -148,7 +148,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                   placeholder="e.g. Ramesh Kumar"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
+                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
                 />
               </div>
 
@@ -163,7 +163,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                   placeholder="+91 98765 43210"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
+                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
                 />
               </div>
             </div>
@@ -179,7 +179,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                   name="pickup"
                   value={formData.pickup}
                   onChange={handleInputChange}
-                  className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
+                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
                 >
                   <option value="Thanjavur">Thanjavur (Headquarters Hub)</option>
                   <option value="Trichy">Trichy (Airport / Central Railway)</option>
@@ -204,7 +204,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                   placeholder="e.g. Kumbakonam / Madurai / Ooty"
                   value={formData.destination}
                   onChange={handleInputChange}
-                  className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
+                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
                 />
               </div>
             </div>
@@ -222,7 +222,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                   required
                   value={formData.date}
                   onChange={handleInputChange}
-                  className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
+                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
                 />
               </div>
 
@@ -235,7 +235,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                   name="time"
                   value={formData.time}
                   onChange={handleInputChange}
-                  className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
+                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
                 />
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                   name="vehicle"
                   value={formData.vehicle}
                   onChange={handleInputChange}
-                  className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
+                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
                 >
                   <option value="Sedan (Dzire / Etios) - ₹14/km">Sedan (Dzire / Etios) - ₹14/km</option>
                   <option value="SUV (Ertiga / Carens) - ₹19/km">SUV (Ertiga / Carens) - ₹19/km</option>
@@ -269,7 +269,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                   name="packageType"
                   value={formData.packageType}
                   onChange={handleInputChange}
-                  className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
+                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
                 >
                   <option value="Airport pickup and drop">Airport pickup and drop</option>
                   <option value="Local trip">Local trip</option>
@@ -297,7 +297,7 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
                 placeholder="Number of days, flight/train timing, senior citizens, hotel stopovers..."
                 value={formData.notes}
                 onChange={handleInputChange}
-                className="w-full bg-[#12162b] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
               ></textarea>
             </div>
 

@@ -628,7 +628,7 @@ export default function HomePage({ onOpenBooking }) {
       </section>
 
       {/* 7. Fleet Showcase Section with Luxury Gradient & Side-by-Side Auto-Scroll */}
-      <section className="relative py-14 sm:py-24 px-4 sm:px-10 bg-gradient-to-b from-[#0f1426] via-[#1b203d] to-[#0b0e1a] text-white overflow-hidden">
+      <section className="relative py-14 sm:py-24 px-4 sm:px-10 bg-gradient-to-b from-[#0f1426] via-[#10194E] to-[#0b0e1a] text-white overflow-hidden">
         {/* Golden ambient radial light aura */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
@@ -813,7 +813,7 @@ export default function HomePage({ onOpenBooking }) {
               href="https://wa.me/919894116405?text=Hello%2C%20I%20would%20like%20to%20plan%20a%20tour%20with%20Nithamudayar%20Travels"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-[#1b203d] text-white hover:bg-[#252c54] py-3 px-8 rounded-xl text-sm font-bold transition-all inline-flex items-center justify-center gap-2 border border-brand-gold/30"
+              className="w-full sm:w-auto bg-[#10194E] text-white hover:bg-[#252c54] py-3 px-8 rounded-xl text-sm font-bold transition-all inline-flex items-center justify-center gap-2 border border-brand-gold/30"
             >
               <span>Instant WhatsApp Quote</span>
               <ArrowRight className="w-4 h-4 text-brand-gold" />

@@ -6,17 +6,17 @@ export default function PackagesHero({ onOpenBooking }) {
   return (
     <section 
       id="packages-hero" 
-      className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#1b203d] text-white overflow-hidden bg-cover bg-[position:75%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[480px] sm:min-h-[540px] flex items-center"
+      className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#10194E] text-white overflow-hidden bg-cover bg-[position:75%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[480px] sm:min-h-[540px] flex items-center"
       style={{
         backgroundImage: `url('/images/backgrounds/hero-rameswaram-car.jpg')`,
       }}
     >
       {/* Soft royal navy gradient blend for crisp text readability while showcasing Rameswaram Temple & car */}
-      <div className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-3/5 lg:w-1/2 bg-gradient-to-r from-[#1b203d]/90 via-[#1b203d]/70 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-3/5 lg:w-1/2 bg-gradient-to-r from-[#10194E]/90 via-[#10194E]/70 to-transparent pointer-events-none z-10"></div>
 
       {/* Subtle top/bottom framing */}
-      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
-      <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#1b203d]/80 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#10194E]/80 to-transparent pointer-events-none z-10"></div>
+      <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#10194E]/80 to-transparent pointer-events-none z-10"></div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-10 w-full">
         {/* Left Content */}

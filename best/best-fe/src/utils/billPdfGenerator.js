@@ -45,7 +45,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   } = calculations || {};
 
   // Theme Palette: Royal Midnight Navy & Heritage Champagne Gold (Exact Logo Colors)
-  const navyDark = [27, 32, 61];        // #1b203d (Dominant Midnight Navy from official logo)
+  const navyDark = [16, 25, 78];        // #10194E (Dominant Midnight Navy from official logo)
   const goldPrimary = [212, 175, 55];    // #d4af37 (Regal Champagne Gold from temple illustration)
   const goldLight = [253, 248, 225];
   const bgCream = [250, 248, 243];
@@ -70,7 +70,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   const logoSize = 26.5;
   const logoX = 11.5;
   const logoY = headerY + 2.5;
-  d.setFillColor(15, 18, 35);
+  d.setFillColor(...navyDark);
   d.setDrawColor(...goldPrimary);
   d.setLineWidth(0.4);
   d.roundedRect(logoX, logoY, logoSize, logoSize, 1.5, 1.5, 'FD');

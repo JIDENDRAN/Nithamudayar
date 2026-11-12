@@ -129,7 +129,7 @@ const GoogleReviews = () => {
   };
 
   return (
-    <section className="py-14 sm:py-20 bg-gradient-to-b from-[#1b203d] via-[#14182e] to-[#0b0e1a] relative overflow-hidden text-white border-t border-brand-gold/20">
+    <section className="py-14 sm:py-20 bg-gradient-to-b from-[#10194E] via-[#14182e] to-[#0b0e1a] relative overflow-hidden text-white border-t border-brand-gold/20">
       {/* Golden ambient radial light aura */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -227,13 +227,13 @@ const GoogleReviews = () => {
             <>
               <button
                 onClick={handlePrev}
-                className="absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-white/20 hover:border-brand-gold bg-white/10 hover:bg-brand-gold hover:text-[#1b203d] text-white flex items-center justify-center transition-all z-20 cursor-pointer md:flex hidden shadow-md active:scale-95"
+                className="absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-white/20 hover:border-brand-gold bg-white/10 hover:bg-brand-gold hover:text-[#10194E] text-white flex items-center justify-center transition-all z-20 cursor-pointer md:flex hidden shadow-md active:scale-95"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
-                className="absolute -right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-white/20 hover:border-brand-gold bg-white/10 hover:bg-brand-gold hover:text-[#1b203d] text-white flex items-center justify-center transition-all z-20 cursor-pointer md:flex hidden shadow-md active:scale-95"
+                className="absolute -right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-white/20 hover:border-brand-gold bg-white/10 hover:bg-brand-gold hover:text-[#10194E] text-white flex items-center justify-center transition-all z-20 cursor-pointer md:flex hidden shadow-md active:scale-95"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

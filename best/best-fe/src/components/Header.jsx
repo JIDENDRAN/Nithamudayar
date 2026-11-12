@@ -36,7 +36,7 @@ export default function Header({ onOpenBooking }) {
           
           {/* Brand Logo - Updated with official emblem */}
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#1b203d] rounded-2xl p-0.5 shadow-lg flex items-center justify-center shrink-0 border border-brand-gold/40 overflow-hidden transition-transform duration-200 group-hover:scale-105">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#10194E] rounded-2xl p-0.5 shadow-lg flex items-center justify-center shrink-0 border border-brand-gold/40 overflow-hidden transition-transform duration-200 group-hover:scale-105">
               <img
                 src="/logo.png"
                 alt="Nithamudayar Tours & Travels Pvt Ltd Logo"
@@ -105,7 +105,7 @@ export default function Header({ onOpenBooking }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#1b203d] border-b border-brand-gold/30 px-6 py-5 space-y-3">
+        <div className="lg:hidden bg-[#10194E] border-b border-brand-gold/30 px-6 py-5 space-y-3">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -124,7 +124,7 @@ export default function Header({ onOpenBooking }) {
           <div className="pt-3 border-t border-white/10 flex items-center gap-3">
             <a
               href="tel:+919894116405"
-              className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#1b203d] transition-all"
+              className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#10194E] transition-all"
               aria-label="Call +91 98941 16405"
               title="Call +91 98941 16405"
             >

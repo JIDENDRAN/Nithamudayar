@@ -141,13 +141,13 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
       
       {/* ─── Hero Section ──────────────────────────────────────────────── */}
       <section 
-        className="relative py-16 sm:py-24 px-4 sm:px-10 bg-[#1b203d] text-white overflow-hidden bg-cover bg-center"
+        className="relative py-16 sm:py-24 px-4 sm:px-10 bg-[#10194E] text-white overflow-hidden bg-cover bg-center"
         style={{
           backgroundImage: `url('/images/destinations/madurai-airport.jpg')`
         }}
       >
         {/* Soft dark royal blend for pristine text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1b203d] via-[#1b203d]/90 to-[#1b203d]/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#10194E] via-[#10194E]/90 to-[#10194E]/70"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/20 border border-brand-gold/40 text-[#FCF6BA] backdrop-blur-xs">
@@ -231,7 +231,7 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
               className="bg-white rounded-2xl border border-neutral-200 p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:shadow-lg hover:border-brand-gold/50 transition-all group relative"
             >
               {car.badge && (
-                <span className="absolute top-3 right-3 bg-brand-gold text-[#1b203d] font-bold text-[9px] uppercase px-2.5 py-0.5 rounded-full shadow-xs">
+                <span className="absolute top-3 right-3 bg-brand-gold text-[#10194E] font-bold text-[9px] uppercase px-2.5 py-0.5 rounded-full shadow-xs">
                   {car.badge}
                 </span>
               )}
@@ -391,7 +391,7 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
       </section>
 
       {/* ─── Bottom Callout Banner ────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 px-4 sm:px-10 bg-[#1b203d] text-white text-center">
+      <section className="py-12 sm:py-16 px-4 sm:px-10 bg-[#10194E] text-white text-center">
         <div className="max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1 text-[#FCF6BA] text-xs font-bold uppercase tracking-wider">
             <CheckCircle2 className="w-4 h-4 text-brand-gold" />

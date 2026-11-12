@@ -164,7 +164,7 @@ function HubSectionItem({ hub, onOpenBooking, isReversed }) {
 
             {/* Category Number & Badge */}
             <div className="flex items-center gap-2">
-              <span className="w-7 h-7 rounded-lg bg-[#1b203d] text-[#FCF6BA] font-black text-xs flex items-center justify-center shadow-sm">
+              <span className="w-7 h-7 rounded-lg bg-[#10194E] text-[#FCF6BA] font-black text-xs flex items-center justify-center shadow-sm">
                 {hub.number}
               </span>
               <span className="text-[11px] font-bold uppercase tracking-wider text-brand-gold-dark bg-brand-gold/10 px-2.5 py-0.5 rounded-full border border-brand-gold/30">

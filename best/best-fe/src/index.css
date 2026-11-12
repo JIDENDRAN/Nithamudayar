@@ -5,7 +5,7 @@
 /* ─── NITHAMUDAYAR BRAND DESIGN TOKENS ───────────────────── */
 :root {
   --brand-espresso: #252c54;
-  --brand-espresso-dark: #1b203d;
+  --brand-espresso-dark: #10194E;
   --brand-espresso-light: #283058;
   --brand-divider: #252c54;
   --brand-gold: #D4AF37;
@@ -19,7 +19,7 @@
   --brand-whatsapp: #25D366;
   
   --forest: #252c54;
-  --forest-dark: #1b203d;
+  --forest-dark: #10194E;
   --forest-mid: #283058;
   --forest-light: #5B6767;
   --cream: #FAF8F5;
@@ -34,7 +34,7 @@
 
 @theme {
   --color-brand-espresso: #252c54;
-  --color-brand-espresso-dark: #1b203d;
+  --color-brand-espresso-dark: #10194E;
   --color-brand-espresso-light: #283058;
   --color-brand-divider: #252c54;
   --color-brand-gold: #D4AF37;
@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-gold {
   background: linear-gradient(135deg, #F6D365 0%, #D4AF37 50%, #AA771C 100%);
-  color: #1b203d;
+  color: #10194E;
   font-weight: 800;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   transform: rotateY(180deg);
-  background-color: #1b203d;
+  background-color: #10194E;
   border: 1.5px solid rgba(212, 175, 55, 0.45);
   box-shadow: 0 16px 32px -8px rgba(212, 175, 55, 0.2), 0 8px 16px -6px rgba(27, 32, 61, 0.1);
   color: #ffffff;
@@ -292,7 +292,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── COMMERCIAL FLEET SHOWROOM CARDS ────────────────────── */
 .fleet-showroom-card {
   position: relative;
-  background: #1b203d;
+  background: #10194E;
   border: 1px solid rgba(212, 175, 55, 0.25);
   border-radius: 1rem;
   overflow: hidden;
@@ -369,7 +369,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   border-radius: 0.65rem;
   transition: flex 0.55s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-  background: #1b203d;
+  background: #10194E;
   border: 1px solid rgba(212, 175, 55, 0.3);
   display: flex;
   align-items: center;

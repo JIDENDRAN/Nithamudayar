@@ -28,15 +28,15 @@ export default function Navbar({ onOpenBooking }) {
       <nav
         className={`transition-all duration-300 px-4 sm:px-10 ${
           isScrolled
-            ? 'bg-[#1b203d]/95 backdrop-blur-md shadow-xl py-3 border-b border-brand-gold/20'
-            : 'bg-gradient-to-b from-[#0f1426]/90 via-[#1b203d]/50 to-transparent py-4 border-b border-transparent'
+            ? 'bg-[#10194E]/95 backdrop-blur-md shadow-xl py-3 border-b border-brand-gold/20'
+            : 'bg-gradient-to-b from-[#0f1426]/90 via-[#10194E]/50 to-transparent py-4 border-b border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Brand Logo */}
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#1b203d] rounded-2xl p-0.5 shadow-lg flex items-center justify-center shrink-0 border border-brand-gold/40 overflow-hidden transition-transform duration-200 group-hover:scale-105">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#10194E] rounded-2xl p-0.5 shadow-lg flex items-center justify-center shrink-0 border border-brand-gold/40 overflow-hidden transition-transform duration-200 group-hover:scale-105">
               <img
                 src="/logo.png"
                 alt="Nithamudayar Tours & Travels Pvt Ltd Logo"
@@ -117,7 +117,7 @@ export default function Navbar({ onOpenBooking }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#1b203d] border-b border-brand-gold/30 px-6 py-5 space-y-3 shadow-2xl">
+        <div className="lg:hidden bg-[#10194E] border-b border-brand-gold/30 px-6 py-5 space-y-3 shadow-2xl">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -149,7 +149,7 @@ export default function Navbar({ onOpenBooking }) {
             <div className="flex items-center gap-3">
               <a
                 href="tel:+919894116405"
-                className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#1b203d] transition-all"
+                className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#10194E] transition-all"
                 aria-label="Call +91 98941 16405"
               >
                 <Phone className="w-4 h-4" />

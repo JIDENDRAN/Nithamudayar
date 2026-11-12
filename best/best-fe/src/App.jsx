@@ -76,7 +76,7 @@ const AppContent = () => {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             transition={{ duration: 0.7, ease: 'easeInOut' }}
-            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1b203d] text-white select-none overflow-hidden"
+            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#10194E] text-white select-none overflow-hidden"
           >
             {/* Ambient golden glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0%,transparent_60%)] pointer-events-none" />
@@ -88,7 +88,7 @@ const AppContent = () => {
                 transition={{ duration: 0.7, ease: 'easeOut' }}
                 className="relative mb-6"
               >
-                <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#1b203d] shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/40 flex items-center justify-center overflow-hidden">
+                <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#10194E] shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/40 flex items-center justify-center overflow-hidden">
                   <img src={Logo} alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
                 </div>
                 {/* Animated golden ring */}

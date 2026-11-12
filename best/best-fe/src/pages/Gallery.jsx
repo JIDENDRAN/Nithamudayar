@@ -400,8 +400,8 @@ const Gallery = () => {
             alt="Nithamudayar Tours & Travels Pvt Ltd Photo Collage Gallery" 
             className="w-full h-full object-cover object-[position:75%_center] lg:object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1b203d]/90 via-[#1b203d]/60 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#1b203d] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#10194E]/90 via-[#10194E]/60 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#10194E] to-transparent" />
           {/* Accent Glow */}
           <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[150px] bg-brand-gold/15 rounded-full blur-[100px] pointer-events-none" />
         </div>
@@ -438,7 +438,7 @@ const Gallery = () => {
                   onClick={() => setActiveFilter(filter.id)}
                   className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 shrink-0 cursor-pointer ${
                     isActive 
-                      ? 'bg-[#1b203d] text-[#FCF6BA] shadow-md scale-[1.02] border border-brand-gold/40' 
+                      ? 'bg-[#10194E] text-[#FCF6BA] shadow-md scale-[1.02] border border-brand-gold/40' 
                       : 'bg-white text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 border border-neutral-200/90'
                   }`}
                 >
@@ -459,7 +459,7 @@ const Gallery = () => {
               onClick={() => setCollageLayout('collage')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 collageLayout === 'collage'
-                  ? 'bg-[#1b203d] text-[#FCF6BA] shadow-sm'
+                  ? 'bg-[#10194E] text-[#FCF6BA] shadow-sm'
                   : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
@@ -471,7 +471,7 @@ const Gallery = () => {
               onClick={() => setCollageLayout('grid')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 collageLayout === 'grid'
-                  ? 'bg-[#1b203d] text-[#FCF6BA] shadow-sm'
+                  ? 'bg-[#10194E] text-[#FCF6BA] shadow-sm'
                   : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >

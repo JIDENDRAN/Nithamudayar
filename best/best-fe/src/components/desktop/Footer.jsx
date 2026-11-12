@@ -47,14 +47,14 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
   ];
 
   return (
-    <footer className="bg-[#1b203d] text-neutral-300 border-t border-brand-gold/20">
+    <footer className="bg-[#10194E] text-neutral-300 border-t border-brand-gold/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-10 pt-8 sm:pt-16 pb-4 sm:pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-10">
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-2.5 sm:space-y-4">
             <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
-              <div className="w-14 h-14 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-[#1b203d] rounded-2xl p-0.5 shadow-lg flex items-center justify-center shrink-0 border border-brand-gold/40 overflow-hidden transition-transform duration-200 group-hover:scale-105">
+              <div className="w-14 h-14 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-[#10194E] rounded-2xl p-0.5 shadow-lg flex items-center justify-center shrink-0 border border-brand-gold/40 overflow-hidden transition-transform duration-200 group-hover:scale-105">
                 <img
                   src="/logo.png"
                   alt="Nithamudayar Tours & Travels Pvt Ltd Logo"

@@ -7,7 +7,7 @@ export default function WhatsAppFloatingButton() {
         href="https://wa.me/919894116405?text=Hello%20Nithamudayar%20Tours%20and%20Travels,%20I%20would%20like%20to%20enquire%20about%20a%20trip."
         target="_blank"
         rel="noopener noreferrer"
-        className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-brand-gold-dark via-brand-gold to-brand-gold-bright text-[#1b203d] flex items-center justify-center shadow-lg shadow-black/30 hover:shadow-brand-gold/40 hover:scale-110 active:scale-95 transition-all duration-200 border border-brand-gold-light/40 group"
+        className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-brand-gold-dark via-brand-gold to-brand-gold-bright text-[#10194E] flex items-center justify-center shadow-lg shadow-black/30 hover:shadow-brand-gold/40 hover:scale-110 active:scale-95 transition-all duration-200 border border-brand-gold-light/40 group"
         aria-label="Direct WhatsApp Enquiry"
         title="Chat with Nithamudayar Tours & Travels Pvt Ltd on WhatsApp"
       >

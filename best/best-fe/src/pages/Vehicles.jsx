@@ -292,7 +292,7 @@ export default function FleetPage({ onOpenBooking }) {
       </section>
 
       {/* 3. Detailed Fleet Cards with Interactive Filter & Showroom Animations */}
-      <section className="py-12 sm:py-20 px-4 sm:px-10 bg-[#1b203d] text-white relative overflow-hidden">
+      <section className="py-12 sm:py-20 px-4 sm:px-10 bg-[#10194E] text-white relative overflow-hidden">
         {/* Ambient radial gold glow behind section */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
@@ -313,7 +313,7 @@ export default function FleetPage({ onOpenBooking }) {
             </div>
 
             {/* Quick trust badge */}
-            <div className="flex items-center gap-2 text-xs text-brand-gold bg-[#1b203d] border border-brand-gold/30 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg shrink-0 whitespace-nowrap">
+            <div className="flex items-center gap-2 text-xs text-brand-gold bg-[#10194E] border border-brand-gold/30 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg shrink-0 whitespace-nowrap">
               <ShieldCheck className="w-4 h-4 text-brand-gold shrink-0" />
               <span className="font-semibold text-neutral-200">100% Commercial Tourist Permits</span>
             </div>
@@ -327,7 +327,7 @@ export default function FleetPage({ onOpenBooking }) {
                 onClick={() => setFleetFilter(tab.id)}
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer whitespace-nowrap shrink-0 ${fleetFilter === tab.id
                     ? 'btn-gold shadow-md scale-[1.02]'
-                    : 'bg-[#1b203d] border border-brand-gold/20 text-neutral-300 hover:border-brand-gold/60 hover:text-white'
+                    : 'bg-[#10194E] border border-brand-gold/20 text-neutral-300 hover:border-brand-gold/60 hover:text-white'
                   }`}
               >
                 {tab.label}
