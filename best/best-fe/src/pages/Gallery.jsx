@@ -286,6 +286,16 @@ const PLACES_ITEMS = [
     desc: 'Serene palm-fringed backwaters and luxury traditional houseboats.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 9.33.30 PM (1).jpeg',
     aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-28',
+    category: 'places',
+    title: 'Forest Canopy Eco Resort',
+    location: 'Thekkady / Periyar',
+    badge: 'Nature Resort',
+    desc: 'Boutique eco cottages set amidst lush cardamom plantations and serene Western Ghats greenery.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.37 PM.jpeg',
+    aspect: 'aspect-[16/9]'
   }
 ];
 
@@ -562,6 +572,16 @@ const CARS_ITEMS = [
     desc: 'High-ground clearance sedan conquering ghat roads and scenic viewpoints with ease.',
     image: '/gallery/WhatsApp Image 2026-11-11 at 1.21.48 PM.jpeg',
     aspect: 'aspect-[4/3]'
+  },
+  {
+    id: 'cars-12',
+    category: 'cars',
+    title: 'Commercial Sedan at Forest Canopy Resort',
+    location: 'Thekkady / Periyar',
+    badge: 'Night Dispatch',
+    desc: 'Spotless Swift Dzire tourist taxi with yellow commercial registration parked at luxury wildlife resort.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.37 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
   }
 ];
 
