@@ -608,7 +608,7 @@ const CLIENTS_ITEMS = [
     title: 'Pilgrims with Chauffeur & Cab',
     location: 'Pilgrim Site',
     badge: 'Divine Trip',
-    desc: 'Smiling pilgrimage clients posing with their chauffeur and clean commercial sedan.',
+    desc: 'Smiling pilgrimage clients posing with their professional chauffeur and premium sedan.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 9.33.30 PM (2).jpeg',
     span: 'col-span-1 sm:col-span-2 row-span-1'
   },
@@ -888,7 +888,7 @@ const CARS_ITEMS = [
   {
     id: 'cars-2',
     category: 'cars',
-    title: 'Commercial Swift Dzire with Chauffeur',
+    title: 'Swift Dzire with Chauffeur',
     location: 'Doorstep Dispatch',
     badge: 'Sedan (4+1)',
     desc: 'Neatly uniformed driver alongside a pristine white Swift Dzire ready for outstation pickup.',
@@ -911,7 +911,7 @@ const CARS_ITEMS = [
     title: 'Touring Fleet & Sightseeing Plaza',
     location: 'Sightseeing Base',
     badge: 'Fleet Transit',
-    desc: 'Our commercial fleet parked at the tour assembly plaza ready for city and temple tours.',
+    desc: 'Our luxury fleet parked at the tour assembly plaza ready for city and temple tours.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.32 PM (1).jpeg',
     span: 'col-span-1 sm:col-span-2 row-span-1'
   },
@@ -921,17 +921,17 @@ const CARS_ITEMS = [
     title: 'White Sedan Parked on Beach Sands',
     location: 'Coastal Destination',
     badge: 'Comfort Sedan',
-    desc: 'Clean, air-conditioned commercial sedan resting by the breezy coastline.',
+    desc: 'Clean, air-conditioned sedan resting by the breezy coastline.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 9.33.27 PM (1).jpeg',
     span: 'col-span-1 row-span-2'
   },
   {
     id: 'cars-6',
     category: 'cars',
-    title: 'Polished Commercial Cab Beach View',
+    title: 'Pristine Swift Dzire Beach View',
     location: 'Coastal Highway',
     badge: 'Clean & Sanitized',
-    desc: 'Rear three-quarter view showing impeccable paint and well-maintained commercial yellow-board taxi.',
+    desc: 'Rear three-quarter view showing impeccable white paint and well-maintained touring cab.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 9.33.28 PM.jpeg',
     span: 'col-span-1 sm:col-span-2 row-span-1'
   },
@@ -941,7 +941,7 @@ const CARS_ITEMS = [
     title: 'Dzire Sedan Front Grille & Foglamps',
     location: 'Fleet Base',
     badge: '24/7 Ready',
-    desc: 'Front look showcasing pristine headlights, chrome accents, and clean commercial registration.',
+    desc: 'Front look showcasing pristine headlights, chrome accents, and spotless bumper detailing.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 9.33.30 PM.jpeg',
     span: 'col-span-1 row-span-2'
   },
@@ -951,7 +951,7 @@ const CARS_ITEMS = [
     title: 'Swift Dzire at Heritage Resort Porch',
     location: 'Luxury Hotel Entry',
     badge: 'VIP Chauffeur',
-    desc: 'Pristine white commercial cab parked under the majestic portico of a 5-star heritage resort.',
+    desc: 'Pristine white executive cab parked under the majestic portico of a 5-star heritage resort.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 9.33.31 PM.jpeg',
     span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
   },
@@ -978,10 +978,10 @@ const CARS_ITEMS = [
   {
     id: 'cars-11',
     category: 'cars',
-    title: 'Commercial Sedan at Forest Canopy Resort',
+    title: 'Swift Dzire at Forest Canopy Resort',
     location: 'Thekkady / Periyar',
     badge: 'Night Dispatch',
-    desc: 'Spotless Swift Dzire tourist taxi with yellow commercial registration parked at luxury wildlife resort.',
+    desc: 'Spotless Swift Dzire tourist cab parked comfortably at a luxury forest and wildlife resort.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.37 PM (1).jpeg',
     span: 'col-span-1 sm:col-span-2 row-span-1'
   },
@@ -991,17 +991,17 @@ const CARS_ITEMS = [
     title: 'White Swift Dzire on Highway Flyover',
     location: 'Express Highway',
     badge: 'Sedan (4+1)',
-    desc: 'Spotless commercial Swift Dzire with yellow registration plate parked along the highway corridor for outstation transit.',
+    desc: 'Spotless Swift Dzire parked along the highway corridor for comfortable outstation transit.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.38 PM.jpeg',
     span: 'col-span-1 sm:col-span-2 row-span-1'
   },
   {
     id: 'cars-13',
     category: 'cars',
-    title: 'Commercial Dzire Sedan in Coconut Palms',
+    title: 'Swift Dzire Sedan in Coconut Palms',
     location: 'Tamil Nadu Countryside',
     badge: 'Sedan Fleet',
-    desc: 'Well-maintained air-conditioned Swift Dzire with yellow commercial registration plate parked under coconut groves.',
+    desc: 'Well-maintained air-conditioned Swift Dzire parked gracefully under lush coconut groves.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.43 PM.jpeg',
     span: 'col-span-1 row-span-2'
   },
@@ -1011,37 +1011,37 @@ const CARS_ITEMS = [
     title: 'Swift Dzire Coastal Drive',
     location: 'Dhanushkodi / Sea Coast',
     badge: 'Coastal Fleet',
-    desc: 'Yellow-plate commercial Dzire sedan resting along breathtaking turquoise coastal waters.',
+    desc: 'Pristine Swift Dzire sedan resting along breathtaking turquoise coastal waters.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.48 PM (1).jpeg',
     span: 'col-span-1 sm:col-span-2 row-span-1'
   },
   {
     id: 'cars-15',
     category: 'cars',
-    title: 'Commercial Cab at Temple Festival Plaza',
+    title: 'Executive Cab at Temple Festival Plaza',
     location: 'Pilgrim Hub',
     badge: 'On-Time Dispatch',
-    desc: 'Comfortable commercial cab staged conveniently at temple entrance for passenger pickup.',
+    desc: 'Comfortable air-conditioned cab staged conveniently at temple entrance for passenger pickup.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.48 PM.jpeg',
     span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
   },
   {
     id: 'cars-16',
     category: 'cars',
-    title: 'Commercial Dzire Sedan with Driver',
+    title: 'Swift Dzire Sedan with Chauffeur',
     location: 'Hotel Portico Dispatch',
     badge: 'Executive Sedan',
-    desc: 'Spotless white commercial sedan with yellow board and professional driver outside hotel.',
+    desc: 'Spotless white touring sedan with professional chauffeur outside hotel.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.30 PM (1).jpeg',
     span: 'col-span-1 row-span-2'
   },
   {
     id: 'cars-17',
     category: 'cars',
-    title: 'Driver with Commercial Sedan in Hill Pass',
+    title: 'Chauffeur with Touring Sedan in Hill Pass',
     location: 'Western Ghats',
     badge: 'Hill Station Fleet',
-    desc: 'Reliable commercial vehicle with yellow number plate ready for mountain ascents.',
+    desc: 'Reliable high-comfort touring vehicle ready for mountain ascents and hill stations.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.30 PM.jpeg',
     span: 'col-span-1 row-span-2'
   },
@@ -1051,7 +1051,7 @@ const CARS_ITEMS = [
     title: 'Toyota Innova Crysta with Travelers & Driver',
     location: 'Premium Outstation',
     badge: 'Innova Crysta (7+1)',
-    desc: 'Spacious Toyota Innova Crysta SUV with yellow license plate TN 11 W 2895 parked at hotel entrance ready for highway tour.',
+    desc: 'Spacious Toyota Innova Crysta SUV parked at hotel entrance ready for outstation highway tour.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.37 PM.jpeg',
     span: 'col-span-1 sm:col-span-2 row-span-1'
   }
@@ -1249,7 +1249,7 @@ I would like to enquire about a tour package / taxi service for this. Please sha
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B1138] border border-brand-gold/40 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
             <span className="text-xs font-bold tracking-widest text-[#FCF6BA] uppercase">
-              100% Real Travel Memoirs & Commercial Fleet
+              100% Real Travel Memoirs & Touring Fleet
             </span>
           </div>
 
@@ -1259,7 +1259,7 @@ I would like to enquire about a tour package / taxi service for this. Please sha
           </h1>
 
           <p className="max-w-2xl mx-auto text-xs sm:text-sm lg:text-base text-neutral-300 leading-relaxed drop-shadow">
-            Experience our journeys across South India through an artistic mosaic collage — divided into 3 vibrant sections: iconic heritage places, happy travelers, and our spotless commercial taxi fleet.
+            Experience our journeys across South India through an artistic mosaic collage — divided into 3 vibrant sections: iconic heritage places, happy travelers, and our spotless touring fleet.
           </p>
 
           {/* Tab Filter Navigation */}
@@ -1419,13 +1419,13 @@ I would like to enquire about a tour package / taxi service for this. Please sha
                   <span>Section 3</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black font-heading text-neutral-900">
-                  Commercial Fleet & Cars <span className="text-brand-gold-dark">({validCars.length})</span>
+                  Touring Fleet & Cabs <span className="text-brand-gold-dark">({validCars.length})</span>
                 </h2>
                 <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-2xl flex items-center gap-2 flex-wrap">
                   <span>Pristine Swift Dzires & Toyota Innova Crystas photographed in active service.</span>
                   <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
                     <ShieldCheck className="w-3.5 h-3.5 text-amber-700" />
-                    100% Yellow Commercial License Plates
+                    100% Verified Clean & Maintained Fleet
                   </span>
                 </p>
               </div>
