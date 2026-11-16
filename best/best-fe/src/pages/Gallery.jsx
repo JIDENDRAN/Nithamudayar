@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import API_BASE_URL from '../apiConfig.js';
-import { 
-  MapPin, 
-  ChevronLeft, 
-  ChevronRight, 
-  X, 
-  Car, 
-  Users, 
-  Compass, 
-  LayoutGrid, 
-  Columns3, 
-  PhoneCall, 
+import {
+  MapPin,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Car,
+  Users,
+  Compass,
+  LayoutGrid,
+  Columns3,
+  PhoneCall,
   Sparkles,
   ArrowRight,
   Eye,
@@ -1165,8 +1165,8 @@ export default function GalleryPage() {
     setSelectedItemIndex(idx !== -1 ? idx : 0);
   };
 
-  const selectedItem = selectedItemIndex !== null && activeItemsList[selectedItemIndex] 
-    ? activeItemsList[selectedItemIndex] 
+  const selectedItem = selectedItemIndex !== null && activeItemsList[selectedItemIndex]
+    ? activeItemsList[selectedItemIndex]
     : null;
 
   const handleWhatsAppBooking = (item) => {
@@ -1239,15 +1239,13 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             <span className="truncate">{item.location}</span>
           </div>
 
-          <h3 className={`font-bold font-heading text-white line-clamp-1 group-hover:text-brand-gold transition-colors drop-shadow ${
-            isHero ? 'text-base sm:text-xl lg:text-2xl' : isWide ? 'text-sm sm:text-lg' : 'text-xs sm:text-base'
-          }`}>
+          <h3 className={`font-bold font-heading text-white line-clamp-1 group-hover:text-brand-gold transition-colors drop-shadow ${isHero ? 'text-base sm:text-xl lg:text-2xl' : isWide ? 'text-sm sm:text-lg' : 'text-xs sm:text-base'
+            }`}>
             {item.title}
           </h3>
 
-          <p className={`text-neutral-200 mt-1 leading-snug drop-shadow text-xs sm:text-sm ${
-            isHero ? 'line-clamp-3' : isTall ? 'line-clamp-3' : 'line-clamp-2'
-          }`}>
+          <p className={`text-neutral-200 mt-1 leading-snug drop-shadow text-xs sm:text-sm ${isHero ? 'line-clamp-3' : isTall ? 'line-clamp-3' : 'line-clamp-2'
+            }`}>
             {item.desc}
           </p>
 
@@ -1318,7 +1316,7 @@ I would like to enquire about a tour package / taxi service for this. Please sha
 
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
-      
+
       {/* ─── 1. HERO SECTION ───────────────────────────────────────────── */}
       <section className="relative pt-24 pb-14 bg-[#10194E] text-white overflow-hidden border-b border-neutral-200">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1138]/90 via-[#10194E] to-[#10194E] pointer-events-none" />
@@ -1345,43 +1343,39 @@ I would like to enquire about a tour package / taxi service for this. Please sha
           <div className="pt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <button
               onClick={() => setActiveTab('all')}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                activeTab === 'all'
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${activeTab === 'all'
                   ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
                   : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
-              }`}
+                }`}
             >
               All 3 Sections ({validAll.length})
             </button>
             <button
               onClick={() => setActiveTab('places')}
-              className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                activeTab === 'places'
+              className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${activeTab === 'places'
                   ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
                   : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
-              }`}
+                }`}
             >
               <Compass className="w-4 h-4" />
               1. Places ({validPlaces.length})
             </button>
             <button
               onClick={() => setActiveTab('clients')}
-              className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                activeTab === 'clients'
+              className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${activeTab === 'clients'
                   ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
                   : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
-              }`}
+                }`}
             >
               <Users className="w-4 h-4" />
               2. Clients ({validClients.length})
             </button>
             <button
               onClick={() => setActiveTab('cars')}
-              className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                activeTab === 'cars'
+              className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${activeTab === 'cars'
                   ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
                   : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
-              }`}
+                }`}
             >
               <Car className="w-4 h-4" />
               3. Cars ({validCars.length})
@@ -1393,22 +1387,20 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             <div className="inline-flex items-center gap-1 bg-[#0B1138]/80 p-1 rounded-xl border border-brand-gold/30">
               <button
                 onClick={() => setViewMode('collage')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                  viewMode === 'collage'
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${viewMode === 'collage'
                     ? 'bg-brand-gold text-neutral-950 shadow-sm'
                     : 'text-neutral-300 hover:text-white'
-                }`}
+                  }`}
               >
                 <Columns3 className="w-3.5 h-3.5" />
                 <span>Dynamic Collage</span>
               </button>
               <button
                 onClick={() => setViewMode('grid')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                  viewMode === 'grid'
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${viewMode === 'grid'
                     ? 'bg-brand-gold text-neutral-950 shadow-sm'
                     : 'text-neutral-300 hover:text-white'
-                }`}
+                  }`}
               >
                 <LayoutGrid className="w-3.5 h-3.5" />
                 <span>Uniform Grid</span>
@@ -1529,12 +1521,12 @@ I would like to enquire about a tour package / taxi service for this. Please sha
 
       {/* ─── 3. LIGHTBOX MODAL ─────────────────────────────────────────── */}
       {selectedItem && (
-        <div 
+        <div
           className="fixed inset-0 z-50 bg-black/92 backdrop-blur-md flex flex-col justify-between p-3 sm:p-6"
           onClick={() => setSelectedItemIndex(null)}
         >
           {/* Top Bar with Title and Close Button */}
-          <div 
+          <div
             className="flex items-center justify-between max-w-5xl mx-auto w-full z-10 text-white"
             onClick={(e) => e.stopPropagation()}
           >
@@ -1556,7 +1548,7 @@ I would like to enquire about a tour package / taxi service for this. Please sha
           </div>
 
           {/* Center Image Container with Navigation Arrows */}
-          <div 
+          <div
             className="relative flex-1 flex items-center justify-center my-2 max-w-5xl mx-auto w-full"
             onClick={(e) => e.stopPropagation()}
           >
@@ -1586,7 +1578,7 @@ I would like to enquire about a tour package / taxi service for this. Please sha
           </div>
 
           {/* Bottom Card with WhatsApp Booking */}
-          <div 
+          <div
             className="bg-[#10194E]/95 border border-brand-gold/40 rounded-2xl p-3.5 sm:p-5 max-w-3xl mx-auto w-full z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-white shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
