@@ -90,28 +90,17 @@ export default function HomePage({ onOpenBooking }) {
     });
   };
 
+  const getVehicleRank = (name = '', category = '') => {
+    const str = `${name} ${category}`.toLowerCase();
+    if (str.includes('dzire') || str.includes('sedan') || str.includes('etios') || str.includes('swift')) return 1;
+    if (str.includes('ertiga') || str.includes('carens') || (str.includes('suv') && !str.includes('innova'))) return 2;
+    if (str.includes('innova') || str.includes('crysta')) return 3;
+    if (str.includes('tempo') || (str.includes('force') && str.includes('traveller')) || str.includes('traveller')) return 4;
+    if (str.includes('urbania')) return 5;
+    return 6;
+  };
+
   const defaultFeaturedFleet = [
-    {
-      id: 'innova-crysta',
-      name: 'Innova Crysta',
-      category: 'Premium SUV',
-      image: '/images/vehicles/innova.png',
-      seats: '7 Passengers',
-      seatsMobile: '7 Seater',
-      seaterLabel: '7 Seater',
-      luggage: '4 Large Bags',
-      luggageMobile: '4 Bags',
-      ac: 'Dual Zone Climate AC',
-      rate: '₹20/km',
-      outstationRate: '₹20/km',
-      minDistance: 'Above 300 kms',
-      driverCharge: 'Rs. 300 / day',
-      dayBaseRent: 'Rs. 2500',
-      dayPerKm: 'Rs. 16/km',
-      dayDriverCharge: 'Rs. 300 / day',
-      startingFrom: '₹20/km',
-      idealFor: 'Executive travel, family pilgrimages & luxury tours',
-    },
     {
       id: 'sedan-dzire',
       name: 'Swift Dzire / Etios',
@@ -153,6 +142,27 @@ export default function HomePage({ onOpenBooking }) {
       dayDriverCharge: 'Rs. 350 / day',
       startingFrom: '₹19/km',
       idealFor: 'Families & long-distance outstation travel',
+    },
+    {
+      id: 'innova-crysta',
+      name: 'Innova Crysta',
+      category: 'Premium SUV',
+      image: '/images/vehicles/innova.png',
+      seats: '7 Passengers',
+      seatsMobile: '7 Seater',
+      seaterLabel: '7 Seater',
+      luggage: '4 Large Bags',
+      luggageMobile: '4 Bags',
+      ac: 'Dual Zone Climate AC',
+      rate: '₹20/km',
+      outstationRate: '₹20/km',
+      minDistance: 'Above 300 kms',
+      driverCharge: 'Rs. 300 / day',
+      dayBaseRent: 'Rs. 2500',
+      dayPerKm: 'Rs. 16/km',
+      dayDriverCharge: 'Rs. 300 / day',
+      startingFrom: '₹20/km',
+      idealFor: 'Executive travel, family pilgrimages & luxury tours',
     },
     {
       id: 'tempo-traveller',
@@ -199,14 +209,10 @@ export default function HomePage({ onOpenBooking }) {
   ];
 
   const featuredFleet = (dbCars.length > 0
-    ? [...dbCars].sort((a, b) => {
-      // Feature Innova Crysta first to match showcase design, then by ID
-      const aInnova = (a.name || '').toLowerCase().includes('innova');
-      const bInnova = (b.name || '').toLowerCase().includes('innova');
-      if (aInnova && !bInnova) return -1;
-      if (!aInnova && bInnova) return 1;
-      return (a.id || 0) - (b.id || 0);
-    }).map(c => parseVehicleFromDb(c)).filter(Boolean)
+    ? [...dbCars]
+        .sort((a, b) => getVehicleRank(a.name, a.category) - getVehicleRank(b.name, b.category))
+        .map(c => parseVehicleFromDb(c))
+        .filter(Boolean)
     : defaultFeaturedFleet
   );
 

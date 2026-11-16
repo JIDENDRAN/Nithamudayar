@@ -26,8 +26,8 @@ export default function Contact({ onOpenBooking }) {
     destination: '',
     date: '',
     returnDate: '',
-    passengers: '4-7 Persons',
-    vehicle: 'Toyota Innova Crysta (6+1)',
+    passengers: '1-4 Persons',
+    vehicle: 'Maruti Suzuki Dzire (4+1 • Comfort Sedan)',
     message: '',
   });
 
@@ -410,11 +410,14 @@ export default function Contact({ onOpenBooking }) {
                         onChange={(e) => setFormData({ ...formData, vehicle: e.target.value })}
                         className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-4 py-2.5 text-neutral-900 focus:outline-none focus:border-brand-gold focus:bg-white text-xs transition-colors appearance-none cursor-pointer"
                       >
-                        <option value="Toyota Innova Crysta (6+1 • Premium SUV)">
-                          Toyota Innova Crysta (6+1 Seater • Captain Seats • Dual AC) - Recommended
-                        </option>
                         <option value="Maruti Suzuki Dzire (4+1 • Comfort Sedan)">
-                          Maruti Suzuki Dzire (4+1 Seater • Budget Sedan • Climate Control)
+                          Maruti Suzuki Dzire / Sedan (4+1 Seater • Climate Control)
+                        </option>
+                        <option value="Maruti Ertiga / Carens (6+1 • Family SUV)">
+                          Maruti Ertiga / Carens (6+1 Seater • Family SUV • Dual AC)
+                        </option>
+                        <option value="Toyota Innova Crysta (6+1 • Premium SUV)">
+                          Toyota Innova Crysta (6+1 / 7+1 Seater • Captain Seats • Dual AC)
                         </option>
                         <option value="Force Tempo Traveller (12/17 Seater • AC)">
                           Force Tempo Traveller (12/17 Seater • Pushback Seats • Group Travel)

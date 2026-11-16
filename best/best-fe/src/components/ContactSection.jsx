@@ -148,9 +148,11 @@ export default function ContactSection() {
                       className="w-full bg-white border border-neutral-300 rounded-md px-3 py-2 text-neutral-900 focus:outline-none focus:border-brand-gold"
                     >
                       <option value="Swift Dzire / Sedan (4+1)">Swift Dzire / Sedan (4+1)</option>
-                      <option value="Innova Crysta (6+1)">Toyota Innova Crysta (6+1)</option>
-                      <option value="Tempo Traveller (12/17)">Force Tempo Traveller (12 / 17)</option>
-                      <option value="Luxury Coach Bus (36/49)">Luxury Coach Bus (36 / 49)</option>
+                      <option value="SUV (Ertiga / Carens - 6+1)">SUV (Ertiga / Carens - 6+1)</option>
+                      <option value="Toyota Innova Crysta (6+1 / 7+1)">Toyota Innova Crysta (6+1 / 7+1)</option>
+                      <option value="Force Tempo Traveller (12 / 17)">Force Tempo Traveller (12 / 17)</option>
+                      <option value="Force Urbania Luxury Van (12 / 17)">Force Urbania Luxury Van (12 / 17)</option>
+                      <option value="Luxury Coach Bus (36 / 49)">Luxury Coach Bus (36 / 49)</option>
                     </select>
                   </div>
                 </div>

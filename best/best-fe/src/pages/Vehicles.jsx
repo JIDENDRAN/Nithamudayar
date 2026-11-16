@@ -58,34 +58,17 @@ export default function FleetPage({ onOpenBooking }) {
     },
   ];
 
+  const getVehicleRank = (name = '', category = '') => {
+    const str = `${name} ${category}`.toLowerCase();
+    if (str.includes('dzire') || str.includes('sedan') || str.includes('etios') || str.includes('swift')) return 1;
+    if (str.includes('ertiga') || str.includes('carens') || (str.includes('suv') && !str.includes('innova'))) return 2;
+    if (str.includes('innova') || str.includes('crysta')) return 3;
+    if (str.includes('tempo') || (str.includes('force') && str.includes('traveller')) || str.includes('traveller')) return 4;
+    if (str.includes('urbania')) return 5;
+    return 6;
+  };
+
   const defaultFleet = [
-    {
-      id: 'innova-crysta',
-      name: 'Innova Crysta',
-      category: 'Premium SUV',
-      image: '/images/vehicles/innova.png',
-      seats: '7 Passengers',
-      seatsMobile: '7 Seater',
-      seaterLabel: '7 Seater',
-      luggage: '4 Large Bags',
-      luggageMobile: '4 Bags',
-      ac: 'Dual Zone Climate AC',
-      rate: '₹20/km',
-      outstationRate: '₹20/km',
-      minDistance: 'Above 300 kms',
-      driverCharge: 'Rs. 300 / day',
-      dayBaseRent: 'Rs. 2500',
-      dayPerKm: 'Rs. 16/km',
-      dayDriverCharge: 'Rs. 300 / day',
-      startingFrom: '₹20/km',
-      specs: [
-        'Minimum 300 km / day',
-        'Driver Charge: Rs. 300 / day',
-        'Captain luxury reclining seats',
-        'Dual AC & smooth highway ride'
-      ],
-      idealFor: 'Executive travel, family pilgrimages & luxury tours',
-    },
     {
       id: 'sedan-dzire',
       name: 'Swift Dzire / Etios',
@@ -139,6 +122,33 @@ export default function FleetPage({ onOpenBooking }) {
         'Spacious legroom for families'
       ],
       idealFor: 'Families & long-distance outstation travel',
+    },
+    {
+      id: 'innova-crysta',
+      name: 'Innova Crysta',
+      category: 'Premium SUV',
+      image: '/images/vehicles/innova.png',
+      seats: '7 Passengers',
+      seatsMobile: '7 Seater',
+      seaterLabel: '7 Seater',
+      luggage: '4 Large Bags',
+      luggageMobile: '4 Bags',
+      ac: 'Dual Zone Climate AC',
+      rate: '₹20/km',
+      outstationRate: '₹20/km',
+      minDistance: 'Above 300 kms',
+      driverCharge: 'Rs. 300 / day',
+      dayBaseRent: 'Rs. 2500',
+      dayPerKm: 'Rs. 16/km',
+      dayDriverCharge: 'Rs. 300 / day',
+      startingFrom: '₹20/km',
+      specs: [
+        'Minimum 300 km / day',
+        'Driver Charge: Rs. 300 / day',
+        'Captain luxury reclining seats',
+        'Dual AC & smooth highway ride'
+      ],
+      idealFor: 'Executive travel, family pilgrimages & luxury tours',
     },
     {
       id: 'tempo-traveller',
@@ -196,13 +206,14 @@ export default function FleetPage({ onOpenBooking }) {
     },
   ];
 
-  // Dynamically map fleet models directly from DB records
-  const formattedDbFleet = dbCars.map(c => parseVehicleFromDb(c)).filter(Boolean);
+  // Dynamically map fleet models directly from DB records, sorted by preferred order
+  const sortedDbCars = [...dbCars].sort((a, b) => getVehicleRank(a.name, a.category) - getVehicleRank(b.name, b.category));
+  const formattedDbFleet = sortedDbCars.map(c => parseVehicleFromDb(c)).filter(Boolean);
 
   const fleet = formattedDbFleet.length > 0 ? formattedDbFleet : defaultFleet;
 
   // Build dynamic tariffs list directly from DB records
-  const dynamicTariffs = dbCars.map((c) => {
+  const dynamicTariffs = sortedDbCars.map((c) => {
     const parsed = parseVehicleFromDb(c);
     return {
       vehicle: `${c.name} (${parsed.seaterLabel})`,
