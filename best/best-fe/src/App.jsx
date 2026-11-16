@@ -82,22 +82,12 @@ const AppContent = () => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0%,transparent_60%)] pointer-events-none" />
 
             <div className="relative flex flex-col items-center z-10">
+              {/* 1st: Business Name on Top */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, ease: 'easeOut' }}
-                className="relative mb-6"
-              >
-                <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#10194E] shadow-[0_8px_30px_rgba(0,0,0,0.5)] flex items-center justify-center overflow-hidden">
-                  <img src={Logo} alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25, duration: 0.7 }}
-                className="flex flex-col items-center text-center px-6"
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                className="flex flex-col items-center text-center px-6 mb-6"
               >
                 <h2 className="font-heading font-black text-xl lg:text-2xl tracking-wider text-white">
                   NITHAMUDAYAR
@@ -109,12 +99,24 @@ const AppContent = () => {
                 </div>
               </motion.div>
 
+              {/* 2nd: Logo Emblem */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
+                className="relative mb-6"
+              >
+                <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#10194E] shadow-[0_8px_30px_rgba(0,0,0,0.5)] flex items-center justify-center overflow-hidden">
+                  <img src={Logo} alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
+                </div>
+              </motion.div>
+
               {/* Minimal Loading Dots */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="mt-8 flex gap-2"
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="mt-2 flex gap-2"
               >
                 {[0, 1, 2].map((i) => (
                   <motion.div
