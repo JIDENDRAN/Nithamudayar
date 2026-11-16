@@ -1107,7 +1107,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           {/* 1. TOP HEADER BANNER */}
                           <div className="bg-[#10194E] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
                             <div className="flex items-center gap-3">
-                              <div className="w-14 h-14 bg-[#10194E] rounded-xl p-0.5 shadow-md border border-[#d4af37]/60 shrink-0 flex items-center justify-center overflow-hidden">
+                              <div className="w-14 h-14 bg-[#10194E] rounded-xl p-0.5 shadow-md shrink-0 flex items-center justify-center overflow-hidden">
                                 <img
                                   src={NITHAM_LOGO_BASE64 || "/logo.png"}
                                   alt="Nithamudayar Emblem"

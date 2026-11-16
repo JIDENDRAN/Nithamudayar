@@ -72,9 +72,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   const logoX = 11.5;
   const logoY = headerY + 2.5;
   d.setFillColor(...navyDark);
-  d.setDrawColor(...goldPrimary);
-  d.setLineWidth(0.4);
-  d.roundedRect(logoX, logoY, logoSize, logoSize, 1.5, 1.5, 'FD');
+  d.roundedRect(logoX, logoY, logoSize, logoSize, 1.5, 1.5, 'F');
   try {
     d.addImage(NITHAM_LOGO_BASE64, 'PNG', logoX, logoY, logoSize, logoSize, 'LOGO', 'NONE');
   } catch (err) {

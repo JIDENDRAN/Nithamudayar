@@ -88,15 +88,9 @@ const AppContent = () => {
                 transition={{ duration: 0.7, ease: 'easeOut' }}
                 className="relative mb-6"
               >
-                <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#10194E] shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/40 flex items-center justify-center overflow-hidden">
+                <div className="relative z-10 w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-[#10194E] shadow-[0_8px_30px_rgba(0,0,0,0.5)] flex items-center justify-center overflow-hidden">
                   <img src={Logo} alt="Nithamudayar Tours & Travels Pvt Ltd" className="w-full h-full object-contain" />
                 </div>
-                {/* Animated golden ring */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                  className="absolute -inset-2.5 rounded-3xl border border-transparent border-t-brand-gold/60 border-r-brand-gold/20 pointer-events-none"
-                />
               </motion.div>
 
               <motion.div
