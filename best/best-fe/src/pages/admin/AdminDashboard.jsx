@@ -1056,6 +1056,206 @@ Driver Charge: ${data.dayDriver || ''}`;
               </motion.div>
             )}
 
+            {/* GALLERY MANAGEMENT VIEW */}
+            {activeTab === 'gallery' && (
+              <motion.div key="gallery" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
+                <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
+                  
+                  {/* Header Bar */}
+                  <div className="p-6 border-b border-[#edeae1] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-[#10194E] font-heading">Gallery Management</h2>
+                        <span className="bg-[#10194E]/10 text-[#10194E] text-xs font-bold px-2.5 py-0.5 rounded-full">
+                          {galleryImages.length} Uploaded
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Upload custom photos to instantly showcase them on the public <span className="font-semibold text-[#10194E]">/gallery</span> page.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-stretch sm:self-auto">
+                      <a
+                        href="/gallery"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:text-[#10194E] hover:border-[#10194E] font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+                      >
+                        <span>View Live Gallery</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" /> Upload New Photo
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Filter Pills */}
+                  <div className="px-6 py-3.5 bg-[#FAF8F5] border-b border-[#edeae1] flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500 mr-2 uppercase tracking-wider">Filter Section:</span>
+                    {[
+                      { id: 'all', label: 'All Photos', count: galleryImages.length },
+                      { id: 'places', label: 'Places & Temples', count: galleryImages.filter(g => (g.category || 'places') === 'places').length },
+                      { id: 'cars', label: 'Our Fleet', count: galleryImages.filter(g => g.category === 'cars').length },
+                      { id: 'clients', label: 'Happy Clients', count: galleryImages.filter(g => g.category === 'clients').length }
+                    ].map(tab => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setGalleryFilter(tab.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          galleryFilter === tab.id
+                            ? 'bg-[#10194E] text-white shadow-sm'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                        }`}
+                      >
+                        {tab.label} ({tab.count})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Content List */}
+                  {loading ? (
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
+                      <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
+                      Loading gallery photos...
+                    </div>
+                  ) : galleryImages.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+                      <div className="w-20 h-20 bg-[#d4951e]/10 text-[#d4951e] rounded-full flex items-center justify-center mb-4 shadow-inner">
+                        <ImageIcon className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#10194E]">No Custom Photos Uploaded Yet</h3>
+                      <p className="text-sm text-gray-500 max-w-md mt-1 mb-6">
+                        The public gallery currently displays all 48 default heritage destinations, client memories, and fleet cars. Click below to upload your own photos to feature at the top!
+                      </p>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#10194E] hover:bg-[#283058] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md flex items-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Upload className="w-4 h-4" /> Upload First Photo
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="p-6">
+                      {galleryImages.filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter).length === 0 ? (
+                        <div className="text-center py-12 text-gray-400">
+                          <p className="text-sm font-semibold">No photos found in this category.</p>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                          {galleryImages
+                            .filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter)
+                            .map((item) => {
+                              const imgUrl = getGalleryImageUrl(item.image);
+                              const catColors = {
+                                places: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+                                cars: 'bg-blue-100 text-blue-800 border-blue-200',
+                                clients: 'bg-amber-100 text-amber-800 border-amber-200'
+                              };
+                              const catLabels = {
+                                places: 'Places & Temples',
+                                cars: 'Fleet / Vehicles',
+                                clients: 'Clients & Memoirs'
+                              };
+
+                              return (
+                                <div
+                                  key={item.id}
+                                  className="group border border-[#edeae1] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
+                                >
+                                  <div>
+                                    {/* Image Thumbnail with Overlay preview */}
+                                    <div className="relative h-48 bg-gray-900 overflow-hidden cursor-pointer" onClick={() => setPreviewLightbox(item)}>
+                                      <img
+                                        src={imgUrl}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                      />
+                                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                        <span className="bg-white/90 text-[#10194E] px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-md">
+                                          <Eye className="w-3.5 h-3.5" /> Preview
+                                        </span>
+                                      </div>
+                                      <div className="absolute top-2.5 left-2.5">
+                                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border shadow-sm ${catColors[item.category] || catColors.places}`}>
+                                          {catLabels[item.category] || 'Places'}
+                                        </span>
+                                      </div>
+                                      {item.badge && (
+                                        <div className="absolute bottom-2.5 left-2.5">
+                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#D4AF37] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#D4AF37]/30">
+                                            {item.badge}
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* Card Content */}
+                                    <div className="p-4 space-y-2">
+                                      <h3 className="font-bold text-base text-[#10194E] line-clamp-1 group-hover:text-[#d4951e] transition-colors">
+                                        {item.title}
+                                      </h3>
+                                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                        <MapPin className="w-3.5 h-3.5 text-[#d4951e] shrink-0" />
+                                        <span className="truncate font-medium">{item.location || 'Tamil Nadu'}</span>
+                                      </div>
+                                      {item.desc && (
+                                        <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                                          {item.desc}
+                                        </p>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  {/* Card Footer Actions */}
+                                  <div className="px-4 py-3 bg-[#FAF8F5] border-t border-[#edeae1] flex items-center justify-between text-xs">
+                                    <span className="text-[11px] text-gray-400 font-medium">
+                                      {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Active'}
+                                    </span>
+                                    <button
+                                      onClick={() => handleDeleteGalleryImage(item.id)}
+                                      className="text-red-500 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all cursor-pointer"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" /> Delete
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+
 
 
             {/* CARS VIEW */}
@@ -1112,6 +1312,206 @@ Driver Charge: ${data.dayDriver || ''}`;
               </motion.div>
             )}
 
+            {/* GALLERY MANAGEMENT VIEW */}
+            {activeTab === 'gallery' && (
+              <motion.div key="gallery" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
+                <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
+                  
+                  {/* Header Bar */}
+                  <div className="p-6 border-b border-[#edeae1] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-[#10194E] font-heading">Gallery Management</h2>
+                        <span className="bg-[#10194E]/10 text-[#10194E] text-xs font-bold px-2.5 py-0.5 rounded-full">
+                          {galleryImages.length} Uploaded
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Upload custom photos to instantly showcase them on the public <span className="font-semibold text-[#10194E]">/gallery</span> page.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-stretch sm:self-auto">
+                      <a
+                        href="/gallery"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:text-[#10194E] hover:border-[#10194E] font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+                      >
+                        <span>View Live Gallery</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" /> Upload New Photo
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Filter Pills */}
+                  <div className="px-6 py-3.5 bg-[#FAF8F5] border-b border-[#edeae1] flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500 mr-2 uppercase tracking-wider">Filter Section:</span>
+                    {[
+                      { id: 'all', label: 'All Photos', count: galleryImages.length },
+                      { id: 'places', label: 'Places & Temples', count: galleryImages.filter(g => (g.category || 'places') === 'places').length },
+                      { id: 'cars', label: 'Our Fleet', count: galleryImages.filter(g => g.category === 'cars').length },
+                      { id: 'clients', label: 'Happy Clients', count: galleryImages.filter(g => g.category === 'clients').length }
+                    ].map(tab => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setGalleryFilter(tab.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          galleryFilter === tab.id
+                            ? 'bg-[#10194E] text-white shadow-sm'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                        }`}
+                      >
+                        {tab.label} ({tab.count})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Content List */}
+                  {loading ? (
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
+                      <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
+                      Loading gallery photos...
+                    </div>
+                  ) : galleryImages.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+                      <div className="w-20 h-20 bg-[#d4951e]/10 text-[#d4951e] rounded-full flex items-center justify-center mb-4 shadow-inner">
+                        <ImageIcon className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#10194E]">No Custom Photos Uploaded Yet</h3>
+                      <p className="text-sm text-gray-500 max-w-md mt-1 mb-6">
+                        The public gallery currently displays all 48 default heritage destinations, client memories, and fleet cars. Click below to upload your own photos to feature at the top!
+                      </p>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#10194E] hover:bg-[#283058] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md flex items-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Upload className="w-4 h-4" /> Upload First Photo
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="p-6">
+                      {galleryImages.filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter).length === 0 ? (
+                        <div className="text-center py-12 text-gray-400">
+                          <p className="text-sm font-semibold">No photos found in this category.</p>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                          {galleryImages
+                            .filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter)
+                            .map((item) => {
+                              const imgUrl = getGalleryImageUrl(item.image);
+                              const catColors = {
+                                places: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+                                cars: 'bg-blue-100 text-blue-800 border-blue-200',
+                                clients: 'bg-amber-100 text-amber-800 border-amber-200'
+                              };
+                              const catLabels = {
+                                places: 'Places & Temples',
+                                cars: 'Fleet / Vehicles',
+                                clients: 'Clients & Memoirs'
+                              };
+
+                              return (
+                                <div
+                                  key={item.id}
+                                  className="group border border-[#edeae1] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
+                                >
+                                  <div>
+                                    {/* Image Thumbnail with Overlay preview */}
+                                    <div className="relative h-48 bg-gray-900 overflow-hidden cursor-pointer" onClick={() => setPreviewLightbox(item)}>
+                                      <img
+                                        src={imgUrl}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                      />
+                                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                        <span className="bg-white/90 text-[#10194E] px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-md">
+                                          <Eye className="w-3.5 h-3.5" /> Preview
+                                        </span>
+                                      </div>
+                                      <div className="absolute top-2.5 left-2.5">
+                                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border shadow-sm ${catColors[item.category] || catColors.places}`}>
+                                          {catLabels[item.category] || 'Places'}
+                                        </span>
+                                      </div>
+                                      {item.badge && (
+                                        <div className="absolute bottom-2.5 left-2.5">
+                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#D4AF37] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#D4AF37]/30">
+                                            {item.badge}
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* Card Content */}
+                                    <div className="p-4 space-y-2">
+                                      <h3 className="font-bold text-base text-[#10194E] line-clamp-1 group-hover:text-[#d4951e] transition-colors">
+                                        {item.title}
+                                      </h3>
+                                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                        <MapPin className="w-3.5 h-3.5 text-[#d4951e] shrink-0" />
+                                        <span className="truncate font-medium">{item.location || 'Tamil Nadu'}</span>
+                                      </div>
+                                      {item.desc && (
+                                        <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                                          {item.desc}
+                                        </p>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  {/* Card Footer Actions */}
+                                  <div className="px-4 py-3 bg-[#FAF8F5] border-t border-[#edeae1] flex items-center justify-between text-xs">
+                                    <span className="text-[11px] text-gray-400 font-medium">
+                                      {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Active'}
+                                    </span>
+                                    <button
+                                      onClick={() => handleDeleteGalleryImage(item.id)}
+                                      className="text-red-500 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all cursor-pointer"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" /> Delete
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+
             {/* PACKAGES VIEW */}
             {activeTab === 'packages' && (
               <motion.div key="packages" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
@@ -1160,6 +1560,206 @@ Driver Charge: ${data.dayDriver || ''}`;
                           </div>
                         </div>
                       ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+
+            {/* GALLERY MANAGEMENT VIEW */}
+            {activeTab === 'gallery' && (
+              <motion.div key="gallery" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
+                <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
+                  
+                  {/* Header Bar */}
+                  <div className="p-6 border-b border-[#edeae1] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-[#10194E] font-heading">Gallery Management</h2>
+                        <span className="bg-[#10194E]/10 text-[#10194E] text-xs font-bold px-2.5 py-0.5 rounded-full">
+                          {galleryImages.length} Uploaded
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Upload custom photos to instantly showcase them on the public <span className="font-semibold text-[#10194E]">/gallery</span> page.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-stretch sm:self-auto">
+                      <a
+                        href="/gallery"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:text-[#10194E] hover:border-[#10194E] font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+                      >
+                        <span>View Live Gallery</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" /> Upload New Photo
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Filter Pills */}
+                  <div className="px-6 py-3.5 bg-[#FAF8F5] border-b border-[#edeae1] flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500 mr-2 uppercase tracking-wider">Filter Section:</span>
+                    {[
+                      { id: 'all', label: 'All Photos', count: galleryImages.length },
+                      { id: 'places', label: 'Places & Temples', count: galleryImages.filter(g => (g.category || 'places') === 'places').length },
+                      { id: 'cars', label: 'Our Fleet', count: galleryImages.filter(g => g.category === 'cars').length },
+                      { id: 'clients', label: 'Happy Clients', count: galleryImages.filter(g => g.category === 'clients').length }
+                    ].map(tab => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setGalleryFilter(tab.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          galleryFilter === tab.id
+                            ? 'bg-[#10194E] text-white shadow-sm'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                        }`}
+                      >
+                        {tab.label} ({tab.count})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Content List */}
+                  {loading ? (
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
+                      <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
+                      Loading gallery photos...
+                    </div>
+                  ) : galleryImages.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+                      <div className="w-20 h-20 bg-[#d4951e]/10 text-[#d4951e] rounded-full flex items-center justify-center mb-4 shadow-inner">
+                        <ImageIcon className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#10194E]">No Custom Photos Uploaded Yet</h3>
+                      <p className="text-sm text-gray-500 max-w-md mt-1 mb-6">
+                        The public gallery currently displays all 48 default heritage destinations, client memories, and fleet cars. Click below to upload your own photos to feature at the top!
+                      </p>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#10194E] hover:bg-[#283058] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md flex items-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Upload className="w-4 h-4" /> Upload First Photo
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="p-6">
+                      {galleryImages.filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter).length === 0 ? (
+                        <div className="text-center py-12 text-gray-400">
+                          <p className="text-sm font-semibold">No photos found in this category.</p>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                          {galleryImages
+                            .filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter)
+                            .map((item) => {
+                              const imgUrl = getGalleryImageUrl(item.image);
+                              const catColors = {
+                                places: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+                                cars: 'bg-blue-100 text-blue-800 border-blue-200',
+                                clients: 'bg-amber-100 text-amber-800 border-amber-200'
+                              };
+                              const catLabels = {
+                                places: 'Places & Temples',
+                                cars: 'Fleet / Vehicles',
+                                clients: 'Clients & Memoirs'
+                              };
+
+                              return (
+                                <div
+                                  key={item.id}
+                                  className="group border border-[#edeae1] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
+                                >
+                                  <div>
+                                    {/* Image Thumbnail with Overlay preview */}
+                                    <div className="relative h-48 bg-gray-900 overflow-hidden cursor-pointer" onClick={() => setPreviewLightbox(item)}>
+                                      <img
+                                        src={imgUrl}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                      />
+                                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                        <span className="bg-white/90 text-[#10194E] px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-md">
+                                          <Eye className="w-3.5 h-3.5" /> Preview
+                                        </span>
+                                      </div>
+                                      <div className="absolute top-2.5 left-2.5">
+                                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border shadow-sm ${catColors[item.category] || catColors.places}`}>
+                                          {catLabels[item.category] || 'Places'}
+                                        </span>
+                                      </div>
+                                      {item.badge && (
+                                        <div className="absolute bottom-2.5 left-2.5">
+                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#D4AF37] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#D4AF37]/30">
+                                            {item.badge}
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* Card Content */}
+                                    <div className="p-4 space-y-2">
+                                      <h3 className="font-bold text-base text-[#10194E] line-clamp-1 group-hover:text-[#d4951e] transition-colors">
+                                        {item.title}
+                                      </h3>
+                                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                        <MapPin className="w-3.5 h-3.5 text-[#d4951e] shrink-0" />
+                                        <span className="truncate font-medium">{item.location || 'Tamil Nadu'}</span>
+                                      </div>
+                                      {item.desc && (
+                                        <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                                          {item.desc}
+                                        </p>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  {/* Card Footer Actions */}
+                                  <div className="px-4 py-3 bg-[#FAF8F5] border-t border-[#edeae1] flex items-center justify-between text-xs">
+                                    <span className="text-[11px] text-gray-400 font-medium">
+                                      {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Active'}
+                                    </span>
+                                    <button
+                                      onClick={() => handleDeleteGalleryImage(item.id)}
+                                      className="text-red-500 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all cursor-pointer"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" /> Delete
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -1611,6 +2211,206 @@ Driver Charge: ${data.dayDriver || ''}`;
               </motion.div>
             )}
 
+            {/* GALLERY MANAGEMENT VIEW */}
+            {activeTab === 'gallery' && (
+              <motion.div key="gallery" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
+                <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
+                  
+                  {/* Header Bar */}
+                  <div className="p-6 border-b border-[#edeae1] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-[#10194E] font-heading">Gallery Management</h2>
+                        <span className="bg-[#10194E]/10 text-[#10194E] text-xs font-bold px-2.5 py-0.5 rounded-full">
+                          {galleryImages.length} Uploaded
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Upload custom photos to instantly showcase them on the public <span className="font-semibold text-[#10194E]">/gallery</span> page.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-stretch sm:self-auto">
+                      <a
+                        href="/gallery"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:text-[#10194E] hover:border-[#10194E] font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+                      >
+                        <span>View Live Gallery</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" /> Upload New Photo
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Filter Pills */}
+                  <div className="px-6 py-3.5 bg-[#FAF8F5] border-b border-[#edeae1] flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500 mr-2 uppercase tracking-wider">Filter Section:</span>
+                    {[
+                      { id: 'all', label: 'All Photos', count: galleryImages.length },
+                      { id: 'places', label: 'Places & Temples', count: galleryImages.filter(g => (g.category || 'places') === 'places').length },
+                      { id: 'cars', label: 'Our Fleet', count: galleryImages.filter(g => g.category === 'cars').length },
+                      { id: 'clients', label: 'Happy Clients', count: galleryImages.filter(g => g.category === 'clients').length }
+                    ].map(tab => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setGalleryFilter(tab.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          galleryFilter === tab.id
+                            ? 'bg-[#10194E] text-white shadow-sm'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                        }`}
+                      >
+                        {tab.label} ({tab.count})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Content List */}
+                  {loading ? (
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
+                      <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
+                      Loading gallery photos...
+                    </div>
+                  ) : galleryImages.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+                      <div className="w-20 h-20 bg-[#d4951e]/10 text-[#d4951e] rounded-full flex items-center justify-center mb-4 shadow-inner">
+                        <ImageIcon className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#10194E]">No Custom Photos Uploaded Yet</h3>
+                      <p className="text-sm text-gray-500 max-w-md mt-1 mb-6">
+                        The public gallery currently displays all 48 default heritage destinations, client memories, and fleet cars. Click below to upload your own photos to feature at the top!
+                      </p>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#10194E] hover:bg-[#283058] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md flex items-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Upload className="w-4 h-4" /> Upload First Photo
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="p-6">
+                      {galleryImages.filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter).length === 0 ? (
+                        <div className="text-center py-12 text-gray-400">
+                          <p className="text-sm font-semibold">No photos found in this category.</p>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                          {galleryImages
+                            .filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter)
+                            .map((item) => {
+                              const imgUrl = getGalleryImageUrl(item.image);
+                              const catColors = {
+                                places: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+                                cars: 'bg-blue-100 text-blue-800 border-blue-200',
+                                clients: 'bg-amber-100 text-amber-800 border-amber-200'
+                              };
+                              const catLabels = {
+                                places: 'Places & Temples',
+                                cars: 'Fleet / Vehicles',
+                                clients: 'Clients & Memoirs'
+                              };
+
+                              return (
+                                <div
+                                  key={item.id}
+                                  className="group border border-[#edeae1] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
+                                >
+                                  <div>
+                                    {/* Image Thumbnail with Overlay preview */}
+                                    <div className="relative h-48 bg-gray-900 overflow-hidden cursor-pointer" onClick={() => setPreviewLightbox(item)}>
+                                      <img
+                                        src={imgUrl}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                      />
+                                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                        <span className="bg-white/90 text-[#10194E] px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-md">
+                                          <Eye className="w-3.5 h-3.5" /> Preview
+                                        </span>
+                                      </div>
+                                      <div className="absolute top-2.5 left-2.5">
+                                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border shadow-sm ${catColors[item.category] || catColors.places}`}>
+                                          {catLabels[item.category] || 'Places'}
+                                        </span>
+                                      </div>
+                                      {item.badge && (
+                                        <div className="absolute bottom-2.5 left-2.5">
+                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#D4AF37] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#D4AF37]/30">
+                                            {item.badge}
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* Card Content */}
+                                    <div className="p-4 space-y-2">
+                                      <h3 className="font-bold text-base text-[#10194E] line-clamp-1 group-hover:text-[#d4951e] transition-colors">
+                                        {item.title}
+                                      </h3>
+                                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                        <MapPin className="w-3.5 h-3.5 text-[#d4951e] shrink-0" />
+                                        <span className="truncate font-medium">{item.location || 'Tamil Nadu'}</span>
+                                      </div>
+                                      {item.desc && (
+                                        <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                                          {item.desc}
+                                        </p>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  {/* Card Footer Actions */}
+                                  <div className="px-4 py-3 bg-[#FAF8F5] border-t border-[#edeae1] flex items-center justify-between text-xs">
+                                    <span className="text-[11px] text-gray-400 font-medium">
+                                      {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Active'}
+                                    </span>
+                                    <button
+                                      onClick={() => handleDeleteGalleryImage(item.id)}
+                                      className="text-red-500 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all cursor-pointer"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" /> Delete
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+
             {/* ADD ADMIN VIEW */}
             {activeTab === 'add-admin' && (
               <motion.div key="add-admin" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
@@ -1687,6 +2487,206 @@ Driver Charge: ${data.dayDriver || ''}`;
                       Register Admin Account
                     </button>
                   </form>
+                </div>
+              </motion.div>
+            )}
+
+            {/* GALLERY MANAGEMENT VIEW */}
+            {activeTab === 'gallery' && (
+              <motion.div key="gallery" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
+                <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
+                  
+                  {/* Header Bar */}
+                  <div className="p-6 border-b border-[#edeae1] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-[#10194E] font-heading">Gallery Management</h2>
+                        <span className="bg-[#10194E]/10 text-[#10194E] text-xs font-bold px-2.5 py-0.5 rounded-full">
+                          {galleryImages.length} Uploaded
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Upload custom photos to instantly showcase them on the public <span className="font-semibold text-[#10194E]">/gallery</span> page.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-stretch sm:self-auto">
+                      <a
+                        href="/gallery"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:text-[#10194E] hover:border-[#10194E] font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+                      >
+                        <span>View Live Gallery</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" /> Upload New Photo
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Filter Pills */}
+                  <div className="px-6 py-3.5 bg-[#FAF8F5] border-b border-[#edeae1] flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500 mr-2 uppercase tracking-wider">Filter Section:</span>
+                    {[
+                      { id: 'all', label: 'All Photos', count: galleryImages.length },
+                      { id: 'places', label: 'Places & Temples', count: galleryImages.filter(g => (g.category || 'places') === 'places').length },
+                      { id: 'cars', label: 'Our Fleet', count: galleryImages.filter(g => g.category === 'cars').length },
+                      { id: 'clients', label: 'Happy Clients', count: galleryImages.filter(g => g.category === 'clients').length }
+                    ].map(tab => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setGalleryFilter(tab.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          galleryFilter === tab.id
+                            ? 'bg-[#10194E] text-white shadow-sm'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                        }`}
+                      >
+                        {tab.label} ({tab.count})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Content List */}
+                  {loading ? (
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
+                      <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
+                      Loading gallery photos...
+                    </div>
+                  ) : galleryImages.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+                      <div className="w-20 h-20 bg-[#d4951e]/10 text-[#d4951e] rounded-full flex items-center justify-center mb-4 shadow-inner">
+                        <ImageIcon className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#10194E]">No Custom Photos Uploaded Yet</h3>
+                      <p className="text-sm text-gray-500 max-w-md mt-1 mb-6">
+                        The public gallery currently displays all 48 default heritage destinations, client memories, and fleet cars. Click below to upload your own photos to feature at the top!
+                      </p>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#10194E] hover:bg-[#283058] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md flex items-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Upload className="w-4 h-4" /> Upload First Photo
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="p-6">
+                      {galleryImages.filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter).length === 0 ? (
+                        <div className="text-center py-12 text-gray-400">
+                          <p className="text-sm font-semibold">No photos found in this category.</p>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                          {galleryImages
+                            .filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter)
+                            .map((item) => {
+                              const imgUrl = getGalleryImageUrl(item.image);
+                              const catColors = {
+                                places: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+                                cars: 'bg-blue-100 text-blue-800 border-blue-200',
+                                clients: 'bg-amber-100 text-amber-800 border-amber-200'
+                              };
+                              const catLabels = {
+                                places: 'Places & Temples',
+                                cars: 'Fleet / Vehicles',
+                                clients: 'Clients & Memoirs'
+                              };
+
+                              return (
+                                <div
+                                  key={item.id}
+                                  className="group border border-[#edeae1] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
+                                >
+                                  <div>
+                                    {/* Image Thumbnail with Overlay preview */}
+                                    <div className="relative h-48 bg-gray-900 overflow-hidden cursor-pointer" onClick={() => setPreviewLightbox(item)}>
+                                      <img
+                                        src={imgUrl}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                      />
+                                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                        <span className="bg-white/90 text-[#10194E] px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-md">
+                                          <Eye className="w-3.5 h-3.5" /> Preview
+                                        </span>
+                                      </div>
+                                      <div className="absolute top-2.5 left-2.5">
+                                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border shadow-sm ${catColors[item.category] || catColors.places}`}>
+                                          {catLabels[item.category] || 'Places'}
+                                        </span>
+                                      </div>
+                                      {item.badge && (
+                                        <div className="absolute bottom-2.5 left-2.5">
+                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#D4AF37] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#D4AF37]/30">
+                                            {item.badge}
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* Card Content */}
+                                    <div className="p-4 space-y-2">
+                                      <h3 className="font-bold text-base text-[#10194E] line-clamp-1 group-hover:text-[#d4951e] transition-colors">
+                                        {item.title}
+                                      </h3>
+                                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                        <MapPin className="w-3.5 h-3.5 text-[#d4951e] shrink-0" />
+                                        <span className="truncate font-medium">{item.location || 'Tamil Nadu'}</span>
+                                      </div>
+                                      {item.desc && (
+                                        <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                                          {item.desc}
+                                        </p>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  {/* Card Footer Actions */}
+                                  <div className="px-4 py-3 bg-[#FAF8F5] border-t border-[#edeae1] flex items-center justify-between text-xs">
+                                    <span className="text-[11px] text-gray-400 font-medium">
+                                      {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Active'}
+                                    </span>
+                                    <button
+                                      onClick={() => handleDeleteGalleryImage(item.id)}
+                                      className="text-red-500 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all cursor-pointer"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" /> Delete
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -1789,6 +2789,206 @@ Driver Charge: ${data.dayDriver || ''}`;
                     </button>
                   </form>
                 </motion.div>
+              </motion.div>
+            )}
+
+            {/* GALLERY MANAGEMENT VIEW */}
+            {activeTab === 'gallery' && (
+              <motion.div key="gallery" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
+                <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
+                  
+                  {/* Header Bar */}
+                  <div className="p-6 border-b border-[#edeae1] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-[#10194E] font-heading">Gallery Management</h2>
+                        <span className="bg-[#10194E]/10 text-[#10194E] text-xs font-bold px-2.5 py-0.5 rounded-full">
+                          {galleryImages.length} Uploaded
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Upload custom photos to instantly showcase them on the public <span className="font-semibold text-[#10194E]">/gallery</span> page.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-stretch sm:self-auto">
+                      <a
+                        href="/gallery"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:text-[#10194E] hover:border-[#10194E] font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+                      >
+                        <span>View Live Gallery</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" /> Upload New Photo
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Filter Pills */}
+                  <div className="px-6 py-3.5 bg-[#FAF8F5] border-b border-[#edeae1] flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500 mr-2 uppercase tracking-wider">Filter Section:</span>
+                    {[
+                      { id: 'all', label: 'All Photos', count: galleryImages.length },
+                      { id: 'places', label: 'Places & Temples', count: galleryImages.filter(g => (g.category || 'places') === 'places').length },
+                      { id: 'cars', label: 'Our Fleet', count: galleryImages.filter(g => g.category === 'cars').length },
+                      { id: 'clients', label: 'Happy Clients', count: galleryImages.filter(g => g.category === 'clients').length }
+                    ].map(tab => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setGalleryFilter(tab.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          galleryFilter === tab.id
+                            ? 'bg-[#10194E] text-white shadow-sm'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                        }`}
+                      >
+                        {tab.label} ({tab.count})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Content List */}
+                  {loading ? (
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
+                      <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
+                      Loading gallery photos...
+                    </div>
+                  ) : galleryImages.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+                      <div className="w-20 h-20 bg-[#d4951e]/10 text-[#d4951e] rounded-full flex items-center justify-center mb-4 shadow-inner">
+                        <ImageIcon className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#10194E]">No Custom Photos Uploaded Yet</h3>
+                      <p className="text-sm text-gray-500 max-w-md mt-1 mb-6">
+                        The public gallery currently displays all 48 default heritage destinations, client memories, and fleet cars. Click below to upload your own photos to feature at the top!
+                      </p>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#10194E] hover:bg-[#283058] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md flex items-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Upload className="w-4 h-4" /> Upload First Photo
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="p-6">
+                      {galleryImages.filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter).length === 0 ? (
+                        <div className="text-center py-12 text-gray-400">
+                          <p className="text-sm font-semibold">No photos found in this category.</p>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                          {galleryImages
+                            .filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter)
+                            .map((item) => {
+                              const imgUrl = getGalleryImageUrl(item.image);
+                              const catColors = {
+                                places: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+                                cars: 'bg-blue-100 text-blue-800 border-blue-200',
+                                clients: 'bg-amber-100 text-amber-800 border-amber-200'
+                              };
+                              const catLabels = {
+                                places: 'Places & Temples',
+                                cars: 'Fleet / Vehicles',
+                                clients: 'Clients & Memoirs'
+                              };
+
+                              return (
+                                <div
+                                  key={item.id}
+                                  className="group border border-[#edeae1] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
+                                >
+                                  <div>
+                                    {/* Image Thumbnail with Overlay preview */}
+                                    <div className="relative h-48 bg-gray-900 overflow-hidden cursor-pointer" onClick={() => setPreviewLightbox(item)}>
+                                      <img
+                                        src={imgUrl}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                      />
+                                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                        <span className="bg-white/90 text-[#10194E] px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-md">
+                                          <Eye className="w-3.5 h-3.5" /> Preview
+                                        </span>
+                                      </div>
+                                      <div className="absolute top-2.5 left-2.5">
+                                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border shadow-sm ${catColors[item.category] || catColors.places}`}>
+                                          {catLabels[item.category] || 'Places'}
+                                        </span>
+                                      </div>
+                                      {item.badge && (
+                                        <div className="absolute bottom-2.5 left-2.5">
+                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#D4AF37] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#D4AF37]/30">
+                                            {item.badge}
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* Card Content */}
+                                    <div className="p-4 space-y-2">
+                                      <h3 className="font-bold text-base text-[#10194E] line-clamp-1 group-hover:text-[#d4951e] transition-colors">
+                                        {item.title}
+                                      </h3>
+                                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                        <MapPin className="w-3.5 h-3.5 text-[#d4951e] shrink-0" />
+                                        <span className="truncate font-medium">{item.location || 'Tamil Nadu'}</span>
+                                      </div>
+                                      {item.desc && (
+                                        <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                                          {item.desc}
+                                        </p>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  {/* Card Footer Actions */}
+                                  <div className="px-4 py-3 bg-[#FAF8F5] border-t border-[#edeae1] flex items-center justify-between text-xs">
+                                    <span className="text-[11px] text-gray-400 font-medium">
+                                      {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Active'}
+                                    </span>
+                                    <button
+                                      onClick={() => handleDeleteGalleryImage(item.id)}
+                                      className="text-red-500 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all cursor-pointer"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" /> Delete
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -2114,6 +3314,206 @@ Driver Charge: ${data.dayDriver || ''}`;
                       </p>
                     )}
                   </div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* GALLERY MANAGEMENT VIEW */}
+            {activeTab === 'gallery' && (
+              <motion.div key="gallery" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
+                <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
+                  
+                  {/* Header Bar */}
+                  <div className="p-6 border-b border-[#edeae1] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-[#10194E] font-heading">Gallery Management</h2>
+                        <span className="bg-[#10194E]/10 text-[#10194E] text-xs font-bold px-2.5 py-0.5 rounded-full">
+                          {galleryImages.length} Uploaded
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Upload custom photos to instantly showcase them on the public <span className="font-semibold text-[#10194E]">/gallery</span> page.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-stretch sm:self-auto">
+                      <a
+                        href="/gallery"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:text-[#10194E] hover:border-[#10194E] font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+                      >
+                        <span>View Live Gallery</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#d4951e] hover:bg-[#b57a15] text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" /> Upload New Photo
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Filter Pills */}
+                  <div className="px-6 py-3.5 bg-[#FAF8F5] border-b border-[#edeae1] flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500 mr-2 uppercase tracking-wider">Filter Section:</span>
+                    {[
+                      { id: 'all', label: 'All Photos', count: galleryImages.length },
+                      { id: 'places', label: 'Places & Temples', count: galleryImages.filter(g => (g.category || 'places') === 'places').length },
+                      { id: 'cars', label: 'Our Fleet', count: galleryImages.filter(g => g.category === 'cars').length },
+                      { id: 'clients', label: 'Happy Clients', count: galleryImages.filter(g => g.category === 'clients').length }
+                    ].map(tab => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setGalleryFilter(tab.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          galleryFilter === tab.id
+                            ? 'bg-[#10194E] text-white shadow-sm'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                        }`}
+                      >
+                        {tab.label} ({tab.count})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Content List */}
+                  {loading ? (
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
+                      <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
+                      Loading gallery photos...
+                    </div>
+                  ) : galleryImages.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+                      <div className="w-20 h-20 bg-[#d4951e]/10 text-[#d4951e] rounded-full flex items-center justify-center mb-4 shadow-inner">
+                        <ImageIcon className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#10194E]">No Custom Photos Uploaded Yet</h3>
+                      <p className="text-sm text-gray-500 max-w-md mt-1 mb-6">
+                        The public gallery currently displays all 48 default heritage destinations, client memories, and fleet cars. Click below to upload your own photos to feature at the top!
+                      </p>
+                      <button
+                        onClick={() => setGalleryModal({
+                          isOpen: true,
+                          data: {
+                            title: '',
+                            category: 'places',
+                            location: '',
+                            badge: 'Featured Photo',
+                            desc: '',
+                            image: '',
+                            span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+                          }
+                        })}
+                        className="bg-[#10194E] hover:bg-[#283058] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md flex items-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Upload className="w-4 h-4" /> Upload First Photo
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="p-6">
+                      {galleryImages.filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter).length === 0 ? (
+                        <div className="text-center py-12 text-gray-400">
+                          <p className="text-sm font-semibold">No photos found in this category.</p>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                          {galleryImages
+                            .filter(g => galleryFilter === 'all' || (g.category || 'places') === galleryFilter)
+                            .map((item) => {
+                              const imgUrl = getGalleryImageUrl(item.image);
+                              const catColors = {
+                                places: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+                                cars: 'bg-blue-100 text-blue-800 border-blue-200',
+                                clients: 'bg-amber-100 text-amber-800 border-amber-200'
+                              };
+                              const catLabels = {
+                                places: 'Places & Temples',
+                                cars: 'Fleet / Vehicles',
+                                clients: 'Clients & Memoirs'
+                              };
+
+                              return (
+                                <div
+                                  key={item.id}
+                                  className="group border border-[#edeae1] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
+                                >
+                                  <div>
+                                    {/* Image Thumbnail with Overlay preview */}
+                                    <div className="relative h-48 bg-gray-900 overflow-hidden cursor-pointer" onClick={() => setPreviewLightbox(item)}>
+                                      <img
+                                        src={imgUrl}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                      />
+                                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                        <span className="bg-white/90 text-[#10194E] px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-md">
+                                          <Eye className="w-3.5 h-3.5" /> Preview
+                                        </span>
+                                      </div>
+                                      <div className="absolute top-2.5 left-2.5">
+                                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border shadow-sm ${catColors[item.category] || catColors.places}`}>
+                                          {catLabels[item.category] || 'Places'}
+                                        </span>
+                                      </div>
+                                      {item.badge && (
+                                        <div className="absolute bottom-2.5 left-2.5">
+                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#D4AF37] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#D4AF37]/30">
+                                            {item.badge}
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* Card Content */}
+                                    <div className="p-4 space-y-2">
+                                      <h3 className="font-bold text-base text-[#10194E] line-clamp-1 group-hover:text-[#d4951e] transition-colors">
+                                        {item.title}
+                                      </h3>
+                                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                        <MapPin className="w-3.5 h-3.5 text-[#d4951e] shrink-0" />
+                                        <span className="truncate font-medium">{item.location || 'Tamil Nadu'}</span>
+                                      </div>
+                                      {item.desc && (
+                                        <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                                          {item.desc}
+                                        </p>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  {/* Card Footer Actions */}
+                                  <div className="px-4 py-3 bg-[#FAF8F5] border-t border-[#edeae1] flex items-center justify-between text-xs">
+                                    <span className="text-[11px] text-gray-400 font-medium">
+                                      {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Active'}
+                                    </span>
+                                    <button
+                                      onClick={() => handleDeleteGalleryImage(item.id)}
+                                      className="text-red-500 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all cursor-pointer"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" /> Delete
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
