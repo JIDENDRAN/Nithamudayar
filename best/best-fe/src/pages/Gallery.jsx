@@ -889,10 +889,10 @@ const CARS_ITEMS = [
   {
     id: 'cars-2',
     category: 'cars',
-    title: 'Swift Dzire with Chauffeur',
+    title: 'Commercial Swift Dzire with Chauffeur',
     location: 'Doorstep Dispatch',
     badge: 'Sedan (4+1)',
-    desc: 'Neatly uniformed driver alongside a pristine white Swift Dzire ready for outstation pickup.',
+    desc: 'Neatly uniformed driver alongside pristine white commercial Swift Dzire ready for outstation pickup.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.29 PM (1).jpeg',
     span: 'col-span-1 row-span-2'
   },
@@ -1029,20 +1029,20 @@ const CARS_ITEMS = [
   {
     id: 'cars-16',
     category: 'cars',
-    title: 'Swift Dzire Sedan with Chauffeur',
+    title: 'Commercial Dzire Sedan with Driver',
     location: 'Hotel Portico Dispatch',
     badge: 'Executive Sedan',
-    desc: 'Spotless white touring sedan with professional chauffeur outside hotel.',
+    desc: 'Spotless white commercial sedan with yellow board and professional driver outside hotel.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.30 PM (1).jpeg',
     span: 'col-span-1 row-span-2'
   },
   {
     id: 'cars-17',
     category: 'cars',
-    title: 'Chauffeur with Touring Sedan in Hill Pass',
+    title: 'Driver with Commercial Sedan in Hill Pass',
     location: 'Western Ghats',
     badge: 'Hill Station Fleet',
-    desc: 'Reliable high-comfort touring vehicle ready for mountain ascents and hill stations.',
+    desc: 'Reliable commercial vehicle with yellow number plate ready for mountain ascents.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.30 PM.jpeg',
     span: 'col-span-1 row-span-2'
   },
@@ -1052,7 +1052,7 @@ const CARS_ITEMS = [
     title: 'Toyota Innova Crysta with Travelers & Driver',
     location: 'Premium Outstation',
     badge: 'Innova Crysta (7+1)',
-    desc: 'Spacious Toyota Innova Crysta SUV parked at hotel entrance ready for outstation highway tour.',
+    desc: 'Spacious Toyota Innova Crysta SUV with yellow commercial license plate TN 11 W 2895 parked at hotel entrance ready for highway tour.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.37 PM.jpeg',
     span: 'col-span-1 sm:col-span-2 row-span-1'
   }
