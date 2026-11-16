@@ -245,6 +245,15 @@ export const travelHubsData = [
         desc: 'Unending expanse of emerald-green tea valleys, winding scenic mist roads, wildlife sanctuaries, and cascading gushing mountain waterfalls.'
       },
       {
+        name: 'Thekkady',
+        state: 'Kerala',
+        tagline: 'Periyar Wildlife Sanctuary & Spice Hills',
+        image: '/images/destinations/thekkady.jpg',
+        attractions: 'Periyar Lake Boat Safari • Spice Plantations • Elephant Junction • Murikkady Viewpoint • Bamboo Rafting',
+        highlight: 'Tiger Reserve & Aromatic Spice Hills',
+        desc: 'Cruise along the tranquil Periyar Lake surrounded by wild elephants, explore organic cardamom and pepper spice gardens, and enjoy deep Western Ghats wilderness.'
+      },
+      {
         name: 'Wayanad',
         state: 'Kerala',
         tagline: 'Misty Rainforests, Spice Hills & Ancient Caves',

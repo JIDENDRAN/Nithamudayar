@@ -89,6 +89,7 @@ export const travelHubsCategories = [
       { name: 'Ooty', image: '/images/destinations/ooty.jpg', tagline: 'Queen of Hill Stations • 2,240 m' },
       { name: 'Kodaikanal', image: '/images/destinations/kodaikanal.jpg', tagline: 'Princess of Hill Stations • 2,133 m' },
       { name: 'Munnar', image: '/images/destinations/munnar.jpg', tagline: 'Emerald Tea Paradise • 1,600 m' },
+      { name: 'Thekkady', image: '/images/destinations/thekkady.jpg', tagline: 'Periyar Wildlife Sanctuary & Spice Hills' },
       { name: 'Wayanad', image: '/images/destinations/wayanad.jpg', tagline: 'Misty Rainforests, Spice Hills & Caves' }
     ]
   },
