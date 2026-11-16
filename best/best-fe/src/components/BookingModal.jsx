@@ -1,37 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { X, Send, CheckCircle2, MapPin, Calendar, Users, PhoneCall, Car, ArrowRight } from 'lucide-react';
+import { X, Send, CheckCircle2, MapPin, Calendar, Clock, Users, PhoneCall, Car, ArrowRight } from 'lucide-react';
 import API_BASE_URL from '../apiConfig';
 
 export default function BookingModal({ isOpen, onClose, initialData, defaultVehicle, defaultPackage }) {
+  const todayStr = new Date().toISOString().split('T')[0];
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    pickup: 'Thanjavur',
+    pickup: '',
     destination: '',
     date: '',
     time: '08:00',
-    vehicle: 'Toyota Innova Crysta (6+1 SUV)',
+    vehicle: 'Toyota Innova Crysta (7+1 Seats)',
     packageType: 'Custom Itinerary',
     notes: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     if (initialData) {
       setFormData(prev => ({
         ...prev,
-        pickup: initialData.pickupCity || prev.pickup,
-        destination: initialData.destinationCity || initialData.title || initialData.city || initialData.name || prev.destination,
-        date: initialData.travelDate || prev.date,
-        vehicle: initialData.vehicle || initialData.name || prev.vehicle,
-        packageType: initialData.title || prev.packageType
+        pickup: initialData.pickupCity || initialData.pickup || prev.pickup || '',
+        destination: initialData.destinationCity || initialData.destination || initialData.title || initialData.city || initialData.name || prev.destination || '',
+        date: initialData.travelDate || initialData.date || prev.date || '',
+        time: initialData.travelTime || initialData.time || prev.time || '08:00',
+        vehicle: (initialData.vehicle || initialData.name || prev.vehicle || 'Toyota Innova Crysta (7+1 Seats)').replace(/\s*-\s*₹\d+\/km/g, ''),
+        packageType: initialData.packageType || initialData.title || prev.packageType
       }));
     } else if (defaultVehicle || defaultPackage) {
       setFormData(prev => ({
         ...prev,
-        vehicle: defaultVehicle || prev.vehicle,
+        vehicle: (defaultVehicle || prev.vehicle).replace(/\s*-\s*₹\d+\/km/g, ''),
         packageType: defaultPackage || prev.packageType
       }));
     }
@@ -45,52 +47,56 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
 
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.destination) {
-      alert('Please fill in your name, phone number, and destination.');
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.pickup.trim() || !formData.destination.trim()) {
+      alert('Please fill in your name, phone number, pickup place, and drop place.');
       return;
     }
 
     setIsSubmitting(true);
 
+    // 1. Non-blocking backend database sync for admin desk
     try {
-      // 1. Save to backend database for admin dashboard
-      await fetch(`${API_BASE_URL}/api/bookings`, {
+      fetch(`${API_BASE_URL}/api/bookings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          fromLocation: formData.pickup,
-          toLocation: formData.destination,
+          fromLocation: formData.pickup.trim(),
+          toLocation: formData.destination.trim(),
           date: formData.date || 'Flexible',
           time: formData.time || 'Flexible',
-          name: formData.name,
-          phone: formData.phone,
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
           vehicle: formData.vehicle,
-          packageType: formData.packageType
+          packageType: formData.packageType,
+          notes: formData.notes.trim()
         }),
       }).catch(err => console.warn('Backend API booking sync (offline/silent):', err));
     } catch (err) {
       console.warn('Backend sync failed, continuing to WhatsApp:', err);
     }
 
-    setIsSuccess(true);
+    // 2. Format detailed message for WhatsApp
+    const message = `Hello Nithamudayar Tours & Travels Pvt Ltd,
+I would like to book a cab with the following details:
 
-    // 2. Open WhatsApp directly with formatted message to Nithamudayar Tours & Travels Pvt Ltd
-    const msg = `*Booking Enquiry - Nithamudayar Tours & Travels Pvt Ltd*%0A` +
-      `• Name: ${formData.name}%0A` +
-      `• Phone: ${formData.phone}%0A` +
-      `• Pickup City: ${formData.pickup}%0A` +
-      `• Destination: ${formData.destination}%0A` +
-      `• Travel Date: ${formData.date || 'Flexible'} (Time: ${formData.time})%0A` +
-      `• Vehicle: ${formData.vehicle}%0A` +
-      `• Package: ${formData.packageType}%0A` +
-      `• Notes: ${formData.notes || 'None'}`;
+👤 *Name:* ${formData.name.trim()}
+📞 *Phone:* ${formData.phone.trim()}
+📍 *Pickup Place:* ${formData.pickup.trim()}
+🎯 *Drop Place / Destination:* ${formData.destination.trim()}
+📅 *Travel Date:* ${formData.date || 'Flexible'}
+⏰ *Pickup Time:* ${formData.time || 'Flexible'}
+🚗 *Vehicle Type:* ${formData.vehicle}
+🗺️ *Trip / Service Type:* ${formData.packageType}
+📝 *Special Requests:* ${formData.notes.trim() || 'None'}
 
-    setTimeout(() => {
-      window.open(`https://wa.me/919894116405?text=${msg}`, '_blank');
-      setIsSubmitting(false);
-      setIsSuccess(false);
-      onClose();
-    }, 1200);
+Please share tariff quotation & confirm vehicle availability. Thank you!`;
+
+    const whatsappUrl = `https://wa.me/919894116405?text=${encodeURIComponent(message)}`;
+
+    // 3. Directly open WhatsApp with filled data and close modal immediately
+    window.open(whatsappUrl, '_blank');
+    setIsSubmitting(false);
+    onClose();
   };
 
   return (
@@ -122,202 +128,188 @@ export default function BookingModal({ isOpen, onClose, initialData, defaultVehi
           </p>
         </div>
 
-        {isSuccess ? (
-          <div className="py-12 text-center space-y-3">
-            <div className="w-14 h-14 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shadow-lg">
-              <CheckCircle2 className="w-8 h-8 text-emerald-400" />
-            </div>
-            <h3 className="text-lg font-bold font-heading text-white">Connecting to WhatsApp Desk...</h3>
-            <p className="text-xs text-neutral-300 max-w-sm mx-auto">
-              Your travel enquiry has been recorded. Redirecting to WhatsApp to send your itinerary directly to our booking manager.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleBookingSubmit} className="space-y-3.5 text-xs sm:text-sm">
-            
-            {/* Name & Phone */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
-                  Full Name <span className="text-brand-gold">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="e.g. Ramesh Kumar"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
-                  Phone (WhatsApp Preferred) <span className="text-brand-gold">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  required
-                  placeholder="+91 98765 43210"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
-                />
-              </div>
-            </div>
-
-            {/* Pickup & Destination */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-brand-gold" />
-                  <span>Pickup City / Location</span>
-                </label>
-                <select
-                  name="pickup"
-                  value={formData.pickup}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
-                >
-                  <option value="Thanjavur">Thanjavur (Headquarters Hub)</option>
-                  <option value="Trichy">Trichy (Airport / Central Railway)</option>
-                  <option value="Kumbakonam">Kumbakonam (Temple Precinct)</option>
-                  <option value="Madurai">Madurai (Junction / Airport)</option>
-                  <option value="Coimbatore">Coimbatore (Airport / City)</option>
-                  <option value="Chennai">Chennai (Airport / Central)</option>
-                  <option value="Rameswaram">Rameswaram</option>
-                  <option value="Other South India Location">Other South India Location</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-brand-gold" />
-                  <span>Destination / Route <span className="text-brand-gold">*</span></span>
-                </label>
-                <input
-                  type="text"
-                  name="destination"
-                  required
-                  placeholder="e.g. Kumbakonam / Madurai / Ooty"
-                  value={formData.destination}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
-                />
-              </div>
-            </div>
-
-            {/* Date & Time */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
-                  <Calendar className="w-3 h-3 text-brand-gold" />
-                  <span>Travel Date <span className="text-brand-gold">*</span></span>
-                </label>
-                <input
-                  type="date"
-                  name="date"
-                  required
-                  value={formData.date}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
-                  Pickup Time
-                </label>
-                <input
-                  type="time"
-                  name="time"
-                  value={formData.time}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
-                />
-              </div>
-            </div>
-
-            {/* Vehicle & Package */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
-                  <Car className="w-3 h-3 text-brand-gold" />
-                  <span>Vehicle Type</span>
-                </label>
-                <select
-                  name="vehicle"
-                  value={formData.vehicle}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
-                >
-                  <option value="Sedan (Dzire / Etios) - ₹14/km">Sedan (Dzire / Etios) - ₹14/km</option>
-                  <option value="SUV (Ertiga / Carens) - ₹19/km">SUV (Ertiga / Carens) - ₹19/km</option>
-                  <option value="Toyota Innova Crysta - ₹22/km">Toyota Innova Crysta - ₹22/km</option>
-                  <option value="Force Tempo Traveller - ₹25/km">Force Tempo Traveller - ₹25/km</option>
-                  <option value="Force Urbania Luxury Van - ₹33/km">Force Urbania Luxury Van - ₹33/km</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
-                  Trip / Service Type
-                </label>
-                <select
-                  name="packageType"
-                  value={formData.packageType}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer"
-                >
-                  <option value="Airport pickup and drop">Airport pickup and drop</option>
-                  <option value="Local trip">Local trip</option>
-                  <option value="Outstation Trip">Outstation Trip</option>
-                  <option value="Corporation trip">Corporation trip</option>
-                  <option value="Family trip">Family trip</option>
-                  <option value="Honeymoon trip">Honeymoon trip</option>
-                  <option value="Tamil Nadu Heritage Circuit">Tamil Nadu Heritage Circuit</option>
-                  <option value="Arupadai Murugan Temple Tour">Arupadai Murugan Temple Tour</option>
-                  <option value="Mountain Area Tourism">Mountain Area Tourism</option>
-                  <option value="Backwater Places Explorer">Backwater Places Explorer</option>
-                  <option value="Custom Itinerary">Custom Itinerary</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Notes */}
+        <form onSubmit={handleBookingSubmit} className="space-y-3.5 text-xs sm:text-sm">
+          
+          {/* Name & Phone */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
-                Trip Details / Special Requests
+                Full Name <span className="text-brand-gold">*</span>
               </label>
-              <textarea
-                name="notes"
-                rows="2"
-                placeholder="Number of days, flight/train timing, senior citizens, hotel stopovers..."
-                value={formData.notes}
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="e.g. Ramesh Kumar"
+                value={formData.name}
                 onChange={handleInputChange}
-                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors"
-              ></textarea>
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold text-xs transition-colors"
+              />
             </div>
 
-            {/* Submit */}
-            <div className="pt-2">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full btn-gold py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-brand-gold/30 active:scale-95 transition-all disabled:opacity-75"
+            <div>
+              <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
+                Phone (WhatsApp Preferred) <span className="text-brand-gold">*</span>
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                required
+                placeholder="+91 98765 43210"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold text-xs transition-colors"
+              />
+            </div>
+          </div>
+
+          {/* Pickup & Destination (Both typed) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
+                <MapPin className="w-3 h-3 text-brand-gold shrink-0" />
+                <span>Pickup Place / Location <span className="text-brand-gold">*</span></span>
+              </label>
+              <input
+                type="text"
+                name="pickup"
+                required
+                placeholder="Type pickup place / city"
+                value={formData.pickup}
+                onChange={handleInputChange}
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold text-xs transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
+                <MapPin className="w-3 h-3 text-brand-gold shrink-0" />
+                <span>Drop Place / Destination <span className="text-brand-gold">*</span></span>
+              </label>
+              <input
+                type="text"
+                name="destination"
+                required
+                placeholder="Type drop place / city"
+                value={formData.destination}
+                onChange={handleInputChange}
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold text-xs transition-colors"
+              />
+            </div>
+          </div>
+
+          {/* Travel Date & Pickup Time (Selected via native pickers) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
+                <Calendar className="w-3 h-3 text-brand-gold shrink-0" />
+                <span>Travel Date <span className="text-brand-gold">*</span></span>
+              </label>
+              <input
+                type="date"
+                name="date"
+                required
+                min={todayStr}
+                value={formData.date}
+                onChange={handleInputChange}
+                onClick={(e) => e.target.showPicker?.()}
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer [color-scheme:dark]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
+                <Clock className="w-3 h-3 text-brand-gold shrink-0" />
+                <span>Pickup Time</span>
+              </label>
+              <input
+                type="time"
+                name="time"
+                value={formData.time}
+                onChange={handleInputChange}
+                onClick={(e) => e.target.showPicker?.()}
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer [color-scheme:dark]"
+              />
+            </div>
+          </div>
+
+          {/* Vehicle Type (Selected without prices) & Trip Type */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-[11px] font-semibold text-neutral-300 mb-1 flex items-center gap-1">
+                <Car className="w-3 h-3 text-brand-gold shrink-0" />
+                <span>Vehicle Type</span>
+              </label>
+              <select
+                name="vehicle"
+                value={formData.vehicle}
+                onChange={handleInputChange}
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer truncate"
               >
-                <Send className="w-4 h-4" />
-                <span>{isSubmitting ? 'Processing Enquiry...' : 'Confirm & Send to WhatsApp Desk'}</span>
-              </button>
-              <p className="text-[10px] text-neutral-400 text-center mt-2">
-                ✓ Free instant quotation • Zero cancellation fee for advance bookings
-              </p>
+                <option value="Sedan (Dzire / Etios - 4+1 Seats)">Sedan (Dzire / Etios - 4+1 Seats)</option>
+                <option value="SUV (Ertiga / Carens - 6+1 Seats)">SUV (Ertiga / Carens - 6+1 Seats)</option>
+                <option value="Toyota Innova Crysta (7+1 Seats)">Toyota Innova Crysta (7+1 Seats)</option>
+                <option value="Force Tempo Traveller (12 to 14 Seats)">Force Tempo Traveller (12 to 14 Seats)</option>
+                <option value="Force Urbania Luxury Van (12 to 17 Seats)">Force Urbania Luxury Van (12 to 17 Seats)</option>
+              </select>
             </div>
 
-          </form>
-        )}
+            <div>
+              <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
+                Trip / Service Type
+              </label>
+              <select
+                name="packageType"
+                value={formData.packageType}
+                onChange={handleInputChange}
+                className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-brand-gold text-xs transition-colors cursor-pointer truncate"
+              >
+                <option value="Airport pickup and drop">Airport pickup and drop</option>
+                <option value="Local trip">Local trip</option>
+                <option value="Outstation Trip">Outstation Trip</option>
+                <option value="Corporation trip">Corporation trip</option>
+                <option value="Family trip">Family trip</option>
+                <option value="Honeymoon trip">Honeymoon trip</option>
+                <option value="Tamil Nadu Heritage Circuit">Tamil Nadu Heritage Circuit</option>
+                <option value="Arupadai Murugan Temple Tour">Arupadai Murugan Temple Tour</option>
+                <option value="Mountain Area Tourism">Mountain Area Tourism</option>
+                <option value="Backwater Places Explorer">Backwater Places Explorer</option>
+                <option value="Custom Itinerary">Custom Itinerary</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Notes */}
+          <div>
+            <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
+              Trip Details / Special Requests
+            </label>
+            <textarea
+              name="notes"
+              rows="2"
+              placeholder="Number of days, flight/train timing, senior citizens, hotel stopovers..."
+              value={formData.notes}
+              onChange={handleInputChange}
+              className="w-full bg-[#0B1138] border border-white/20 rounded-xl px-3.5 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold text-xs transition-colors"
+            ></textarea>
+          </div>
+
+          {/* Submit */}
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full btn-gold py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-brand-gold/30 active:scale-95 transition-all disabled:opacity-75"
+            >
+              <Send className="w-4 h-4" />
+              <span>Confirm & Send to WhatsApp Desk</span>
+            </button>
+            <p className="text-[10px] text-neutral-400 text-center mt-2">
+              ✓ Free instant quotation • Direct booking on WhatsApp
+            </p>
+          </div>
+
+        </form>
 
       </div>
     </div>

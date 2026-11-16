@@ -323,25 +323,16 @@ export default function Contact({ onOpenBooking }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-neutral-700 mb-1.5">
-                        Pickup City / Location <span className="text-amber-600">*</span>
+                        Pickup Place / City <span className="text-amber-600">*</span>
                       </label>
-                      <div className="relative">
-                        <select
-                          value={formData.pickup}
-                          onChange={(e) => setFormData({ ...formData, pickup: e.target.value })}
-                          className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-4 py-2.5 text-neutral-900 focus:outline-none focus:border-brand-gold focus:bg-white text-xs transition-colors appearance-none cursor-pointer"
-                        >
-                          <option value="Thanjavur">Thanjavur (Headquarters Hub)</option>
-                          <option value="Trichy">Trichy (Airport / Central Railway)</option>
-                          <option value="Kumbakonam">Kumbakonam (Temple Precinct)</option>
-                          <option value="Madurai">Madurai (Junction / Airport)</option>
-                          <option value="Coimbatore">Coimbatore (Airport / City)</option>
-                          <option value="Chennai">Chennai (Airport / Central)</option>
-                          <option value="Rameswaram">Rameswaram</option>
-                          <option value="Other Tamil Nadu Location">Other Tamil Nadu Location</option>
-                        </select>
-                        <ChevronDown className="w-4 h-4 text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                      </div>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Type pickup place / city"
+                        value={formData.pickup}
+                        onChange={(e) => setFormData({ ...formData, pickup: e.target.value })}
+                        className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-4 py-2.5 text-neutral-900 focus:outline-none focus:border-brand-gold focus:bg-white text-xs transition-colors"
+                      />
                     </div>
 
                     <div>

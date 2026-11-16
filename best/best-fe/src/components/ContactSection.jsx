@@ -97,20 +97,16 @@ export default function ContactSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-neutral-700 mb-1">
-                      Pickup City *
+                      Pickup Place / City *
                     </label>
-                    <select
+                    <input
+                      type="text"
+                      required
+                      placeholder="Type pickup place / city"
                       value={formData.pickup}
                       onChange={(e) => setFormData({ ...formData, pickup: e.target.value })}
                       className="w-full bg-white border border-neutral-300 rounded-md px-3 py-2 text-neutral-900 focus:outline-none focus:border-brand-gold"
-                    >
-                      <option value="Thanjavur">Thanjavur</option>
-                      <option value="Trichy">Trichy</option>
-                      <option value="Kumbakonam">Kumbakonam</option>
-                      <option value="Madurai">Madurai</option>
-                      <option value="Coimbatore">Coimbatore</option>
-                      <option value="Chennai">Chennai</option>
-                    </select>
+                    />
                   </div>
 
                   <div>
