@@ -340,6 +340,48 @@ app.delete('/api/packages/:id', async (req, res) => {
   }
 });
 
+// --- GALLERY API ---
+
+app.get('/api/gallery', async (req, res) => {
+  try {
+    const rows = await db.all('SELECT * FROM gallery_images ORDER BY "createdAt" DESC, id DESC');
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error('Error fetching gallery images:', error);
+    res.status(500).json({ error: 'Failed to fetch gallery images' });
+  }
+});
+
+app.post('/api/gallery', async (req, res) => {
+  try {
+    const { title, category, location, badge, desc, image, span } = req.body;
+    if (!title || !image) {
+      return res.status(400).json({ error: 'Title and image are required' });
+    }
+    const safeCat = category || 'places';
+    const safeSpan = span || 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2';
+    const result = await db.run(
+      'INSERT INTO gallery_images (title, category, location, badge, "desc", image, span) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [title, safeCat, location || '', badge || 'Featured Photo', desc || '', image, safeSpan]
+    );
+    const newImage = await db.get('SELECT * FROM gallery_images WHERE id = ?', [result.lastID]);
+    res.status(201).json(newImage || { id: result.lastID, message: 'Gallery image added successfully' });
+  } catch (error) {
+    console.error('Error adding gallery image:', error);
+    res.status(500).json({ error: 'Failed to add gallery image' });
+  }
+});
+
+app.delete('/api/gallery/:id', async (req, res) => {
+  try {
+    await db.run('DELETE FROM gallery_images WHERE id = ?', [req.params.id]);
+    res.status(200).json({ message: 'Gallery image deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting gallery image:', error);
+    res.status(500).json({ error: 'Failed to delete gallery image' });
+  }
+});
+
 // --- CONTACT US API ---
 
 app.post('/api/contacts', async (req, res) => {

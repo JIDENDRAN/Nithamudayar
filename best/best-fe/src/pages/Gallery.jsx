@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import API_BASE_URL from '../apiConfig.js';
 import { 
   MapPin, 
   ChevronLeft, 
@@ -1059,21 +1060,99 @@ const CARS_ITEMS = [
 
 const ALL_ITEMS = [...PLACES_ITEMS, ...CLIENTS_ITEMS, ...CARS_ITEMS];
 
+const resolveImageUrl = (img) => {
+  if (!img) return '';
+  if (img.startsWith('http://') || img.startsWith('https://') || img.startsWith('data:')) {
+    return img;
+  }
+  if (img.startsWith('/uploads')) {
+    return `${API_BASE_URL}${img}`;
+  }
+  return img;
+};
+
 export default function GalleryPage() {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('all'); // 'all' | 'places' | 'clients' | 'cars'
   const [viewMode, setViewMode] = useState('collage'); // 'collage' (varied sizes) | 'grid' (uniform)
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
-  const [activeItemsList, setActiveItemsList] = useState(ALL_ITEMS);
   const [failedImages, setFailedImages] = useState(new Set());
+  const [customItems, setCustomItems] = useState([]);
+
+  // Load custom gallery photos uploaded via Admin panel
+  useEffect(() => {
+    // 1. Immediately hydrate from localStorage for zero wait
+    try {
+      const cached = localStorage.getItem('nitham_custom_gallery');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setCustomItems(parsed.map((item, idx) => ({
+            id: item.id ? `custom-${item.id}` : `custom-local-${idx}`,
+            category: item.category || 'places',
+            title: item.title,
+            location: item.location || 'Tamil Nadu',
+            badge: item.badge || 'Featured Photo',
+            desc: item.desc || item.description || '',
+            image: resolveImageUrl(item.image),
+            span: item.span || 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2',
+            isCustom: true
+          })));
+        }
+      }
+    } catch (e) {
+      console.warn('Error reading local gallery cache', e);
+    }
+
+    // 2. Fetch live gallery photos from backend
+    const fetchCustomGallery = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/gallery`);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data)) {
+            const formatted = data.map((item, idx) => ({
+              id: item.id ? `custom-${item.id}` : `custom-${idx}`,
+              category: item.category || 'places',
+              title: item.title,
+              location: item.location || 'Tamil Nadu',
+              badge: item.badge || 'Featured Photo',
+              desc: item.desc || item.description || '',
+              image: resolveImageUrl(item.image),
+              span: item.span || 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2',
+              isCustom: true
+            }));
+            setCustomItems(formatted);
+            localStorage.setItem('nitham_custom_gallery', JSON.stringify(formatted));
+          }
+        }
+      } catch (err) {
+        // Backend offline, fallback already populated from localStorage
+      }
+    };
+    fetchCustomGallery();
+  }, []);
+
+  const customPlaces = customItems.filter((i) => (i.category || 'places') === 'places');
+  const customClients = customItems.filter((i) => i.category === 'clients');
+  const customCars = customItems.filter((i) => i.category === 'cars');
 
   // Filter out any image that fails to load
   const isImageValid = (item) => !failedImages.has(item.id);
 
-  const validPlaces = PLACES_ITEMS.filter(isImageValid);
-  const validClients = CLIENTS_ITEMS.filter(isImageValid);
-  const validCars = CARS_ITEMS.filter(isImageValid);
-  const validAll = ALL_ITEMS.filter(isImageValid);
+  const validPlaces = [...customPlaces, ...PLACES_ITEMS].filter(isImageValid);
+  const validClients = [...customClients, ...CLIENTS_ITEMS].filter(isImageValid);
+  const validCars = [...customCars, ...CARS_ITEMS].filter(isImageValid);
+  const validAll = [...customItems, ...ALL_ITEMS].filter(isImageValid);
+
+  const [activeItemsList, setActiveItemsList] = useState(validAll);
+
+  useEffect(() => {
+    if (activeTab === 'places') setActiveItemsList(validPlaces);
+    else if (activeTab === 'clients') setActiveItemsList(validClients);
+    else if (activeTab === 'cars') setActiveItemsList(validCars);
+    else setActiveItemsList(validAll);
+  }, [activeTab, customItems, failedImages]);
 
   const handleImageError = (id) => {
     setFailedImages((prev) => new Set(prev).add(id));

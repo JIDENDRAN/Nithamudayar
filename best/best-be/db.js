@@ -137,6 +137,18 @@ export async function initDatabase() {
       data BYTEA NOT NULL,
       "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
+
+    CREATE TABLE IF NOT EXISTS gallery_images (
+      id SERIAL PRIMARY KEY,
+      title TEXT NOT NULL,
+      category TEXT NOT NULL DEFAULT 'places',
+      location TEXT,
+      badge TEXT,
+      "desc" TEXT,
+      image TEXT NOT NULL,
+      span TEXT DEFAULT 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2',
+      "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
   `);
 
   // Migrate existing local upload files to Neon DB if not present
