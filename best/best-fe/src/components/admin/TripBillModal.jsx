@@ -77,7 +77,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     permitAmt: "",
     advancePaid: "",
     paymentMode: 'UPI', // 'UPI' | 'Cash' | 'Bank'
-    upiId: ''
+    upiId: '9894116405@pthdfc'
   });
 
   // Automatically update bill data when booking changes
@@ -1029,7 +1029,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.upiId}
                         onChange={(e) => handleInputChange('upiId', e.target.value)}
                         className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
-                        placeholder=""
+                        placeholder="9894116405@pthdfc"
                       />
                     </div>
                   </div>
@@ -1383,24 +1383,41 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           {/* 6. PAYMENT SUMMARY & SETTLEMENT */}
                           <div className="grid grid-cols-2 border border-[#edeae1] rounded-lg overflow-hidden text-xs">
 
-                            {/* Left: Mode & UPI ID */}
-                            <div className="p-3 bg-[#faf8f5] border-r border-[#edeae1] space-y-1.5">
-                              <span className="font-bold text-[#10194E] block uppercase text-[10px]">Payment Settlement:</span>
-                              <div className="flex items-center gap-2 font-semibold text-neutral-800 text-[11px]">
-                                <span className={billData.paymentMode === 'UPI' ? 'font-bold text-[#10194E]' : 'text-neutral-400'}>
-                                  [{billData.paymentMode === 'UPI' ? '✓' : ' '}] UPI / GPay
-                                </span>
-                                <span className={billData.paymentMode === 'Cash' ? 'font-bold text-[#10194E]' : 'text-neutral-400'}>
-                                  [{billData.paymentMode === 'Cash' ? '✓' : ' '}] Cash
-                                </span>
-                                <span className={billData.paymentMode === 'Bank' ? 'font-bold text-[#10194E]' : 'text-neutral-400'}>
-                                  [{billData.paymentMode === 'Bank' ? '✓' : ' '}] Bank
+                            {/* Left: Mode, UPI ID & QR Code */}
+                            <div className="p-3 bg-[#faf8f5] border-r border-[#edeae1] flex items-center justify-between gap-2.5">
+                              <div className="space-y-1.5 flex-1 min-w-0">
+                                <span className="font-bold text-[#10194E] block uppercase text-[10px]">Payment Settlement:</span>
+                                <div className="flex items-center gap-2 font-semibold text-neutral-800 text-[11px]">
+                                  <span className={billData.paymentMode === 'UPI' ? 'font-bold text-[#10194E]' : 'text-neutral-400'}>
+                                    [{billData.paymentMode === 'UPI' ? '✓' : ' '}] UPI / GPay
+                                  </span>
+                                  <span className={billData.paymentMode === 'Cash' ? 'font-bold text-[#10194E]' : 'text-neutral-400'}>
+                                    [{billData.paymentMode === 'Cash' ? '✓' : ' '}] Cash
+                                  </span>
+                                  <span className={billData.paymentMode === 'Bank' ? 'font-bold text-[#10194E]' : 'text-neutral-400'}>
+                                    [{billData.paymentMode === 'Bank' ? '✓' : ' '}] Bank
+                                  </span>
+                                </div>
+                                <div className="pt-0.5 text-[10px]">
+                                  <span className="text-neutral-500 block">Official UPI ID for Payment:</span>
+                                  <span className="font-mono font-bold text-[#10194E] bg-white px-2 py-0.5 rounded border border-[#edeae1] inline-block mt-0.5 text-[11px] shadow-sm">
+                                    {billData.upiId || '9894116405@pthdfc'}
+                                  </span>
+                                </div>
+                                <span className="text-[8.5px] text-neutral-500 block">
+                                  Scan QR via GPay / PhonePe / Paytm
                                 </span>
                               </div>
-                              <div className="pt-1 text-[10px]">
-                                <span className="text-neutral-500 block">Official UPI ID for Payment:</span>
-                                <span className="font-mono font-bold text-[#10194E] bg-white px-2 py-0.5 rounded border border-[#edeae1] inline-block mt-0.5">
-                                  {billData.upiId || ''}
+
+                              {/* QR Code */}
+                              <div className="shrink-0 flex flex-col items-center bg-white p-1 rounded-lg border border-[#edeae1] shadow-sm">
+                                <img
+                                  src="/payment_qr.jpg"
+                                  alt="Payment QR Code"
+                                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded"
+                                />
+                                <span className="text-[7.5px] font-bold text-[#10194E] mt-0.5 tracking-tight uppercase">
+                                  Scan to Pay
                                 </span>
                               </div>
                             </div>

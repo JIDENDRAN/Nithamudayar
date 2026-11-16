@@ -1,5 +1,6 @@
 import jsPDF from 'jspdf';
 import { NITHAM_LOGO_BASE64 } from '../assets/logoBase64';
+import { PAYMENT_QR_FULL_BASE64 } from '../assets/paymentQrBase64';
 
 /**
  * Converts numbers into formal Indian Currency format (e.g. Rupees Eight Thousand Six Hundred and Fifty Only)
@@ -431,41 +432,63 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.setFillColor(...bgCream);
   d.setDrawColor(...borderCream);
   d.roundedRect(tableX, summaryY, tableW, paymentHeight, 1.5, 1.5, 'FD');
-  const splitX = tableX + 94;
+  const splitX = tableX + 96;
   d.line(splitX, summaryY, splitX, summaryY + paymentHeight);
 
-  // Left: Payment Mode & UPI ID
+  // Left: Payment Mode, UPI ID & QR Code
   d.setTextColor(...navyDark);
   d.setFont('helvetica', 'bold');
   d.setFontSize(8);
   d.text('PAYMENT MODE & SETTLEMENT', tableX + 4, summaryY + 6);
 
   const mode = billData.paymentMode || 'UPI';
-  d.setFontSize(7.5);
+  d.setFontSize(7.2);
   d.setTextColor(...darkText);
   d.text(
-    `[${mode.includes('UPI') || mode === 'Online' ? 'X' : ' '}] UPI / GPay      [${mode === 'Cash' ? 'X' : ' '}] Cash      [${mode === 'Bank' ? 'X' : ' '}] Bank Transfer`,
+    `[${mode.includes('UPI') || mode === 'Online' ? 'X' : ' '}] UPI / GPay   [${mode === 'Cash' ? 'X' : ' '}] Cash   [${mode === 'Bank' ? 'X' : ' '}] Bank`,
     tableX + 4,
-    summaryY + 13
+    summaryY + 12.5
   );
 
   d.setTextColor(...grayText);
   d.setFont('helvetica', 'normal');
-  d.setFontSize(7);
-  d.text('Official UPI ID for Payment:', tableX + 4, summaryY + 19.5);
+  d.setFontSize(6.8);
+  d.text('Official UPI ID for Payment:', tableX + 4, summaryY + 18.5);
 
   d.setFillColor(255, 255, 255);
   d.setDrawColor(...goldPrimary);
-  d.roundedRect(tableX + 4, summaryY + 21.5, splitX - tableX - 8, 7.5, 1, 1, 'FD');
+  d.roundedRect(tableX + 4, summaryY + 20.5, 60, 7.5, 1, 1, 'FD');
   d.setTextColor(...navyDark);
   d.setFont('helvetica', 'bold');
   d.setFontSize(7.5);
-  d.text(billData.upiId || '9894116405@okaxis', tableX + 7, summaryY + 26.5);
+  d.text(billData.upiId || '9894116405@pthdfc', tableX + 6.5, summaryY + 25.5);
 
   d.setTextColor(...grayText);
   d.setFont('helvetica', 'normal');
-  d.setFontSize(6.8);
-  d.text('For RTGS / NEFT transfer, kindly contact office billing desk.', tableX + 4, summaryY + 34);
+  d.setFontSize(6.5);
+  d.text('Scan QR via GPay / PhonePe / Paytm', tableX + 4, summaryY + 33);
+
+  // QR Code Box on the right of the settlement section
+  const qrBoxX = tableX + 68;
+  const qrBoxY = summaryY + 3.5;
+  const qrBoxW = 24;
+  const qrBoxH = 31;
+  d.setFillColor(255, 255, 255);
+  d.setDrawColor(...borderCream);
+  d.roundedRect(qrBoxX, qrBoxY, qrBoxW, qrBoxH, 1, 1, 'FD');
+
+  if (PAYMENT_QR_FULL_BASE64) {
+    try {
+      d.addImage(PAYMENT_QR_FULL_BASE64, 'JPEG', qrBoxX + 1.5, qrBoxY + 1.5, 21, 21 * (614 / 686));
+    } catch (e) {
+      console.warn('QR image draw error:', e);
+    }
+  }
+
+  d.setFont('helvetica', 'bold');
+  d.setFontSize(6);
+  d.setTextColor(...navyDark);
+  d.text('SCAN TO PAY', qrBoxX + qrBoxW / 2, qrBoxY + qrBoxH - 2, { align: 'center' });
 
   // Right: Calculations Breakdown & Net Amount Banner
   d.setFontSize(7.8);
@@ -585,7 +608,7 @@ function renderBillDocument(d, billData, calculations, settings) {
  * Creates a high-fidelity Canvas 2D adapter that implements the exact jsPDF drawing API.
  * Renders directly via the browser's native 2D canvas engine, eliminating any DOM / CSS squishing.
  */
-function createCanvasRenderer(ctx, scale, logoImg) {
+function createCanvasRenderer(ctx, scale, logoImg, qrImg) {
   const s = scale;
   return {
     fillColor: '#000000',
@@ -678,7 +701,8 @@ function createCanvasRenderer(ctx, scale, logoImg) {
       }
     },
     addImage(src, type, x, y, w, h) {
-      if (logoImg && (logoImg.complete || logoImg.naturalWidth > 0)) {
+      const imgToDraw = (src && (src === PAYMENT_QR_FULL_BASE64 || String(src).includes('image/jpeg'))) ? qrImg : logoImg;
+      if (imgToDraw && (imgToDraw.complete || imgToDraw.naturalWidth > 0)) {
         const dx = Math.round(x * s);
         const dy = Math.round(y * s);
         const dw = Math.round(w * s);
@@ -686,7 +710,7 @@ function createCanvasRenderer(ctx, scale, logoImg) {
         ctx.save();
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
-        ctx.drawImage(logoImg, dx, dy, dw, dh);
+        ctx.drawImage(imgToDraw, dx, dy, dw, dh);
         ctx.restore();
       }
     }
@@ -728,7 +752,7 @@ export async function generateBillCanvas(billData, calculations, settings) {
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Pre-load emblem image in memory
+  // Pre-load emblem & QR code images in memory
   let logoImg = null;
   if (NITHAM_LOGO_BASE64) {
     logoImg = new Image();
@@ -750,7 +774,28 @@ export async function generateBillCanvas(billData, calculations, settings) {
     });
   }
 
-  const renderer = createCanvasRenderer(ctx, s, logoImg);
+  let qrImg = null;
+  if (PAYMENT_QR_FULL_BASE64) {
+    qrImg = new Image();
+    await new Promise((resolve) => {
+      const timer = setTimeout(resolve, 800);
+      qrImg.onload = () => {
+        clearTimeout(timer);
+        resolve();
+      };
+      qrImg.onerror = () => {
+        clearTimeout(timer);
+        resolve();
+      };
+      qrImg.src = PAYMENT_QR_FULL_BASE64;
+      if (qrImg.complete && qrImg.naturalWidth > 0) {
+        clearTimeout(timer);
+        resolve();
+      }
+    });
+  }
+
+  const renderer = createCanvasRenderer(ctx, s, logoImg, qrImg);
   renderBillDocument(renderer, billData, calculations, settings);
 
   return canvas;
