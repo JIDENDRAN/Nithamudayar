@@ -70,16 +70,6 @@ const PLACES_ITEMS = [
   {
     id: 'places-6',
     category: 'places',
-    title: 'Misty Western Ghats Hills',
-    location: 'Kodaikanal / Vagamon',
-    badge: 'Hill Station',
-    desc: 'Endless rolling misty ridges and velvet green mountains along the cool mountain pass.',
-    image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.25 PM (1).jpeg',
-    aspect: 'aspect-[4/3]'
-  },
-  {
-    id: 'places-7',
-    category: 'places',
     title: 'Rolling Green Mountain Ridge',
     location: 'Misty Valley',
     badge: 'Panoramic View',
@@ -88,7 +78,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[4/3]'
   },
   {
-    id: 'places-8',
+    id: 'places-7',
     category: 'places',
     title: 'Sacred Pilgrimage Temple',
     location: 'Tamil Nadu',
@@ -98,17 +88,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[3/4]'
   },
   {
-    id: 'places-9',
-    category: 'places',
-    title: 'Om Muruga Sacred Shrine',
-    location: 'Murugan Circuit',
-    badge: 'Divine Blessing',
-    desc: 'Vibrant illuminated Om Muruga sacred altar radiating divine spiritual devotion.',
-    image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.27 PM (1).jpeg',
-    aspect: 'aspect-[4/3]'
-  },
-  {
-    id: 'places-10',
+    id: 'places-8',
     category: 'places',
     title: 'Towering Lord Murugan Statue',
     location: 'Arupadai Veedu',
@@ -118,7 +98,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[3/4]'
   },
   {
-    id: 'places-11',
+    id: 'places-9',
     category: 'places',
     title: 'Golden Temple Dwajasthambam',
     location: 'Tamil Nadu Temple',
@@ -128,7 +108,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[3/4]'
   },
   {
-    id: 'places-12',
+    id: 'places-10',
     category: 'places',
     title: 'Grand Historic Gopuram Tower',
     location: 'South India',
@@ -138,7 +118,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-13',
+    id: 'places-11',
     category: 'places',
     title: 'Eco Heritage Resort Courtyard',
     location: 'Kerala / Tamil Nadu',
@@ -148,7 +128,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-14',
+    id: 'places-12',
     category: 'places',
     title: 'Traditional Temple Street',
     location: 'Pilgrim Town',
@@ -158,7 +138,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-15',
+    id: 'places-13',
     category: 'places',
     title: 'Adiyogi Shiva Monument',
     location: 'Coimbatore',
@@ -168,27 +148,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-16',
-    category: 'places',
-    title: 'Heritage Bazaar Walkway',
-    location: 'Temple Street',
-    badge: 'Culture & Shopping',
-    desc: 'Vibrant heritage market stalls selling traditional handicrafts, garlands, and sacred souvenirs.',
-    image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.32 PM.jpeg',
-    aspect: 'aspect-[9/16]'
-  },
-  {
-    id: 'places-17',
-    category: 'places',
-    title: 'Adiyogi Consecrated Vista',
-    location: 'Isha Foundation',
-    badge: 'Guinness Record',
-    desc: 'Sweeping vista of Adiyogi Shiva set against the dramatic Western Ghats mountain backdrop.',
-    image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.33 PM.jpeg',
-    aspect: 'aspect-[9/16]'
-  },
-  {
-    id: 'places-18',
+    id: 'places-14',
     category: 'places',
     title: 'Hill Forest Welcome Gateway',
     location: 'Mountain Pass',
@@ -198,7 +158,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[16/9]'
   },
   {
-    id: 'places-19',
+    id: 'places-15',
     category: 'places',
     title: 'Scenic Mountain Highway',
     location: 'Western Ghats',
@@ -208,7 +168,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-20',
+    id: 'places-16',
     category: 'places',
     title: 'Historic Stone Gateway',
     location: 'Heritage Fort',
@@ -218,7 +178,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-21',
+    id: 'places-17',
     category: 'places',
     title: 'Rural Countryside Drive',
     location: 'Tamil Nadu Roads',
@@ -228,7 +188,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-22',
+    id: 'places-18',
     category: 'places',
     title: 'Illuminated Dam at Sunset',
     location: 'Grand Anicut / Dam',
@@ -238,17 +198,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[16/9]'
   },
   {
-    id: 'places-23',
-    category: 'places',
-    title: 'Green Canopy Tree Gateway',
-    location: 'Forest Highway',
-    badge: 'Nature Drive',
-    desc: 'Shaded highway framed by majestic arching banyan and neem trees.',
-    image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.37 PM.jpeg',
-    aspect: 'aspect-[9/16]'
-  },
-  {
-    id: 'places-24',
+    id: 'places-19',
     category: 'places',
     title: 'Mountain Lake Vista',
     location: 'Hill Station Lake',
@@ -258,7 +208,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-25',
+    id: 'places-20',
     category: 'places',
     title: 'Royal Palace Illuminated Gateway',
     location: 'Heritage Palace',
@@ -268,7 +218,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[16/9]'
   },
   {
-    id: 'places-26',
+    id: 'places-21',
     category: 'places',
     title: 'Breezy Tree-Lined Highway',
     location: 'Outstation Route',
@@ -278,7 +228,7 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'places-27',
+    id: 'places-22',
     category: 'places',
     title: 'Kerala Backwaters & Houseboat',
     location: 'Alappuzha',
@@ -288,13 +238,243 @@ const PLACES_ITEMS = [
     aspect: 'aspect-[16/9]'
   },
   {
-    id: 'places-28',
+    id: 'places-23',
     category: 'places',
     title: 'Forest Canopy Eco Resort',
     location: 'Thekkady / Periyar',
     badge: 'Nature Resort',
     desc: 'Boutique eco cottages set amidst lush cardamom plantations and serene Western Ghats greenery.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.37 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-24',
+    category: 'places',
+    title: 'Illuminated Temple Rajagopuram',
+    location: 'Tamil Nadu Pilgrimage',
+    badge: 'Temple Darshan',
+    desc: 'Majestic illuminated temple entrance gopuram glowing vibrantly during sacred evening pooja.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.36 PM (1).jpeg',
+    aspect: 'aspect-[3/4]'
+  },
+  {
+    id: 'places-25',
+    category: 'places',
+    title: 'Palani Hill Temple Foothills',
+    location: 'Pilgrim Foothills',
+    badge: 'Sacred Foothills',
+    desc: 'Scenic bustling temple street framed by sacred green hillsides and towering Dravidian gopurams.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.36 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-26',
+    category: 'places',
+    title: 'Heritage Resort Wooden Grand Courtyard',
+    location: 'Kerala Architecture',
+    badge: 'Resort Stay',
+    desc: 'Opulent teakwood pillars, brass lamps, and crystal chandelier in traditional heritage retreat.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.43 PM (2).jpeg',
+    aspect: 'aspect-[3/4]'
+  },
+  {
+    id: 'places-27',
+    category: 'places',
+    title: 'Heritage Street & Resort Walkway',
+    location: 'Temple Town',
+    badge: 'Scenic Walkway',
+    desc: 'Serene cobblestone path and traditional tiled roofs in a scenic heritage destination.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.49 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'places-28',
+    category: 'places',
+    title: 'Panoramic Sunny Beach & Coastal Shore',
+    location: 'Kovalam / Varkala',
+    badge: 'Beach Vista',
+    desc: 'Sweeping view of golden coastline, fishing boats, and gentle rolling waves under sunny skies.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.49 PM (2).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-29',
+    category: 'places',
+    title: 'Majestic Lord Shiva Statue with Trishul',
+    location: 'Pilgrimage Landmark',
+    badge: 'Spiritual Landmark',
+    desc: 'Towering stone statue of Lord Shiva with sacred Trishul overlooking visiting devotees.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.50 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'places-30',
+    category: 'places',
+    title: 'Illuminated Suspension Bridge at Night',
+    location: 'Engineering Marvel',
+    badge: 'Night Landmark',
+    desc: 'Dazzling nighttime vista of multi-colored LED illuminated bridge towers and steel spans.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.14 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-31',
+    category: 'places',
+    title: 'Rolling Hill Ridge & Viewpoint',
+    location: 'Nilgiris / Vagamon',
+    badge: 'Scenic Summit',
+    desc: 'Panoramic emerald hill ridge crowded with cheerful tourists admiring valley vistas.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.27 PM (2).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-32',
+    category: 'places',
+    title: 'Glass Bridge Skywalk Experience',
+    location: 'Wayanad / Vagamon',
+    badge: 'Adventure Skywalk',
+    desc: 'Thrill-seeking tourists walking along the transparent glass skywalk overlooking valleys.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.27 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'places-33',
+    category: 'places',
+    title: 'Mysore Palace Illuminated Grand Vista',
+    location: 'Mysuru Royal Heritage',
+    badge: 'Royal Palace',
+    desc: 'Magnificent frontal night view of Mysore Palace illuminated with nearly 100,000 golden incandescent bulbs.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.28 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-34',
+    category: 'places',
+    title: 'Mysore Palace Durbar Night Illumination',
+    location: 'Heritage Splendor',
+    badge: 'Palace Architecture',
+    desc: 'Stunning angle of the royal palace façade shimmering against the clear night sky.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.28 PM (2).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-35',
+    category: 'places',
+    title: 'Illuminated Royal Palace Panorama',
+    location: 'Heritage Tourism',
+    badge: 'Architectural Wonder',
+    desc: 'Splendid panoramic perspective of the historic palace lit up in radiant golden lights.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.28 PM (3).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-36',
+    category: 'places',
+    title: 'Golden Gopuram Temple Sanctuary',
+    location: 'Chamundi Hills / Mysuru',
+    badge: 'Sacred Gopuram',
+    desc: 'Intricately carved golden-toned gopuram tower under vibrant afternoon skies.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.28 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'places-37',
+    category: 'places',
+    title: 'Ancient Deepasthambam Stone Lamp Pillar',
+    location: 'Heritage Temple',
+    badge: 'Sacred Heritage',
+    desc: 'Historic multistorey stone lamp tower standing solemnly in the consecrated temple courtyard.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.30 PM (2).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'places-38',
+    category: 'places',
+    title: 'Kerala Folklore Museum Thevara Kochi',
+    location: 'Kochi Heritage',
+    badge: 'Cultural Heritage',
+    desc: 'Signage and entrance of the renowned Kerala Folklore Museum celebrating authentic art and folklore.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.31 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-39',
+    category: 'places',
+    title: 'Amber Dale Luxury Resort Munnar',
+    location: 'Munnar Tea Hills',
+    badge: 'Luxury Resort',
+    desc: 'Lush green entrance gate to Amber Dale resort nestled amidst Munnar rolling tea mist.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.32 PM (2).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'places-40',
+    category: 'places',
+    title: 'Landscaped Resort Driveway & Flower Gardens',
+    location: 'Hill Station Retreat',
+    badge: 'Resort Scenery',
+    desc: 'Picturesque winding driveway flanked by flowering shrubbery and quaint hill station cottages.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.35 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-41',
+    category: 'places',
+    title: 'Sterling Ooty Fern Hill Resort',
+    location: 'Ooty Fern Hill',
+    badge: 'Hill Resort',
+    desc: 'Signage of the iconic Sterling Fern Hill resort surrounded by pine trees and cool Nilgiri air.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.36 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'places-42',
+    category: 'places',
+    title: 'Gem Park Ooty Night Panorama',
+    location: 'Ooty Hill Station',
+    badge: 'Night Illuminations',
+    desc: 'Vibrant illuminated night façade and neon crest of Gem Park luxury hotel in Ooty.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.36 PM (2).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-43',
+    category: 'places',
+    title: 'Panoramic View of Ooty Valley Town',
+    location: 'Ooty Nilgiris',
+    badge: 'Valley Panorama',
+    desc: 'Spectacular overview of colorful hillside houses and rolling mountains in the Nilgiris.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.36 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-44',
+    category: 'places',
+    title: 'St. Philomena Cathedral Gothic Architecture',
+    location: 'Mysuru Heritage',
+    badge: 'Heritage Cathedral',
+    desc: 'Towering twin Gothic spires and ornate facade of historic St. Philomena Cathedral.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.38 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'places-45',
+    category: 'places',
+    title: 'Sacred Hill Temple Pilgrimage Steps',
+    location: 'Hilltop Shrine',
+    badge: 'Pilgrim Steps',
+    desc: 'Stone steps ascending towards the holy hilltop shrine amidst lush hillside vegetation.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.38 PM (2).jpeg',
+    aspect: 'aspect-[3/4]'
+  },
+  {
+    id: 'places-46',
+    category: 'places',
+    title: 'Historic Stone Temple Gopuram & Sanctum',
+    location: 'Tamil Nadu Pilgrimage',
+    badge: 'Temple Circuit',
+    desc: 'Spacious stone-paved temple courtyard leading to the majestic sculpted gopuram.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.38 PM.jpeg',
     aspect: 'aspect-[16/9]'
   }
 ];
@@ -433,32 +613,262 @@ const CLIENTS_ITEMS = [
   {
     id: 'clients-14',
     category: 'clients',
-    title: 'Blessed Pilgrims after Darshan',
-    location: 'Temple Town',
-    badge: 'Darshan Memory',
-    desc: 'Devotees celebrating divine darshan with peaceful minds and happy hearts.',
-    image: '/gallery/WhatsApp Image 2026-11-11 at 1.21.48 PM (1).jpeg',
-    aspect: 'aspect-[16/9]'
-  },
-  {
-    id: 'clients-15',
-    category: 'clients',
-    title: 'Munnar Dream Vacation Memories',
-    location: 'Tea Gardens',
-    badge: 'Custom Package',
-    desc: 'Unforgettable vacation diaries across emerald tea estates with personalized itineraries.',
-    image: '/gallery/WhatsApp Image 2026-11-11 at 1.21.49 PM (1).jpeg',
-    aspect: 'aspect-[3/4]'
-  },
-  {
-    id: 'clients-16',
-    category: 'clients',
     title: 'Misty Mountain View with Guests',
     location: 'Hill Station',
     badge: 'Misty Vacation',
     desc: 'Refreshing mountain escape with lovely guests amidst cool Nilgiri hill breezes.',
     image: '/gallery/WhatsApp Image 2026-11-11 at 1.21.49 PM.jpeg',
     aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-15',
+    category: 'clients',
+    title: 'Traveler Couple Coastal Excursion',
+    location: 'Dhanushkodi Coast',
+    badge: 'Couple Tour',
+    desc: 'Happy couple enjoying sea breezes along the scenic coastal drive with our courteous chauffeur.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.35 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-16',
+    category: 'clients',
+    title: 'Pune Client Testimonial Letter',
+    location: 'Guest Review (Pune)',
+    badge: 'Verified Review',
+    desc: 'Heartfelt handwritten recommendation from Pune travelers praising safe driving, helpful guidance, and warm hospitality.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.36 PM (2).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-17',
+    category: 'clients',
+    title: 'Guest at Mountain Summit Viewpoint',
+    location: 'Western Ghats',
+    badge: 'Scenic Escape',
+    desc: 'Travel guest taking in panoramic drifting mist and refreshing mountain breezes at the hill station summit.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.39 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-18',
+    category: 'clients',
+    title: 'Chauffeur & Guest at Temple Gateway',
+    location: 'Temple Darshan',
+    badge: 'Happy Client',
+    desc: 'Friendly chauffeur posing with satisfied client outside the sacred temple complex after pooja.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.40 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-19',
+    category: 'clients',
+    title: 'Family Pilgrimage at Historic Gopuram',
+    location: 'Tamil Nadu Temple',
+    badge: 'Family Tour',
+    desc: 'Family travelers and smiling chauffeur sharing a blessed moment outside the grand temple gopuram.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.40 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-20',
+    category: 'clients',
+    title: 'Family Arrival at Trichy International Airport',
+    location: 'Trichy Airport',
+    badge: 'Airport Pickup',
+    desc: 'Punctual airport pickup reception for family arriving at Trichy International Airport terminal.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.41 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-21',
+    category: 'clients',
+    title: 'Family Group Holiday at Hill Resort',
+    location: 'Ooty / Kodaikanal',
+    badge: 'Group Tour',
+    desc: 'Delighted large family holiday group posing together outside their hill cottage stay with our Innova Crysta.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.41 PM (2).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-22',
+    category: 'clients',
+    title: 'Happy Travelers with Chauffeur at Hotel',
+    location: 'Doorstep Travel',
+    badge: 'Family Holiday',
+    desc: 'Warm farewell selfie with travelers at luxury hotel portico before city transfer.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.41 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-23',
+    category: 'clients',
+    title: 'Chauffeur with Vacationing Couple',
+    location: 'Outstation Holiday',
+    badge: 'Happy Travelers',
+    desc: 'Couple travelers sharing a warm photo with our polite, courteous chauffeur during outstation tour.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.42 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-24',
+    category: 'clients',
+    title: 'Devotees with Sacred Tilak after Darshan',
+    location: 'Temple Circuit',
+    badge: 'Pilgrim Smiles',
+    desc: 'Peaceful devotees with sacred tilak enjoying a blessed temple tour journey across Tamil Nadu shrines.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.42 PM.jpeg',
+    aspect: 'aspect-[4/3]'
+  },
+  {
+    id: 'clients-25',
+    category: 'clients',
+    title: 'Family Travelers Darshan Day',
+    location: 'Madurai / Rameswaram',
+    badge: 'Family Pilgrimage',
+    desc: 'Courteous chauffeur with happy family clients on a sacred temple pilgrimage itinerary.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.43 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-26',
+    category: 'clients',
+    title: 'Pilgrim Family at Temple Complex',
+    location: 'Spiritual Journey',
+    badge: 'Temple Visit',
+    desc: 'Devoted family members walking in traditional attire within spacious temple grounds.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.49 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-27',
+    category: 'clients',
+    title: 'Holiday Travelers at Festive Promenade',
+    location: 'City Tour',
+    badge: 'Holiday Cheer',
+    desc: 'Guests enjoying city sightseeing and festive seasonal decorations during evening tour.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.50 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-28',
+    category: 'clients',
+    title: 'Pilgrim Group in Traditional Veshti',
+    location: 'Sacred Yatra',
+    badge: 'Devotee Group',
+    desc: 'Devotees in pristine traditional veshti posing next to Toyota Innova cab after pooja.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.50 PM (2).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-29',
+    category: 'clients',
+    title: 'Winter Hill Holiday with Chauffeur',
+    location: 'Ooty / Kodaikanal',
+    badge: 'Misty Hills',
+    desc: 'Guests bundled in winter beanies enjoying chilly mountain mist with our driver.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.14 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-30',
+    category: 'clients',
+    title: 'Traveler Couple at Historic Monument',
+    location: 'Kanyakumari / Heritage',
+    badge: 'Sightseeing',
+    desc: 'Happy travelers posing by grand stone monument under bright sunny coastal skies.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.27 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-31',
+    category: 'clients',
+    title: 'Chauffeur with Family on Sightseeing Halt',
+    location: 'Holiday Road Trip',
+    badge: 'Family Memory',
+    desc: 'Cheerful family selfie with our courteous chauffeur during a scenic outstation halt.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.29 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-32',
+    category: 'clients',
+    title: 'Travelers Exploring Pine Forest Grove',
+    location: 'Kodaikanal / Ooty',
+    badge: 'Forest Excursion',
+    desc: 'Travel guests enjoying peaceful walks amidst towering pine trees with our chauffeur.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.29 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-33',
+    category: 'clients',
+    title: 'Travelers on Scenic River Boating Safari',
+    location: 'Kerala Waters / Periyar',
+    badge: 'Boating Adventure',
+    desc: 'Excited travelers wearing safety jackets enjoying a breezy speedboat tour across calm backwaters.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.31 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-34',
+    category: 'clients',
+    title: 'Friends Road Trip with Chauffeur',
+    location: 'Outstation Holiday',
+    badge: 'Travel Pals',
+    desc: 'Friendly road trip moments with guests standing beside their outstation tour vehicle.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.32 PM (1).jpeg',
+    aspect: 'aspect-[3/4]'
+  },
+  {
+    id: 'clients-35',
+    category: 'clients',
+    title: 'Solo Traveler in Scenic Valley Meadow',
+    location: 'Tamil Nadu Countryside',
+    badge: 'Relaxed Tour',
+    desc: 'Travel guest pausing for a relaxing breath of fresh air in rural mountain fields.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.32 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-36',
+    category: 'clients',
+    title: 'Family Vacationers at Mountain Resort',
+    location: 'Ooty / Kodaikanal',
+    badge: 'Family Leisure',
+    desc: 'Happy family with smiling children enjoying manicured lawns and fresh hill station air.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.33 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-37',
+    category: 'clients',
+    title: 'Family Sightseeing with Friendly Chauffeur',
+    location: 'Sightseeing Tour',
+    badge: 'Customer Satisfaction',
+    desc: 'Travelers enjoying personalized sightseeing guided by our experienced local chauffeur.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.33 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'clients-38',
+    category: 'clients',
+    title: 'Guest at Heritage Hill Cottage',
+    location: 'Nilgiri Bungalow',
+    badge: 'Hill Retreat',
+    desc: 'Traveler relaxing outside charming white colonial cottage surrounded by mountain flowers.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.35 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'clients-39',
+    category: 'clients',
+    title: 'Chauffeur with Pilgrim Group',
+    location: 'Temple Circuit',
+    badge: 'Pilgrim Friends',
+    desc: 'Courteous chauffeur sharing a cheerful moment with traveling devotees at temple grounds.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.39 PM (1).jpeg',
+    aspect: 'aspect-[4/3]'
   }
 ];
 
@@ -516,16 +926,6 @@ const CARS_ITEMS = [
   {
     id: 'cars-6',
     category: 'cars',
-    title: 'Commercial Sedan Fleet by the Sea',
-    location: 'Beach Tour',
-    badge: 'AC Sedan',
-    desc: 'Side-profile of our spotless white Dzire commercial sedan along sunny golden sands.',
-    image: '/gallery/WhatsApp Image 2026-10-23 at 9.33.28 PM (1).jpeg',
-    aspect: 'aspect-[16/9]'
-  },
-  {
-    id: 'cars-7',
-    category: 'cars',
     title: 'Polished Commercial Cab Beach View',
     location: 'Coastal Highway',
     badge: 'Clean & Sanitized',
@@ -534,7 +934,7 @@ const CARS_ITEMS = [
     aspect: 'aspect-[16/9]'
   },
   {
-    id: 'cars-8',
+    id: 'cars-7',
     category: 'cars',
     title: 'Dzire Sedan Front Grille & Foglamps',
     location: 'Fleet Base',
@@ -544,7 +944,7 @@ const CARS_ITEMS = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'cars-9',
+    id: 'cars-8',
     category: 'cars',
     title: 'Swift Dzire at Heritage Resort Porch',
     location: 'Luxury Hotel Entry',
@@ -554,7 +954,7 @@ const CARS_ITEMS = [
     aspect: 'aspect-[16/9]'
   },
   {
-    id: 'cars-10',
+    id: 'cars-9',
     category: 'cars',
     title: 'Sedan Fleet in Resort Driveway',
     location: 'Holiday Resort',
@@ -564,7 +964,7 @@ const CARS_ITEMS = [
     aspect: 'aspect-[16/9]'
   },
   {
-    id: 'cars-11',
+    id: 'cars-10',
     category: 'cars',
     title: 'Swift Dzire on Mountain Viewpoint',
     location: 'Hill Station Pass',
@@ -574,7 +974,7 @@ const CARS_ITEMS = [
     aspect: 'aspect-[4/3]'
   },
   {
-    id: 'cars-12',
+    id: 'cars-11',
     category: 'cars',
     title: 'Commercial Sedan at Forest Canopy Resort',
     location: 'Thekkady / Periyar',
@@ -582,18 +982,88 @@ const CARS_ITEMS = [
     desc: 'Spotless Swift Dzire tourist taxi with yellow commercial registration parked at luxury wildlife resort.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.37 PM (1).jpeg',
     aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'cars-12',
+    category: 'cars',
+    title: 'White Swift Dzire on Highway Flyover',
+    location: 'Express Highway',
+    badge: 'Sedan (4+1)',
+    desc: 'Spotless commercial Swift Dzire with yellow registration plate parked along the highway corridor for outstation transit.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.38 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'cars-13',
+    category: 'cars',
+    title: 'Commercial Dzire Sedan in Coconut Palms',
+    location: 'Tamil Nadu Countryside',
+    badge: 'Sedan Fleet',
+    desc: 'Well-maintained air-conditioned Swift Dzire with yellow commercial registration plate parked under coconut groves.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.43 PM.jpeg',
+    aspect: 'aspect-[3/4]'
+  },
+  {
+    id: 'cars-14',
+    category: 'cars',
+    title: 'Swift Dzire Coastal Drive',
+    location: 'Dhanushkodi / Sea Coast',
+    badge: 'Coastal Fleet',
+    desc: 'Yellow-plate commercial Dzire sedan resting along breathtaking turquoise coastal waters.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.48 PM (1).jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'cars-15',
+    category: 'cars',
+    title: 'Commercial Cab at Temple Festival Plaza',
+    location: 'Pilgrim Hub',
+    badge: 'On-Time Dispatch',
+    desc: 'Comfortable commercial cab staged conveniently at temple entrance for passenger pickup.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.48 PM.jpeg',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    id: 'cars-16',
+    category: 'cars',
+    title: 'Commercial Dzire Sedan with Driver',
+    location: 'Hotel Portico Dispatch',
+    badge: 'Executive Sedan',
+    desc: 'Spotless white commercial sedan with yellow board and professional driver outside hotel.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.30 PM (1).jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'cars-17',
+    category: 'cars',
+    title: 'Driver with Commercial Sedan in Hill Pass',
+    location: 'Western Ghats',
+    badge: 'Hill Station Fleet',
+    desc: 'Reliable commercial vehicle with yellow number plate ready for mountain ascents.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.30 PM.jpeg',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'cars-18',
+    category: 'cars',
+    title: 'Toyota Innova Crysta with Travelers & Driver',
+    location: 'Premium Outstation',
+    badge: 'Innova Crysta (7+1)',
+    desc: 'Spacious Toyota Innova Crysta SUV with yellow license plate TN 11 W 2895 parked at hotel entrance ready for highway tour.',
+    image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.37 PM.jpeg',
+    aspect: 'aspect-[16/9]'
   }
 ];
 
 const ALL_ITEMS = [...PLACES_ITEMS, ...CLIENTS_ITEMS, ...CARS_ITEMS];
 
-export default function Gallery() {
+export default function GalleryPage() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('all'); // 'all' | 'places' | 'clients' | 'cars'
-  const [layoutMode, setLayoutMode] = useState('grid'); // 'grid' | 'collage'
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [activeTab, setActiveTab] = useState('all');
+  const [viewMode, setViewMode] = useState('grid');
+  const [selectedItemIndex, setSelectedItemIndex] = useState(null);
 
-  const currentPool = activeTab === 'all' 
+  const displayedItems = activeTab === 'all' 
     ? ALL_ITEMS 
     : activeTab === 'places' 
       ? PLACES_ITEMS 
@@ -601,50 +1071,49 @@ export default function Gallery() {
         ? CLIENTS_ITEMS 
         : CARS_ITEMS;
 
-  const currentIndex = selectedItem ? currentPool.findIndex(i => i.id === selectedItem.id) : -1;
+  const selectedItem = selectedItemIndex !== null ? displayedItems[selectedItemIndex] : null;
 
-  const handlePrev = (e) => {
-    e.stopPropagation();
-    if (currentIndex > 0) {
-      setSelectedItem(currentPool[currentIndex - 1]);
-    } else {
-      setSelectedItem(currentPool[currentPool.length - 1]);
-    }
+  const handleWhatsAppBooking = (item) => {
+    const message = `Hello Nithamudayar Tours & Travels Pvt Ltd,
+I saw this photo in your Gallery:
+📸 *${item.title}*
+📍 *Location / Context:* ${item.location}
+🏷️ *Category:* ${item.category.toUpperCase()}
+
+I would like to enquire about a tour package / taxi service for this. Please share details!`;
+
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/919894116405?text=${encoded}`, '_blank');
   };
 
   const handleNext = (e) => {
-    e.stopPropagation();
-    if (currentIndex < currentPool.length - 1) {
-      setSelectedItem(currentPool[currentIndex + 1]);
-    } else {
-      setSelectedItem(currentPool[0]);
+    e?.stopPropagation();
+    if (selectedItemIndex !== null) {
+      setSelectedItemIndex((selectedItemIndex + 1) % displayedItems.length);
     }
   };
 
-  const handleWhatsAppBooking = (item) => {
-    const text = `Hello Nithamudayar Tours & Travels,
-I am inquiring about booking a trip related to this photo:
-📍 ${item.title} (${item.location})
-Category: ${item.category.toUpperCase()}
-
-Please share vehicle options and tariff package details.`;
-    window.open(`https://wa.me/919894116405?text=${encodeURIComponent(text)}`, '_blank');
+  const handlePrev = (e) => {
+    e?.stopPropagation();
+    if (selectedItemIndex !== null) {
+      setSelectedItemIndex((selectedItemIndex - 1 + displayedItems.length) % displayedItems.length);
+    }
   };
 
-  const renderCard = (item) => (
+  const renderCard = (item, idx) => (
     <div
       key={item.id}
-      onClick={() => setSelectedItem(item)}
-      className="group relative overflow-hidden rounded-2xl bg-[#0B1138] border border-white/10 shadow-lg hover:shadow-2xl hover:border-brand-gold/60 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+      onClick={() => setSelectedItemIndex(idx)}
+      className="group relative bg-[#10194E] rounded-2xl overflow-hidden border border-brand-gold/30 shadow-md hover:shadow-2xl hover:border-brand-gold/80 transition-all duration-300 cursor-pointer flex flex-col"
     >
-      <div className={`relative w-full ${layoutMode === 'collage' ? item.aspect : 'aspect-[4/3]'} overflow-hidden bg-neutral-900`}>
+      <div className="relative overflow-hidden bg-neutral-900">
         <img
           src={item.image}
           alt={item.title}
           loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 group-hover:brightness-105 transition-transform duration-500 ease-out"
+          className="w-full h-56 sm:h-64 object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1138] via-transparent to-black/20 opacity-80 group-hover:opacity-95 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#10194E] via-transparent to-black/30 pointer-events-none" />
 
         <div className="absolute top-2.5 left-2.5">
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#10194E]/90 text-brand-gold border border-brand-gold/40 shadow-sm backdrop-blur-sm">
@@ -757,191 +1226,166 @@ Please share vehicle options and tariff package details.`;
         </div>
       </section>
 
-      {/* ─── 2. CONTROLS BAR ───────────────────────────────────────────── */}
-      <div className="bg-white border-b border-neutral-200 sticky top-16 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-10 py-3 flex items-center justify-between">
-          <div className="text-xs sm:text-sm font-semibold text-neutral-700">
-            Showing <span className="text-[#10194E] font-bold">{currentPool.length} photos</span> in{' '}
-            <span className="text-brand-gold font-bold uppercase">
-              {activeTab === 'all' ? 'All Sections' : activeTab}
-            </span>
+      {/* ─── 2. MAIN GALLERY CONTENT ───────────────────────────────────── */}
+      <section className="py-10 sm:py-14 px-4 sm:px-10 max-w-7xl mx-auto">
+        
+        {/* Controls Toolbar: Active filter count + Grid/Collage switcher */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-neutral-200">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black font-heading text-neutral-900 capitalize">
+              {activeTab === 'all' && 'All Gallery Photos'}
+              {activeTab === 'places' && '1. Places & Heritage Monuments'}
+              {activeTab === 'clients' && '2. Happy Clients & Travel Diaries'}
+              {activeTab === 'cars' && '3. Commercial Car Fleet (Yellow Plate)'}
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-600 mt-0.5">
+              Showing {displayedItems.length} real photographs from verified South Indian journeys.
+            </p>
           </div>
 
-          <div className="flex items-center gap-1 bg-neutral-100 p-1 rounded-lg border border-neutral-200">
+          <div className="flex items-center gap-2 self-start sm:self-auto bg-white p-1 rounded-xl border border-neutral-200 shadow-sm">
             <button
-              onClick={() => setLayoutMode('grid')}
-              title="Uniform Grid View"
-              className={`p-1.5 rounded-md text-xs font-semibold flex items-center gap-1 cursor-pointer transition-all ${
-                layoutMode === 'grid'
-                  ? 'bg-white text-[#10194E] shadow-xs'
-                  : 'text-neutral-500 hover:text-neutral-800'
+              onClick={() => setViewMode('grid')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                viewMode === 'grid'
+                  ? 'bg-[#10194E] text-brand-gold shadow-sm'
+                  : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
-              <LayoutGrid className="w-4 h-4" />
-              <span className="hidden sm:inline">Grid</span>
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Grid View</span>
             </button>
             <button
-              onClick={() => setLayoutMode('collage')}
-              title="Masonry / Collage View"
-              className={`p-1.5 rounded-md text-xs font-semibold flex items-center gap-1 cursor-pointer transition-all ${
-                layoutMode === 'collage'
-                  ? 'bg-white text-[#10194E] shadow-xs'
-                  : 'text-neutral-500 hover:text-neutral-800'
+              onClick={() => setViewMode('collage')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                viewMode === 'collage'
+                  ? 'bg-[#10194E] text-brand-gold shadow-sm'
+                  : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
-              <Columns3 className="w-4 h-4" />
-              <span className="hidden sm:inline">Collage</span>
+              <Columns3 className="w-3.5 h-3.5" />
+              <span>Collage View</span>
             </button>
           </div>
         </div>
-      </div>
 
-      {/* ─── 3. MAIN GALLERY BODY ──────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 py-8 sm:py-12 space-y-12">
-
-        {/* Section 1: Places */}
-        {(activeTab === 'all' || activeTab === 'places') && (
-          <section id="places-section" className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b-2 border-brand-gold/30 pb-3">
-              <div>
-                <div className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-brand-gold">
-                  <Compass className="w-3.5 h-3.5" />
-                  <span>Section 1</span>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-black font-heading text-[#10194E]">
-                  Places & Sacred Destinations ({PLACES_ITEMS.length})
-                </h2>
-              </div>
-              <p className="text-xs sm:text-sm text-neutral-500 mt-1 sm:mt-0">
-                Temples, hill viewpoints, water dams, coastal drives & monuments
-              </p>
-            </div>
-
-            <div className={
-              layoutMode === 'collage'
-                ? 'columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4'
-                : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'
-            }>
-              {PLACES_ITEMS.map(renderCard)}
-            </div>
-          </section>
+        {/* View Mode 1: Uniform Responsive Grid */}
+        {viewMode === 'grid' && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {displayedItems.map((item, idx) => renderCard(item, idx))}
+          </div>
         )}
 
-        {/* Section 2: Clients */}
-        {(activeTab === 'all' || activeTab === 'clients') && (
-          <section id="clients-section" className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b-2 border-brand-gold/30 pb-3">
-              <div>
-                <div className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-brand-gold">
-                  <Users className="w-3.5 h-3.5" />
-                  <span>Section 2</span>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-black font-heading text-[#10194E]">
-                  Clients & Traveler Diaries ({CLIENTS_ITEMS.length})
-                </h2>
-              </div>
-              <p className="text-xs sm:text-sm text-neutral-500 mt-1 sm:mt-0">
-                Smiling families, pilgrim groups, waterfalls, Munnar holidays & chauffeur moments
-              </p>
-            </div>
+        {/* View Mode 2: Pinterest-style Masonry Collage */}
+        {viewMode === 'collage' && (
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
+            {displayedItems.map((item, idx) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedItemIndex(idx)}
+                className="break-inside-avoid group relative bg-[#10194E] rounded-2xl overflow-hidden border border-brand-gold/30 shadow-md hover:shadow-2xl hover:border-brand-gold/80 transition-all duration-300 cursor-pointer"
+              >
+                <div className="relative overflow-hidden bg-neutral-900">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    className={`w-full ${item.aspect} object-cover object-center group-hover:scale-105 transition-transform duration-500`}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#10194E] via-transparent to-black/30 pointer-events-none" />
 
-            <div className={
-              layoutMode === 'collage'
-                ? 'columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4'
-                : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'
-            }>
-              {CLIENTS_ITEMS.map(renderCard)}
-            </div>
-          </section>
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#10194E]/90 text-brand-gold border border-brand-gold/40 shadow-sm backdrop-blur-sm">
+                      {item.badge}
+                    </span>
+                  </div>
+
+                  <div className="absolute top-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-sm border border-white/20">
+                      <Eye className="w-4 h-4 text-brand-gold" />
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-3 sm:p-4 bg-gradient-to-b from-[#10194E]/80 to-[#0B1138]">
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-brand-gold font-semibold mb-1">
+                    <MapPin className="w-3.5 h-3.5 shrink-0" />
+                    <span className="truncate">{item.location}</span>
+                  </div>
+                  <h3 className="text-xs sm:text-sm font-bold font-heading text-white line-clamp-1 group-hover:text-brand-gold transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-[11px] sm:text-xs text-neutral-300 line-clamp-2 mt-1 leading-snug">
+                    {item.desc}
+                  </p>
+                  
+                  <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-semibold text-brand-gold">
+                    <span className="uppercase tracking-wider text-[10px] text-white/70">Click to View</span>
+                    <span className="inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform text-[#FCF6BA]">
+                      Enquire <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
 
-        {/* Section 3: Cars */}
-        {(activeTab === 'all' || activeTab === 'cars') && (
-          <section id="cars-section" className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b-2 border-brand-gold/30 pb-3">
-              <div>
-                <div className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-brand-gold">
-                  <Car className="w-3.5 h-3.5" />
-                  <span>Section 3</span>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-black font-heading text-[#10194E]">
-                  Cars & Commercial Fleet ({CARS_ITEMS.length})
-                </h2>
-              </div>
-              <p className="text-xs sm:text-sm text-neutral-500 mt-1 sm:mt-0">
-                Pristine Swift Dzire sedans, Toyota Innova Crysta SUVs & resort porch arrivals
-              </p>
-            </div>
+      </section>
 
-            <div className={
-              layoutMode === 'collage'
-                ? 'columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4'
-                : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'
-            }>
-              {CARS_ITEMS.map(renderCard)}
-            </div>
-          </section>
-        )}
-
-      </div>
-
-      {/* ─── 4. LIGHTBOX MODAL ─────────────────────────────────────────── */}
+      {/* ─── 3. LIGHTBOX MODAL ─────────────────────────────────────────── */}
       {selectedItem && (
         <div 
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col justify-between p-3 sm:p-6"
-          onClick={() => setSelectedItem(null)}
+          onClick={() => setSelectedItemIndex(null)}
         >
-          {/* Top Bar */}
+          {/* Top Bar with Title and Close Button */}
           <div 
-            className="flex items-center justify-between text-white z-10 max-w-5xl mx-auto w-full"
+            className="flex items-center justify-between max-w-5xl mx-auto w-full z-10 text-white"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase bg-brand-gold text-neutral-950">
+              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-gold text-neutral-950">
                 {selectedItem.badge}
               </span>
-              <span className="text-xs sm:text-sm font-medium text-neutral-300">
-                {selectedItem.location}
+              <span className="text-xs sm:text-sm text-neutral-400">
+                {selectedItemIndex + 1} of {displayedItems.length}
               </span>
             </div>
 
-            <div className="flex items-center gap-3">
-              <span className="text-xs text-neutral-400 font-semibold">
-                {currentIndex + 1} of {currentPool.length}
-              </span>
-              <button
-                type="button"
-                onClick={() => setSelectedItem(null)}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+            <button
+              onClick={() => setSelectedItemIndex(null)}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
 
-          {/* Main Photo with Prev / Next */}
+          {/* Center Image Container with Navigation Arrows */}
           <div 
-            className="relative flex-1 flex items-center justify-center p-2 sm:p-4 overflow-hidden"
+            className="relative flex-1 flex items-center justify-center my-2 max-w-5xl mx-auto w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={handlePrev}
-              className="absolute left-2 sm:left-4 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-brand-gold hover:text-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-lg"
+              className="absolute left-1 sm:left-4 z-20 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-black/60 hover:bg-brand-gold text-white hover:text-neutral-950 flex items-center justify-center transition-all cursor-pointer border border-white/20 hover:border-brand-gold shadow-lg"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
 
-            <img
-              src={selectedItem.image}
-              alt={selectedItem.title}
-              className="max-h-[72vh] sm:max-h-[76vh] max-w-full object-contain rounded-xl shadow-2xl"
-            />
+            <div className="max-h-[68vh] sm:max-h-[72vh] flex items-center justify-center overflow-hidden rounded-xl">
+              <img
+                src={selectedItem.image}
+                alt={selectedItem.title}
+                className="max-h-[68vh] sm:max-h-[72vh] max-w-full object-contain rounded-xl shadow-2xl"
+              />
+            </div>
 
             <button
               type="button"
               onClick={handleNext}
-              className="absolute right-2 sm:right-4 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-brand-gold hover:text-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-lg"
+              className="absolute right-1 sm:right-4 z-20 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-black/60 hover:bg-brand-gold text-white hover:text-neutral-950 flex items-center justify-center transition-all cursor-pointer border border-white/20 hover:border-brand-gold shadow-lg"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
