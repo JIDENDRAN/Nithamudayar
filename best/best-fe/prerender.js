@@ -125,7 +125,7 @@ async function runPrerender() {
     );
     
     // Replace Canonical Link
-    const canonicalUrl = `https://www.nithamudayartravels.com${url === '/' ? '' : url}`;
+    const canonicalUrl = `https://nithamudayar.vercel.app${url === '/' ? '' : url}`;
     html = html.replace(
       /<link\s+rel="canonical"\s+href=".*?"\s*\/>/,
       `<link rel="canonical" href="${canonicalUrl}" />`
