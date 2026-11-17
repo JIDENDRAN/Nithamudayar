@@ -34,6 +34,7 @@ import { getVehicleImage, getPackageImage } from '../../utils/imageImports';
 import { useNavigate } from 'react-router-dom';
 import API_BASE_URL from '../../apiConfig.js';
 import TripBillModal from '../../components/admin/TripBillModal';
+import { compressImage, getCustomGalleryPhotos, saveCustomGalleryPhoto, deleteCustomGalleryPhoto } from '../../utils/galleryStorage';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -589,72 +590,65 @@ Driver Charge: ${data.dayDriver || ''}`;
 
   const fetchGalleryImages = async () => {
     try {
-      const cached = localStorage.getItem('nitham_custom_gallery');
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        if (Array.isArray(parsed)) setGalleryImages(parsed);
-      }
-    } catch (e) {
-      console.warn('LocalStorage gallery read error:', e);
-    }
-
-    try {
-      const res = await fetch(`${API_BASE_URL}/api/gallery`);
-      if (res.ok) {
-        const data = await res.json();
-        if (Array.isArray(data)) {
-          setGalleryImages(data);
-          localStorage.setItem('nitham_custom_gallery', JSON.stringify(data));
-        }
-      }
+      const photos = await getCustomGalleryPhotos();
+      setGalleryImages(photos);
     } catch (err) {
-      console.warn('Backend gallery fetch error:', err.message);
+      console.warn('Gallery load notice:', err);
     }
   };
 
   const handleGalleryImageUpload = async (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files && e.target.files[0];
     if (!file) return;
 
     setUploadingGalleryImg(true);
-    showToast('Uploading image...', 'success');
+    showToast('Optimizing & preparing image...', 'success');
 
     try {
-      const formData = new FormData();
-      formData.append('image', file);
-      const response = await fetch(`${API_BASE_URL}/api/upload`, {
-        method: 'POST',
-        body: formData
-      });
-      if (response.ok) {
-        const resData = await response.json();
-        setGalleryModal(prev => ({
-          ...prev,
-          data: { ...prev.data, image: resData.filePath }
-        }));
-        showToast('Image uploaded successfully!');
-        setUploadingGalleryImg(false);
-        return;
-      }
-    } catch (err) {
-      console.warn('Backend upload unavailable, using direct client storage:', err);
-    }
+      // 1. Client-side auto-compression to avoid browser quota limits
+      const compressedDataUri = await compressImage(file, { maxWidth: 1600, maxHeight: 1600, quality: 0.82 });
 
-    // Direct browser fallback if backend is offline or static
-    const reader = new FileReader();
-    reader.onload = (event) => {
+      // Suggest clean title from filename if title empty
+      const fileNameClean = file.name ? file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ') : '';
+
       setGalleryModal(prev => ({
         ...prev,
-        data: { ...prev.data, image: event.target.result }
+        data: {
+          ...prev.data,
+          image: compressedDataUri,
+          title: prev.data.title || fileNameClean
+        }
       }));
-      showToast('Image loaded successfully!');
+
+      // 2. Also try uploading to backend server if reachable
+      try {
+        const formData = new FormData();
+        formData.append('image', file);
+        const response = await fetch(`${API_BASE_URL}/api/upload`, {
+          method: 'POST',
+          body: formData
+        });
+        if (response.ok) {
+          const resData = await response.json();
+          if (resData.filePath) {
+            setGalleryModal(prev => ({
+              ...prev,
+              data: { ...prev.data, image: resData.filePath }
+            }));
+          }
+        }
+      } catch (beErr) {
+        // Backend offline / static mode - compressedDataUri is active
+      }
+
+      showToast('Image ready to publish!');
+    } catch (err) {
+      console.error('Image compression error:', err);
+      showToast('Failed to process image file', 'error');
+    } finally {
       setUploadingGalleryImg(false);
-    };
-    reader.onerror = () => {
-      showToast('Failed to read image file', 'error');
-      setUploadingGalleryImg(false);
-    };
-    reader.readAsDataURL(file);
+      if (e.target) e.target.value = '';
+    }
   };
 
   const handleGallerySubmit = async (e) => {
@@ -665,14 +659,12 @@ Driver Charge: ${data.dayDriver || ''}`;
       showToast('Please upload or select an image for the gallery', 'error');
       return;
     }
-    if (!data.title.trim()) {
-      showToast('Please enter a title for the photo', 'error');
-      return;
-    }
+
+    const finalTitle = data.title.trim() || 'Tour Highlight - Tamil Nadu';
 
     const newPhoto = {
       id: Date.now(),
-      title: data.title.trim(),
+      title: finalTitle,
       category: data.category || 'places',
       location: data.location.trim() || 'Tamil Nadu',
       badge: data.badge.trim() || 'Featured Photo',
@@ -683,49 +675,37 @@ Driver Charge: ${data.dayDriver || ''}`;
     };
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/gallery`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newPhoto)
+      await saveCustomGalleryPhoto(newPhoto);
+      setGalleryImages(prev => [newPhoto, ...prev.filter(g => g.id !== newPhoto.id)]);
+      showToast('Photo successfully added to public gallery!');
+      setGalleryModal({
+        isOpen: false,
+        data: {
+          title: '',
+          category: 'places',
+          location: '',
+          badge: 'Featured Photo',
+          desc: '',
+          image: '',
+          span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+        }
       });
-      if (res.ok) {
-        const saved = await res.json();
-        if (saved && saved.id) newPhoto.id = saved.id;
-      }
     } catch (err) {
-      console.warn('Backend save not available, saved to local cache:', err);
+      console.error('Gallery save error:', err);
+      showToast('Error saving photo: ' + (err.message || 'unknown error'), 'error');
     }
-
-    const updated = [newPhoto, ...galleryImages.filter(g => g.id !== newPhoto.id)];
-    setGalleryImages(updated);
-    localStorage.setItem('nitham_custom_gallery', JSON.stringify(updated));
-
-    showToast('Photo successfully added to public gallery!');
-    setGalleryModal({
-      isOpen: false,
-      data: {
-        title: '',
-        category: 'places',
-        location: '',
-        badge: 'Featured Photo',
-        desc: '',
-        image: '',
-        span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
-      }
-    });
   };
 
   const handleDeleteGalleryImage = async (id) => {
     if (!window.confirm('Are you sure you want to remove this photo from the public gallery?')) return;
     try {
-      await fetch(`${API_BASE_URL}/api/gallery/${id}`, { method: 'DELETE' });
+      await deleteCustomGalleryPhoto(id);
+      setGalleryImages(prev => prev.filter(g => g.id !== id));
+      showToast('Photo removed from gallery.');
     } catch (err) {
-      console.warn('Backend delete not available, removing locally:', err);
+      console.error('Delete error:', err);
+      showToast('Failed to delete photo', 'error');
     }
-    const updated = galleryImages.filter(g => g.id !== id);
-    setGalleryImages(updated);
-    localStorage.setItem('nitham_custom_gallery', JSON.stringify(updated));
-    showToast('Photo removed from gallery.');
   };
 
   return (
@@ -3101,9 +3081,16 @@ Driver Charge: ${data.dayDriver || ''}`;
                         Select Photo <span className="text-red-500">*</span>
                       </label>
                       
-                      <div className="border-2 border-dashed border-[#edeae1] hover:border-[#d4951e] rounded-2xl p-4 bg-[#FAF8F5] transition-colors flex flex-col items-center justify-center gap-3">
+                      <label className="border-2 border-dashed border-[#edeae1] hover:border-[#d4951e] rounded-2xl p-5 bg-[#FAF8F5] hover:bg-[#FAF6EC] transition-all flex flex-col items-center justify-center gap-3 cursor-pointer group relative block">
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={handleGalleryImageUpload}
+                          disabled={uploadingGalleryImg}
+                        />
                         {galleryModal.data.image ? (
-                          <div className="relative w-full max-w-md h-48 bg-black/5 rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
+                          <div className="relative w-full max-w-md h-52 bg-black/5 rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
                             <img
                               src={getGalleryImageUrl(galleryModal.data.image)}
                               alt="Preview"
@@ -3111,39 +3098,40 @@ Driver Charge: ${data.dayDriver || ''}`;
                             />
                             <button
                               type="button"
-                              onClick={() => setGalleryModal(prev => ({ ...prev, data: { ...prev.data, image: '' } }))}
-                              className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-lg shadow-md transition-colors"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setGalleryModal(prev => ({ ...prev, data: { ...prev.data, image: '' } }));
+                              }}
+                              className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-lg shadow-md transition-colors z-10"
                               title="Remove image"
                             >
                               <X className="w-4 h-4" />
                             </button>
+                            <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold text-center py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                              Click to choose another photo
+                            </div>
                           </div>
                         ) : (
                           <div className="text-center py-4 space-y-2">
-                            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-[#d4951e]">
-                              <Upload className="w-6 h-6" />
+                            <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-[#d4951e] group-hover:scale-110 transition-transform">
+                              <Upload className="w-7 h-7" />
                             </div>
                             <div>
-                              <p className="text-sm font-bold text-gray-700">Click to upload from device</p>
-                              <p className="text-xs text-gray-400 mt-0.5">Supports high-res JPG, PNG, WEBP (up to 15MB)</p>
+                              <p className="text-sm font-bold text-gray-800">
+                                {uploadingGalleryImg ? 'Optimizing photo...' : 'Click anywhere to choose a photo from device'}
+                              </p>
+                              <p className="text-xs text-gray-500 mt-0.5">Supports all camera formats (JPG, PNG, WEBP, HEIC)</p>
+                            </div>
+                            <div className="pt-2">
+                              <span className="inline-flex items-center gap-2 bg-[#10194E] group-hover:bg-[#283058] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm transition-all">
+                                <Upload className="w-3.5 h-3.5" />
+                                <span>Browse Photos</span>
+                              </span>
                             </div>
                           </div>
                         )}
-
-                        <div className="flex flex-wrap items-center justify-center gap-3 w-full">
-                          <label className="bg-[#10194E] hover:bg-[#283058] text-white px-4 py-2.5 rounded-xl cursor-pointer transition-all shadow-sm flex items-center gap-2 text-xs font-bold">
-                            <Upload className="w-4 h-4" />
-                            <span>{uploadingGalleryImg ? 'Processing...' : galleryModal.data.image ? 'Change Photo' : 'Browse Local Image'}</span>
-                            <input
-                              type="file"
-                              accept="image/*"
-                              className="hidden"
-                              onChange={handleGalleryImageUpload}
-                              disabled={uploadingGalleryImg}
-                            />
-                          </label>
-                        </div>
-                      </div>
+                      </label>
 
                       {/* Or paste URL fallback */}
                       <div className="mt-2 flex items-center gap-2">

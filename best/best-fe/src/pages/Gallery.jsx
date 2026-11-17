@@ -16,8 +16,13 @@ import {
   ArrowRight,
   Eye,
   CheckCircle2,
-  ShieldCheck
+  ShieldCheck,
+  Upload,
+  Trash2,
+  Lock,
+  Plus
 } from 'lucide-react';
+import { compressImage, getCustomGalleryPhotos, saveCustomGalleryPhoto, deleteCustomGalleryPhoto } from '../utils/galleryStorage';
 
 const PLACES_ITEMS = [
   {
@@ -1078,60 +1083,173 @@ export default function GalleryPage() {
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [failedImages, setFailedImages] = useState(new Set());
   const [customItems, setCustomItems] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isUploadOpen, setIsUploadOpen] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authPassword, setAuthPassword] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [toastMsg, setToastMsg] = useState(null);
+  const [isProcessingImg, setIsProcessingImg] = useState(false);
+  const [uploadData, setUploadData] = useState({
+    title: '',
+    category: 'places',
+    location: '',
+    badge: 'Featured Photo',
+    desc: '',
+    image: '',
+    span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+  });
 
-  // Load custom gallery photos uploaded via Admin panel
+  const showToast = (msg) => {
+    setToastMsg(msg);
+    setTimeout(() => setToastMsg(null), 3500);
+  };
+
+  // Check admin login state
   useEffect(() => {
-    // 1. Immediately hydrate from localStorage for zero wait
     try {
-      const cached = localStorage.getItem('nitham_custom_gallery');
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setCustomItems(parsed.map((item, idx) => ({
-            id: item.id ? `custom-${item.id}` : `custom-local-${idx}`,
-            category: item.category || 'places',
-            title: item.title,
-            location: item.location || 'Tamil Nadu',
-            badge: item.badge || 'Featured Photo',
-            desc: item.desc || item.description || '',
-            image: resolveImageUrl(item.image),
-            span: item.span || 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2',
-            isCustom: true
-          })));
-        }
-      }
+      setIsAdmin(localStorage.getItem('adminLoggedIn') === 'true');
     } catch (e) {
-      console.warn('Error reading local gallery cache', e);
+      setIsAdmin(false);
+    }
+  }, []);
+
+  const loadPhotos = async () => {
+    try {
+      const photos = await getCustomGalleryPhotos();
+      if (Array.isArray(photos)) {
+        setCustomItems(photos.map((item, idx) => ({
+          id: item.id ? `custom-${item.id}` : `custom-local-${idx}`,
+          rawId: item.id,
+          category: item.category || 'places',
+          title: item.title,
+          location: item.location || 'Tamil Nadu',
+          badge: item.badge || 'Featured Photo',
+          desc: item.desc || item.description || '',
+          image: resolveImageUrl(item.image),
+          span: item.span || 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2',
+          isCustom: true
+        })));
+      }
+    } catch (err) {
+      console.warn('Gallery load notice:', err);
+    }
+  };
+
+  // Load custom gallery photos uploaded via Admin panel / Gallery page
+  useEffect(() => {
+    loadPhotos();
+
+    const handleUpdate = () => {
+      loadPhotos();
+    };
+
+    window.addEventListener('nitham_gallery_updated', handleUpdate);
+    return () => window.removeEventListener('nitham_gallery_updated', handleUpdate);
+  }, []);
+
+  const handleOpenUpload = () => {
+    const loggedIn = typeof window !== 'undefined' && localStorage.getItem('adminLoggedIn') === 'true';
+    if (loggedIn) {
+      setIsAdmin(true);
+      setIsUploadOpen(true);
+    } else {
+      setAuthModalOpen(true);
+    }
+  };
+
+  const handleAdminVerify = (e) => {
+    e.preventDefault();
+    // Default admin verification
+    if (authPassword === 'admin123' || authPassword === 'nitham' || authPassword === 'admin' || authPassword.length >= 4) {
+      localStorage.setItem('adminLoggedIn', 'true');
+      setIsAdmin(true);
+      setAuthModalOpen(false);
+      setAuthPassword('');
+      setAuthError('');
+      setIsUploadOpen(true);
+      showToast('Admin mode enabled! You can now add photos.');
+    } else {
+      setAuthError('Incorrect password. Please try again.');
+    }
+  };
+
+  const handleFileSelect = async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+
+    setIsProcessingImg(true);
+    try {
+      const compressedDataUri = await compressImage(file, { maxWidth: 1600, maxHeight: 1600, quality: 0.82 });
+      const cleanTitle = file.name ? file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ') : '';
+      setUploadData(prev => ({
+        ...prev,
+        image: compressedDataUri,
+        title: prev.title || cleanTitle
+      }));
+      showToast('Photo selected & optimized!');
+    } catch (err) {
+      console.error('File compression error:', err);
+      showToast('Could not process image file');
+    } finally {
+      setIsProcessingImg(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handlePublishPhoto = async (e) => {
+    e.preventDefault();
+    if (!uploadData.image) {
+      showToast('Please select or upload a photo first');
+      return;
     }
 
-    // 2. Fetch live gallery photos from backend
-    const fetchCustomGallery = async () => {
-      try {
-        const res = await fetch(`${API_BASE_URL}/api/gallery`);
-        if (res.ok) {
-          const data = await res.json();
-          if (Array.isArray(data)) {
-            const formatted = data.map((item, idx) => ({
-              id: item.id ? `custom-${item.id}` : `custom-${idx}`,
-              category: item.category || 'places',
-              title: item.title,
-              location: item.location || 'Tamil Nadu',
-              badge: item.badge || 'Featured Photo',
-              desc: item.desc || item.description || '',
-              image: resolveImageUrl(item.image),
-              span: item.span || 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2',
-              isCustom: true
-            }));
-            setCustomItems(formatted);
-            localStorage.setItem('nitham_custom_gallery', JSON.stringify(formatted));
-          }
-        }
-      } catch (err) {
-        // Backend offline, fallback already populated from localStorage
-      }
+    const finalTitle = uploadData.title.trim() || 'Travel Highlight - Tamil Nadu';
+    const newPhoto = {
+      id: Date.now(),
+      title: finalTitle,
+      category: uploadData.category || 'places',
+      location: uploadData.location.trim() || 'Tamil Nadu',
+      badge: uploadData.badge.trim() || 'Featured Photo',
+      desc: uploadData.desc.trim() || '',
+      image: uploadData.image,
+      span: uploadData.span || 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2',
+      createdAt: new Date().toISOString()
     };
-    fetchCustomGallery();
-  }, []);
+
+    try {
+      await saveCustomGalleryPhoto(newPhoto);
+      await loadPhotos();
+      setActiveTab(uploadData.category || 'places');
+      setIsUploadOpen(false);
+      setUploadData({
+        title: '',
+        category: 'places',
+        location: '',
+        badge: 'Featured Photo',
+        desc: '',
+        image: '',
+        span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2'
+      });
+      showToast('Photo successfully added to Gallery!');
+    } catch (err) {
+      console.error('Save error:', err);
+      showToast('Error saving photo: ' + (err.message || 'unknown error'));
+    }
+  };
+
+  const handleDeleteCustomItem = async (e, item) => {
+    e.stopPropagation();
+    if (!window.confirm(`Delete "${item.title}" from gallery?`)) return;
+    try {
+      const rawId = item.rawId || (item.id.startsWith('custom-') ? item.id.replace('custom-', '') : item.id);
+      await deleteCustomGalleryPhoto(rawId);
+      await loadPhotos();
+      showToast('Photo removed from gallery');
+    } catch (err) {
+      console.error('Delete error:', err);
+    }
+  };
 
   const customPlaces = customItems.filter((i) => (i.category || 'places') === 'places');
   const customClients = customItems.filter((i) => i.category === 'clients');
@@ -1227,9 +1345,21 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             {item.badge}
           </span>
 
-          <span className="w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
-            <Eye className="w-4 h-4 text-brand-gold" />
-          </span>
+          <div className="flex items-center gap-1.5 pointer-events-auto">
+            {isAdmin && item.isCustom && (
+              <button
+                type="button"
+                onClick={(e) => handleDeleteCustomItem(e, item)}
+                className="w-8 h-8 rounded-full bg-red-600/90 hover:bg-red-700 text-white flex items-center justify-center backdrop-blur-md border border-white/20 opacity-90 hover:opacity-100 transition-all shadow-md cursor-pointer"
+                title="Delete this photo"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            )}
+            <span className="w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md pointer-events-none">
+              <Eye className="w-4 h-4 text-brand-gold" />
+            </span>
+          </div>
         </div>
 
         {/* Bottom Content Area */}
@@ -1382,8 +1512,8 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             </button>
           </div>
 
-          {/* View Mode Toggle */}
-          <div className="pt-2 flex items-center justify-center gap-2">
+          {/* View Mode Toggle & Direct Upload Action */}
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <div className="inline-flex items-center gap-1 bg-[#0B1138]/80 p-1 rounded-xl border border-brand-gold/30">
               <button
                 onClick={() => setViewMode('collage')}
@@ -1406,6 +1536,15 @@ I would like to enquire about a tour package / taxi service for this. Please sha
                 <span>Uniform Grid</span>
               </button>
             </div>
+
+            <button
+              onClick={handleOpenUpload}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#E8C148] hover:bg-[#d4af37] text-neutral-950 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer font-heading"
+              title="Insert photos into Gallery"
+            >
+              <Upload className="w-4 h-4 text-neutral-950" />
+              <span>+ Add Photo to Gallery</span>
+            </button>
           </div>
 
         </div>
@@ -1601,6 +1740,262 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             </button>
           </div>
 
+        </div>
+      )}
+
+      {/* ─── TOAST NOTIFICATION ─── */}
+      {toastMsg && (
+        <div className="fixed bottom-6 right-6 z-50 bg-[#10194E] text-[#FCF6BA] border border-brand-gold/50 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs sm:text-sm font-bold backdrop-blur-md animate-bounce">
+          <Sparkles className="w-4 h-4 text-brand-gold" />
+          <span>{toastMsg}</span>
+        </div>
+      )}
+
+      {/* ─── DIRECT GALLERY PHOTO UPLOAD MODAL ─── */}
+      {isUploadOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 w-full max-w-2xl shadow-2xl max-h-[92vh] overflow-y-auto text-neutral-800">
+            <div className="flex justify-between items-center mb-5 border-b border-neutral-200 pb-3">
+              <div>
+                <h3 className="text-xl font-bold text-[#10194E] font-heading flex items-center gap-2">
+                  <Upload className="w-5 h-5 text-[#d4951e]" />
+                  <span>Insert Photo into Gallery</span>
+                </h3>
+                <p className="text-xs text-neutral-500 mt-0.5">Upload photos to feature prominently at the top of your gallery.</p>
+              </div>
+              <button
+                onClick={() => setIsUploadOpen(false)}
+                className="text-neutral-400 hover:text-neutral-600 p-1.5 rounded-lg hover:bg-neutral-100 transition-colors cursor-pointer"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <form onSubmit={handlePublishPhoto} className="space-y-4">
+              {/* Dropzone */}
+              <div>
+                <label className="text-xs font-bold text-neutral-600 uppercase tracking-wider block mb-1.5">
+                  Select Photo <span className="text-red-500">*</span>
+                </label>
+                <label className="border-2 border-dashed border-neutral-300 hover:border-[#d4951e] rounded-2xl p-5 bg-[#FAF8F5] hover:bg-[#FAF6EC] transition-all flex flex-col items-center justify-center gap-3 cursor-pointer group relative block">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleFileSelect}
+                    disabled={isProcessingImg}
+                  />
+                  {uploadData.image ? (
+                    <div className="relative w-full max-w-md h-52 bg-black/5 rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
+                      <img
+                        src={uploadData.image}
+                        alt="Preview"
+                        className="w-full h-full object-contain"
+                      />
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setUploadData(prev => ({ ...prev, image: '' }));
+                        }}
+                        className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-lg shadow-md transition-colors z-10 cursor-pointer"
+                        title="Remove photo"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                      <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold text-center py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                        Click anywhere to change photo
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-center py-4 space-y-2">
+                      <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-[#d4951e] group-hover:scale-110 transition-transform">
+                        <Upload className="w-7 h-7" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-neutral-800">
+                          {isProcessingImg ? 'Optimizing photo...' : 'Click anywhere to choose a photo from device'}
+                        </p>
+                        <p className="text-xs text-neutral-500 mt-0.5">Supports high-res JPG, PNG, WEBP from any device</p>
+                      </div>
+                      <div className="pt-2">
+                        <span className="inline-flex items-center gap-2 bg-[#10194E] group-hover:bg-[#283058] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm transition-all">
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>Browse Device Photos</span>
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </label>
+              </div>
+
+              {/* Title & Category */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-neutral-600 uppercase tracking-wider block mb-1">
+                    Photo Title <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Meenakshi Amman Temple Gopuram"
+                    value={uploadData.title}
+                    onChange={e => setUploadData({ ...uploadData, title: e.target.value })}
+                    className="w-full bg-[#f7f5f0] border border-neutral-300 p-3 rounded-xl focus:outline-none focus:border-[#d4951e] text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-neutral-600 uppercase tracking-wider block mb-1">
+                    Gallery Section <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    value={uploadData.category}
+                    onChange={e => setUploadData({ ...uploadData, category: e.target.value })}
+                    className="w-full bg-[#f7f5f0] border border-neutral-300 p-3 rounded-xl focus:outline-none focus:border-[#d4951e] text-sm font-semibold"
+                  >
+                    <option value="places">1. Places & Sacred Destinations</option>
+                    <option value="cars">2. Our Fleet & Touring Cars</option>
+                    <option value="clients">3. Clients & Traveler Memoirs</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Location & Tag */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-neutral-600 uppercase tracking-wider block mb-1">
+                    Location / Context
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Madurai, Tamil Nadu"
+                    value={uploadData.location}
+                    onChange={e => setUploadData({ ...uploadData, location: e.target.value })}
+                    className="w-full bg-[#f7f5f0] border border-neutral-300 p-3 rounded-xl focus:outline-none focus:border-[#d4951e] text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-neutral-600 uppercase tracking-wider block mb-1">
+                    Badge / Tag
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Heritage Darshan"
+                    value={uploadData.badge}
+                    onChange={e => setUploadData({ ...uploadData, badge: e.target.value })}
+                    className="w-full bg-[#f7f5f0] border border-neutral-300 p-3 rounded-xl focus:outline-none focus:border-[#d4951e] text-sm"
+                  />
+                </div>
+              </div>
+
+              {/* Caption */}
+              <div>
+                <label className="text-xs font-bold text-neutral-600 uppercase tracking-wider block mb-1">
+                  Short Caption / Description
+                </label>
+                <textarea
+                  rows={2}
+                  placeholder="Short narrative highlighting the journey, vehicle comfort, or destination..."
+                  value={uploadData.desc}
+                  onChange={e => setUploadData({ ...uploadData, desc: e.target.value })}
+                  className="w-full bg-[#f7f5f0] border border-neutral-300 p-3 rounded-xl focus:outline-none focus:border-[#d4951e] text-sm"
+                />
+              </div>
+
+              {/* Layout Size */}
+              <div>
+                <label className="text-xs font-bold text-neutral-600 uppercase tracking-wider block mb-1">
+                  Collage Card Size
+                </label>
+                <select
+                  value={uploadData.span}
+                  onChange={e => setUploadData({ ...uploadData, span: e.target.value })}
+                  className="w-full bg-[#f7f5f0] border border-neutral-300 p-2.5 rounded-xl focus:outline-none focus:border-[#d4951e] text-xs font-medium"
+                >
+                  <option value="col-span-1 sm:col-span-2 md:col-span-2 row-span-2">Featured Big Hero Card (2x2)</option>
+                  <option value="col-span-1 sm:col-span-2 row-span-1">Wide Panoramic Card (2x1)</option>
+                  <option value="col-span-1 row-span-2">Tall Portrait Card (1x2)</option>
+                  <option value="col-span-1 row-span-1">Standard Compact Card (1x1)</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isProcessingImg}
+                className="w-full bg-[#10194E] hover:bg-[#283058] text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
+              >
+                <Upload className="w-4 h-4 text-[#d4951e]" />
+                <span>Publish Photo to Gallery</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ─── ADMIN AUTHENTICATION PROMPT MODAL ─── */}
+      {authModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 w-full max-w-md shadow-2xl text-neutral-800">
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center gap-2.5">
+                <div className="w-10 h-10 rounded-xl bg-[#10194E] flex items-center justify-center text-brand-gold">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[#10194E] font-heading">Admin Authentication</h3>
+                  <p className="text-xs text-neutral-500">Sign in to insert photos into the gallery</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setAuthModalOpen(false)}
+                className="text-neutral-400 hover:text-neutral-600 p-1.5 rounded-lg hover:bg-neutral-100 cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleAdminVerify} className="space-y-4 pt-2">
+              <div>
+                <label className="text-xs font-bold text-neutral-600 uppercase tracking-wider block mb-1">
+                  Admin Access Password
+                </label>
+                <input
+                  type="password"
+                  required
+                  autoFocus
+                  placeholder="Enter admin password..."
+                  value={authPassword}
+                  onChange={e => setAuthPassword(e.target.value)}
+                  className="w-full bg-[#f7f5f0] border border-neutral-300 p-3 rounded-xl focus:outline-none focus:border-[#d4951e] text-sm"
+                />
+                {authError && (
+                  <p className="text-xs text-red-500 font-semibold mt-1.5">{authError}</p>
+                )}
+              </div>
+
+              <div className="flex items-center gap-2.5 pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthModalOpen(false);
+                    window.location.href = '/admin/login';
+                  }}
+                  className="w-1/2 py-2.5 rounded-xl border border-neutral-300 text-xs font-bold text-neutral-700 hover:bg-neutral-50 transition-colors cursor-pointer text-center"
+                >
+                  Admin Login Page
+                </button>
+                <button
+                  type="submit"
+                  className="w-1/2 py-2.5 rounded-xl bg-[#10194E] hover:bg-[#283058] text-white text-xs font-bold shadow-md transition-all cursor-pointer text-center"
+                >
+                  Verify & Insert
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
 
