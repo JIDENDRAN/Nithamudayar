@@ -30,11 +30,11 @@ export default function PackagesPage({ onOpenBooking }) {
   const defaultPackages = [
     {
       id: 'tamilnadu-tourism-places',
-      city: 'Tamil Nadu Major Hubs',
+      city: 'TamilNadu Major Hubs',
       category: 'tamilnadu',
       tag: 'Complete Regional Circuit',
-      title: 'Tamil Nadu Tourism Circuit',
-      location: '10 Iconic Destinations across Tamil Nadu & Kerala',
+      title: 'TamilNadu Tourism Circuit',
+      location: '10 Iconic Destinations across TamilNadu & Kerala',
       duration: '6 Days / 5 Nights',
       groupSize: '1 to 50 Passengers',
       image: '/images/destinations/thanjavur.jpg',
@@ -121,7 +121,7 @@ export default function PackagesPage({ onOpenBooking }) {
     },
     {
       id: 'airport-pickup-drop',
-      city: 'Airports Across Tamil Nadu',
+      city: 'Airports Across TamilNadu',
       category: 'services',
       tag: 'All Luxury Cars Available',
       title: 'Airport Pickup and Drop Service',
@@ -205,7 +205,7 @@ export default function PackagesPage({ onOpenBooking }) {
       category: 'services',
       tag: 'All Luxury Cars Available',
       title: 'Family Holiday & Pilgrimage Trip',
-      location: 'Tamil Nadu & Kerala Family Destinations',
+      location: 'TamilNadu & Kerala Family Destinations',
       duration: 'Multi-Day Customized Holidays',
       groupSize: 'Families & Groups',
       image: '/images/destinations/murugan.jpg',
@@ -245,7 +245,7 @@ export default function PackagesPage({ onOpenBooking }) {
       category: 'services',
       tag: '24/7 Dedicated Chauffeur Fleet',
       title: 'All Travel Services & Chauffeur Charters',
-      location: 'Tamil Nadu & South India Hubs',
+      location: 'TamilNadu & South India Hubs',
       duration: '24/7 Available on Demand',
       groupSize: '1 to 50+ Passengers',
       image: '/images/destinations/chennai.jpg',
@@ -285,7 +285,7 @@ export default function PackagesPage({ onOpenBooking }) {
       category: 'pilgrimage',
       tag: 'Ancient Architecture & Ocean Confluence',
       title: 'Madurai Meenakshi, Rameshwaram & Kanyakumari',
-      location: 'Southern Tamil Nadu',
+      location: 'Southern TamilNadu',
       duration: '3 Days / 2 Nights',
       groupSize: 'All Group Sizes',
       image: '/images/destinations/rameswaram.jpg',
@@ -339,7 +339,7 @@ export default function PackagesPage({ onOpenBooking }) {
       category: cat,
       tag: item.location || 'Tour Circuit',
       title: item.name,
-      location: item.location || 'Tamil Nadu',
+      location: item.location || 'TamilNadu',
       duration: item.duration || 'Flexible',
       groupSize: 'All Group Sizes',
       image: item.image ? (item.image.startsWith('/uploads/') ? `${API_BASE_URL}${item.image}` : item.image) : '/images/destinations/thanjavur.jpg',
@@ -355,7 +355,7 @@ export default function PackagesPage({ onOpenBooking }) {
 
   const filterTabs = [
     { id: 'all', label: `All Circuits & Tours (${packages.length})` },
-    { id: 'tamilnadu', label: 'Tamil Nadu Tourism' },
+    { id: 'tamilnadu', label: 'TamilNadu Tourism' },
     { id: 'murugan', label: 'Arupadai Murugan Temple' },
     { id: 'mountain', label: 'Mountain Area Tourism' },
     { id: 'backwater', label: 'Back Water Places' },
@@ -364,8 +364,8 @@ export default function PackagesPage({ onOpenBooking }) {
     { id: 'pilgrimage', label: 'Madurai & Rameshwaram' },
   ];
 
-  const filtered = filter === 'all' 
-    ? packages 
+  const filtered = filter === 'all'
+    ? packages
     : packages.filter((p) => p.category === filter);
 
   return (
@@ -375,7 +375,7 @@ export default function PackagesPage({ onOpenBooking }) {
         <MobilePackagesHero onOpenBooking={onOpenBooking} />
       </div>
 
-      {/* 2. Dedicated Desktop Hero View (>= 768px) with Tamil Nadu 3D Map */}
+      {/* 2. Dedicated Desktop Hero View (>= 768px) with TamilNadu 3D Map */}
       <div className="hidden md:block">
         <PackagesHero onOpenBooking={onOpenBooking} />
       </div>
@@ -383,7 +383,7 @@ export default function PackagesPage({ onOpenBooking }) {
       {/* 2. Filter Tabs & Listing */}
       <section className="py-10 sm:py-16 px-4 sm:px-10 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto">
-          
+
           {/* Section Introduction */}
           <div className="mb-6 sm:mb-8 flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 pb-4 sm:pb-5 gap-3">
             <div>
@@ -394,7 +394,7 @@ export default function PackagesPage({ onOpenBooking }) {
                 Explore South India Tour Packages
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-2xl">
-                Explore curated circuits covering major heritage sites, temples, hill stations, and coastal destinations across Tamil Nadu and South India with dedicated AC vehicle and verified chauffeur.
+                Explore curated circuits covering major heritage sites, temples, hill stations, and coastal destinations across TamilNadu and South India with dedicated AC vehicle and verified chauffeur.
               </p>
             </div>
 
@@ -410,11 +410,10 @@ export default function PackagesPage({ onOpenBooking }) {
               <button
                 key={tab.id}
                 onClick={() => setFilter(tab.id)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
-                  filter === tab.id
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${filter === tab.id
                     ? 'btn-gold shadow-md'
                     : 'bg-white border border-neutral-300 text-neutral-700 hover:border-brand-gold-dark hover:text-neutral-900'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -430,9 +429,8 @@ export default function PackagesPage({ onOpenBooking }) {
                 className="flip-card-perspective min-h-[520px] sm:min-h-[550px] cursor-pointer group"
               >
                 <div
-                  className={`flip-card-inner rounded-2xl shadow-md transition-all duration-700 ${
-                    flippedCards[pkg.id] ? 'rotate-y-180' : ''
-                  }`}
+                  className={`flip-card-inner rounded-2xl shadow-md transition-all duration-700 ${flippedCards[pkg.id] ? 'rotate-y-180' : ''
+                    }`}
                 >
                   {/* FRONT SIDE */}
                   <div className="flip-card-front bg-white border border-neutral-200 rounded-2xl overflow-hidden flex flex-col justify-between">
@@ -551,7 +549,7 @@ export default function PackagesPage({ onOpenBooking }) {
                   </div>
 
                   {/* BACK SIDE (Detailed Itinerary) */}
-                  <div 
+                  <div
                     className="flip-card-back !bg-[#10194E] border-2 border-brand-gold/50 text-white rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-2xl"
                     style={{ backgroundColor: '#10194E', color: '#ffffff' }}
                   >

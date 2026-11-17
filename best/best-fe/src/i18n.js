@@ -17,7 +17,7 @@ const resources = {
       "Nithamudayar Tours & Travels Pvt Ltd": "Nithamudayar Tours & Travels Pvt Ltd",
       "Madurai Best Tours and Travels": "Nithamudayar Tours & Travels Pvt Ltd",
       "Select Language": "Select Language",
-      
+
       // Home
       "Safe & Comfortable Taxi Service in Madurai": "Safe & Comfortable Taxi Service in Madurai",
       "Book Your Ride": "Book Your Ride",
@@ -53,7 +53,7 @@ const resources = {
       "Us": "Us",
       "Your trusted travel partner in South India since 2015.": "Your trusted travel partner in South India since 2015.",
       "Our Story & Mission": "Our Story & Mission",
-      "Started with a single cab in Madurai, we have grown into one of the most trusted and premium taxi service providers in Tamil Nadu. Our journey has been fueled by our passion for hospitality and customer safety.": "Started with a single cab in Madurai, we have grown into one of the most trusted and premium taxi service providers in Tamil Nadu. Our journey has been fueled by our passion for hospitality and customer safety.",
+      "Started with a single cab in Madurai, we have grown into one of the most trusted and premium taxi service providers in TamilNadu. Our journey has been fueled by our passion for hospitality and customer safety.": "Started with a single cab in Madurai, we have grown into one of the most trusted and premium taxi service providers in TamilNadu. Our journey has been fueled by our passion for hospitality and customer safety.",
       "Our mission is to provide world-class, comfortable, and affordable tourism experiences. We believe that the journey is just as important as the destination, which is why we maintain a fleet of modern, sanitized vehicles driven by highly professional local experts.": "Our mission is to provide world-class, comfortable, and affordable tourism experiences. We believe that the journey is just as important as the destination, which is why we maintain a fleet of modern, sanitized vehicles driven by highly professional local experts.",
       "Years Experience": "Years Experience",
       "Safe Travel": "Safe Travel",
@@ -131,7 +131,7 @@ const resources = {
       "Nithamudayar Tours & Travels Pvt Ltd": "நித்தமுடையார் டூர்ஸ் & டிராவல்ஸ்",
       "Madurai Best Tours and Travels": "நித்தமுடையார் டூர்ஸ் & டிராவல்ஸ்",
       "Select Language": "மொழியை தேர்ந்தெடுக்கவும்",
-      
+
       // Home
       "Safe & Comfortable Taxi Service in Madurai": "மதுரையில் பாதுகாப்பான மற்றும் வசதியான டாக்ஸி சேவை",
       "Book Your Ride": "உங்கள் பயணத்தை பதிவு செய்யவும்",
@@ -167,7 +167,7 @@ const resources = {
       "Us": "பற்றி",
       "Your trusted travel partner in South India since 2015.": "2015 முதல் தென்னிந்தியாவில் உங்கள் நம்பகமான பயண பங்குதாரர்.",
       "Our Story & Mission": "எங்கள் கதை மற்றும் நோக்கம்",
-      "Started with a single cab in Madurai, we have grown into one of the most trusted and premium taxi service providers in Tamil Nadu. Our journey has been fueled by our passion for hospitality and customer safety.": "மதுரையில் ஒரு வாடகை காருடன் தொடங்கப்பட்ட நாங்கள், தமிழ்நாட்டில் மிகவும் நம்பகமான மற்றும் பிரீமியம் டாக்ஸி சேவை வழங்குநர்களில் ஒன்றாக வளர்ந்துள்ளோம்.",
+      "Started with a single cab in Madurai, we have grown into one of the most trusted and premium taxi service providers in TamilNadu. Our journey has been fueled by our passion for hospitality and customer safety.": "மதுரையில் ஒரு வாடகை காருடன் தொடங்கப்பட்ட நாங்கள், தமிழ்நாட்டில் மிகவும் நம்பகமான மற்றும் பிரீமியம் டாக்ஸி சேவை வழங்குநர்களில் ஒன்றாக வளர்ந்துள்ளோம்.",
       "Our mission is to provide world-class, comfortable, and affordable tourism experiences. We believe that the journey is just as important as the destination, which is why we maintain a fleet of modern, sanitized vehicles driven by highly professional local experts.": "உலகத்தரம் வாய்ந்த, வசதியான மற்றும் மலிவு சுற்றுலா அனுபவங்களை வழங்குவதே எங்கள் நோக்கம்.",
       "Years Experience": "ஆண்டுகள் அனுபவம்",
       "Safe Travel": "பாதுகாப்பான பயணம்",
@@ -243,7 +243,7 @@ const resources = {
       "Nithamudayar Tours & Travels Pvt Ltd": "नितमउदयर टूर्स एंड ट्रैवल्स",
       "Madurai Best Tours and Travels": "नितमउदयर टूर्स एंड ट्रैवल्स",
       "Select Language": "भाषा चुनें",
-      
+
       // Home
       "Safe & Comfortable Taxi Service in Madurai": "मदुरै में सुरक्षित और आरामदायक टैक्सी सेवा",
       "Book Your Ride": "अपनी राइड बुक करें",
@@ -279,7 +279,7 @@ const resources = {
       "Us": "बारे में",
       "Your trusted travel partner in South India since 2015.": "2015 से दक्षिण भारत में आपका विश्वसनीय यात्रा भागीदार।",
       "Our Story & Mission": "हमारी कहानी और मिशन",
-      "Started with a single cab in Madurai, we have grown into one of the most trusted and premium taxi service providers in Tamil Nadu. Our journey has been fueled by our passion for hospitality and customer safety.": "मदुरै में एक ही कैब के साथ शुरुआत करते हुए, हम तमिलनाडु में सबसे भरोसेमंद और प्रीमियम टैक्सी सेवा प्रदाताओं में से एक बन गए हैं।",
+      "Started with a single cab in Madurai, we have grown into one of the most trusted and premium taxi service providers in TamilNadu. Our journey has been fueled by our passion for hospitality and customer safety.": "मदुरै में एक ही कैब के साथ शुरुआत करते हुए, हम तमिलनाडु में सबसे भरोसेमंद और प्रीमियम टैक्सी सेवा प्रदाताओं में से एक बन गए हैं।",
       "Our mission is to provide world-class, comfortable, and affordable tourism experiences. We believe that the journey is just as important as the destination, which is why we maintain a fleet of modern, sanitized vehicles driven by highly professional local experts.": "हमारा मिशन विश्व स्तरीय, आरामदायक और किफायती पर्यटन अनुभव प्रदान करना है।",
       "Years Experience": "वर्षों का अनुभव",
       "Safe Travel": "सुरक्षित यात्रा",

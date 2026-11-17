@@ -10,8 +10,8 @@ export default function DestinationsHero({ onOpenBooking }) {
   };
 
   return (
-    <section 
-      id="destinations-hero" 
+    <section
+      id="destinations-hero"
       className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#10194E] text-white overflow-hidden bg-cover bg-[position:75%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[480px] sm:min-h-[540px] flex items-center"
       style={{
         backgroundImage: `url('/images/backgrounds/hero-kumbakonam-car.jpg')`,
@@ -33,7 +33,7 @@ export default function DestinationsHero({ onOpenBooking }) {
 
           <h1 className="font-black font-heading leading-tight tracking-tight drop-shadow-md">
             <span className="text-white block text-2xl sm:text-3xl lg:text-4xl tracking-wide uppercase">
-              TAMIL NADU DESTINATIONS
+              TamilNadu DESTINATIONS
             </span>
             <span className="text-[#E8C148] block text-xl sm:text-2xl lg:text-3xl font-extrabold mt-0.5 sm:mt-1">
               HERITAGE HUBS & REGIONAL CIRCUITS

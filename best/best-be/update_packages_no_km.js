@@ -8,11 +8,11 @@ async function updatePackages() {
 
   const pkgs = [
     {
-      name: 'Tamil Nadu Tourism Circuit',
+      name: 'TamilNadu Tourism Circuit',
       duration: '6 Days / 5 Nights',
       price: '₹24,500',
       places: 'Trichy, Thanjavur, Kumbakonam, Madurai, Karaikudi, Rameshwaram, Kanyakumari, Thiruvananthapuram, Coimbatore, Chennai',
-      location: '10 Iconic Destinations across Tamil Nadu & Kerala',
+      location: '10 Iconic Destinations across TamilNadu & Kerala',
       image: '/images/destinations/thanjavur.jpg',
       rating: '5.0',
       reviewCount: '350+'
@@ -52,7 +52,7 @@ async function updatePackages() {
       duration: '24/7 Available on Demand',
       price: 'From ₹2,500',
       places: 'Airport pickup and drop, Local trip, Outstation Trip, Corporation trip, Family trip, Honeymoon trip (All luxury cars available)',
-      location: 'Tamil Nadu & South India Hubs',
+      location: 'TamilNadu & South India Hubs',
       image: '/images/destinations/chennai.jpg',
       rating: '5.0',
       reviewCount: '500+'

@@ -30,7 +30,7 @@ export const travelHubsCategories = [
   {
     id: 'tamilnadu-heritage',
     number: '02',
-    title: 'Tamil Nadu Heritage Circuit',
+    title: 'TamilNadu Heritage Circuit',
     subtitle: 'UNESCO World Heritage & Living Dravidian Temples',
     route: 'Trichy • Madurai • Rameshwaram • Kanyakumari',
     desc: 'Journey through 2,000 years of glorious Tamil architectural genius, soaring monolithic granite temple towers (Vimana), sculpted corridors, and legendary sacred sea bridges down to the ocean confluence.',

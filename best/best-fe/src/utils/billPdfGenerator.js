@@ -540,9 +540,9 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.setFontSize(6.8);
   const terms = [
     '1. Toll charges, parking fees, interstate permit and hill taxes are payable at actuals unless explicitly inclusive.',
-    '2. Kilometer and time calculations are garage-to-garage as per standard Tamil Nadu commercial travel regulations.',
+    '2. Kilometer and time calculations are garage-to-garage as per standard TamilNadu commercial travel regulations.',
     '3. Air conditioning (AC) will be switched off on steep ghat / uphill roads and during vehicle idling.',
-    '4. Luggage and personal belongings are carried at owner\'s risk. Subject to Tamil Nadu jurisdiction.'
+    '4. Luggage and personal belongings are carried at owner\'s risk. Subject to TamilNadu jurisdiction.'
   ];
   terms.forEach((t, i) => {
     d.text(t, tableX, curY + 8 + (i * 3.8));

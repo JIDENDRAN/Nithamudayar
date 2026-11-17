@@ -39,9 +39,9 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Image data is required' });
       }
 
-      const safeTitle = (title && title.trim()) || 'Tour Highlight - Tamil Nadu';
+      const safeTitle = (title && title.trim()) || 'Tour Highlight - TamilNadu';
       const safeCat = category || 'places';
-      const safeLoc = (location && location.trim()) || 'Tamil Nadu';
+      const safeLoc = (location && location.trim()) || 'TamilNadu';
       const safeBadge = (badge && badge.trim()) || 'Featured Photo';
       const safeDesc = (desc && desc.trim()) || '';
       const safeSpan = span || 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2';

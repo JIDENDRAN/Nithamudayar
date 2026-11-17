@@ -75,13 +75,13 @@ async function seedUserData() {
   // 2. TOUR PACKAGES & TOURISM PLACES
   const packagesData = [
     {
-      name: 'Tamil Nadu Heritage & Tourism Circuit',
+      name: 'TamilNadu Heritage & Tourism Circuit',
       duration: '6 Days / 5 Nights',
       places: 'Trichy, Thanjavur, Kumbakonam, Madurai, Karaikudi, Rameshwaram, Kanyakumari, Thiruvananthapuram, Coimbatore, Chennai',
       price: '₹14/km (Sedan) | ₹19/km (SUV)',
       rating: '5.0',
       reviewCount: '350+',
-      location: 'Tamil Nadu & Kerala Confluence',
+      location: 'TamilNadu & Kerala Confluence',
       image: '/images/destinations/thanjavur.jpg'
     },
     {
@@ -121,7 +121,7 @@ async function seedUserData() {
       price: 'Custom Tariff / ₹14 - ₹33 per km',
       rating: '5.0',
       reviewCount: '500+',
-      location: 'Tamil Nadu & South India',
+      location: 'TamilNadu & South India',
       image: '/images/destinations/chennai.jpg'
     },
     {
@@ -141,7 +141,7 @@ async function seedUserData() {
       price: 'From ₹9,800',
       rating: '5.0',
       reviewCount: '310+',
-      location: 'Southern Tamil Nadu',
+      location: 'Southern TamilNadu',
       image: '/images/destinations/rameswaram.jpg'
     }
   ];

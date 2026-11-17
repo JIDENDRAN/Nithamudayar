@@ -19,12 +19,12 @@ const AppContent = () => {
   // Dynamic Route-Based Metadata (SEO) for client-side navigation
   useEffect(() => {
     const routeTitles = {
-      '/': 'Nithamudayar Tours & Travels Pvt Ltd | Premium Travel Across Tamil Nadu',
+      '/': 'Nithamudayar Tours & Travels Pvt Ltd | Premium Travel Across TamilNadu',
       '/about': 'About Us | Nithamudayar Tours & Travels Pvt Ltd | Reliable South India Travel',
       '/packages': 'Tour Packages & Regional Circuits | Nithamudayar Tours & Travels Pvt Ltd',
       '/fleet': 'Our Fleet & Tariffs - Sedans, Innova, Tempo & Buses | Nithamudayar Tours & Travels Pvt Ltd',
       '/vehicles': 'Our Fleet & Tariffs - Sedans, Innova, Tempo & Buses | Nithamudayar Tours & Travels Pvt Ltd',
-      '/destinations': 'Key Travel Hubs & Destinations in Tamil Nadu | Nithamudayar Tours & Travels Pvt Ltd',
+      '/destinations': 'Key Travel Hubs & Destinations in TamilNadu | Nithamudayar Tours & Travels Pvt Ltd',
       '/contact': 'Contact Desk & Booking | Nithamudayar Tours & Travels Pvt Ltd | 24/7 Service',
       '/gallery': 'Journey Highlights & Gallery | Nithamudayar Tours & Travels Pvt Ltd',
       '/privacy-policy': 'Privacy Policy | Nithamudayar Tours & Travels Pvt Ltd',
@@ -34,14 +34,14 @@ const AppContent = () => {
     };
 
     const routeDescriptions = {
-      '/': 'Explore Tamil Nadu with Nithamudayar Tours & Travels Pvt Ltd. Premium bus charter, tempo traveller, and luxury cab services across Thanjavur, Trichy, Kumbakonam, Madurai, Coimbatore, and Chennai.',
-      '/about': 'Learn about Nithamudayar Tours & Travels Pvt Ltd. Over 15 years of dedicated tourist operations across Tamil Nadu and South India with verified chauffeurs and transparent per-km billing.',
+      '/': 'Explore TamilNadu with Nithamudayar Tours & Travels Pvt Ltd. Premium bus charter, tempo traveller, and luxury cab services across Thanjavur, Trichy, Kumbakonam, Madurai, Coimbatore, and Chennai.',
+      '/about': 'Learn about Nithamudayar Tours & Travels Pvt Ltd. Over 15 years of dedicated tourist operations across TamilNadu and South India with verified chauffeurs and transparent per-km billing.',
       '/packages': 'Book customized regional tour packages for Thanjavur Royal Palace, Trichy Kaveri Riverway, Kumbakonam silk and bronze delta, Madurai food walks, and Western Ghats tea trails.',
       '/fleet': 'Choose from our clean, sanitized commercial fleet: Maruti Suzuki Dzire, Toyota Innova Crysta, Force Tempo Traveller, and 36/49 seater luxury AC coach buses.',
       '/vehicles': 'Choose from our clean, sanitized commercial fleet: Maruti Suzuki Dzire, Toyota Innova Crysta, Force Tempo Traveller, and 36/49 seater luxury AC coach buses.',
-      '/destinations': 'Discover the cultural and scenic hubs of Tamil Nadu: Thanjavur, Kumbakonam, Trichy, Madurai, Coimbatore, and Chennai with Nithamudayar Tours & Travels Pvt Ltd.',
+      '/destinations': 'Discover the cultural and scenic hubs of TamilNadu: Thanjavur, Kumbakonam, Trichy, Madurai, Coimbatore, and Chennai with Nithamudayar Tours & Travels Pvt Ltd.',
       '/contact': 'Contact Nithamudayar Tours & Travels Pvt Ltd 24/7. Call +91 98941 16405 or chat via WhatsApp for instant quotation and transparent booking confirmation.',
-      '/gallery': 'View travel memories, heritage monuments, and fleet journeys across Tamil Nadu with Nithamudayar Tours & Travels Pvt Ltd.',
+      '/gallery': 'View travel memories, heritage monuments, and fleet journeys across TamilNadu with Nithamudayar Tours & Travels Pvt Ltd.',
       '/privacy-policy': 'Read the privacy policy of Nithamudayar Tours & Travels Pvt Ltd regarding customer information and trip enquiries.',
       '/terms-and-conditions': 'Review the terms and conditions for booking tourist cabs, tempo travellers, and bus charters with Nithamudayar Tours & Travels Pvt Ltd.',
       '/airport-taxi': 'Punctual 24/7 airport taxi and chauffeur transfers with flight delay tracking and direct outstation drops across South India.',
@@ -52,7 +52,7 @@ const AppContent = () => {
     const desc = routeDescriptions[location.pathname] || routeDescriptions['/'];
 
     document.title = title;
-    
+
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute('content', desc);

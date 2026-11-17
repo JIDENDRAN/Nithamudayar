@@ -7,7 +7,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn">
       <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-[#10194E] border border-brand-gold/30 rounded-2xl shadow-2xl p-6 sm:p-8 text-neutral-200">
-        
+
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -31,7 +31,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }) {
         {/* Modal Content */}
         <div className="space-y-5 text-sm leading-relaxed text-neutral-300">
           <p>
-            Welcome to <strong className="text-brand-gold">Nithamudayar Tours & Travels Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across Tamil Nadu.
+            Welcome to <strong className="text-brand-gold">Nithamudayar Tours & Travels Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across TamilNadu.
           </p>
 
           <div className="space-y-2">

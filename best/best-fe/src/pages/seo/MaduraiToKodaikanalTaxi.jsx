@@ -14,7 +14,7 @@ const MaduraiToKodaikanalTaxi = () => {
     {
       heading: 'Distance, Travel Time, and Route Information',
       content: `
-        <p>The drive from Madurai to Kodaikanal is one of the most beautiful road trips in Tamil Nadu, taking you through bustling towns, lush plains, and finally winding up the misty Palani Hills.</p>
+        <p>The drive from Madurai to Kodaikanal is one of the most beautiful road trips in TamilNadu, taking you through bustling towns, lush plains, and finally winding up the misty Palani Hills.</p>
         <ul class="list-disc pl-5 space-y-2 mt-4">
           <li><strong>Distance:</strong> The distance is approximately 115 to 120 kilometers.</li>
           <li><strong>Travel Time:</strong> The journey usually takes around 3 to 3.5 hours depending on traffic and the weather conditions on the ghat roads.</li>

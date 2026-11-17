@@ -7,7 +7,7 @@ const MaduraiTourPackages = () => {
     {
       heading: 'Customized Madurai Tour Packages',
       content: `
-        <p>Explore the cultural capital of Tamil Nadu and its breathtaking surroundings with our expertly crafted <strong>Madurai tour packages</strong>. Nithamudayar Tours & Travels Pvt Ltd specializes in creating unforgettable itineraries that cover the finest temples, heritage sites, and hill stations in South India.</p>
+        <p>Explore the cultural capital of TamilNadu and its breathtaking surroundings with our expertly crafted <strong>Madurai tour packages</strong>. Nithamudayar Tours & Travels Pvt Ltd specializes in creating unforgettable itineraries that cover the finest temples, heritage sites, and hill stations in South India.</p>
         <p>Whether you are planning a short 1-day local sightseeing trip or a comprehensive 7-day South India temple tour, our customizable packages are designed to provide maximum value, comfort, and convenience. Leave the route planning, driving, and logistics to us while you focus on making memories with your family.</p>
       `
     },
@@ -26,7 +26,7 @@ const MaduraiTourPackages = () => {
     {
       heading: 'Multi-Day South India Tour Packages from Madurai',
       content: `
-        <p>Madurai serves as the perfect gateway to explore the rest of southern Tamil Nadu and Kerala. We offer highly popular multi-day packages:</p>
+        <p>Madurai serves as the perfect gateway to explore the rest of southern TamilNadu and Kerala. We offer highly popular multi-day packages:</p>
         <ul class="list-disc pl-5 space-y-2 mt-4">
           <li><strong>2-Day Madurai & Rameswaram Tour:</strong> The ultimate spiritual journey covering the two most important temple cities.</li>
           <li><strong>4-Day Madurai, Rameswaram & Kanyakumari Tour:</strong> A comprehensive coastal temple package ending at the southern tip of India.</li>

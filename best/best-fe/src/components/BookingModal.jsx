@@ -102,7 +102,7 @@ Please share tariff quotation & confirm vehicle availability. Thank you!`;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
       <div className="relative w-full max-w-xl bg-[#10194E] border border-brand-gold/40 rounded-2xl shadow-2xl p-5 sm:p-8 text-white max-h-[90vh] overflow-y-auto">
-        
+
         {/* Top Gold Shimmer Line */}
         <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-80"></div>
 
@@ -129,7 +129,7 @@ Please share tariff quotation & confirm vehicle availability. Thank you!`;
         </div>
 
         <form onSubmit={handleBookingSubmit} className="space-y-3.5 text-xs sm:text-sm">
-          
+
           {/* Name & Phone */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
@@ -270,7 +270,7 @@ Please share tariff quotation & confirm vehicle availability. Thank you!`;
                 <option value="Corporation trip">Corporation trip</option>
                 <option value="Family trip">Family trip</option>
                 <option value="Honeymoon trip">Honeymoon trip</option>
-                <option value="Tamil Nadu Heritage Circuit">Tamil Nadu Heritage Circuit</option>
+                <option value="TamilNadu Heritage Circuit">TamilNadu Heritage Circuit</option>
                 <option value="Arupadai Murugan Temple Tour">Arupadai Murugan Temple Tour</option>
                 <option value="Mountain Area Tourism">Mountain Area Tourism</option>
                 <option value="Backwater Places Explorer">Backwater Places Explorer</option>

@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AboutHero from '../components/AboutHero';
 import MobileAboutHero from '../components/mobile/MobileAboutHero';
-import { 
-  ShieldCheck, 
-  Award, 
-  Clock, 
-  Users, 
-  MapPin, 
-  Phone, 
-  ArrowRight, 
+import {
+  ShieldCheck,
+  Award,
+  Clock,
+  Users,
+  MapPin,
+  Phone,
+  ArrowRight,
   CheckCircle2
 } from 'lucide-react';
 
@@ -102,7 +102,7 @@ export default function AboutPage({ onOpenBooking }) {
 
   return (
     <div className="bg-[#FAF8F5] text-neutral-800 pb-16 md:pb-0">
-      
+
       {/* 1. Dedicated Mobile Hero View (< 768px) */}
       <div className="block md:hidden">
         <MobileAboutHero onOpenBooking={onOpenBooking} />
@@ -116,9 +116,9 @@ export default function AboutPage({ onOpenBooking }) {
       {/* 3. Company Overview - Simple, Neat & Elegant */}
       <section className="py-10 sm:py-20 px-4 sm:px-10 bg-white border-b border-neutral-200">
         <div className="max-w-7xl mx-auto">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            
+
             {/* Story & Editorial Content */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-6">
               <div>
@@ -131,7 +131,7 @@ export default function AboutPage({ onOpenBooking }) {
               </div>
 
               <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-                <strong className="text-neutral-900 font-semibold">Nithamudayar Tours & Travels Pvt Ltd</strong> has operated dedicated tourist passenger vehicles across Tamil Nadu and South India for over fifteen years.
+                <strong className="text-neutral-900 font-semibold">Nithamudayar Tours & Travels Pvt Ltd</strong> has operated dedicated tourist passenger vehicles across TamilNadu and South India for over fifteen years.
               </p>
 
               <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
@@ -204,7 +204,7 @@ export default function AboutPage({ onOpenBooking }) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-16 space-y-2 sm:space-y-2.5">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-brand-gold block">
               Effortless Booking
@@ -221,11 +221,10 @@ export default function AboutPage({ onOpenBooking }) {
             {steps.map((st, i) => (
               <div
                 key={i}
-                className={`bg-[#10194E] border border-brand-gold/30 rounded-xl p-3.5 sm:p-7 md:p-8 hover:border-brand-gold transition-colors flex flex-col justify-between shadow-lg ${
-                  i === 2 
-                    ? 'col-span-2 md:col-span-1 w-full max-w-xs md:max-w-none mx-auto' 
+                className={`bg-[#10194E] border border-brand-gold/30 rounded-xl p-3.5 sm:p-7 md:p-8 hover:border-brand-gold transition-colors flex flex-col justify-between shadow-lg ${i === 2
+                    ? 'col-span-2 md:col-span-1 w-full max-w-xs md:max-w-none mx-auto'
                     : ''
-                }`}
+                  }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2 sm:mb-4">
@@ -255,7 +254,7 @@ export default function AboutPage({ onOpenBooking }) {
       {/* 5. What You Always Get - Our 4 Core Commitments */}
       <section className="py-10 sm:py-20 px-4 sm:px-10 bg-white border-t border-neutral-200">
         <div className="max-w-7xl mx-auto">
-          
+
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-12 border-b border-neutral-200 pb-4 sm:pb-6">
             <div>
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-brand-gold-dark block mb-1">

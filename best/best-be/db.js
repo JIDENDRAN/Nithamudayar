@@ -28,19 +28,19 @@ function convertQuery(sql, params = []) {
 
 export const db = {
   query: (text, params) => pool.query(text, params),
-  
+
   get: async (text, params) => {
     const { formattedSql, pgParams } = convertQuery(text, params);
     const res = await pool.query(formattedSql, pgParams);
     return res.rows[0] || null;
   },
-  
+
   all: async (text, params) => {
     const { formattedSql, pgParams } = convertQuery(text, params);
     const res = await pool.query(formattedSql, pgParams);
     return res.rows;
   },
-  
+
   run: async (text, params) => {
     const { formattedSql, pgParams } = convertQuery(text, params);
     let sqlToRun = formattedSql;
@@ -58,7 +58,7 @@ export const db = {
       changes: res.rowCount
     };
   },
-  
+
   exec: async (text) => {
     return pool.query(text);
   }
@@ -167,7 +167,7 @@ export async function initDatabase() {
             if (ext === '.png') mimeType = 'image/png';
             else if (ext === '.webp') mimeType = 'image/webp';
             else if (ext === '.svg') mimeType = 'image/svg+xml';
-            
+
             await pool.query(
               'INSERT INTO uploaded_files (filename, mime_type, data) VALUES ($1, $2, $3)',
               [file, mimeType, fileBuffer]
@@ -184,7 +184,7 @@ export async function initDatabase() {
   // Seed default admin settings
   await pool.query("UPDATE admin_settings SET name = 'admin' WHERE name = 'Superadmin'");
   await pool.query("UPDATE admin_settings SET phone = '9894116405', whatsapp = '9894116405' WHERE id = (SELECT MIN(id) FROM admin_settings)");
-  
+
   const adminCountRes = await pool.query('SELECT COUNT(*) as count FROM admin_settings');
   const adminCount = parseInt(adminCountRes.rows[0].count, 10);
   if (adminCount === 0) {
@@ -271,20 +271,20 @@ export async function initDatabase() {
     await pool.query("ALTER TABLE packages ADD COLUMN IF NOT EXISTS rating TEXT DEFAULT '5.0'");
     await pool.query("ALTER TABLE packages ADD COLUMN IF NOT EXISTS \"reviewCount\" TEXT DEFAULT '100+'");
     await pool.query("ALTER TABLE packages ADD COLUMN IF NOT EXISTS location TEXT");
-  } catch(e) {}
+  } catch (e) { }
 
   const packagesCountRes = await pool.query('SELECT COUNT(*) as count FROM packages');
   const packagesCount = parseInt(packagesCountRes.rows[0].count, 10);
   if (packagesCount === 0) {
     const defaultPackages = [
       {
-        name: 'Tamil Nadu Heritage & Tourism Circuit',
+        name: 'TamilNadu Heritage & Tourism Circuit',
         duration: '6 Days / 5 Nights',
         places: 'Trichy, Thanjavur, Kumbakonam, Madurai, Karaikudi, Rameshwaram, Kanyakumari, Thiruvananthapuram, Coimbatore, Chennai',
         price: '₹14/km (Sedan) | ₹19/km (SUV)',
         rating: '5.0',
         reviewCount: '350+',
-        location: 'Tamil Nadu & Kerala Confluence',
+        location: 'TamilNadu & Kerala Confluence',
         image: '/images/destinations/thanjavur.jpg'
       },
       {
@@ -324,7 +324,7 @@ export async function initDatabase() {
         price: 'Custom Tariff / ₹14 - ₹33 per km',
         rating: '5.0',
         reviewCount: '500+',
-        location: 'Tamil Nadu & South India',
+        location: 'TamilNadu & South India',
         image: '/images/destinations/chennai.jpg'
       },
       {
@@ -344,7 +344,7 @@ export async function initDatabase() {
         price: 'From ₹9,800',
         rating: '5.0',
         reviewCount: '310+',
-        location: 'Southern Tamil Nadu',
+        location: 'Southern TamilNadu',
         image: '/images/destinations/rameswaram.jpg'
       }
     ];

@@ -105,10 +105,10 @@ export default function DestinationsPage({ onOpenBooking }) {
     },
     {
       city: 'Arupadai Murugan Temple Circuit',
-      subtitle: 'Six Holy Abodes of Lord Murugan Across Tamil Nadu',
+      subtitle: 'Six Holy Abodes of Lord Murugan Across TamilNadu',
       image: '/images/destinations/murugan.jpg',
       tag: 'Sacred Pilgrimage Circuit',
-      description: 'The six sacred holy shrines of Lord Murugan representing spiritual milestones across Tamil Nadu, from sea shores to sacred mountain peaks.',
+      description: 'The six sacred holy shrines of Lord Murugan representing spiritual milestones across TamilNadu, from sea shores to sacred mountain peaks.',
       attractions: [
         'Tiruchendur: Lord Murugan Seashore Temple (Jayanthipuram)',
         'Palani: Sacred Dhandayuthapani Swamy hill shrine',
@@ -184,7 +184,7 @@ export default function DestinationsPage({ onOpenBooking }) {
       {/* 3. Destination Profiles - Powered by Uiverse.io joe-watson-sbf Expanding Cards */}
       <section id="destination-profiles" className="py-10 sm:py-20 px-4 sm:px-10 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto space-y-8">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 pb-5 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark block mb-1">
@@ -203,11 +203,10 @@ export default function DestinationsPage({ onOpenBooking }) {
               <button
                 type="button"
                 onClick={() => setViewMode('accordion')}
-                className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                  viewMode === 'accordion'
+                className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${viewMode === 'accordion'
                     ? 'bg-white text-neutral-900 shadow-sm'
                     : 'text-neutral-600 hover:text-neutral-900'
-                }`}
+                  }`}
               >
                 <Layers className="w-3.5 h-3.5 text-brand-gold-dark" />
                 <span>Expanding Cards</span>
@@ -215,11 +214,10 @@ export default function DestinationsPage({ onOpenBooking }) {
               <button
                 type="button"
                 onClick={() => setViewMode('grid')}
-                className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                  viewMode === 'grid'
+                className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${viewMode === 'grid'
                     ? 'bg-white text-neutral-900 shadow-sm'
                     : 'text-neutral-600 hover:text-neutral-900'
-                }`}
+                  }`}
               >
                 <LayoutGrid className="w-3.5 h-3.5 text-brand-gold-dark" />
                 <span>Grid View</span>
@@ -243,19 +241,17 @@ export default function DestinationsPage({ onOpenBooking }) {
                     <img
                       src={dest.image}
                       alt={dest.city}
-                      className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-transform duration-700 ${
-                        isSelected ? 'scale-105' : 'scale-100'
-                      }`}
+                      className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-transform duration-700 ${isSelected ? 'scale-105' : 'scale-100'
+                        }`}
                       loading="lazy"
                     />
-                    
+
                     {/* Glass Overlay: Highly visible & clear when collapsed; darker when expanded so details are legible */}
-                    <div 
-                      className={`absolute inset-0 transition-all duration-500 pointer-events-none ${
-                        isSelected 
-                          ? 'bg-black/65' 
+                    <div
+                      className={`absolute inset-0 transition-all duration-500 pointer-events-none ${isSelected
+                          ? 'bg-black/65'
                           : 'bg-black/10'
-                      }`}
+                        }`}
                     ></div>
 
                     {/* Vertical Rotated Text Label (Exact Uiverse joe-watson-sbf spec: transform: rotate(-90deg)) */}
@@ -348,7 +344,7 @@ export default function DestinationsPage({ onOpenBooking }) {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      
+
                       {/* Subtle Vignette Gradient for Depth */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/25 pointer-events-none"></div>
 
@@ -381,8 +377,8 @@ export default function DestinationsPage({ onOpenBooking }) {
                         </span>
                         <div className="flex flex-wrap gap-1 sm:gap-1.5">
                           {dest.attractions.slice(0, 2).map((att, idx) => (
-                            <span 
-                              key={idx} 
+                            <span
+                              key={idx}
                               className="text-[9px] sm:text-[11px] bg-neutral-100/90 text-neutral-700 px-1.5 sm:px-2.5 py-0.5 rounded-md border border-neutral-200/80"
                             >
                               {att.split('(')[0].trim()}
@@ -425,7 +421,7 @@ export default function DestinationsPage({ onOpenBooking }) {
       <section className="py-10 sm:py-20 px-4 sm:px-10 bg-[#FAF8F5]">
         <div className="max-w-6xl mx-auto">
           <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#10194E] via-[#0f1426] to-[#10194E] border border-brand-gold/30 p-5 sm:p-12 overflow-hidden shadow-2xl group hover:border-brand-gold/60 transition-all duration-500">
-            
+
             {/* 1. Ambient Golden Radial Glows */}
             <div className="absolute -top-24 -left-24 w-72 h-72 bg-brand-gold/15 rounded-full blur-[90px] pointer-events-none"></div>
             <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-brand-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -440,11 +436,11 @@ export default function DestinationsPage({ onOpenBooking }) {
                     <stop offset="100%" stopColor="#AA771C" stopOpacity="0.2" />
                   </linearGradient>
                 </defs>
-                
+
                 {/* Circuit Path 1 */}
                 <path d="M 50,150 Q 250,50 500,160 T 950,140" fill="none" stroke="rgba(212,175,55,0.2)" strokeWidth="2" />
                 <path d="M 50,150 Q 250,50 500,160 T 950,140" fill="none" stroke="url(#routeGradient)" strokeWidth="2.5" strokeDasharray="12 16" className="animate-route-flow" />
-                
+
                 {/* Circuit Path 2 */}
                 <path d="M 100,240 Q 400,280 650,180 T 980,80" fill="none" stroke="rgba(212,175,55,0.15)" strokeWidth="1.5" />
                 <path d="M 100,240 Q 400,280 650,180 T 980,80" fill="none" stroke="url(#routeGradient)" strokeWidth="2" strokeDasharray="10 14" className="animate-route-flow" style={{ animationDuration: '3.5s' }} />
@@ -461,7 +457,7 @@ export default function DestinationsPage({ onOpenBooking }) {
 
             {/* 4. Foreground Content */}
             <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-              
+
               <div className="space-y-3.5 max-w-2xl">
                 {/* Status Pill with Static Icon */}
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold text-[11px] font-bold tracking-wider uppercase">
@@ -474,7 +470,7 @@ export default function DestinationsPage({ onOpenBooking }) {
                 </h3>
 
                 <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed max-w-xl">
-                  We operate across all 38 districts of Tamil Nadu, Pondicherry, and South India. Design your bespoke multi-city circuit with transparent fixed tariffs.
+                  We operate across all 38 districts of TamilNadu, Pondicherry, and South India. Design your bespoke multi-city circuit with transparent fixed tariffs.
                 </p>
 
                 {/* Waypoint Route Highlights without colored dots */}

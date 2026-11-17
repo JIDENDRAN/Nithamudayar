@@ -91,7 +91,7 @@ const GoogleReviews = () => {
           relativeTime: r.role, // Display city location as relativeTime
           languageCode: 'en'
         }));
-        
+
         setRatingData({
           businessName: 'Nithamudayar Tours & Travels Pvt Ltd',
           rating: 5.0,
@@ -146,7 +146,7 @@ const GoogleReviews = () => {
             Stories from <span className="text-[#E8C148]">Happy Travelers</span>
           </h2>
           <p className="text-xs sm:text-sm text-neutral-300 mt-2 max-w-xl mx-auto leading-relaxed">
-            Real feedback from pilgrims, corporate teams, and families who traveled across Tamil Nadu with our chauffeur service.
+            Real feedback from pilgrims, corporate teams, and families who traveled across TamilNadu with our chauffeur service.
           </p>
         </div>
 
@@ -191,16 +191,15 @@ const GoogleReviews = () => {
                         return (
                           <Star
                             key={idx}
-                            className={`w-4 h-4 ${
-                              isFull ? 'text-[#E8C148] fill-[#E8C148]' : isHalf ? 'text-[#E8C148] fill-[#E8C148] opacity-70' : 'text-white/20'
-                            }`}
+                            className={`w-4 h-4 ${isFull ? 'text-[#E8C148] fill-[#E8C148]' : isHalf ? 'text-[#E8C148] fill-[#E8C148] opacity-70' : 'text-white/20'
+                              }`}
                           />
                         );
                       })}
                     </div>
                     <span className="text-[11px] sm:text-xs text-neutral-300 mt-1 font-semibold">
-                      {isFallback 
-                        ? t('Based on 250+ verified local traveler reviews') 
+                      {isFallback
+                        ? t('Based on 250+ verified local traveler reviews')
                         : t('Based on {{count}} Google Business reviews', { count: ratingData.userRatingCount })}
                     </span>
                   </div>
@@ -265,9 +264,8 @@ const GoogleReviews = () => {
               <button
                 key={di}
                 onClick={() => setSlideIndex(di)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  slideIndex === di ? 'bg-[#E8C148] w-5' : 'bg-white/30 hover:bg-white/50'
-                }`}
+                className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${slideIndex === di ? 'bg-[#E8C148] w-5' : 'bg-white/30 hover:bg-white/50'
+                  }`}
               />
             ))}
           </div>

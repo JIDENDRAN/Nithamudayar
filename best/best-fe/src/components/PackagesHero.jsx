@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 export default function PackagesHero({ onOpenBooking }) {
   return (
-    <section 
-      id="packages-hero" 
+    <section
+      id="packages-hero"
       className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#10194E] text-white overflow-hidden bg-cover bg-[position:75%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[480px] sm:min-h-[540px] flex items-center"
       style={{
         backgroundImage: `url('/images/backgrounds/hero-rameswaram-car.jpg')`,
@@ -22,12 +22,12 @@ export default function PackagesHero({ onOpenBooking }) {
         {/* Left Content */}
         <div className="max-w-lg lg:max-w-xl space-y-3.5 sm:space-y-4 py-4 sm:py-8">
           <span className="text-[10px] sm:text-xs font-bold tracking-widest text-brand-gold uppercase block">
-            Regional Circuit Expeditions • Tamil Nadu & South India
+            Regional Circuit Expeditions • TamilNadu & South India
           </span>
 
           <h1 className="font-black font-heading leading-tight tracking-tight drop-shadow-md">
             <span className="text-white block text-2xl sm:text-3xl lg:text-4xl tracking-wide uppercase">
-              CURATED TAMIL NADU
+              CURATED TamilNadu
             </span>
             <span className="text-[#E8C148] block text-xl sm:text-2xl lg:text-3xl font-extrabold mt-0.5 sm:mt-1">
               TOUR PACKAGES & CIRCUITS

@@ -92,7 +92,7 @@ export default function TourPackages({ onSelectPackage }) {
   return (
     <section id="packages" className="py-20 px-6 sm:px-10 bg-white">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-neutral-200 pb-6">
           <div>
@@ -104,7 +104,7 @@ export default function TourPackages({ onSelectPackage }) {
             </h2>
           </div>
           <p className="text-sm text-neutral-500 max-w-md mt-3 md:mt-0">
-            Customizable travel packages with dedicated chauffeurs, flexible stopovers, and verified hotel options across Tamil Nadu.
+            Customizable travel packages with dedicated chauffeurs, flexible stopovers, and verified hotel options across TamilNadu.
           </p>
         </div>
 

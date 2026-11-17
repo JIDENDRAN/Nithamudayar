@@ -44,12 +44,12 @@ export default function DestinationsSection({ onSelectCity }) {
   return (
     <section id="destinations" className="py-20 px-6 sm:px-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-neutral-300 pb-6">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark block mb-1">
-              Destinations Across Tamil Nadu
+              Destinations Across TamilNadu
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-neutral-900">
               Popular Travel Destinations

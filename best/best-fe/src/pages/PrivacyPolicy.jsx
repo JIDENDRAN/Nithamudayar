@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto min-h-screen">
       <div className="bg-[#10194E] border border-brand-gold/30 rounded-2xl p-6 sm:p-10 shadow-2xl text-neutral-200">
-        
+
         {/* Header */}
         <div className="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
           <div className="p-3 bg-brand-gold/10 border border-brand-gold/30 rounded-xl text-brand-gold">
@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
         {/* Content */}
         <div className="space-y-6 text-sm leading-relaxed text-neutral-300">
           <p>
-            Welcome to <strong className="text-brand-gold">Nithamudayar Tours & Travels Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across Tamil Nadu and South India.
+            Welcome to <strong className="text-brand-gold">Nithamudayar Tours & Travels Pvt Ltd</strong>. We respect your privacy and are committed to protecting the personal information you share with us while planning and booking your journeys across TamilNadu and South India.
           </p>
 
           <div className="space-y-2">

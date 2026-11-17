@@ -45,7 +45,7 @@ const routeMetadata = {
   },
   '/destinations': {
     title: 'Destinations & Route Network | Nithamudayar Tours & Travels Pvt Ltd',
-    description: 'Discover popular heritage, coastal, hill station, and pilgrimage destinations across Tamil Nadu and South India with Nithamudayar Tours & Travels Pvt Ltd.'
+    description: 'Discover popular heritage, coastal, hill station, and pilgrimage destinations across TamilNadu and South India with Nithamudayar Tours & Travels Pvt Ltd.'
   },
   '/gallery': {
     title: 'Tour Gallery & Fleet Showcase | Nithamudayar Tours & Travels Pvt Ltd',
@@ -78,7 +78,7 @@ async function runPrerender() {
 
   for (const url of routes) {
     console.log(`Pre-rendering route: ${url}`);
-    
+
     // Render the app for this specific route
     let appHtml = '';
     try {
@@ -88,58 +88,58 @@ async function runPrerender() {
       // Fallback to empty appHtml so client-side hydration takes over
       appHtml = '';
     }
-    
+
     // Inject the rendered HTML into the template
     let html = template.replace('<!--ssr-outlet-->', appHtml);
-    
+
     // Get SEO metadata for this page
     const meta = routeMetadata[url] || routeMetadata['/'];
-    
+
     // Replace Page Title
     html = html.replace(/<title>.*?<\/title>/, `<title>${meta.title}</title>`);
-    
+
     // Replace Description meta tag (handles multi-line definition)
     html = html.replace(
-      /<meta\s+name="description"[\s\S]*?content=".*?"\s*\/>/, 
+      /<meta\s+name="description"[\s\S]*?content=".*?"\s*\/>/,
       `<meta name="description" content="${meta.description}" />`
     );
-    
+
     // Replace Open Graph Tags
     html = html.replace(
-      /<meta\s+property="og:title"\s+content=".*?"\s*\/>/, 
+      /<meta\s+property="og:title"\s+content=".*?"\s*\/>/,
       `<meta property="og:title" content="${meta.title}" />`
     );
     html = html.replace(
-      /<meta\s+property="og:description"[\s\S]*?content=".*?"\s*\/>/, 
+      /<meta\s+property="og:description"[\s\S]*?content=".*?"\s*\/>/,
       `<meta property="og:description" content="${meta.description}" />`
     );
-    
+
     // Replace Twitter Tags
     html = html.replace(
-      /<meta\s+name="twitter:title"\s+content=".*?"\s*\/>/, 
+      /<meta\s+name="twitter:title"\s+content=".*?"\s*\/>/,
       `<meta name="twitter:title" content="${meta.title}" />`
     );
     html = html.replace(
-      /<meta\s+name="twitter:description"[\s\S]*?content=".*?"\s*\/>/, 
+      /<meta\s+name="twitter:description"[\s\S]*?content=".*?"\s*\/>/,
       `<meta name="twitter:description" content="${meta.description}" />`
     );
-    
+
     // Replace Canonical Link
     const canonicalUrl = `https://nithamudayar.vercel.app${url === '/' ? '' : url}`;
     html = html.replace(
       /<link\s+rel="canonical"\s+href=".*?"\s*\/>/,
       `<link rel="canonical" href="${canonicalUrl}" />`
     );
-    
+
     // Determine target directory and file path
     const targetDir = url === '/' ? '' : url;
     const dirPath = toAbsolute(`dist${targetDir}`);
-    
+
     // Create directory if it doesn't exist
     if (targetDir && !fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
     }
-    
+
     const filePath = path.join(dirPath, 'index.html');
     fs.writeFileSync(filePath, html);
   }

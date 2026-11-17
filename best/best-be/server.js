@@ -69,7 +69,7 @@ app.get('/uploads/:filename', async (req, res) => {
   try {
     const { filename } = req.params;
     const result = await db.query('SELECT mime_type, data FROM uploaded_files WHERE filename = $1', [filename]);
-    
+
     if (result.rows && result.rows.length > 0) {
       const file = result.rows[0];
       res.setHeader('Content-Type', file.mime_type || 'image/jpeg');
@@ -133,7 +133,7 @@ process.on('unhandledRejection', (reason, promise) => {
 initDatabase()
   .then(() => {
     console.log('Neon Database loaded and tables initialized.');
-    
+
     // Boot WhatsApp Bot
     // The admin can re-authenticate it from the Admin Dashboard -> Settings if needed.
     connectToWhatsApp(db);
@@ -147,7 +147,7 @@ async function dispatchAdminWhatsAppAlert(booking) {
   try {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
     const targetPhone = admin ? admin.whatsapp : '9894116405';
-    
+
     const message = `🚨 *New Booking from Nithamudayar Tours & Travels Pvt Ltd* 🚨\n\n` +
       `👤 *Customer Name:* ${booking.name}\n` +
       `📞 *Phone Number:* ${booking.phone}\n` +
@@ -157,7 +157,7 @@ async function dispatchAdminWhatsAppAlert(booking) {
       `🚗 *Selected Vehicle:* ${booking.vehicle || 'Not Selected'}\n` +
       `📦 *Package Type:* ${booking.packageType || 'Custom Trip'}\n` +
       `🔔 *Booking Status:* ${booking.status}`;
-      
+
     await sendWhatsAppNotification(targetPhone, message);
   } catch (err) {
     console.error('Failed to dispatch WhatsApp booking alert:', err);
@@ -168,13 +168,13 @@ async function dispatchContactWhatsAppAlert(messageData) {
   try {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
     const targetPhone = admin ? admin.whatsapp : '9894116405';
-    
+
     const message = `✉️ *New Message received from Nithamudayar Tours & Travels Pvt Ltd* ✉️\n\n` +
       `👤 *Sender Name:* ${messageData.name}\n` +
       `📧 *Email:* ${messageData.email}\n` +
       `📞 *Phone Number:* ${messageData.phone}\n` +
       `💬 *Message:* ${messageData.message}`;
-      
+
     await sendWhatsAppNotification(targetPhone, message);
   } catch (err) {
     console.error('Failed to dispatch WhatsApp contact alert:', err);
@@ -186,17 +186,17 @@ async function dispatchContactWhatsAppAlert(messageData) {
 app.post('/api/bookings', async (req, res) => {
   try {
     const { fromLocation, toLocation, date, time, name, phone, vehicle, packageType } = req.body;
-    
+
     const result = await db.run(
       'INSERT INTO bookings ("fromLocation", "toLocation", date, time, name, phone, vehicle, "packageType", status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
       [fromLocation, toLocation, date, time, name, phone, vehicle || 'Not Selected', packageType || 'Custom Trip', 'Pending']
     );
-    
+
     const newBooking = await db.get('SELECT * FROM bookings WHERE id = ?', [result.lastID]);
-    
+
     // Send instant background WhatsApp notification to admin
     dispatchAdminWhatsAppAlert(newBooking);
-    
+
     res.status(201).json({ message: 'Booking saved successfully', booking: newBooking });
   } catch (error) {
     console.error('Error saving booking:', error);
@@ -305,7 +305,7 @@ app.post('/api/packages', async (req, res) => {
     const { name, duration, places, price, image, rating, reviewCount, location } = req.body;
     const result = await db.run(
       'INSERT INTO packages (name, duration, places, price, image, rating, "reviewCount", location) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-      [name, duration, places, price, image || 'meenakshi_bg.png', rating || '5.0', reviewCount || '100+', location || 'Tamil Nadu']
+      [name, duration, places, price, image || 'meenakshi_bg.png', rating || '5.0', reviewCount || '100+', location || 'TamilNadu']
     );
     const newPackage = await db.get('SELECT * FROM packages WHERE id = ?', [result.lastID]);
     res.status(201).json({ message: 'Tour package added successfully', package: newPackage });
@@ -392,10 +392,10 @@ app.post('/api/contacts', async (req, res) => {
       [name, email, phone, message]
     );
     const newMsg = await db.get('SELECT * FROM contacts WHERE id = ?', [result.lastID]);
-    
+
     // Send instant WhatsApp alert to Admin
     dispatchContactWhatsAppAlert(newMsg);
-    
+
     res.status(201).json({ message: 'Message sent successfully', contact: newMsg });
   } catch (error) {
     console.error('Error saving contact query:', error);
@@ -429,7 +429,7 @@ app.post('/api/admin/login', async (req, res) => {
   try {
     const rawUser = (req.body.username || '').trim();
     const rawPass = (req.body.password || '').trim();
-    
+
     // Find admin by username (case-insensitive), phone, or WhatsApp number
     let admin = await db.get(
       'SELECT * FROM admin_settings WHERE LOWER(name) = LOWER(?) OR phone = ? OR whatsapp = ? OR LOWER(?) IN (\'admin\', \'nitham\', \'nithamudayar\')',
@@ -442,14 +442,14 @@ app.post('/api/admin/login', async (req, res) => {
     }
 
     if (admin) {
-      const isValidPassword = 
-        admin.password === rawPass || 
-        rawPass === 'admin123' || 
+      const isValidPassword =
+        admin.password === rawPass ||
+        rawPass === 'admin123' ||
         rawPass === 'admin' ||
         rawPass === 'nitham123' ||
         rawPass === 'nitham';
-      
-      const isValidUser = 
+
+      const isValidUser =
         admin.name.toLowerCase() === rawUser.toLowerCase() ||
         admin.phone === rawUser ||
         admin.whatsapp === rawUser ||
@@ -459,7 +459,7 @@ app.post('/api/admin/login', async (req, res) => {
         return res.status(200).json({ success: true, message: 'Admin authenticated successfully', admin });
       }
     }
-    
+
     res.status(401).json({ success: false, error: 'Invalid admin username or password. Default is admin / admin123' });
   } catch (error) {
     console.error('Admin login error:', error);
@@ -523,8 +523,8 @@ app.get('/api/admin/whatsapp-status', async (req, res) => {
 app.post('/api/admin/whatsapp-reconnect', async (req, res) => {
   try {
     // Clear existing auth credentials and QR code to force a clean reconnect session
-    await db.run("DELETE FROM whatsapp_auth_state").catch(() => {});
-    await db.run("UPDATE admin_settings SET qr_code = NULL").catch(() => {});
+    await db.run("DELETE FROM whatsapp_auth_state").catch(() => { });
+    await db.run("UPDATE admin_settings SET qr_code = NULL").catch(() => { });
 
     connectToWhatsApp(db);
     res.status(200).json({ message: 'Reconnection sequence triggered' });
@@ -548,9 +548,9 @@ app.post('/api/admin/whatsapp-test', async (req, res) => {
   try {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
     const targetPhone = admin ? admin.whatsapp : '9894116405';
-    
+
     const message = `👋 *Test Message from Nithamudayar Tours & Travels Pvt Ltd* \n\nIf you are seeing this, your WhatsApp Notification Bot is successfully connected and ready to receive live booking alerts! ✅`;
-      
+
     const success = await sendWhatsAppNotification(targetPhone, message);
     if (success) {
       res.status(200).json({ message: 'Test message sent successfully' });
@@ -569,7 +569,7 @@ app.post('/api/admin/whatsapp-custom-message', async (req, res) => {
     if (!phone || !message) {
       return res.status(400).json({ error: 'Phone number and message are required' });
     }
-    
+
     const success = await sendWhatsAppNotification(phone, message);
     if (success) {
       res.status(200).json({ message: 'Custom message sent successfully' });
@@ -674,7 +674,7 @@ app.get('/api/google-reviews', async (req, res) => {
     return res.status(200).json(formattedData);
   } catch (error) {
     console.error('Failed to fetch reviews from Google Places API:', error.message);
-    
+
     // Fallback to expired cache if available
     if (cached) {
       console.warn('Google Places API call failed. Serving expired reviews cache as fallback.');

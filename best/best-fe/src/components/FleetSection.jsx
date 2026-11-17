@@ -52,7 +52,7 @@ export default function FleetSection({ onSelectVehicle }) {
   return (
     <section id="fleet" className="py-20 px-6 sm:px-10 bg-[#10194E] text-white">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-brand-gold/20 pb-6">
           <div>
@@ -64,7 +64,7 @@ export default function FleetSection({ onSelectVehicle }) {
             </h2>
           </div>
           <p className="text-sm text-neutral-300 max-w-md mt-3 md:mt-0">
-            Sanitized, well-maintained commercial vehicles with verified tourist permits across Tamil Nadu and South India.
+            Sanitized, well-maintained commercial vehicles with verified tourist permits across TamilNadu and South India.
           </p>
         </div>
 

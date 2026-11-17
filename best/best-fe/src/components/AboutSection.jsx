@@ -6,7 +6,7 @@ export default function AboutSection({ onOpenBooking }) {
     <section id="about" className="py-20 px-6 sm:px-10 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Column: Image Composite */}
           <div className="lg:col-span-5 relative">
             <div className="rounded-2xl overflow-hidden shadow-xl border border-neutral-200">
@@ -39,7 +39,7 @@ export default function AboutSection({ onOpenBooking }) {
             </div>
 
             <p className="text-sm text-neutral-600 leading-relaxed">
-              <strong className="text-neutral-900">Nithamudayar Tours & Travels Pvt Ltd</strong> provides comprehensive passenger transport and holiday tour services across Tamil Nadu and South India. Whether you require a comfortable sedan for family temple darshan, an Innova Crysta for outstation journeys, or a 49-seater luxury coach for a marriage or college excursion, our fleet is ready to serve you.
+              <strong className="text-neutral-900">Nithamudayar Tours & Travels Pvt Ltd</strong> provides comprehensive passenger transport and holiday tour services across TamilNadu and South India. Whether you require a comfortable sedan for family temple darshan, an Innova Crysta for outstation journeys, or a 49-seater luxury coach for a marriage or college excursion, our fleet is ready to serve you.
             </p>
 
             {/* 4 Core Pillars */}

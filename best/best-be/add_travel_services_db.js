@@ -50,7 +50,7 @@ async function addServices() {
       duration: 'Multi-Day Customized Holidays',
       price: 'From ₹4,500',
       places: 'Family trip, Spacious AC cabin, Child and senior citizen friendly halts, Huge luggage boot space, Sacred temple darshans (All luxury car available)',
-      location: 'Tamil Nadu & Kerala Family Destinations',
+      location: 'TamilNadu & Kerala Family Destinations',
       image: '/images/destinations/murugan.jpg',
       rating: '5.0',
       reviewCount: '440+'

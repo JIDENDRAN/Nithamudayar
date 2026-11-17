@@ -10,8 +10,8 @@ export default function FleetHero({ onOpenBooking }) {
   };
 
   return (
-    <section 
-      id="fleet-hero" 
+    <section
+      id="fleet-hero"
       className="relative w-full pt-28 sm:pt-36 pb-14 sm:pb-20 bg-[#10194E] text-white overflow-hidden bg-cover bg-[position:75%_center] sm:bg-right lg:bg-center bg-no-repeat min-h-[480px] sm:min-h-[540px] flex items-center"
       style={{
         backgroundImage: `url('/images/backgrounds/hero-madurai-car.jpg')`,
@@ -28,7 +28,7 @@ export default function FleetHero({ onOpenBooking }) {
         {/* Left Content */}
         <div className="max-w-lg lg:max-w-xl space-y-3.5 sm:space-y-4 py-4 sm:py-8">
           <span className="text-[10px] sm:text-xs font-bold tracking-widest text-brand-gold uppercase block">
-            Commercial & Passenger Fleet • Tamil Nadu
+            Commercial & Passenger Fleet • TamilNadu
           </span>
 
           <h1 className="font-black font-heading leading-tight tracking-tight drop-shadow-md">

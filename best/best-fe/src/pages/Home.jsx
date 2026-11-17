@@ -210,20 +210,20 @@ export default function HomePage({ onOpenBooking }) {
 
   const featuredFleet = (dbCars.length > 0
     ? [...dbCars]
-        .sort((a, b) => getVehicleRank(a.name, a.category) - getVehicleRank(b.name, b.category))
-        .map(c => parseVehicleFromDb(c))
-        .filter(Boolean)
+      .sort((a, b) => getVehicleRank(a.name, a.category) - getVehicleRank(b.name, b.category))
+      .map(c => parseVehicleFromDb(c))
+      .filter(Boolean)
     : defaultFeaturedFleet
   );
 
   const defaultFeaturedPackages = [
     {
       id: 1,
-      name: 'Tamil Nadu Tourism Circuit',
+      name: 'TamilNadu Tourism Circuit',
       duration: '6 Days / 5 Nights',
       price: '₹24,500',
       places: 'Trichy, Thanjavur, Kumbakonam, Madurai, Karaikudi, Rameshwaram, Kanyakumari, Thiruvananthapuram, Coimbatore, Chennai',
-      location: '10 Iconic Destinations across Tamil Nadu & Kerala',
+      location: '10 Iconic Destinations across TamilNadu & Kerala',
       image: '/images/destinations/thanjavur.jpg'
     },
     {
@@ -292,7 +292,7 @@ export default function HomePage({ onOpenBooking }) {
     : defaultFeaturedPackages;
 
   const destinations = [
-    { city: 'Tamil Nadu Heritage Circuit', image: '/images/destinations/thanjavur.jpg', tag: 'Trichy • Thanjavur • Madurai • Rameshwaram' },
+    { city: 'TamilNadu Heritage Circuit', image: '/images/destinations/thanjavur.jpg', tag: 'Trichy • Thanjavur • Madurai • Rameshwaram' },
     { city: 'Arupadai Murugan Temple Tour', image: '/images/destinations/murugan.jpg', tag: 'Tiruchendur • Palani • Swamimalai • Thiruthani' },
     { city: 'Mountain Area Tourism', image: '/images/destinations/kodaikanal.jpg', tag: 'Ooty • Kodaikanal • Munnar • Valparai • Thekkady' },
     { city: 'Backwater Places', image: '/images/destinations/alleppey.jpg', tag: 'Alappuzha • Fort Kochi • Kumarakom • Varkala' },
@@ -432,7 +432,7 @@ export default function HomePage({ onOpenBooking }) {
                 Featured Tour Packages
               </h2>
             </div>
-            
+
             <div className="flex items-center gap-3">
               {/* Left / Right Auto-Scroll Controls */}
               <div className="flex items-center gap-1.5">
@@ -806,7 +806,7 @@ export default function HomePage({ onOpenBooking }) {
             Planning a Pilgrimage, Family Trip, or Outstation Tour?
           </h2>
           <p className="text-xs sm:text-base text-neutral-600 max-w-2xl mx-auto">
-            Speak directly with our travel operations team. We customize door-to-door temple circuits, airport transfers, and group charters across Tamil Nadu.
+            Speak directly with our travel operations team. We customize door-to-door temple circuits, airport transfers, and group charters across TamilNadu.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <button

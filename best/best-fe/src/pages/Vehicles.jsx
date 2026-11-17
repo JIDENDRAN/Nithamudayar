@@ -319,7 +319,7 @@ export default function FleetPage({ onOpenBooking }) {
                 Available Vehicles & Specifications
               </h2>
               <p className="text-xs sm:text-sm text-neutral-300 mt-1 max-w-xl">
-                Every vehicle is mechanically inspected, AC-tested, and chauffeur-driven across Tamil Nadu and South India.
+                Every vehicle is mechanically inspected, AC-tested, and chauffeur-driven across TamilNadu and South India.
               </p>
             </div>
 
@@ -337,8 +337,8 @@ export default function FleetPage({ onOpenBooking }) {
                 key={tab.id}
                 onClick={() => setFleetFilter(tab.id)}
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer whitespace-nowrap shrink-0 ${fleetFilter === tab.id
-                    ? 'btn-gold shadow-md scale-[1.02]'
-                    : 'bg-[#10194E] border border-brand-gold/20 text-neutral-300 hover:border-brand-gold/60 hover:text-white'
+                  ? 'btn-gold shadow-md scale-[1.02]'
+                  : 'bg-[#10194E] border border-brand-gold/20 text-neutral-300 hover:border-brand-gold/60 hover:text-white'
                   }`}
               >
                 {tab.label}

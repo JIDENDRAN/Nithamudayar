@@ -450,7 +450,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         <option value="One Way Drop">One Way Drop</option>
                         <option value="Local Package (8hr / 80km)">Local Package</option>
                         <option value="Airport Pickup / Drop">Airport Pickup / Drop</option>
-                        <option value="Tamil Nadu Temple Tour">Temple Pilgrimage Tour</option>
+                        <option value="TamilNadu Temple Tour">Temple Pilgrimage Tour</option>
                         <option value="Hill Station Tour">Hill Station Tour</option>
                         <option value="Corporate Fleet Trip">Corporate Fleet Trip</option>
                       </select>

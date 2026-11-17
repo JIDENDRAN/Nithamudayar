@@ -39,7 +39,7 @@ const PLACES_ITEMS = [
     id: 'places-2',
     category: 'places',
     title: 'Illuminated Temple Night Arch',
-    location: 'Tamil Nadu',
+    location: 'TamilNadu',
     badge: 'Temple Festival',
     desc: 'Grand decorative festival archway illuminated with celebratory lighting at evening pooja.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.15 PM.jpeg',
@@ -89,7 +89,7 @@ const PLACES_ITEMS = [
     id: 'places-7',
     category: 'places',
     title: 'Sacred Pilgrimage Temple',
-    location: 'Tamil Nadu',
+    location: 'TamilNadu',
     badge: 'Holy Darshan',
     desc: 'Auspicious temple complex where devotees gather for sacred blessings and darshan.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.26 PM.jpeg',
@@ -109,7 +109,7 @@ const PLACES_ITEMS = [
     id: 'places-9',
     category: 'places',
     title: 'Golden Temple Dwajasthambam',
-    location: 'Tamil Nadu Temple',
+    location: 'TamilNadu Temple',
     badge: 'Sacred Flagstaff',
     desc: 'Gleaming golden flag mast standing tall within the consecrated temple sanctum.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.27 PM.jpeg',
@@ -129,7 +129,7 @@ const PLACES_ITEMS = [
     id: 'places-11',
     category: 'places',
     title: 'Eco Heritage Resort Courtyard',
-    location: 'Kerala / Tamil Nadu',
+    location: 'Kerala / TamilNadu',
     badge: 'Scenic Stay',
     desc: 'Traditional heritage cottages and palm gardens for relaxing outstation halts.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.30 PM.jpeg',
@@ -189,7 +189,7 @@ const PLACES_ITEMS = [
     id: 'places-17',
     category: 'places',
     title: 'Rural Countryside Drive',
-    location: 'Tamil Nadu Roads',
+    location: 'TamilNadu Roads',
     badge: 'Village Tour',
     desc: 'Peaceful rural road flanked by green paddy fields, coconut palms, and blue skies.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.36 PM.jpeg',
@@ -259,7 +259,7 @@ const PLACES_ITEMS = [
     id: 'places-24',
     category: 'places',
     title: 'Illuminated Temple Rajagopuram',
-    location: 'Tamil Nadu Pilgrimage',
+    location: 'TamilNadu Pilgrimage',
     badge: 'Temple Darshan',
     desc: 'Majestic illuminated temple entrance gopuram glowing vibrantly during sacred evening pooja.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.36 PM (1).jpeg',
@@ -479,7 +479,7 @@ const PLACES_ITEMS = [
     id: 'places-46',
     category: 'places',
     title: 'Historic Stone Temple Gopuram & Sanctum',
-    location: 'Tamil Nadu Pilgrimage',
+    location: 'TamilNadu Pilgrimage',
     badge: 'Temple Circuit',
     desc: 'Spacious stone-paved temple courtyard leading to the majestic sculpted gopuram.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.38 PM.jpeg',
@@ -524,7 +524,7 @@ const CLIENTS_ITEMS = [
     title: 'Family Pilgrims at Temple',
     location: 'Temple Circuit',
     badge: 'Devotional Tour',
-    desc: 'Peaceful devotional pilgrimage moments with family across renowned Tamil Nadu shrines.',
+    desc: 'Peaceful devotional pilgrimage moments with family across renowned TamilNadu shrines.',
     image: '/gallery/WhatsApp Image 2026-10-23 at 10.41.18 PM.jpeg',
     span: 'col-span-1 row-span-1'
   },
@@ -672,7 +672,7 @@ const CLIENTS_ITEMS = [
     id: 'clients-19',
     category: 'clients',
     title: 'Family Pilgrimage at Historic Gopuram',
-    location: 'Tamil Nadu Temple',
+    location: 'TamilNadu Temple',
     badge: 'Family Tour',
     desc: 'Family travelers and smiling chauffeur sharing a blessed moment outside the grand temple gopuram.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.40 PM.jpeg',
@@ -724,7 +724,7 @@ const CLIENTS_ITEMS = [
     title: 'Devotees with Sacred Tilak after Darshan',
     location: 'Temple Circuit',
     badge: 'Pilgrim Smiles',
-    desc: 'Peaceful devotees with sacred tilak enjoying a blessed temple tour journey across Tamil Nadu shrines.',
+    desc: 'Peaceful devotees with sacred tilak enjoying a blessed temple tour journey across TamilNadu shrines.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.42 PM.jpeg',
     span: 'col-span-1 row-span-1'
   },
@@ -832,7 +832,7 @@ const CLIENTS_ITEMS = [
     id: 'clients-35',
     category: 'clients',
     title: 'Solo Traveler in Scenic Valley Meadow',
-    location: 'Tamil Nadu Countryside',
+    location: 'TamilNadu Countryside',
     badge: 'Relaxed Tour',
     desc: 'Travel guest pausing for a relaxing breath of fresh air in rural mountain fields.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.48.32 PM.jpeg',
@@ -1005,7 +1005,7 @@ const CARS_ITEMS = [
     id: 'cars-13',
     category: 'cars',
     title: 'Swift Dzire Sedan in Coconut Palms',
-    location: 'Tamil Nadu Countryside',
+    location: 'TamilNadu Countryside',
     badge: 'Sedan Fleet',
     desc: 'Well-maintained air-conditioned Swift Dzire parked gracefully under lush coconut groves.',
     image: '/gallery/WhatsApp Image 2026-11-12 at 11.39.43 PM.jpeg',
@@ -1103,7 +1103,7 @@ export default function GalleryPage() {
           rawId: item.id,
           category: item.category || 'places',
           title: item.title,
-          location: item.location || 'Tamil Nadu',
+          location: item.location || 'TamilNadu',
           badge: item.badge || 'Featured Photo',
           desc: item.desc || item.description || '',
           image: resolveImageUrl(item.image),
@@ -1366,8 +1366,8 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             <button
               onClick={() => setActiveTab('all')}
               className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${activeTab === 'all'
-                  ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
-                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
+                : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                 }`}
             >
               All 3 Sections ({validAll.length})
@@ -1375,8 +1375,8 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             <button
               onClick={() => setActiveTab('places')}
               className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${activeTab === 'places'
-                  ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
-                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
+                : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                 }`}
             >
               <Compass className="w-4 h-4" />
@@ -1385,8 +1385,8 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             <button
               onClick={() => setActiveTab('clients')}
               className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${activeTab === 'clients'
-                  ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
-                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
+                : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                 }`}
             >
               <Users className="w-4 h-4" />
@@ -1395,8 +1395,8 @@ I would like to enquire about a tour package / taxi service for this. Please sha
             <button
               onClick={() => setActiveTab('cars')}
               className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${activeTab === 'cars'
-                  ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
-                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                ? 'bg-brand-gold text-neutral-950 shadow-lg scale-105'
+                : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                 }`}
             >
               <Car className="w-4 h-4" />
@@ -1410,8 +1410,8 @@ I would like to enquire about a tour package / taxi service for this. Please sha
               <button
                 onClick={() => setViewMode('collage')}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${viewMode === 'collage'
-                    ? 'bg-brand-gold text-neutral-950 shadow-sm'
-                    : 'text-neutral-300 hover:text-white'
+                  ? 'bg-brand-gold text-neutral-950 shadow-sm'
+                  : 'text-neutral-300 hover:text-white'
                   }`}
               >
                 <Columns3 className="w-3.5 h-3.5" />
@@ -1420,8 +1420,8 @@ I would like to enquire about a tour package / taxi service for this. Please sha
               <button
                 onClick={() => setViewMode('grid')}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${viewMode === 'grid'
-                    ? 'bg-brand-gold text-neutral-950 shadow-sm'
-                    : 'text-neutral-300 hover:text-white'
+                  ? 'bg-brand-gold text-neutral-950 shadow-sm'
+                  : 'text-neutral-300 hover:text-white'
                   }`}
               >
                 <LayoutGrid className="w-3.5 h-3.5" />
@@ -1449,7 +1449,7 @@ I would like to enquire about a tour package / taxi service for this. Please sha
                   Places & Sacred Destinations <span className="text-brand-gold-dark">({validPlaces.length})</span>
                 </h2>
                 <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-2xl">
-                  Ancient temple gopurams, mist-covered mountain passes, water dams, royal palaces, and scenic heritage resorts across Tamil Nadu & Kerala.
+                  Ancient temple gopurams, mist-covered mountain passes, water dams, royal palaces, and scenic heritage resorts across TamilNadu & Kerala.
                 </p>
               </div>
               <span className="text-xs font-semibold text-neutral-500 bg-neutral-200/70 px-3 py-1 rounded-full self-start sm:self-auto">

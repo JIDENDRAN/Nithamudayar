@@ -660,13 +660,13 @@ Driver Charge: ${data.dayDriver || ''}`;
       return;
     }
 
-    const finalTitle = data.title.trim() || 'Tour Highlight - Tamil Nadu';
+    const finalTitle = data.title.trim() || 'Tour Highlight - TamilNadu';
 
     const newPhoto = {
       id: Date.now(),
       title: finalTitle,
       category: data.category || 'places',
-      location: data.location.trim() || 'Tamil Nadu',
+      location: data.location.trim() || 'TamilNadu',
       badge: data.badge.trim() || 'Featured Photo',
       desc: data.desc.trim() || '',
       image: data.image,
@@ -980,7 +980,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                 BKG-{String(booking.id).padStart(4, '0')}
                               </span>
                               <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${booking.status === 'Approved' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' :
-                                  booking.status === 'Completed' ? 'bg-blue-100 text-blue-700 border border-blue-200' : 'bg-amber-100 text-amber-700 border border-amber-200'
+                                booking.status === 'Completed' ? 'bg-blue-100 text-blue-700 border border-blue-200' : 'bg-amber-100 text-amber-700 border border-amber-200'
                                 }`}>
                                 {booking.status || 'Pending'}
                               </span>
@@ -1203,7 +1203,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                       <Settings className="w-5 h-5 text-[#d4951e]" /> Superadmin Profile Configurations
                     </h3>
 
-                    <form onSubmit={handleSettingsSubmit} className="space-y-6">
+                    <form onSubmit={handleSettingsSubmit} className="space-y-6">TamilNadu
                       <div className="space-y-2">
                         <label className="text-gray-500 text-xs font-bold uppercase tracking-wider pl-1">Superadmin Username</label>
                         <div className="relative">
@@ -1459,7 +1459,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                         />
                       </div>
                     </div>
-
+                    TamilNadu
                     <button
                       type="submit"
                       className="w-full bg-[#10194E] hover:bg-[#283058] text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-poppins text-sm uppercase tracking-wider"
@@ -1631,7 +1631,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                       </div>
                       <div>
                         <label className="text-xs font-bold text-gray-500 uppercase">Location</label>
-                        <input type="text" value={pkgModal.data.location || ''} onChange={e => setPkgModal({ ...pkgModal, data: { ...pkgModal.data, location: e.target.value } })} className="w-full mt-1 bg-[#f7f5f0] border border-[#edeae1] p-3 rounded-xl focus:outline-none focus:border-[#d4951e]" placeholder="e.g. Thanjavur, Tamil Nadu" />
+                        <input type="text" value={pkgModal.data.location || ''} onChange={e => setPkgModal({ ...pkgModal, data: { ...pkgModal.data, location: e.target.value } })} className="w-full mt-1 bg-[#f7f5f0] border border-[#edeae1] p-3 rounded-xl focus:outline-none focus:border-[#d4951e]" placeholder="e.g. Thanjavur, TamilNadu" />
                       </div>
                     </div>
                     <div className="mt-4">
@@ -1674,13 +1674,13 @@ Driver Charge: ${data.dayDriver || ''}`;
                   </div>
 
                   <form onSubmit={handleGallerySubmit} className="space-y-4">
-                    
+
                     {/* Single Direct Image Upload */}
                     <div>
                       <label className="text-xs font-bold text-gray-600 uppercase tracking-wider block mb-1.5">
                         Select Photo <span className="text-red-500">*</span>
                       </label>
-                      
+
                       <label className="border-2 border-dashed border-[#edeae1] hover:border-[#d4951e] rounded-2xl p-6 bg-[#FAF8F5] hover:bg-[#FAF6EC] transition-all flex flex-col items-center justify-center gap-3 cursor-pointer group relative block">
                         <input
                           type="file"
@@ -1713,7 +1713,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                             </div>
                           </div>
                         ) : (
-                          <div className="text-center py-6 space-y-2">
+                          <div className="text-center py-6 space-y-2">TamilNadu
                             <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-[#d4951e] group-hover:scale-110 transition-transform">
                               <Upload className="w-7 h-7" />
                             </div>
@@ -1766,7 +1766,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                         </label>
                         <input
                           type="text"
-                          placeholder="e.g. Thanjavur, Tamil Nadu"
+                          placeholder="e.g. Thanjavur, TamilNadu"
                           value={galleryModal.data.location}
                           onChange={e => setGalleryModal({ ...galleryModal, data: { ...galleryModal.data, location: e.target.value } })}
                           className="w-full bg-[#f7f5f0] border border-[#edeae1] p-3 rounded-xl focus:outline-none focus:border-[#d4951e] text-sm"
@@ -1890,7 +1890,7 @@ Driver Charge: ${data.dayDriver || ''}`;
             {activeTab === 'gallery' && (
               <motion.div key="gallery" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
                 <div className="bg-white rounded-3xl border border-[#edeae1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden">
-                  
+
                   {/* Header Bar */}
                   <div className="p-6 border-b border-[#edeae1] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
@@ -1947,11 +1947,10 @@ Driver Charge: ${data.dayDriver || ''}`;
                       <button
                         key={tab.id}
                         onClick={() => setGalleryFilter(tab.id)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                          galleryFilter === tab.id
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${galleryFilter === tab.id
                             ? 'bg-[#10194E] text-white shadow-sm'
                             : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
-                        }`}
+                          }`}
                       >
                         {tab.label} ({tab.count})
                       </button>
@@ -1960,7 +1959,7 @@ Driver Charge: ${data.dayDriver || ''}`;
 
                   {/* Content List */}
                   {loading ? (
-                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 TamilNadum">
                       <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
                       Loading gallery photos...
                     </div>
@@ -2053,7 +2052,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                       </h3>
                                       <div className="flex items-center gap-1.5 text-xs text-gray-500">
                                         <MapPin className="w-3.5 h-3.5 text-[#d4951e] shrink-0" />
-                                        <span className="truncate font-medium">{item.location || 'Tamil Nadu'}</span>
+                                        <span className="truncate font-medium">{item.location || 'TamilNadu'}</span>
                                       </div>
                                       {item.desc && (
                                         <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
@@ -2104,3 +2103,4 @@ Driver Charge: ${data.dayDriver || ''}`;
 };
 
 export default AdminDashboard;
+TamilNaduTamilNaduTamilNaduTamilNaduTamilNaduTamilNadu

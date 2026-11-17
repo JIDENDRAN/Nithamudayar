@@ -27,7 +27,7 @@ export const travelHubsData = [
     places: [
       {
         name: 'Kumbakonam',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'The Temple Town & Navagraha Hub',
         image: '/images/destinations/kumbakonam.jpg',
         attractions: 'Adi Kumbeswarar • Mahamaham Tank • 9 Navagraha Planetary Shrines Around City',
@@ -36,7 +36,7 @@ export const travelHubsData = [
       },
       {
         name: 'Trichy Kaveri Basin',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Grand Anicut & Rockfort Summit',
         image: '/images/destinations/trichy.jpg',
         attractions: '2nd Century Kallanai Dam • Monolithic Rockfort • Srirangam Ranganathaswamy Temple',
@@ -45,7 +45,7 @@ export const travelHubsData = [
       },
       {
         name: 'Living Chola Marvels',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Heritage & Bronze Arts',
         image: '/images/destinations/thanjavur.jpg',
         attractions: 'Gangaikonda Cholapuram • Airavatesvara Temple Darasuram • Royal Art Plate Weavers',
@@ -56,7 +56,7 @@ export const travelHubsData = [
   },
   {
     id: 'tamilnadu-heritage',
-    title: 'Tamil Nadu Heritage Circuit',
+    title: 'TamilNadu Heritage Circuit',
     subtitle: 'UNESCO World Monuments & Great Living Dravidian Temples',
     route: 'Trichy • Madurai • Rameshwaram • Kanyakumari',
     desc: 'Journey through 2,000 years of glorious Tamil architectural genius, soaring granite temple towers (Vimana), sculpted corridors, and legendary sacred sea bridges down to the ocean confluence.',
@@ -66,16 +66,16 @@ export const travelHubsData = [
     places: [
       {
         name: 'Madurai',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Ancient Temple & Jasmine City',
         image: '/images/destinations/madurai.jpg',
         attractions: 'Meenakshi Amman Temple • Thirumalai Nayakkar Palace • Gandhi Museum • Teppakulam Lake',
         highlight: '2,500+ Yrs Living History',
-        desc: 'The vibrant cultural heart of Tamil Nadu with 14 colorfully sculpted Gopurams, the thousand-pillar hall, and bustling heritage temple bazaars.'
+        desc: 'The vibrant cultural heart of TamilNadu with 14 colorfully sculpted Gopurams, the thousand-pillar hall, and bustling heritage temple bazaars.'
       },
       {
         name: 'Rameshwaram',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Sacred Island of Lord Shiva',
         image: '/images/destinations/rameswaram.jpg',
         attractions: 'Pamban Sea Bridge • Ramanathaswamy 22 Holy Theerthams • Dhanushkodi Ghost Town',
@@ -84,7 +84,7 @@ export const travelHubsData = [
       },
       {
         name: 'Kanyakumari',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Lands End & Triveni Sangam',
         image: '/images/destinations/kanyakumari.jpg',
         attractions: 'Vivekananda Rock Memorial • 133ft Thiruvalluvar Statue • Sunrise & Sunset Point',
@@ -105,7 +105,7 @@ export const travelHubsData = [
     places: [
       {
         name: 'Thiruparankundram',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Cave Temple & Divine Wedding Shrine (1st Abode)',
         image: '/images/destinations/thiruparankundram.jpg',
         attractions: 'Rock-cut Cave Sanctum • Marriage of Lord Murugan & Deivanai • Saravana Poigai',
@@ -114,7 +114,7 @@ export const travelHubsData = [
       },
       {
         name: 'Tiruchendur',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Seaside Coastal Shrine & Victory Ground (2nd Abode)',
         image: '/images/destinations/tiruchendur.jpg',
         attractions: 'Lord Subramanya Sea Shore Temple • Nazhikinaru Sacred Spring • Ocean Promenade',
@@ -123,7 +123,7 @@ export const travelHubsData = [
       },
       {
         name: 'Palani',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Dhandayuthapani Hill & Renunciation Shrine (3rd Abode)',
         image: '/images/destinations/palani.jpg',
         attractions: 'Sivagiri Hilltop Temple • Winch & Ropeway Car • Divine Panchamirtham Prasad',
@@ -132,7 +132,7 @@ export const travelHubsData = [
       },
       {
         name: 'Swamimalai',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Gnana Upadesham & Guru Sthalam (4th Abode)',
         image: '/images/destinations/swamimalai.jpg',
         attractions: '60 Granite Steps (Tamil Years) • Son Teaching Father Lord Shiva • Pranava Mantra',
@@ -141,7 +141,7 @@ export const travelHubsData = [
       },
       {
         name: 'Thiruthani',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Tanikasalam Hill & Peace Abode (5th Abode)',
         image: '/images/destinations/thiruthani.jpg',
         attractions: '365 Hill Steps (Days of the Year) • Marriage with Valli • Shanti Stalam',
@@ -150,7 +150,7 @@ export const travelHubsData = [
       },
       {
         name: 'Pazhamudircholai',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Solaimalai Forest & Fruition Abode (6th Abode)',
         image: '/images/destinations/pazhamudircholai.jpg',
         attractions: 'Lord Murugan with Valli & Deivanai • Holy Noopura Ganga Spring • Azhagar Hills',
@@ -219,7 +219,7 @@ export const travelHubsData = [
     places: [
       {
         name: 'Ooty',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Queen of Hill Stations',
         image: '/images/destinations/ooty.jpg',
         attractions: 'Botanical Gardens • Pykara Waterfalls • Nilgiri Mountain Railway • Doddabetta Peak',
@@ -228,7 +228,7 @@ export const travelHubsData = [
       },
       {
         name: 'Kodaikanal',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Princess of Hill Stations',
         image: '/images/destinations/kodaikanal.jpg',
         attractions: 'Star-Shaped Kodai Lake • Pillar Rocks • Coakers Walk • Pine Forests • Silver Cascade',
@@ -276,16 +276,16 @@ export const travelHubsData = [
     places: [
       {
         name: 'Chennai Airport & Corporate',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'International Gateway of South India',
         image: '/images/destinations/chennai-airport.jpg',
         attractions: 'Chennai Airport T1/T2 • OMR IT Expressway • Marina Coastline • Mahabalipuram',
         highlight: '24/7 Flight Tracking & VIP Pickup',
-        desc: 'Punctual flight transfers with real-time arrival tracking, executive meet-and-greet, and smooth intercity drops across Tamil Nadu.'
+        desc: 'Punctual flight transfers with real-time arrival tracking, executive meet-and-greet, and smooth intercity drops across TamilNadu.'
       },
       {
         name: 'Coimbatore Airport & Corporate',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Manchester of South India',
         image: '/images/destinations/coimbatore-airport.jpg',
         attractions: 'Coimbatore Airport • Adiyogi Shiva Statue • Nilgiri Foothills • Tirupur Industrial Tour',
@@ -294,7 +294,7 @@ export const travelHubsData = [
       },
       {
         name: 'Trichy Airport & Corporate',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Central Delta Gateway & International Terminal',
         image: '/images/destinations/trichy-airport.jpg',
         attractions: 'Tiruchirappalli International Airport (TRZ) • Express Highway Transit • Delta Region Connections',
@@ -303,7 +303,7 @@ export const travelHubsData = [
       },
       {
         name: 'Madurai Airport & Corporate',
-        state: 'Tamil Nadu',
+        state: 'TamilNadu',
         tagline: 'Southern Cultural & Commercial Air Terminal',
         image: '/images/destinations/madurai-airport.jpg',
         attractions: 'Madurai Airport (IXM) • Southern Industrial Belt • Direct Transit to Rameshwaram & Kanyakumari',
@@ -465,8 +465,8 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                 key={hub.id}
                 onClick={() => handleSelectHub(idx)}
                 className={`relative px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 snap-start flex items-center gap-2 cursor-pointer border ${isSelected
-                    ? 'bg-[#10194E] text-[#FCF6BA] border-brand-gold shadow-lg scale-102 z-10'
-                    : 'bg-white text-neutral-700 hover:bg-neutral-50 border-neutral-200'
+                  ? 'bg-[#10194E] text-[#FCF6BA] border-brand-gold shadow-lg scale-102 z-10'
+                  : 'bg-white text-neutral-700 hover:bg-neutral-50 border-neutral-200'
                   }`}
               >
                 <Compass className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#D4AF37]' : 'text-neutral-400'}`} />
@@ -650,8 +650,8 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                     onClick={() => { setActiveImageIndex(pIdx); setProgress(0); }}
                     aria-label={`Slide to ${place.name}`}
                     className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${pIdx === activeImageIndex
-                        ? 'w-7 bg-brand-gold'
-                        : 'w-2 bg-neutral-300 hover:bg-neutral-400'
+                      ? 'w-7 bg-brand-gold'
+                      : 'w-2 bg-neutral-300 hover:bg-neutral-400'
                       }`}
                   />
                 ))}
@@ -667,8 +667,8 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                     key={place.name}
                     onClick={() => { setActiveImageIndex(pIdx); setProgress(0); }}
                     className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border-2 bg-white flex flex-row sm:flex-col ${isActive
-                        ? 'border-brand-gold ring-4 ring-brand-gold/20 shadow-lg -translate-y-1'
-                        : 'border-neutral-200 hover:border-neutral-300 hover:shadow-md'
+                      ? 'border-brand-gold ring-4 ring-brand-gold/20 shadow-lg -translate-y-1'
+                      : 'border-neutral-200 hover:border-neutral-300 hover:shadow-md'
                       }`}
                   >
                     {/* Thumbnail Image */}
