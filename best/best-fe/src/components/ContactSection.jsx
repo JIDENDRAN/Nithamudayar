@@ -194,7 +194,7 @@ export default function ContactSection() {
                   <div>
                     <p className="font-semibold text-neutral-900">Headquarters Address</p>
                     <p className="text-neutral-600 mt-0.5">
-                      Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005
+                      Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904
                     </p>
                   </div>
                 </div>

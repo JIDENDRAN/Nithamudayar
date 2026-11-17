@@ -499,7 +499,7 @@ export default function Contact({ onOpenBooking }) {
                       <div>
                         <p className="font-bold text-white text-xs">Operations Headquarters</p>
                         <p className="text-neutral-300 mt-0.5 leading-relaxed font-medium">
-                          Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005
+                          Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904
                         </p>
                         <p className="text-neutral-400 text-[11px] mt-0.5">
                           Depot & garage network covering all 38 districts & South India.

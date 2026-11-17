@@ -1361,7 +1361,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                   value={customMsgPhone}
                                   onChange={(e) => setCustomMsgPhone(e.target.value)}
                                   className="w-full bg-white border border-[#edeae1] text-gray-800 pl-10 pr-4 py-3 rounded-xl focus:outline-none focus:border-[#d4951e] focus:ring-1 focus:ring-[#d4951e] transition-all text-xs font-semibold"
-                                  placeholder="Recipient Phone Number (e.g. 6382513075)"
+                                  placeholder="Recipient Phone Number (e.g. 9894116405)"
                                 />
                               </div>
                               <textarea

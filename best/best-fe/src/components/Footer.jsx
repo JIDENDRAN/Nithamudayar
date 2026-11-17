@@ -161,7 +161,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
             <div className="space-y-2 text-xs text-neutral-400">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-brand-gold shrink-0 mt-0.5" />
-                <span>Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005</span>
+                <span>Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904</span>
               </div>
               <div className="flex items-start gap-2">
                 <Phone className="w-3.5 h-3.5 text-brand-gold shrink-0 mt-0.5" />

@@ -8,8 +8,8 @@ const WhatsAppIcon = ({ className }) => (
 );
 
 export default function FloatingButtons() {
-  const adminNumber = '6382513075';
-  const whatsappUrl = `https://wa.me/91${adminNumber}?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20with%20Madurai%20Best%20Tours%20and%20Travels.`;
+  const adminNumber = '9894116405';
+  const whatsappUrl = `https://wa.me/91${adminNumber}?text=Hello%2C%20I%20want%20to%20book%20a%20trip%20with%20Nithamudayar%20Tours%20and%20Travels.`;
 
   return (
     <div className="fixed bottom-6 right-6 z-[999] flex flex-col gap-4">
