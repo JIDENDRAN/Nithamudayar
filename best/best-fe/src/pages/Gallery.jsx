@@ -16,13 +16,9 @@ import {
   ArrowRight,
   Eye,
   CheckCircle2,
-  ShieldCheck,
-  Upload,
-  Trash2,
-  Lock,
-  Plus
+  ShieldCheck
 } from 'lucide-react';
-import { compressImage, getCustomGalleryPhotos, saveCustomGalleryPhoto, deleteCustomGalleryPhoto } from '../utils/galleryStorage';
+import { getCustomGalleryPhotos } from '../utils/galleryStorage';
 
 const PLACES_ITEMS = [
   {
@@ -1083,16 +1079,6 @@ export default function GalleryPage() {
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [failedImages, setFailedImages] = useState(new Set());
   const [customItems, setCustomItems] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
-
-  // Check admin login state
-  useEffect(() => {
-    try {
-      setIsAdmin(localStorage.getItem('adminLoggedIn') === 'true');
-    } catch (e) {
-      setIsAdmin(false);
-    }
-  }, []);
 
   const loadPhotos = async () => {
     try {
@@ -1127,21 +1113,6 @@ export default function GalleryPage() {
     window.addEventListener('nitham_gallery_updated', handleUpdate);
     return () => window.removeEventListener('nitham_gallery_updated', handleUpdate);
   }, []);
-
-
-
-  const handleDeleteCustomItem = async (e, item) => {
-    e.stopPropagation();
-    if (!window.confirm(`Delete "${item.title}" from gallery?`)) return;
-    try {
-      const rawId = item.rawId || (item.id.startsWith('custom-') ? item.id.replace('custom-', '') : item.id);
-      await deleteCustomGalleryPhoto(rawId);
-      await loadPhotos();
-      showToast('Photo removed from gallery');
-    } catch (err) {
-      console.error('Delete error:', err);
-    }
-  };
 
   const customPlaces = customItems.filter((i) => (i.category || 'places') === 'places');
   const customClients = customItems.filter((i) => i.category === 'clients');
@@ -1238,16 +1209,6 @@ I would like to enquire about a tour package / taxi service for this. Please sha
           </span>
 
           <div className="flex items-center gap-1.5 pointer-events-auto">
-            {isAdmin && item.isCustom && (
-              <button
-                type="button"
-                onClick={(e) => handleDeleteCustomItem(e, item)}
-                className="w-8 h-8 rounded-full bg-red-600/90 hover:bg-red-700 text-white flex items-center justify-center backdrop-blur-md border border-white/20 opacity-90 hover:opacity-100 transition-all shadow-md cursor-pointer"
-                title="Delete this photo"
-              >
-                <Trash2 className="w-4 h-4" />
-              </button>
-            )}
             <span className="w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md pointer-events-none">
               <Eye className="w-4 h-4 text-brand-gold" />
             </span>

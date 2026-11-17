@@ -1203,7 +1203,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                       <Settings className="w-5 h-5 text-[#d4951e]" /> Superadmin Profile Configurations
                     </h3>
 
-                    <form onSubmit={handleSettingsSubmit} className="space-y-6">TamilNadu
+                    <form onSubmit={handleSettingsSubmit} className="space-y-6">
                       <div className="space-y-2">
                         <label className="text-gray-500 text-xs font-bold uppercase tracking-wider pl-1">Superadmin Username</label>
                         <div className="relative">
@@ -1459,7 +1459,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                         />
                       </div>
                     </div>
-                    TamilNadu
+
                     <button
                       type="submit"
                       className="w-full bg-[#10194E] hover:bg-[#283058] text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-poppins text-sm uppercase tracking-wider"
@@ -1713,7 +1713,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                             </div>
                           </div>
                         ) : (
-                          <div className="text-center py-6 space-y-2">TamilNadu
+                          <div className="text-center py-6 space-y-2">
                             <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-[#d4951e] group-hover:scale-110 transition-transform">
                               <Upload className="w-7 h-7" />
                             </div>
@@ -1959,7 +1959,7 @@ Driver Charge: ${data.dayDriver || ''}`;
 
                   {/* Content List */}
                   {loading ? (
-                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 TamilNadum">
+                    <div className="flex flex-col items-center justify-center py-20 text-gray-500 font-medium">
                       <div className="w-10 h-10 border-4 border-[#d4951e] border-t-transparent rounded-full animate-spin mb-4" />
                       Loading gallery photos...
                     </div>
@@ -2103,4 +2103,3 @@ Driver Charge: ${data.dayDriver || ''}`;
 };
 
 export default AdminDashboard;
-TamilNaduTamilNaduTamilNaduTamilNaduTamilNaduTamilNadu
