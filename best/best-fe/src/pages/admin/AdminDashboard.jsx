@@ -3075,13 +3075,13 @@ Driver Charge: ${data.dayDriver || ''}`;
 
                   <form onSubmit={handleGallerySubmit} className="space-y-4">
                     
-                    {/* Image Upload Box */}
+                    {/* Single Direct Image Upload */}
                     <div>
                       <label className="text-xs font-bold text-gray-600 uppercase tracking-wider block mb-1.5">
                         Select Photo <span className="text-red-500">*</span>
                       </label>
                       
-                      <label className="border-2 border-dashed border-[#edeae1] hover:border-[#d4951e] rounded-2xl p-5 bg-[#FAF8F5] hover:bg-[#FAF6EC] transition-all flex flex-col items-center justify-center gap-3 cursor-pointer group relative block">
+                      <label className="border-2 border-dashed border-[#edeae1] hover:border-[#d4951e] rounded-2xl p-6 bg-[#FAF8F5] hover:bg-[#FAF6EC] transition-all flex flex-col items-center justify-center gap-3 cursor-pointer group relative block">
                         <input
                           type="file"
                           accept="image/*"
@@ -3103,7 +3103,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                 e.stopPropagation();
                                 setGalleryModal(prev => ({ ...prev, data: { ...prev.data, image: '' } }));
                               }}
-                              className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-lg shadow-md transition-colors z-10"
+                              className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-lg shadow-md transition-colors z-10 cursor-pointer"
                               title="Remove image"
                             >
                               <X className="w-4 h-4" />
@@ -3113,37 +3113,17 @@ Driver Charge: ${data.dayDriver || ''}`;
                             </div>
                           </div>
                         ) : (
-                          <div className="text-center py-4 space-y-2">
+                          <div className="text-center py-6 space-y-2">
                             <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-[#d4951e] group-hover:scale-110 transition-transform">
                               <Upload className="w-7 h-7" />
                             </div>
-                            <div>
-                              <p className="text-sm font-bold text-gray-800">
-                                {uploadingGalleryImg ? 'Optimizing photo...' : 'Click anywhere to choose a photo from device'}
-                              </p>
-                              <p className="text-xs text-gray-500 mt-0.5">Supports all camera formats (JPG, PNG, WEBP, HEIC)</p>
-                            </div>
-                            <div className="pt-2">
-                              <span className="inline-flex items-center gap-2 bg-[#10194E] group-hover:bg-[#283058] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm transition-all">
-                                <Upload className="w-3.5 h-3.5" />
-                                <span>Browse Photos</span>
-                              </span>
-                            </div>
+                            <p className="text-sm font-bold text-gray-800">
+                              {uploadingGalleryImg ? 'Optimizing photo...' : 'Click to select photo from device'}
+                            </p>
+                            <p className="text-xs text-gray-400">Supports JPG, PNG, WEBP, and camera photos</p>
                           </div>
                         )}
                       </label>
-
-                      {/* Or paste URL fallback */}
-                      <div className="mt-2 flex items-center gap-2">
-                        <span className="text-[11px] font-bold text-gray-400 uppercase">Or Image URL:</span>
-                        <input
-                          type="url"
-                          placeholder="https://example.com/photo.jpg or /gallery/photo.jpeg"
-                          value={galleryModal.data.image.startsWith('data:') ? '' : galleryModal.data.image}
-                          onChange={(e) => setGalleryModal(prev => ({ ...prev, data: { ...prev.data, image: e.target.value } }))}
-                          className="flex-1 text-xs bg-[#f7f5f0] border border-[#edeae1] p-2 rounded-lg focus:outline-none focus:border-[#d4951e]"
-                        />
-                      </div>
                     </div>
 
                     {/* Title & Category */}

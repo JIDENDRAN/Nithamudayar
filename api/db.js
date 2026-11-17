@@ -19,3 +19,4 @@ export const pool = new Pool({
 pool.on('error', (err) => {
   console.error('[Neon DB] Unexpected error on idle client:', err);
 });
+
