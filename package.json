@@ -2,9 +2,13 @@
   "name": "nithamudayar",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Nithamudayar Tours & Travels Pvt Ltd monorepo",
   "scripts": {
     "build": "npm --prefix best/best-fe run build",
     "start": "npm --prefix best/best-be start"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
   }
 }

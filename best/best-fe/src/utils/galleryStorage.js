@@ -266,3 +266,4 @@ export async function deleteCustomGalleryPhoto(id) {
     window.dispatchEvent(new CustomEvent('nitham_gallery_updated', { detail: { id, deleted: true } }));
   }
 }
+
