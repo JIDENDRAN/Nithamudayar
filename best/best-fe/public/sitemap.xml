@@ -2,86 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://nithamudayar.vercel.app/</loc>
+    <loc>https://www.nithamudayar.in//</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
     <image:image>
-      <image:loc>https://nithamudayar.vercel.app/logo.png</image:loc>
+      <image:loc>https://www.nithamudayar.in//logo.png</image:loc>
       <image:title>Nithamudayar Tours &amp; Travels Pvt Ltd</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/about</loc>
+    <loc>https://www.nithamudayar.in//about</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/vehicles</loc>
+    <loc>https://www.nithamudayar.in//vehicles</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/packages</loc>
+    <loc>https://www.nithamudayar.in//packages</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/destinations</loc>
+    <loc>https://www.nithamudayar.in//destinations</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/gallery</loc>
+    <loc>https://www.nithamudayar.in//gallery</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/contact</loc>
+    <loc>https://www.nithamudayar.in//contact</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/airport-taxi</loc>
+    <loc>https://www.nithamudayar.in//airport-taxi</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/madurai-airport-taxi</loc>
+    <loc>https://www.nithamudayar.in//madurai-airport-taxi</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/privacy-policy</loc>
+    <loc>https://www.nithamudayar.in//privacy-policy</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/terms-and-conditions</loc>
+    <loc>https://www.nithamudayar.in//terms-and-conditions</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/madurai-taxi-service</loc>
+    <loc>https://www.nithamudayar.in//madurai-taxi-service</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/madurai-tour-packages</loc>
+    <loc>https://www.nithamudayar.in//madurai-tour-packages</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/madurai-to-rameswaram-taxi</loc>
+    <loc>https://www.nithamudayar.in//madurai-to-rameswaram-taxi</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/madurai-to-kodaikanal-taxi</loc>
+    <loc>https://www.nithamudayar.in//madurai-to-kodaikanal-taxi</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://nithamudayar.vercel.app/tempo-traveller-rental-madurai</loc>
+    <loc>https://www.nithamudayar.in//tempo-traveller-rental-madurai</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
