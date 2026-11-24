@@ -9,7 +9,7 @@ export default function TermsAndConditions() {
   return (
     <div className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto min-h-screen">
       <div className="bg-[#10194E] border border-brand-gold/30 rounded-2xl p-6 sm:p-10 shadow-2xl text-neutral-200">
-        
+
         {/* Header */}
         <div className="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
           <div className="p-3 bg-brand-gold/10 border border-brand-gold/30 rounded-xl text-brand-gold">
@@ -76,8 +76,8 @@ export default function TermsAndConditions() {
                 +91 98941 16405
               </a> / <a href="tel:+919626116405" className="text-brand-gold underline font-semibold">+91 96261 16405</a>{' '}
               or email{' '}
-              <a href="mailto:booking@nithamudayartravels.com" className="text-brand-gold underline">
-                booking@nithamudayartravels.com
+              <a href="mailto:nithamudayartoursandtravels@gmail.com" className="text-brand-gold underline">
+                nithamudayartoursandtravels@gmail.com
               </a>.
             </p>
           </div>

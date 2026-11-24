@@ -20,7 +20,7 @@ export default function ContactSection() {
     setSubmitted(true);
 
     const text = `*New Travel Enquiry - Nithamudayar Tours & Travels Pvt Ltd*%0A• Name: ${formData.name}%0A• Phone: ${formData.phone}%0A• Email: ${formData.email || 'N/A'}%0A• Pickup: ${formData.pickup}%0A• Destination: ${formData.destination}%0A• Travel Date: ${formData.date}%0A• Vehicle: ${formData.vehicle}%0A• Details: ${formData.message || 'Standard Trip'}`;
-    
+
     setTimeout(() => {
       window.open(`https://wa.me/919894116405?text=${text}`, '_blank');
       setSubmitted(false);
@@ -30,7 +30,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-20 px-6 sm:px-10 bg-white">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
         <div className="mb-12 border-b border-neutral-200 pb-6">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark block mb-1">
@@ -45,7 +45,7 @@ export default function ContactSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          
+
           {/* Left Column: Form */}
           <div className="lg:col-span-7 bg-[#FAF8F5] border border-neutral-200 rounded-xl p-6 sm:p-8">
             <h3 className="text-lg font-bold font-heading text-neutral-900 mb-4">
@@ -218,7 +218,7 @@ export default function ContactSection() {
                   <Mail className="w-4 h-4 text-brand-gold-dark shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-900">Email</p>
-                    <p className="text-neutral-600 mt-0.5">booking@nithamudayartravels.com</p>
+                    <p className="text-neutral-600 mt-0.5">nithamudayartoursandtravels@gmail.com</p>
                   </div>
                 </div>
 

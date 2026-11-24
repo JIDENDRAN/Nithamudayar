@@ -63,8 +63,8 @@ export default function PrivacyPolicy() {
             </h3>
             <p className="text-neutral-400 pl-6">
               If you have any questions about this Privacy Policy or wish to update your details, please reach out to us at{' '}
-              <a href="mailto:booking@nithamudayartravels.com" className="text-brand-gold underline">
-                booking@nithamudayartravels.com
+              <a href="mailto:nithamudayartoursandtravels@gmail.com" className="text-brand-gold underline">
+                nithamudayartoursandtravels@gmail.com
               </a>{' '}
               or call our central customer desk at{' '}
               <a href="tel:+919894116405" className="text-brand-gold underline font-semibold">

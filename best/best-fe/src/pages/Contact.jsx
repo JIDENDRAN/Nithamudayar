@@ -185,7 +185,7 @@ export default function Contact({ onOpenBooking }) {
             </div>
             <div className="pt-2.5 sm:pt-4 mt-2 sm:mt-3 border-t border-neutral-100 flex items-center justify-between">
               <a
-                href="mailto:booking@nithamudayartravels.com"
+                href="mailto:nithamudayartoursandtravels@gmail.com"
                 className="text-[10px] sm:text-xs font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1 transition-colors"
               >
                 <span>Email Team</span>
@@ -277,8 +277,8 @@ export default function Contact({ onOpenBooking }) {
                           type="button"
                           onClick={() => setTripType(t.id)}
                           className={`py-2 px-2.5 rounded-xl text-xs font-semibold text-center transition-all cursor-pointer ${tripType === t.id
-                              ? 'bg-[#10194E] text-brand-gold border-2 border-brand-gold shadow-sm font-bold'
-                              : 'bg-neutral-50 text-neutral-700 border border-neutral-200 hover:border-brand-gold/60'
+                            ? 'bg-[#10194E] text-brand-gold border-2 border-brand-gold shadow-sm font-bold'
+                            : 'bg-neutral-50 text-neutral-700 border border-neutral-200 hover:border-brand-gold/60'
                             }`}
                         >
                           {t.label}
@@ -533,8 +533,8 @@ export default function Contact({ onOpenBooking }) {
                       <div>
                         <p className="font-bold text-white text-xs">Email Reservations</p>
                         <p className="text-neutral-300 mt-0.5">
-                          <a href="mailto:booking@nithamudayartravels.com" className="hover:text-brand-gold transition-colors">
-                            booking@nithamudayartravels.com
+                          <a href="mailto:nithamudayartoursandtravels@gmail.com" className="hover:text-brand-gold transition-colors">
+                            nithamudayartoursandtravels@gmail.com
                           </a>
                         </p>
                       </div>
