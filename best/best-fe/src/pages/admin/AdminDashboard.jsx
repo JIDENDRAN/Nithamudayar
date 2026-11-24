@@ -719,7 +719,7 @@ Driver Charge: ${data.dayDriver || ''}`;
           </div>
           <div>
             <h2 className="font-bold text-lg leading-tight text-white font-heading">Nithamudayar</h2>
-            <p className="text-xs text-[#D4AF37] font-medium tracking-wide">Control Center</p>
+            <p className="text-xs text-[#E8C148] font-medium tracking-wide">Control Center</p>
           </div>
         </div>
 
@@ -837,12 +837,12 @@ Driver Charge: ${data.dayDriver || ''}`;
 
         <header className="bg-white border-b border-[#edeae1] px-6 py-4 md:px-8 flex justify-between items-center shadow-sm relative z-10">
           <h1 className="text-xl md:text-2xl font-bold text-[#252c54] uppercase tracking-wider flex items-center gap-2 font-heading">
-            <span className="text-[#D4AF37]">●</span> {activeTab.replace('-', ' ')}
+            <span className="text-[#E8C148]">●</span> {activeTab.replace('-', ' ')}
           </h1>
           <div className="flex items-center gap-3">
             <div className="text-right hidden sm:block">
               <span className="block text-sm font-semibold text-[#252c54]">Superadmin Panel</span>
-              <span className="block text-xs text-[#D4AF37] font-medium tracking-wide">Nithamudayar Tours & Travels Pvt Ltd</span>
+              <span className="block text-xs text-[#E8C148] font-medium tracking-wide">Nithamudayar Tours & Travels Pvt Ltd</span>
             </div>
             <div className="w-12 h-12 bg-[#10194E] rounded-xl p-0.5 shadow-md flex items-center justify-center shrink-0">
               <img
@@ -2038,7 +2038,7 @@ Driver Charge: ${data.dayDriver || ''}`;
                                       </div>
                                       {item.badge && (
                                         <div className="absolute bottom-2.5 left-2.5">
-                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#D4AF37] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#D4AF37]/30">
+                                          <span className="text-[10px] font-bold bg-[#10194E]/90 text-[#E8C148] px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#E8C148]/30">
                                             {item.badge}
                                           </span>
                                         </div>

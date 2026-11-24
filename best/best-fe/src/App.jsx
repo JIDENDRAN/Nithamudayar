@@ -106,7 +106,7 @@ const AppContent = () => {
                 </h2>
                 <div className="flex items-center gap-2 mt-2 opacity-95">
                   <span className="w-6 h-px bg-brand-gold" />
-                  <p className="text-xs lg:text-sm tracking-[0.25em] font-extrabold uppercase text-[#FFD700]">Tours & Travels Pvt Ltd</p>
+                  <p className="text-xs lg:text-sm tracking-[0.25em] font-extrabold uppercase text-[#E8C148]">Tours & Travels Pvt Ltd</p>
                   <span className="w-6 h-px bg-brand-gold" />
                 </div>
               </motion.div>

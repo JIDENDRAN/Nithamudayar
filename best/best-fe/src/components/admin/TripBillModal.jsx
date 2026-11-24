@@ -306,19 +306,19 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.96, opacity: 0 }}
-            className="bg-[#0B1138] border-0 sm:border border-[#d4af37]/40 sm:rounded-3xl w-full max-w-7xl h-full sm:h-auto sm:max-h-[96vh] shadow-2xl flex flex-col overflow-hidden text-white"
+            className="bg-[#0B1138] border-0 sm:border border-[#E8C148]/40 sm:rounded-3xl w-full max-w-7xl h-full sm:h-auto sm:max-h-[96vh] shadow-2xl flex flex-col overflow-hidden text-white"
           >
             {/* Top Modal Navigation Header */}
             <div className="p-3.5 sm:p-5 border-b border-white/10 bg-[#0f1426] shrink-0">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center font-bold shrink-0">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#E8C148]/20 text-[#E8C148] flex items-center justify-center font-bold shrink-0">
                     <Receipt className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-sm sm:text-lg font-bold font-heading text-white flex items-center gap-1.5 sm:gap-2">
                       <span>Trip Duty Slip & Invoice</span>
-                      <span className="text-[9px] sm:text-[10px] bg-[#d4af37]/20 text-[#d4af37] px-2 py-0.5 rounded-full font-mono uppercase tracking-wider">Official</span>
+                      <span className="text-[9px] sm:text-[10px] bg-[#E8C148]/20 text-[#E8C148] px-2 py-0.5 rounded-full font-mono uppercase tracking-wider">Official</span>
                     </h3>
                     <p className="text-[11px] sm:text-xs text-neutral-400 truncate max-w-[200px] sm:max-w-none">
                       Nithamudayar Tours & Travels Pvt Ltd • Travel Bill
@@ -331,10 +331,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   <button
                     type="button"
                     onClick={handlePrint}
-                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors"
+                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors"
                     title="Print or Save as PDF via browser"
                   >
-                    <Printer className="w-4 h-4 text-[#d4af37]" />
+                    <Printer className="w-4 h-4 text-[#E8C148]" />
                     <span>Print</span>
                   </button>
 
@@ -342,10 +342,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     type="button"
                     onClick={handleDownloadImage}
                     disabled={isGeneratingImage}
-                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors disabled:opacity-50"
+                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors disabled:opacity-50"
                     title="Download high-resolution PNG image (ideal for WhatsApp)"
                   >
-                    {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#d4af37]" />}
+                    {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#E8C148]" />}
                     <span>{isGeneratingImage ? 'Capturing...' : downloadImageSuccess ? 'Saved Image!' : 'Download Image'}</span>
                   </button>
 
@@ -353,7 +353,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     type="button"
                     onClick={handleDownloadPdf}
                     disabled={isGeneratingPdf}
-                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-md disabled:opacity-50 transition-colors"
+                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-md disabled:opacity-50 transition-colors"
                     title="Download razor-sharp vector PDF"
                   >
                     {downloadSuccess ? <Check className="w-4 h-4 text-white" /> : <Download className="w-4 h-4" />}
@@ -385,7 +385,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   type="button"
                   onClick={() => setMobileTab('form')}
                   className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${mobileTab === 'form'
-                    ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
+                    ? 'bg-[#E8C148] text-neutral-900 shadow-sm'
                     : 'text-neutral-400 hover:text-white'
                     }`}
                 >
@@ -396,7 +396,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   type="button"
                   onClick={() => setMobileTab('preview')}
                   className={`flex-1 py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-all ${mobileTab === 'preview'
-                    ? 'bg-[#d4af37] text-neutral-900 shadow-sm'
+                    ? 'bg-[#E8C148] text-neutral-900 shadow-sm'
                     : 'text-neutral-400 hover:text-white'
                     }`}
                 >
@@ -415,7 +415,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {/* 1. Trip Meta Box */}
                 <div className="bg-[#10194E] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8C148] flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" />
                       Invoice & Trip Nature
                     </span>
@@ -429,7 +429,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.billNo}
                         onChange={(e) => handleInputChange('billNo', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                     <div>
@@ -443,7 +443,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             handleInputChange('dailyRentDays', 1);
                           }
                         }}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                       >
                         <option value="Outstation Round Trip">Outstation Round Trip</option>
                         <option value="Daily Base Rental">Daily Base Rental</option>
@@ -464,7 +464,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.date}
                         onChange={(e) => handleInputChange('date', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                     <div>
@@ -473,7 +473,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.time}
                         onChange={(e) => handleInputChange('time', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                   </div>
@@ -482,7 +482,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {/* 2. Customer & Route Information */}
                 <div className="bg-[#10194E] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8C148] flex items-center gap-1.5">
                       <User className="w-3.5 h-3.5" />
                       Passenger & Journey Route
                     </span>
@@ -496,7 +496,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.customerName}
                         onChange={(e) => handleInputChange('customerName', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-semibold"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none font-semibold"
                         placeholder="e.g. Murugan Swamy"
                       />
                     </div>
@@ -506,7 +506,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                         placeholder="+91 98765 43210"
                       />
                     </div>
@@ -519,7 +519,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.fromLocation}
                         onChange={(e) => handleInputChange('fromLocation', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                         placeholder="e.g. Madurai Meenakshi Temple"
                       />
                     </div>
@@ -529,7 +529,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.toLocation}
                         onChange={(e) => handleInputChange('toLocation', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                         placeholder="e.g. Rameswaram Temple"
                       />
                     </div>
@@ -539,7 +539,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {/* 3. Vehicle & Chauffeur Particulars */}
                 <div className="bg-[#10194E] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8C148] flex items-center gap-1.5">
                       <Car className="w-3.5 h-3.5" />
                       Vehicle & Chauffeur Details
                     </span>
@@ -580,7 +580,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             dailyRentRate: (prev.dailyRentRate === 0 || !prev.dailyRentDays) ? dr : prev.dailyRentRate
                           }));
                         }}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                       >
                         <option value="Sedan (Dzire / Etios)">Sedan (Dzire/Etios) - ₹14/km</option>
                         <option value="SUV (Ertiga / Marazzo)">SUV (Ertiga/Marazzo) - ₹19/km</option>
@@ -596,7 +596,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.vehicleNo || ''}
                         onChange={(e) => handleInputChange('vehicleNo', e.target.value.toUpperCase())}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none font-mono uppercase"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none font-mono uppercase"
                         style={{ textTransform: 'uppercase' }}
                         placeholder="e.g. TN 49 AB 2026"
                       />
@@ -610,7 +610,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.driverName}
                         onChange={(e) => handleInputChange('driverName', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                         placeholder="e.g. S. Murugesan"
                       />
                     </div>
@@ -620,7 +620,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.driverPhone}
                         onChange={(e) => handleInputChange('driverPhone', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                         placeholder="+91 98941 16405"
                       />
                     </div>
@@ -630,7 +630,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {/* 4. Odometer / Meter Duty Log & Rates */}
                 <div className="bg-[#10194E] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8C148] flex items-center gap-1.5">
                       <Gauge className="w-3.5 h-3.5" />
                       Duty Slip Odometer Readings & Rates
                     </span>
@@ -645,7 +645,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.openingKm}
                         onChange={(e) => handleInputChange('openingKm', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                     <div>
@@ -655,7 +655,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.closingKm}
                         onChange={(e) => handleInputChange('closingKm', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                     <div>
@@ -665,7 +665,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.distanceKm}
                         onChange={(e) => handleInputChange('distanceKm', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                   </div>
@@ -678,7 +678,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.ratePerKm}
                         onChange={(e) => handleInputChange('ratePerKm', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                     <div>
@@ -688,7 +688,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.driverBata}
                         onChange={(e) => handleInputChange('driverBata', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                     <div>
@@ -698,7 +698,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.driverBataDays}
                         onChange={(e) => handleInputChange('driverBataDays', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                   </div>
@@ -707,11 +707,11 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   <div className="pt-2 border-t border-white/10">
                     <div className="flex items-center justify-between mb-1.5">
                       <label className="text-neutral-300 text-[11px] font-bold flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
+                        <Clock className="w-3.5 h-3.5 text-[#E8C148]" />
                         Night Halting Bata (10 PM to 6 AM)
                       </label>
                       {nightBata > 0 ? (
-                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#E8C148]/20 px-2 py-0.5 rounded">
                           Total: ₹{nightBata.toLocaleString('en-IN')}
                         </span>
                       ) : (
@@ -730,7 +730,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.nightBataDays ?? 0}
                           onChange={(e) => handleInputChange('nightBataDays', e.target.value)}
                           placeholder="0"
-                          className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                          className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                         />
                       </div>
                       <div>
@@ -742,7 +742,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.nightBataRate ?? 400}
                           onChange={(e) => handleInputChange('nightBataRate', e.target.value)}
                           placeholder="400"
-                          className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                          className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                         />
                       </div>
                       <div className="col-span-2 sm:col-span-1">
@@ -762,7 +762,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             }
                           }}
                           placeholder="0"
-                          className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                          className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                         />
                       </div>
                     </div>
@@ -772,13 +772,13 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {/* 5. Daily Base Rent (Vehicle Rental) Section */}
                 <div className="bg-[#10194E] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8C148] flex items-center gap-1.5">
                       <Car className="w-3.5 h-3.5" />
                       Daily Base Rent (Vehicle Rental)
                     </span>
                     <div className="flex items-center gap-2">
                       {dailyRentTotal > 0 ? (
-                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 border border-[#d4af37]/40 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
                           Total: ₹{dailyRentTotal.toLocaleString('en-IN')}
                         </span>
                       ) : (
@@ -800,7 +800,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.dailyRentDays ?? 0}
                         onChange={(e) => handleInputChange('dailyRentDays', Math.max(0, Number(e.target.value) || 0))}
                         placeholder="0"
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none font-bold"
                       />
                     </div>
                     <div>
@@ -812,7 +812,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.dailyRentRate ?? ''}
                         onChange={(e) => handleInputChange('dailyRentRate', e.target.value)}
                         placeholder="3500"
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none font-bold"
                       />
                     </div>
                     <div className="col-span-2 sm:col-span-1">
@@ -833,7 +833,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           }
                         }}
                         placeholder="0"
-                        className="w-full bg-[#0B1138] border border-[#d4af37]/40 rounded-lg px-2.5 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-[#E8C148]/40 rounded-lg px-2.5 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                   </div>
@@ -844,7 +844,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 {/* 6. Additional Charges & Settlement */}
                 <div className="bg-[#10194E] border border-white/10 rounded-2xl p-3.5 sm:p-4 space-y-3.5 shadow-sm">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37] flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8C148] flex items-center gap-1.5">
                       <Calculator className="w-3.5 h-3.5" />
                       Additional Charges & Settlement
                     </span>
@@ -855,11 +855,11 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   <div className="bg-[#0B1138] border border-white/10 rounded-xl p-3 space-y-2">
                     <div className="flex items-center justify-between">
                       <label className="text-neutral-300 text-xs font-bold flex items-center gap-1.5">
-                        <Compass className="w-3.5 h-3.5 text-[#d4af37]" />
+                        <Compass className="w-3.5 h-3.5 text-[#E8C148]" />
                         Hill Charges (Ghat Road / Hill Station)
                       </label>
                       {hillCharges > 0 ? (
-                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 border border-[#d4af37]/40 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
                           Total: ₹{hillCharges.toLocaleString('en-IN')}
                         </span>
                       ) : (
@@ -878,7 +878,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.hillCharges || ''}
                           onChange={(e) => handleInputChange('hillCharges', e.target.value)}
                           placeholder="e.g. 500"
-                          className="w-full bg-[#10194E] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                          className="w-full bg-[#10194E] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none font-bold"
                         />
                       </div>
                       <div>
@@ -888,7 +888,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.hillChargesDetails || ''}
                           onChange={(e) => handleInputChange('hillChargesDetails', e.target.value)}
                           placeholder="e.g. Kodaikanal / Ooty Ghat Road"
-                          className="w-full bg-[#10194E] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#d4af37] outline-none"
+                          className="w-full bg-[#10194E] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
                         />
                       </div>
                     </div>
@@ -898,11 +898,11 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   <div className="bg-[#0B1138] border border-white/10 rounded-xl p-3 space-y-2">
                     <div className="flex items-center justify-between">
                       <label className="text-neutral-300 text-xs font-bold flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
+                        <Clock className="w-3.5 h-3.5 text-[#E8C148]" />
                         Hour Charges (Extra Hours / Waiting)
                       </label>
                       {hourChargesAmt > 0 ? (
-                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#d4af37]/20 border border-[#d4af37]/40 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
                           Total: ₹{hourChargesAmt.toLocaleString('en-IN')}
                         </span>
                       ) : (
@@ -922,7 +922,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.hourChargesHrs || ''}
                           onChange={(e) => handleInputChange('hourChargesHrs', e.target.value)}
                           placeholder="0"
-                          className="w-full bg-[#10194E] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                          className="w-full bg-[#10194E] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none font-bold"
                         />
                       </div>
                       <div>
@@ -934,7 +934,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.hourChargesRate || ''}
                           onChange={(e) => handleInputChange('hourChargesRate', e.target.value)}
                           placeholder="0"
-                          className="w-full bg-[#10194E] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none font-bold"
+                          className="w-full bg-[#10194E] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none font-bold"
                         />
                       </div>
                       <div>
@@ -946,7 +946,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.hourChargesTotal !== undefined && billData.hourChargesTotal !== "" ? billData.hourChargesTotal : (hourChargesAmt || '')}
                           onChange={(e) => handleInputChange('hourChargesTotal', e.target.value)}
                           placeholder="0"
-                          className="w-full bg-[#10194E] border border-[#d4af37]/40 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                          className="w-full bg-[#10194E] border border-[#E8C148]/40 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                         />
                       </div>
                     </div>
@@ -964,7 +964,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           handleInputChange('tollCharges', e.target.value);
                           if (billData.tollParking) handleInputChange('tollParking', '');
                         }}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                         placeholder="0"
                       />
                     </div>
@@ -975,7 +975,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.parkingCharges || ""}
                         onChange={(e) => handleInputChange('parkingCharges', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                         placeholder="0"
                       />
                     </div>
@@ -986,7 +986,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.permitAmt}
                         onChange={(e) => handleInputChange('permitAmt', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                         placeholder="0"
                       />
                     </div>
@@ -997,7 +997,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         inputMode="numeric"
                         value={billData.advancePaid}
                         onChange={(e) => handleInputChange('advancePaid', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-emerald-500/40 rounded-lg px-2 py-2 text-emerald-400 font-mono font-bold text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-emerald-500/40 rounded-lg px-2 py-2 text-emerald-400 font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                         placeholder="0"
                       />
                     </div>
@@ -1013,7 +1013,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             type="button"
                             onClick={() => handleInputChange('paymentMode', mode)}
                             className={`py-2 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${billData.paymentMode === mode
-                              ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]'
+                              ? 'bg-[#E8C148] text-neutral-900 border-[#E8C148]'
                               : 'bg-[#0B1138] text-neutral-400 border-white/10 hover:border-white/30'
                               }`}
                           >
@@ -1028,7 +1028,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         type="text"
                         value={billData.upiId}
                         onChange={(e) => handleInputChange('upiId', e.target.value)}
-                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#d4af37] outline-none"
+                        className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
                         placeholder="9894116405@pthdfc"
                       />
                     </div>
@@ -1040,7 +1040,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   <button
                     type="button"
                     onClick={() => setMobileTab('preview')}
-                    className="w-full bg-[#d4af37] hover:bg-[#b57a15] text-neutral-900 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg text-sm cursor-pointer"
+                    className="w-full bg-[#E8C148] hover:bg-[#b57a15] text-neutral-900 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg text-sm cursor-pointer"
                   >
                     <span>View Bill Preview & Download</span>
                     <ArrowRight className="w-4 h-4" />
@@ -1068,7 +1068,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <button
                       type="button"
                       onClick={() => setMobileFit(true)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#0B1138] text-neutral-400 border-white/10'
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${mobileFit ? 'bg-[#E8C148] text-neutral-900 border-[#E8C148]' : 'bg-[#0B1138] text-neutral-400 border-white/10'
                         }`}
                     >
                       Fit Phone
@@ -1076,7 +1076,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     <button
                       type="button"
                       onClick={() => setMobileFit(false)}
-                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${!mobileFit ? 'bg-[#d4af37] text-neutral-900 border-[#d4af37]' : 'bg-[#0B1138] text-neutral-400 border-white/10'
+                      className={`px-2 py-1 text-[10px] font-bold rounded-lg border transition-all ${!mobileFit ? 'bg-[#E8C148] text-neutral-900 border-[#E8C148]' : 'bg-[#0B1138] text-neutral-400 border-white/10'
                         }`}
                     >
                       100% Zoom
@@ -1118,17 +1118,17 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 <h1 className="text-lg sm:text-xl font-black tracking-wide font-heading text-white drop-shadow">
                                   {billData.cabServiceName.toUpperCase()}
                                 </h1>
-                                <p className="text-[10px] sm:text-[11px] text-[#FFD700] font-bold tracking-tight">
+                                <p className="text-[10px] sm:text-[11px] text-[#E8C148] font-bold tracking-tight">
                                   Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •
                                 </p>
                                 <p className="text-[9.5px] sm:text-[10.5px] text-white font-bold leading-normal">
-                                  Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904 | <span className="text-[#FFD700] font-extrabold">Call: +91 98941 16405 / +91 96261 16405</span>
+                                  Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904 | <span className="text-[#E8C148] font-extrabold">Call: +91 98941 16405 / +91 96261 16405</span>
                                 </p>
                               </div>
                             </div>
 
                             {/* Top-Right Badge */}
-                            <div className="bg-[#d4af37] text-[#10194E] px-3 py-2 rounded-md shrink-0 text-right">
+                            <div className="bg-[#E8C148] text-[#10194E] px-3 py-2 rounded-md shrink-0 text-right">
                               <span className="block text-[11px] font-black uppercase tracking-wider">
                                 TRIP DUTY SLIP & INVOICE
                               </span>
@@ -1147,7 +1147,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             {/* Customer Box */}
                             <div className="border border-[#edeae1] rounded-lg overflow-hidden bg-[#faf8f5]">
                               <div className="bg-[#10194E] text-white px-2.5 py-1 font-bold text-[10px] uppercase tracking-wider flex items-center gap-1">
-                                <User className="w-3 h-3 text-[#d4af37]" />
+                                <User className="w-3 h-3 text-[#E8C148]" />
                                 <span>CUSTOMER / PASSENGER</span>
                               </div>
                               <div className="p-2 space-y-1">
@@ -1173,7 +1173,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             {/* Vehicle Box */}
                             <div className="border border-[#edeae1] rounded-lg overflow-hidden bg-[#faf8f5]">
                               <div className="bg-[#10194E] text-white px-2.5 py-1 font-bold text-[10px] uppercase tracking-wider flex items-center gap-1">
-                                <Car className="w-3 h-3 text-[#d4af37]" />
+                                <Car className="w-3 h-3 text-[#E8C148]" />
                                 <span>VEHICLE & CHAUFFEUR</span>
                               </div>
                               <div className="p-2 space-y-1">
@@ -1226,7 +1226,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             </div>
                             <div>
                               <span className="block text-[9px] text-neutral-500 font-bold uppercase">Rate / KM</span>
-                              <span className="font-mono font-bold text-[#d4af37] text-xs">
+                              <span className="font-mono font-bold text-[#E8C148] text-xs">
                                 {Number(billData.ratePerKm) > 0 ? `₹ ${billData.ratePerKm}` : (dailyRentTotal > 0 ? 'Nil / Incl' : '₹ 0')}
                               </span>
                             </div>
@@ -1501,10 +1501,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 type="button"
                 onClick={handleDownloadImage}
                 disabled={isGeneratingImage}
-                className="flex-1 bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
+                className="flex-1 bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
                 title="Save PNG image for WhatsApp"
               >
-                {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#d4af37]" />}
+                {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#E8C148]" />}
                 <span>{isGeneratingImage ? 'Saving...' : downloadImageSuccess ? 'Saved!' : 'Image'}</span>
               </button>
 
@@ -1512,7 +1512,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 type="button"
                 onClick={handleDownloadPdf}
                 disabled={isGeneratingPdf}
-                className="flex-1 bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
+                className="flex-1 bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
               >
                 {downloadSuccess ? <Check className="w-4 h-4 text-white" /> : <Download className="w-4 h-4" />}
                 <span>{isGeneratingPdf ? 'Generating...' : 'Download PDF'}</span>
@@ -1521,10 +1521,10 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
               <button
                 type="button"
                 onClick={handlePrint}
-                className="bg-[#10194E] text-[#f8e7a2] border border-[#d4af37]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-colors cursor-pointer"
+                className="bg-[#10194E] text-[#f8e7a2] border border-[#E8C148]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-colors cursor-pointer"
                 title="Print"
               >
-                <Printer className="w-4 h-4 text-[#d4af37]" />
+                <Printer className="w-4 h-4 text-[#E8C148]" />
               </button>
             </div>
 

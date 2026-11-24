@@ -469,7 +469,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                   : 'bg-white text-neutral-700 hover:bg-neutral-50 border-neutral-200'
                   }`}
               >
-                <Compass className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#D4AF37]' : 'text-neutral-400'}`} />
+                <Compass className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#E8C148]' : 'text-neutral-400'}`} />
                 <span>{hub.title}</span>
                 {isSelected && (
                   <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>

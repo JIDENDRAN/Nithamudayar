@@ -66,7 +66,7 @@ const AdminLogin = () => {
             transition={{ delay: 0.1 }}
             className="text-2xl sm:text-3xl font-heading font-bold text-[#252c54]"
           >
-            Admin <span className="text-[#D4AF37]">Portal</span>
+            Admin <span className="text-[#E8C148]">Portal</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -126,7 +126,7 @@ const AdminLogin = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 bg-[#252c54] hover:bg-[#283058] disabled:bg-[#252c54]/70 text-[#D4AF37] font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 font-heading shadow-md hover:shadow-lg disabled:cursor-not-allowed group border border-[#D4AF37]/30"
+              className="w-full mt-2 bg-[#252c54] hover:bg-[#283058] disabled:bg-[#252c54]/70 text-[#E8C148] font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 font-heading shadow-md hover:shadow-lg disabled:cursor-not-allowed group border border-[#E8C148]/30"
             >
               {isLoading ? (
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>

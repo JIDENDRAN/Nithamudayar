@@ -47,7 +47,7 @@ function renderBillDocument(d, billData, calculations, settings) {
 
   // Theme Palette: Royal Midnight Navy & Heritage Champagne Gold (Exact Logo Colors)
   const navyDark = [16, 25, 78];        // #10194E (Dominant Midnight Navy from official logo)
-  const goldPrimary = [212, 175, 55];    // #d4af37 (Regal Champagne Gold from temple illustration)
+  const goldPrimary = [232, 193, 72];    // #E8C148 (Regal Champagne Gold from temple illustration)
   const goldLight = [253, 248, 225];
   const bgCream = [250, 248, 243];
   const borderCream = [225, 218, 205];

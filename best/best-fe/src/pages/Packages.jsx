@@ -557,7 +557,7 @@ export default function PackagesPage({ onOpenBooking }) {
                       {/* Back Header */}
                       <div className="flex items-center justify-between border-b border-brand-gold/30 pb-3 mb-4">
                         <div>
-                          <span className="text-[11px] font-extrabold text-[#D4AF37] uppercase tracking-wider block">
+                          <span className="text-[11px] font-extrabold text-[#E8C148] uppercase tracking-wider block">
                             Circuit Details
                           </span>
                           <h4 className="text-base sm:text-lg font-black font-heading text-white line-clamp-1 mt-0.5">
@@ -576,7 +576,7 @@ export default function PackagesPage({ onOpenBooking }) {
                             <MapPin className="w-4 h-4 text-brand-gold" />
                             <span>Places Covered ({pkg.highlights.length}):</span>
                           </span>
-                          <span className="text-[11px] font-bold text-[#10194E] bg-[#D4AF37] px-2.5 py-0.5 rounded-full shadow-sm font-heading">
+                          <span className="text-[11px] font-bold text-[#10194E] bg-[#E8C148] px-2.5 py-0.5 rounded-full shadow-sm font-heading">
                             {pkg.duration}
                           </span>
                         </div>
@@ -594,7 +594,7 @@ export default function PackagesPage({ onOpenBooking }) {
 
                       {/* Package Inclusions */}
                       <div className="bg-[#0B1138] border border-brand-gold/35 rounded-xl p-3 text-xs">
-                        <span className="text-[#D4AF37] font-bold block mb-1">Package Inclusions:</span>
+                        <span className="text-[#E8C148] font-bold block mb-1">Package Inclusions:</span>
                         <p className="text-neutral-200 leading-relaxed text-[11px]">{pkg.includes}</p>
                       </div>
                     </div>

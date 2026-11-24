@@ -431,8 +431,8 @@ export default function DestinationsPage({ onOpenBooking }) {
               <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1000 300">
                 <defs>
                   <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.1" />
-                    <stop offset="50%" stopColor="#D4AF37" stopOpacity="0.85" />
+                    <stop offset="0%" stopColor="#E8C148" stopOpacity="0.1" />
+                    <stop offset="50%" stopColor="#E8C148" stopOpacity="0.85" />
                     <stop offset="100%" stopColor="#AA771C" stopOpacity="0.2" />
                   </linearGradient>
                 </defs>
@@ -446,9 +446,9 @@ export default function DestinationsPage({ onOpenBooking }) {
                 <path d="M 100,240 Q 400,280 650,180 T 980,80" fill="none" stroke="url(#routeGradient)" strokeWidth="2" strokeDasharray="10 14" className="animate-route-flow" style={{ animationDuration: '3.5s' }} />
 
                 {/* Clean Static Waypoint Nodes (Zero Blinking) */}
-                <circle cx="250" cy="98" r="3.5" fill="#D4AF37" />
-                <circle cx="500" cy="160" r="3.5" fill="#D4AF37" />
-                <circle cx="780" cy="148" r="3.5" fill="#D4AF37" />
+                <circle cx="250" cy="98" r="3.5" fill="#E8C148" />
+                <circle cx="500" cy="160" r="3.5" fill="#E8C148" />
+                <circle cx="780" cy="148" r="3.5" fill="#E8C148" />
               </svg>
             </div>
 

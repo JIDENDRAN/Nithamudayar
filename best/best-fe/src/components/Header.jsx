@@ -47,7 +47,7 @@ export default function Header({ onOpenBooking }) {
               <span className="font-heading font-black text-lg sm:text-xl lg:text-2xl tracking-wider text-white block leading-tight drop-shadow-md">
                 NITHAMUDAYAR
               </span>
-              <span className="text-[10px] sm:text-xs font-black tracking-widest text-[#FFD700] uppercase block mt-0.5 drop-shadow">
+              <span className="text-[10px] sm:text-xs font-black tracking-widest text-[#E8C148] uppercase block mt-0.5 drop-shadow">
                 Tours & Travels Pvt Ltd
               </span>
             </div>

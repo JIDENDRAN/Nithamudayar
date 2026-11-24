@@ -65,7 +65,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
                 <span className="font-heading font-black text-xl sm:text-2xl lg:text-3xl tracking-wider text-white block drop-shadow-md">
                   NITHAMUDAYAR
                 </span>
-                <p className="text-xs sm:text-sm tracking-widest text-[#FFD700] uppercase font-bold mt-0.5 drop-shadow">
+                <p className="text-xs sm:text-sm tracking-widest text-[#E8C148] uppercase font-bold mt-0.5 drop-shadow">
                   Tours & Travels Pvt Ltd
                 </p>
               </div>
@@ -166,10 +166,10 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
                 <div className="flex flex-col gap-1">
-                  <a href="tel:+919894116405" className="hover:text-brand-gold transition-colors font-extrabold text-sm sm:text-base text-[#FFD700] drop-shadow">
+                  <a href="tel:+919894116405" className="hover:text-brand-gold transition-colors font-extrabold text-sm sm:text-base text-[#E8C148] drop-shadow">
                     +91 98941 16405
                   </a>
-                  <a href="tel:+919626116405" className="hover:text-brand-gold transition-colors font-extrabold text-sm sm:text-base text-[#FFD700] drop-shadow">
+                  <a href="tel:+919626116405" className="hover:text-brand-gold transition-colors font-extrabold text-sm sm:text-base text-[#E8C148] drop-shadow">
                     +91 96261 16405
                   </a>
                 </div>
@@ -180,7 +180,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
                   nithamudayartoursandtravels@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-2.5 pt-0.5 text-[#FFD700] font-bold">
+              <div className="flex items-center gap-2.5 pt-0.5 text-[#E8C148] font-bold">
                 <Clock className="w-4 h-4 shrink-0" />
                 <span>24/7 Service Available</span>
               </div>
