@@ -36,7 +36,7 @@ export default function Navbar({ onOpenBooking }) {
           
           {/* Brand Logo */}
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#10194E] rounded-2xl p-0.5 shadow-lg flex items-center justify-center shrink-0 overflow-hidden transition-transform duration-200 group-hover:scale-105">
+            <div className="w-13 h-13 sm:w-15 sm:h-15 lg:w-17 lg:h-17 bg-[#10194E] rounded-2xl p-0.5 shadow-lg flex items-center justify-center shrink-0 overflow-hidden transition-transform duration-200 group-hover:scale-105 border border-brand-gold/30">
               <img
                 src="/logo.png"
                 alt="Nithamudayar Tours & Travels Pvt Ltd Logo"
@@ -44,10 +44,10 @@ export default function Navbar({ onOpenBooking }) {
               />
             </div>
             <div>
-              <span className="font-heading font-extrabold text-base sm:text-lg lg:text-xl tracking-wider text-white block leading-tight">
+              <span className="font-heading font-black text-lg sm:text-xl lg:text-2xl tracking-wider text-white block leading-tight drop-shadow-md">
                 NITHAMUDAYAR
               </span>
-              <span className="text-[9px] sm:text-[11px] font-bold tracking-widest text-brand-gold uppercase block mt-0.5">
+              <span className="text-[10px] sm:text-xs font-black tracking-widest text-[#FFD700] uppercase block mt-0.5 drop-shadow">
                 Tours & Travels Pvt Ltd
               </span>
             </div>

@@ -1114,15 +1114,15 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                   className="w-full h-full object-contain rounded-lg"
                                 />
                               </div>
-                              <div className="space-y-0.5">
-                                <h1 className="text-base sm:text-lg font-black tracking-wide font-heading text-white">
+                              <div className="space-y-1">
+                                <h1 className="text-lg sm:text-xl font-black tracking-wide font-heading text-white drop-shadow">
                                   {billData.cabServiceName.toUpperCase()}
                                 </h1>
-                                <p className="text-[9.5px] sm:text-[10px] text-[#f8e7a2] font-semibold tracking-tight">
+                                <p className="text-[10px] sm:text-[11px] text-[#FFD700] font-bold tracking-tight">
                                   Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •
                                 </p>
-                                <p className="text-[9px] text-neutral-300">
-                                  Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904 | Call: +91 98941 16405 / +91 96261 16405
+                                <p className="text-[9.5px] sm:text-[10.5px] text-white font-bold leading-normal">
+                                  Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904 | <span className="text-[#FFD700] font-extrabold">Call: +91 98941 16405 / +91 96261 16405</span>
                                 </p>
                               </div>
                             </div>

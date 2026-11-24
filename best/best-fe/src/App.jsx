@@ -101,13 +101,13 @@ const AppContent = () => {
                 transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
                 className="flex flex-col items-center text-center px-6 mb-6"
               >
-                <h2 className="font-heading font-black text-xl lg:text-2xl tracking-wider text-white">
+                <h2 className="font-heading font-black text-2xl lg:text-3xl tracking-wider text-white drop-shadow-lg">
                   NITHAMUDAYAR
                 </h2>
-                <div className="flex items-center gap-2 mt-2 opacity-80">
-                  <span className="w-5 h-px bg-brand-gold" />
-                  <p className="text-[10px] tracking-[0.25em] font-bold uppercase text-brand-gold">Tours & Travels Pvt Ltd</p>
-                  <span className="w-5 h-px bg-brand-gold" />
+                <div className="flex items-center gap-2 mt-2 opacity-95">
+                  <span className="w-6 h-px bg-brand-gold" />
+                  <p className="text-xs lg:text-sm tracking-[0.25em] font-extrabold uppercase text-[#FFD700]">Tours & Travels Pvt Ltd</p>
+                  <span className="w-6 h-px bg-brand-gold" />
                 </div>
               </motion.div>
 

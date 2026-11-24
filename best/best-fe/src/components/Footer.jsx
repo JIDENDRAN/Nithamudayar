@@ -62,10 +62,10 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
                 />
               </div>
               <div>
-                <span className="font-heading font-extrabold text-lg sm:text-xl lg:text-2xl tracking-wider text-white">
+                <span className="font-heading font-black text-xl sm:text-2xl lg:text-3xl tracking-wider text-white block drop-shadow-md">
                   NITHAMUDAYAR
                 </span>
-                <p className="text-[10px] sm:text-xs tracking-wider text-brand-gold uppercase font-semibold">
+                <p className="text-xs sm:text-sm tracking-widest text-[#FFD700] uppercase font-bold mt-0.5 drop-shadow">
                   Tours & Travels Pvt Ltd
                 </p>
               </div>
@@ -154,34 +154,34 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBooking }) {
           </div>
 
           {/* Office Contact */}
-          <div className="space-y-2.5 sm:space-y-3">
-            <h4 className="text-xs sm:text-sm font-bold font-heading text-white border-b border-brand-gold/30 pb-1 sm:pb-1.5 inline-block">
+          <div className="space-y-3 sm:space-y-4">
+            <h4 className="text-sm sm:text-base font-extrabold font-heading text-white border-b-2 border-brand-gold pb-1.5 inline-block">
               Contact Desk
             </h4>
-            <div className="space-y-2 text-xs text-neutral-400">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-brand-gold shrink-0 mt-0.5" />
-                <span>Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904</span>
+            <div className="space-y-3 text-xs sm:text-sm text-neutral-300">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
+                <span className="font-bold text-white leading-snug">Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904</span>
               </div>
-              <div className="flex items-start gap-2">
-                <Phone className="w-3.5 h-3.5 text-brand-gold shrink-0 mt-0.5" />
-                <div className="flex flex-col gap-0.5">
-                  <a href="tel:+919894116405" className="hover:text-white transition-colors font-semibold text-neutral-200">
+              <div className="flex items-start gap-2.5">
+                <Phone className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+919894116405" className="hover:text-brand-gold transition-colors font-extrabold text-sm sm:text-base text-[#FFD700] drop-shadow">
                     +91 98941 16405
                   </a>
-                  <a href="tel:+919626116405" className="hover:text-white transition-colors font-semibold text-neutral-200">
+                  <a href="tel:+919626116405" className="hover:text-brand-gold transition-colors font-extrabold text-sm sm:text-base text-[#FFD700] drop-shadow">
                     +91 96261 16405
                   </a>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-                <a href="mailto:nithamudayartoursandtravels@gmail.com" className="hover:text-white transition-colors">
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-brand-gold shrink-0" />
+                <a href="mailto:nithamudayartoursandtravels@gmail.com" className="hover:text-white transition-colors font-semibold text-neutral-200">
                   nithamudayartoursandtravels@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-2 pt-0.5 text-brand-gold">
-                <Clock className="w-3.5 h-3.5 shrink-0" />
+              <div className="flex items-center gap-2.5 pt-0.5 text-[#FFD700] font-bold">
+                <Clock className="w-4 h-4 shrink-0" />
                 <span>24/7 Service Available</span>
               </div>
             </div>
