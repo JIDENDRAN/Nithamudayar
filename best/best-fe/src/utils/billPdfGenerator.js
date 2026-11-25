@@ -48,7 +48,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   // Theme Palette: Royal Midnight Navy & Heritage Champagne Gold (Exact Logo Colors)
   const navyDark = [16, 25, 78];        // #10194E (Dominant Midnight Navy from official logo)
   const goldPrimary = [232, 193, 72];    // #E8C148 (Regal Champagne Gold from temple illustration)
-  const goldLight = [253, 248, 225];
+  const goldLight = [247, 228, 168];
   const bgCream = [250, 248, 243];
   const borderCream = [225, 218, 205];
   const darkText = [30, 25, 20];
@@ -120,14 +120,14 @@ function renderBillDocument(d, billData, calculations, settings) {
 
   d.setFont('helvetica', 'bold');
   d.setFontSize(7.2);
-  d.setTextColor(255, 225, 110);
+  d.setTextColor(...goldPrimary);
   d.text('Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •', textLeftX, headerY + 14, { maxWidth: textMaxWidth });
 
   d.setTextColor(255, 255, 255);
   d.setFontSize(7.2);
   d.text('Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904', textLeftX, headerY + 19.5, { maxWidth: textMaxWidth });
 
-  d.setTextColor(255, 230, 80);
+  d.setTextColor(...goldPrimary);
   d.setFontSize(7.8);
   d.text('24x7 Customer Care: +91 96261 16405 / +91 98941 16405', textLeftX, headerY + 25.5, { maxWidth: textMaxWidth });
 

@@ -150,7 +150,7 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
         <div className="absolute inset-0 bg-gradient-to-r from-[#10194E] via-[#10194E]/90 to-[#10194E]/70"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/20 border border-brand-gold/40 text-[#FCF6BA] backdrop-blur-xs">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/20 border border-brand-gold/40 text-[#F7E4A8] backdrop-blur-xs">
             <Plane className="w-3.5 h-3.5 text-brand-gold shrink-0" />
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest">
               24/7 Airport Chauffeur Transfers
@@ -321,7 +321,7 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
-                    <span className="absolute top-2 left-2 bg-black/65 backdrop-blur-xs text-[#FCF6BA] border border-brand-gold/40 text-[9px] font-bold px-2 py-0.5 rounded">
+                    <span className="absolute top-2 left-2 bg-black/65 backdrop-blur-xs text-[#F7E4A8] border border-brand-gold/40 text-[9px] font-bold px-2 py-0.5 rounded">
                       {drop.badge}
                     </span>
                     <div className="absolute bottom-2 left-2 right-2 text-white text-[11px] font-bold flex justify-between">
@@ -393,7 +393,7 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
       {/* ─── Bottom Callout Banner ────────────────────────────────────── */}
       <section className="py-12 sm:py-16 px-4 sm:px-10 bg-[#10194E] text-white text-center">
         <div className="max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-1 text-[#FCF6BA] text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1 text-[#F7E4A8] text-xs font-bold uppercase tracking-wider">
             <CheckCircle2 className="w-4 h-4 text-brand-gold" />
             <span>Guaranteed On-Time Chauffeur Dispatch</span>
           </div>

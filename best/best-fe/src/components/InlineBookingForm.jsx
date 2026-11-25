@@ -136,7 +136,7 @@ export default function InlineBookingForm({ defaultVehicle, defaultPackage }) {
     <section className="py-8 px-4 bg-[#0f2420]" id="booking-section">
       {/* Section header */}
       <div className="max-w-[380px] mx-auto mb-6 text-center">
-        <div className="inline-flex items-center gap-2 bg-[#d4951e]/15 border border-[#d4951e]/30 rounded-full px-4 py-1.5 mb-3">
+        <div className="inline-flex items-center gap-2 bg-[#E8C148]/15 border border-[#E8C148]/30 rounded-full px-4 py-1.5 mb-3">
           <Car className="w-4 h-4 text-[#f5c842]" />
           <span className="text-[#f5c842] text-xs font-bold uppercase tracking-widest">{t('Quick Booking')}</span>
         </div>
@@ -148,7 +148,7 @@ export default function InlineBookingForm({ defaultVehicle, defaultPackage }) {
 
       <div className="max-w-[380px] mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#1a3c34]/10">
         {/* Gold accent strip */}
-        <div className="h-1.5 bg-[#d4951e]" />
+        <div className="h-1.5 bg-[#E8C148]" />
 
         <div className="p-5 bg-[#f5f0e8]">
           {isSuccess ? (
@@ -190,11 +190,11 @@ export default function InlineBookingForm({ defaultVehicle, defaultPackage }) {
                 <button
                   type="button"
                   onClick={() => detectLocation('pickup')}
-                  className="absolute right-3 top-3.5 text-emerald-900/40 hover:text-[#d4951e] transition-colors"
+                  className="absolute right-3 top-3.5 text-emerald-900/40 hover:text-[#E8C148] transition-colors"
                   title={t('Detect Location')}
                 >
                   {loadingPickup
-                    ? <div className="w-4 h-4 border-2 border-[#d4951e] border-t-transparent rounded-full animate-spin" />
+                    ? <div className="w-4 h-4 border-2 border-[#E8C148] border-t-transparent rounded-full animate-spin" />
                     : <Navigation className="w-4 h-4" />}
                 </button>
               </div>
@@ -215,11 +215,11 @@ export default function InlineBookingForm({ defaultVehicle, defaultPackage }) {
                 <button
                   type="button"
                   onClick={() => detectLocation('drop')}
-                  className="absolute right-3 top-3.5 text-emerald-900/40 hover:text-[#d4951e] transition-colors"
+                  className="absolute right-3 top-3.5 text-emerald-900/40 hover:text-[#E8C148] transition-colors"
                   title={t('Detect Location')}
                 >
                   {loadingDrop
-                    ? <div className="w-4 h-4 border-2 border-[#d4951e] border-t-transparent rounded-full animate-spin" />
+                    ? <div className="w-4 h-4 border-2 border-[#E8C148] border-t-transparent rounded-full animate-spin" />
                     : <Navigation className="w-4 h-4" />}
                 </button>
               </div>
@@ -302,7 +302,7 @@ export default function InlineBookingForm({ defaultVehicle, defaultPackage }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full mt-1 bg-[#d4951e] text-white font-extrabold py-4 rounded-xl shadow-lg shadow-[#d4951e]/15 active:scale-[0.98] transition-all flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed text-sm group"
+                className="w-full mt-1 bg-[#E8C148] text-white font-extrabold py-4 rounded-xl shadow-lg shadow-[#E8C148]/15 active:scale-[0.98] transition-all flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed text-sm group"
               >
                 {isSubmitting ? t('PROCESSING...') : (
                   <>

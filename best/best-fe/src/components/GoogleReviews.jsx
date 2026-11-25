@@ -138,7 +138,7 @@ const GoogleReviews = () => {
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold mb-2">
             <Sparkles className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#FCF6BA]">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#F7E4A8]">
               Verified Google Business Reviews
             </span>
           </div>
@@ -172,7 +172,7 @@ const GoogleReviews = () => {
                     Google Reviews Rating
                   </span>
                   {isFallback && (
-                    <span className="flex items-center gap-1 ml-2 bg-brand-gold/20 text-[#FCF6BA] border border-brand-gold/40 px-2 py-0.5 rounded-full text-[9px] font-bold">
+                    <span className="flex items-center gap-1 ml-2 bg-brand-gold/20 text-[#F7E4A8] border border-brand-gold/40 px-2 py-0.5 rounded-full text-[9px] font-bold">
                       <Sparkles className="w-2.5 h-2.5 text-brand-gold" /> Verified Testimonials
                     </span>
                   )}

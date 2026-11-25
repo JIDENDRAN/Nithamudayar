@@ -46,7 +46,7 @@ Please share tariff quotation & confirm vehicle availability. Thank you!`;
                 Enter Trip Details & Reserve on WhatsApp
               </h2>
             </div>
-            <span className="text-[10px] sm:text-xs text-[#FCF6BA]/90 font-medium">
+            <span className="text-[10px] sm:text-xs text-[#F7E4A8]/90 font-medium">
               24/7 Doorstep Service Across South India
             </span>
           </div>

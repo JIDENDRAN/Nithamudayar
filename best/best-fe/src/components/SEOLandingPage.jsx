@@ -135,7 +135,7 @@ const SEOLandingPage = ({
                     <details key={idx} className="group bg-[#fbfbf9] border border-[#edeae1] rounded-2xl overflow-hidden cursor-pointer">
                       <summary className="flex items-center justify-between font-bold text-[#0f2420] p-6 select-none">
                         {faq.q}
-                        <ChevronDown className="w-5 h-5 text-[#d4951e] transition-transform group-open:rotate-180" />
+                        <ChevronDown className="w-5 h-5 text-[#E8C148] transition-transform group-open:rotate-180" />
                       </summary>
                       <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-[#edeae1]/50 pt-4">
                         {faq.a}
@@ -171,7 +171,7 @@ const SEOLandingPage = ({
 
               {/* Quick Contact Card */}
               <div className="bg-[#0f2420] rounded-3xl p-8 text-white text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#d4951e]/20 rounded-bl-full blur-2xl" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#E8C148]/20 rounded-bl-full blur-2xl" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#25d366]/20 rounded-tr-full blur-2xl" />
                 
                 <h3 className="font-poppins font-bold text-xl mb-2 relative z-10">Need Help Booking?</h3>
@@ -179,7 +179,7 @@ const SEOLandingPage = ({
                 
                 <div className="flex flex-col gap-4 relative z-10">
                   <a href="tel:+919626116405" className="bg-white text-[#0f2420] hover:bg-gray-100 font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors">
-                    <PhoneCall className="w-5 h-5 text-[#d4951e]" /> +91 96261 16405
+                    <PhoneCall className="w-5 h-5 text-[#E8C148]" /> +91 96261 16405
                   </a>
                   <a href="https://wa.me/919626116405" target="_blank" rel="noreferrer" className="bg-[#25d366] text-white hover:bg-[#20b858] font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors">
                     <MessageCircle className="w-5 h-5" /> WhatsApp Us

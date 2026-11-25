@@ -62,7 +62,7 @@ export const travelHubsData = [
     desc: 'Journey through 2,000 years of glorious Tamil architectural genius, soaring granite temple towers (Vimana), sculpted corridors, and legendary sacred sea bridges down to the ocean confluence.',
     vehicles: 'Innova Crysta • Force Urbania • Tempo Traveller',
     accentColor: 'from-[#252c54] via-[#283058] to-[#10194E]',
-    badgeBg: 'bg-amber-500/20 text-[#FCF6BA] border-amber-500/40',
+    badgeBg: 'bg-amber-500/20 text-[#F7E4A8] border-amber-500/40',
     places: [
       {
         name: 'Madurai',
@@ -465,7 +465,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                 key={hub.id}
                 onClick={() => handleSelectHub(idx)}
                 className={`relative px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 snap-start flex items-center gap-2 cursor-pointer border ${isSelected
-                  ? 'bg-[#10194E] text-[#FCF6BA] border-brand-gold shadow-lg scale-102 z-10'
+                  ? 'bg-[#10194E] text-[#F7E4A8] border-brand-gold shadow-lg scale-102 z-10'
                   : 'bg-white text-neutral-700 hover:bg-neutral-50 border-neutral-200'
                   }`}
               >
@@ -485,7 +485,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
           {/* Top Gold Shimmer Progress Bar */}
           <div className="h-1.5 bg-neutral-200 relative overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-brand-gold via-[#F3C64F] to-brand-gold transition-all duration-75"
+              className="h-full bg-gradient-to-r from-brand-gold via-[#E8C148] to-brand-gold transition-all duration-75"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -516,14 +516,14 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                   </span>
                 </div>
 
-                <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#FCF6BA] text-xs font-bold border border-white/20">
+                <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#F7E4A8] text-xs font-bold border border-white/20">
                   {currentPlace.highlight}
                 </span>
               </div>
 
               {/* Bottom Image Headline & Description */}
               <div className="absolute bottom-4 inset-x-4 sm:bottom-6 sm:inset-x-6 text-white z-10 space-y-1.5">
-                <span className="text-xs sm:text-sm font-bold text-[#FCF6BA] tracking-wide block uppercase">
+                <span className="text-xs sm:text-sm font-bold text-[#F7E4A8] tracking-wide block uppercase">
                   {currentPlace.state} • {currentPlace.tagline}
                 </span>
                 <h3 className="text-2xl sm:text-4xl font-black font-heading text-white drop-shadow-md">
@@ -619,7 +619,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                   </Link>
                   <Link
                     to="/packages"
-                    className="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-[#10194E] hover:bg-[#252c54] text-[#FCF6BA] transition-colors border border-brand-gold/30"
+                    className="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-[#10194E] hover:bg-[#252c54] text-[#F7E4A8] transition-colors border border-brand-gold/30"
                   >
                     Explore Packages
                   </Link>
@@ -687,7 +687,7 @@ export default function TravelHubsCarousel({ onOpenBooking }) {
                       )}
 
                       <div className="absolute bottom-1.5 left-2 right-2 text-white hidden sm:block">
-                        <span className="text-[10px] text-[#FCF6BA] font-semibold block leading-tight">
+                        <span className="text-[10px] text-[#F7E4A8] font-semibold block leading-tight">
                           {place.tagline}
                         </span>
                         <h5 className="text-sm font-bold font-heading text-white">

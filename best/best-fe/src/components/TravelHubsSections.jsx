@@ -165,7 +165,7 @@ function HubSectionItem({ hub, onOpenBooking, isReversed }) {
 
             {/* Category Number & Badge */}
             <div className="flex items-center gap-2">
-              <span className="w-7 h-7 rounded-lg bg-[#10194E] text-[#FCF6BA] font-black text-xs flex items-center justify-center shadow-sm">
+              <span className="w-7 h-7 rounded-lg bg-[#10194E] text-[#F7E4A8] font-black text-xs flex items-center justify-center shadow-sm">
                 {hub.number}
               </span>
               <span className="text-[11px] font-bold uppercase tracking-wider text-brand-gold-dark bg-brand-gold/10 px-2.5 py-0.5 rounded-full border border-brand-gold/30">
@@ -257,7 +257,7 @@ function HubSectionItem({ hub, onOpenBooking, isReversed }) {
 
             {/* Top Slide Badge */}
             <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
-              <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#FCF6BA] text-[11px] font-bold border border-white/20">
+              <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#F7E4A8] text-[11px] font-bold border border-white/20">
                 {currentPlace.tagline}
               </span>
 

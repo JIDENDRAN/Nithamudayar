@@ -25,7 +25,7 @@ export default function Hero({ onOpenBooking }) {
           {/* Eyebrow Tag */}
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#0B1138]/80 border border-brand-gold/40 backdrop-blur-sm">
             <Sparkles className="w-3 h-3 text-brand-gold shrink-0" />
-            <span className="text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FCF6BA] uppercase">
+            <span className="text-[10px] sm:text-[11px] font-bold tracking-widest text-[#F7E4A8] uppercase">
               TamilNadu Tour & Travel Services
             </span>
           </div>

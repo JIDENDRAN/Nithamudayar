@@ -331,7 +331,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   <button
                     type="button"
                     onClick={handlePrint}
-                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors"
+                    className="bg-[#10194E] hover:bg-[#252c54] text-[#E8C148] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors"
                     title="Print or Save as PDF via browser"
                   >
                     <Printer className="w-4 h-4 text-[#E8C148]" />
@@ -342,7 +342,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     type="button"
                     onClick={handleDownloadImage}
                     disabled={isGeneratingImage}
-                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors disabled:opacity-50"
+                    className="bg-[#10194E] hover:bg-[#252c54] text-[#E8C148] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-colors disabled:opacity-50"
                     title="Download high-resolution PNG image (ideal for WhatsApp)"
                   >
                     {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#E8C148]" />}
@@ -353,7 +353,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     type="button"
                     onClick={handleDownloadPdf}
                     disabled={isGeneratingPdf}
-                    className="bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-md disabled:opacity-50 transition-colors"
+                    className="bg-[#10194E] hover:bg-[#252c54] text-[#E8C148] border border-[#E8C148]/40 py-2 px-3 sm:px-4 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-md disabled:opacity-50 transition-colors"
                     title="Download razor-sharp vector PDF"
                   >
                     {downloadSuccess ? <Check className="w-4 h-4 text-white" /> : <Download className="w-4 h-4" />}
@@ -711,7 +711,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         Night Halting Bata (10 PM to 6 AM)
                       </label>
                       {nightBata > 0 ? (
-                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#E8C148]/20 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#E8C148] font-mono font-bold bg-[#E8C148]/20 px-2 py-0.5 rounded">
                           Total: ₹{nightBata.toLocaleString('en-IN')}
                         </span>
                       ) : (
@@ -762,7 +762,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                             }
                           }}
                           placeholder="0"
-                          className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
+                          className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2 py-2 text-[#E8C148] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                         />
                       </div>
                     </div>
@@ -778,7 +778,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                     </span>
                     <div className="flex items-center gap-2">
                       {dailyRentTotal > 0 ? (
-                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#E8C148] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
                           Total: ₹{dailyRentTotal.toLocaleString('en-IN')}
                         </span>
                       ) : (
@@ -833,7 +833,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           }
                         }}
                         placeholder="0"
-                        className="w-full bg-[#0B1138] border border-[#E8C148]/40 rounded-lg px-2.5 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
+                        className="w-full bg-[#0B1138] border border-[#E8C148]/40 rounded-lg px-2.5 py-2 text-[#E8C148] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                       />
                     </div>
                   </div>
@@ -859,7 +859,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         Hill Charges (Ghat Road / Hill Station)
                       </label>
                       {hillCharges > 0 ? (
-                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#E8C148] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
                           Total: ₹{hillCharges.toLocaleString('en-IN')}
                         </span>
                       ) : (
@@ -902,7 +902,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         Hour Charges (Extra Hours / Waiting)
                       </label>
                       {hourChargesAmt > 0 ? (
-                        <span className="text-[10px] text-[#f8e7a2] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#E8C148] font-mono font-bold bg-[#E8C148]/20 border border-[#E8C148]/40 px-2 py-0.5 rounded">
                           Total: ₹{hourChargesAmt.toLocaleString('en-IN')}
                         </span>
                       ) : (
@@ -946,7 +946,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                           value={billData.hourChargesTotal !== undefined && billData.hourChargesTotal !== "" ? billData.hourChargesTotal : (hourChargesAmt || '')}
                           onChange={(e) => handleInputChange('hourChargesTotal', e.target.value)}
                           placeholder="0"
-                          className="w-full bg-[#10194E] border border-[#E8C148]/40 rounded-lg px-2 py-2 text-[#f8e7a2] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
+                          className="w-full bg-[#10194E] border border-[#E8C148]/40 rounded-lg px-2 py-2 text-[#E8C148] font-mono font-bold text-xs focus:border-[#E8C148] outline-none"
                         />
                       </div>
                     </div>
@@ -1040,7 +1040,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                   <button
                     type="button"
                     onClick={() => setMobileTab('preview')}
-                    className="w-full bg-[#E8C148] hover:bg-[#b57a15] text-neutral-900 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg text-sm cursor-pointer"
+                    className="w-full bg-[#E8C148] hover:bg-[#C59C24] text-neutral-900 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg text-sm cursor-pointer"
                   >
                     <span>View Bill Preview & Download</span>
                     <ArrowRight className="w-4 h-4" />
@@ -1444,7 +1444,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                               {/* Solid Net Amount Banner */}
                               <div className="bg-[#10194E] text-white p-2 rounded-lg flex justify-between items-center mt-1">
                                 <span className="font-extrabold uppercase tracking-wide text-[11px]">Net Amount:</span>
-                                <span className="text-sm font-extrabold font-mono text-[#f8e7a2]">
+                                <span className="text-sm font-extrabold font-mono text-[#E8C148]">
                                   ₹ {totalFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                                 </span>
                               </div>
@@ -1477,7 +1477,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
 
                           {/* 8. FOOTER BANNER */}
                           <div className="bg-[#10194E] text-white text-[10px] text-center py-2 px-3 rounded-lg leading-tight space-y-0.5">
-                            <p className="font-bold text-[#f8e7a2]">
+                            <p className="font-bold text-[#E8C148]">
                               Thank you for traveling with Nithamudayar Tours & Travels Pvt Ltd! Wish you a pleasant journey.
                             </p>
                             <p className="text-[8.5px] text-neutral-300">
@@ -1501,7 +1501,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 type="button"
                 onClick={handleDownloadImage}
                 disabled={isGeneratingImage}
-                className="flex-1 bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
+                className="flex-1 bg-[#10194E] hover:bg-[#252c54] text-[#E8C148] border border-[#E8C148]/40 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
                 title="Save PNG image for WhatsApp"
               >
                 {downloadImageSuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <ImageIcon className="w-4 h-4 text-[#E8C148]" />}
@@ -1512,7 +1512,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                 type="button"
                 onClick={handleDownloadPdf}
                 disabled={isGeneratingPdf}
-                className="flex-1 bg-[#10194E] hover:bg-[#252c54] text-[#f8e7a2] border border-[#E8C148]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
+                className="flex-1 bg-[#10194E] hover:bg-[#252c54] text-[#E8C148] border border-[#E8C148]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md disabled:opacity-50 transition-colors cursor-pointer"
               >
                 {downloadSuccess ? <Check className="w-4 h-4 text-white" /> : <Download className="w-4 h-4" />}
                 <span>{isGeneratingPdf ? 'Generating...' : 'Download PDF'}</span>
@@ -1521,7 +1521,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
               <button
                 type="button"
                 onClick={handlePrint}
-                className="bg-[#10194E] text-[#f8e7a2] border border-[#E8C148]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-colors cursor-pointer"
+                className="bg-[#10194E] text-[#E8C148] border border-[#E8C148]/40 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-colors cursor-pointer"
                 title="Print"
               >
                 <Printer className="w-4 h-4 text-[#E8C148]" />

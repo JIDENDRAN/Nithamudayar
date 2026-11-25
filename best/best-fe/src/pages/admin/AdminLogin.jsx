@@ -40,13 +40,13 @@ const AdminLogin = () => {
     }
   };
 
-  const inputCls = 'w-full pl-5 pr-12 py-3.5 sm:py-4 rounded-xl bg-[#f7f5f0] border border-[#e4dfd5] text-gray-800 text-sm placeholder:text-gray-400 focus:ring-1 focus:ring-[#d4951e] focus:border-[#d4951e] outline-none transition-all font-outfit';
+  const inputCls = 'w-full pl-5 pr-12 py-3.5 sm:py-4 rounded-xl bg-[#f7f5f0] border border-[#e4dfd5] text-gray-800 text-sm placeholder:text-gray-400 focus:ring-1 focus:ring-[#E8C148] focus:border-[#E8C148] outline-none transition-all font-outfit';
 
   return (
     <div className="min-h-screen bg-[#f5f0e8] flex items-center justify-center relative overflow-hidden font-outfit px-4 sm:px-6">
 
       {/* Decorative background blur elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#d4951e]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E8C148]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#10194E]/5 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
 
       <div className="w-full max-w-md relative z-10">

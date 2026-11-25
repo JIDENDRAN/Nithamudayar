@@ -172,13 +172,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── GOLD GRADIENTS & BUTTONS ───────────────────────────── */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #FDE68A 0%, #E8C148 50%, #B45309 100%);
+  background: linear-gradient(135deg, #F7E4A8 0%, #E8C148 50%, #C59C24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gold-shine {
-  background: linear-gradient(90deg, #F9D976 0%, #E9B642 30%, #FFF4D0 50%, #E8C148 70%, #B8860B 100%);
+  background: linear-gradient(90deg, #F7E4A8 0%, #E8C148 30%, #FFF8E7 50%, #E8C148 70%, #C59C24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-gold:hover {
-  background: linear-gradient(135deg, #FFE58F 0%, #E5B83B 50%, #B38728 100%);
+  background: linear-gradient(135deg, #F7E4A8 0%, #E8C148 50%, #C59C24 100%);
   box-shadow: 0 6px 20px rgba(232, 193, 72, 0.5);
   transform: translateY(-2px);
 }
@@ -390,7 +390,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(-90deg);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   text-transform: uppercase;
-  color: #F8E7A2;
+  color: #F7E4A8;
   letter-spacing: 0.14em;
   font-weight: 800;
   font-family: 'Montserrat', sans-serif;
