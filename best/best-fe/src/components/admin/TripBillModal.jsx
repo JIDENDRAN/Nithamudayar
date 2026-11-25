@@ -1105,31 +1105,34 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         <div className="border border-[#10194E] p-4 sm:p-5 space-y-3.5">
 
                           {/* 1. TOP HEADER BANNER */}
-                          <div className="bg-[#10194E] text-white p-3.5 rounded-lg flex items-center justify-between gap-3">
-                            <div className="flex items-center gap-3">
-                              <div className="w-14 h-14 bg-[#10194E] rounded-xl p-0.5 shadow-md shrink-0 flex items-center justify-center overflow-hidden">
+                          <div className="bg-[#10194E] text-white p-3 rounded-lg flex items-start justify-between gap-2.5">
+                            <div className="flex items-start gap-2.5 flex-1 min-w-0">
+                              <div className="w-14 h-14 bg-[#10194E] rounded-xl p-0.5 shadow-md shrink-0 flex items-center justify-center overflow-hidden mt-0.5">
                                 <img
                                   src={NITHAM_LOGO_BASE64 || "/logo.png"}
                                   alt="Nithamudayar Emblem"
                                   className="w-full h-full object-contain rounded-lg"
                                 />
                               </div>
-                              <div className="space-y-1">
-                                <h1 className="text-lg sm:text-xl font-black tracking-wide font-heading text-white drop-shadow">
+                              <div className="flex-1 min-w-0 space-y-1">
+                                <h1 className="text-[13px] sm:text-[14px] font-black tracking-wide font-heading text-white drop-shadow whitespace-nowrap leading-tight">
                                   {billData.cabServiceName.toUpperCase()}
                                 </h1>
-                                <p className="text-[10px] sm:text-[11px] text-[#E8C148] font-bold tracking-tight">
+                                <p className="text-[9.5px] text-[#E8C148] font-bold tracking-tight leading-tight">
                                   Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •
                                 </p>
-                                <p className="text-[9.5px] sm:text-[10.5px] text-white font-bold leading-normal">
-                                  Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005 | <span className="text-[#E8C148] font-extrabold">Call: +91 96261 16405 / +91 98941 16405</span>
+                                <p className="text-[9px] text-neutral-100 font-semibold leading-tight">
+                                  Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005
+                                </p>
+                                <p className="text-[9.5px] text-[#E8C148] font-extrabold leading-tight">
+                                  Call: +91 96261 16405 / +91 98941 16405
                                 </p>
                               </div>
                             </div>
 
                             {/* Top-Right Badge */}
-                            <div className="bg-[#E8C148] text-[#10194E] px-3 py-2 rounded-md shrink-0 text-right">
-                              <span className="block text-[11px] font-black uppercase tracking-wider">
+                            <div className="bg-[#E8C148] text-[#10194E] px-2.5 py-1.5 rounded-md shrink-0 text-right self-start mt-0.5">
+                              <span className="block text-[10.5px] font-black uppercase tracking-wider">
                                 TRIP DUTY SLIP & INVOICE
                               </span>
                               <span className="block text-[10px] font-mono font-bold mt-0.5">

@@ -113,23 +113,22 @@ function renderBillDocument(d, billData, calculations, settings) {
 
   d.setTextColor(255, 255, 255);
   d.setFont('helvetica', 'bold');
-  d.setFontSize(12.5);
-  d.setTextColor(255, 255, 255);
+  d.setFontSize(11);
   const companyName = (billData.cabServiceName || settings?.name || 'NITHAMUDAYAR TOURS & TRAVELS PVT LTD').toUpperCase();
-  d.text(companyName, textLeftX, headerY + 8, { maxWidth: textMaxWidth });
+  d.text(companyName, textLeftX, headerY + 7.5, { maxWidth: textMaxWidth });
 
   d.setFont('helvetica', 'bold');
-  d.setFontSize(7.2);
+  d.setFontSize(7);
   d.setTextColor(...goldPrimary);
-  d.text('Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •', textLeftX, headerY + 14, { maxWidth: textMaxWidth });
+  d.text('Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •', textLeftX, headerY + 13, { maxWidth: textMaxWidth });
 
   d.setTextColor(255, 255, 255);
-  d.setFontSize(7.2);
-  d.text('Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005', textLeftX, headerY + 19.5, { maxWidth: textMaxWidth });
+  d.setFontSize(7);
+  d.text('Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005', textLeftX, headerY + 18.5, { maxWidth: textMaxWidth });
 
   d.setTextColor(...goldPrimary);
-  d.setFontSize(7.8);
-  d.text('24x7 Customer Care: +91 96261 16405 / +91 98941 16405', textLeftX, headerY + 25.5, { maxWidth: textMaxWidth });
+  d.setFontSize(7.5);
+  d.text('Call: +91 96261 16405 / +91 98941 16405', textLeftX, headerY + 24, { maxWidth: textMaxWidth });
 
   // 3. Build Items List to Determine Dynamic Row Count
   const items = [];
