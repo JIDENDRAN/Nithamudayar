@@ -1122,7 +1122,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                   Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •
                                 </p>
                                 <p className="text-[9.5px] sm:text-[10.5px] text-white font-bold leading-normal">
-                                  Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904 | <span className="text-[#E8C148] font-extrabold">Call: +91 96261 16405 / +91 98941 16405</span>
+                                  Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005 | <span className="text-[#E8C148] font-extrabold">Call: +91 96261 16405 / +91 98941 16405</span>
                                 </p>
                               </div>
                             </div>

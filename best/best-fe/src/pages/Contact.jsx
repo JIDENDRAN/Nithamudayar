@@ -116,14 +116,14 @@ export default function Contact({ onOpenBooking }) {
                   href="tel:+919626116405"
                   className="text-[10px] sm:text-xs font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1 transition-colors"
                 >
-                  <span>98941 16405</span>
+                  <span>96261 16405</span>
                   <ArrowRight className="w-2.5 h-2.5 text-brand-gold-dark" />
                 </a>
                 <a
-                  href="tel:+919626116405"
+                  href="tel:+919894116405"
                   className="text-[10px] sm:text-xs font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1 transition-colors"
                 >
-                  <span>96261 16405</span>
+                  <span>98941 16405</span>
                   <ArrowRight className="w-2.5 h-2.5 text-brand-gold-dark" />
                 </a>
               </div>
@@ -499,7 +499,7 @@ export default function Contact({ onOpenBooking }) {
                       <div>
                         <p className="font-bold text-white text-xs">Operations Headquarters</p>
                         <p className="text-neutral-300 mt-0.5 leading-relaxed font-medium">
-                          Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904
+                          Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005
                         </p>
                         <p className="text-neutral-400 text-[11px] mt-0.5">
                           Depot & garage network covering all 38 districts & South India.
@@ -515,11 +515,11 @@ export default function Contact({ onOpenBooking }) {
                         <p className="font-bold text-white text-xs">Phone & WhatsApp Hotline</p>
                         <div className="flex flex-col sm:flex-row sm:gap-3 text-neutral-300 mt-0.5 font-semibold">
                           <a href="tel:+919626116405" className="hover:text-brand-gold transition-colors">
-                            +91 98941 16405
+                            +91 96261 16405
                           </a>
                           <span className="hidden sm:inline text-neutral-500">•</span>
-                          <a href="tel:+919626116405" className="hover:text-brand-gold transition-colors">
-                            +91 96261 16405
+                          <a href="tel:+919894116405" className="hover:text-brand-gold transition-colors">
+                            +91 98941 16405
                           </a>
                         </div>
                         <p className="text-[11px] text-neutral-400">Available 24 hours / 7 days</p>

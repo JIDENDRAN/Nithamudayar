@@ -125,7 +125,7 @@ function renderBillDocument(d, billData, calculations, settings) {
 
   d.setTextColor(255, 255, 255);
   d.setFontSize(7.2);
-  d.text('Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904', textLeftX, headerY + 19.5, { maxWidth: textMaxWidth });
+  d.text('Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005', textLeftX, headerY + 19.5, { maxWidth: textMaxWidth });
 
   d.setTextColor(...goldPrimary);
   d.setFontSize(7.8);
