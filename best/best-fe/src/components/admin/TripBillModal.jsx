@@ -53,7 +53,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     vehicleNo: '',
     vehicleModel: 'Toyota Innova Crysta',
     driverName: '',
-    driverPhone: '+91 98941 16405',
+    driverPhone: '+91 96261 16405',
     openingKm: 14500,
     closingKm: 14850,
     distanceKm: 350,
@@ -77,7 +77,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     permitAmt: "",
     advancePaid: "",
     paymentMode: 'UPI', // 'UPI' | 'Cash' | 'Bank'
-    upiId: '9894116405@pthdfc'
+    upiId: '9626116405@pthdfc'
   });
 
   // Automatically update bill data when booking changes
@@ -621,7 +621,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.driverPhone}
                         onChange={(e) => handleInputChange('driverPhone', e.target.value)}
                         className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white text-xs focus:border-[#E8C148] outline-none"
-                        placeholder="+91 98941 16405"
+                        placeholder="+91 96261 16405"
                       />
                     </div>
                   </div>
@@ -1029,7 +1029,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.upiId}
                         onChange={(e) => handleInputChange('upiId', e.target.value)}
                         className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
-                        placeholder="9894116405@pthdfc"
+                        placeholder="9626116405@pthdfc"
                       />
                     </div>
                   </div>
@@ -1122,7 +1122,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                   Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •
                                 </p>
                                 <p className="text-[9.5px] sm:text-[10.5px] text-white font-bold leading-normal">
-                                  Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904 | <span className="text-[#E8C148] font-extrabold">Call: +91 98941 16405 / +91 96261 16405</span>
+                                  Kelavasthachavadi Rajamal Grand Pudhu Road, Pattukottai Bypass Road, Thanjavur - 614904 | <span className="text-[#E8C148] font-extrabold">Call: +91 96261 16405 / +91 98941 16405</span>
                                 </p>
                               </div>
                             </div>
@@ -1157,7 +1157,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 </div>
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Contact:</span>
-                                  <span className="font-semibold text-neutral-800 font-mono">{billData.phone || '+91 98941 16405'}</span>
+                                  <span className="font-semibold text-neutral-800 font-mono">{billData.phone || '+91 96261 16405'}</span>
                                 </div>
                                 <div className="flex">
                                   <span className="text-neutral-500 w-20 shrink-0 text-[10px]">Pickup:</span>
@@ -1401,7 +1401,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 <div className="pt-0.5 text-[10px]">
                                   <span className="text-neutral-500 block">Official UPI ID for Payment:</span>
                                   <span className="font-mono font-bold text-[#10194E] bg-white px-2 py-0.5 rounded border border-[#edeae1] inline-block mt-0.5 text-[11px] shadow-sm">
-                                    {billData.upiId || '9894116405@pthdfc'}
+                                    {billData.upiId || '9626116405@pthdfc'}
                                   </span>
                                 </div>
                                 <span className="text-[8.5px] text-neutral-500 block">
@@ -1481,7 +1481,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                               Thank you for traveling with Nithamudayar Tours & Travels Pvt Ltd! Wish you a pleasant journey.
                             </p>
                             <p className="text-[8.5px] text-neutral-300">
-                              Computer Generated Travel Duty Slip & Invoice • Customer Copy • 24x7 Customer Care: +91 98941 16405 / +91 96261 16405
+                              Computer Generated Travel Duty Slip & Invoice • Customer Copy • 24x7 Customer Care: +91 96261 16405 / +91 98941 16405
                             </p>
                           </div>
 

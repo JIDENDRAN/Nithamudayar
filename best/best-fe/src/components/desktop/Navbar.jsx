@@ -76,10 +76,10 @@ export default function Navbar({ onOpenBooking }) {
           <div className="flex items-center gap-2.5 sm:gap-3.5">
             {/* Call Icon Button */}
             <a
-              href="tel:+919894116405"
+              href="tel:+919626116405"
               className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-brand-gold/40 hover:border-brand-gold hover:bg-brand-gold/20 text-brand-gold hover:text-white flex items-center justify-center transition-all shadow-sm group"
-              aria-label="Call +91 98941 16405"
-              title="Call +91 98941 16405"
+              aria-label="Call +91 96261 16405"
+              title="Call +91 96261 16405"
             >
               <Phone className="w-4 h-4 transition-transform group-hover:scale-110" />
             </a>
@@ -148,9 +148,9 @@ export default function Navbar({ onOpenBooking }) {
 
             <div className="flex items-center gap-3">
               <a
-                href="tel:+919894116405"
+                href="tel:+919626116405"
                 className="w-10 h-10 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold flex items-center justify-center shrink-0 hover:bg-brand-gold hover:text-[#10194E] transition-all"
-                aria-label="Call +91 98941 16405"
+                aria-label="Call +91 96261 16405"
               >
                 <Phone className="w-4 h-4" />
               </a>

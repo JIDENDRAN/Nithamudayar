@@ -24,7 +24,7 @@ I would like to book a cab with the following details:
 
 Please share tariff quotation & confirm vehicle availability. Thank you!`;
 
-    const whatsappUrl = `https://wa.me/919894116405?text=${encodeURIComponent(text)}`;
+    const whatsappUrl = `https://wa.me/919626116405?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
 

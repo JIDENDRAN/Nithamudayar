@@ -1160,7 +1160,7 @@ I saw this photo in your Gallery:
 I would like to enquire about a tour package / taxi service for this. Please share details!`;
 
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/919894116405?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/919626116405?text=${encoded}`, '_blank');
   };
 
   const handleNext = (e) => {

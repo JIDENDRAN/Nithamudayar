@@ -500,10 +500,10 @@ export default function DestinationsPage({ onOpenBooking }) {
                 </button>
 
                 <a
-                  href="tel:+919894116405"
+                  href="tel:+919626116405"
                   className="px-5 py-2.5 rounded-xl text-xs font-semibold text-neutral-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-brand-gold/40 transition-all flex items-center justify-center gap-2 text-center"
                 >
-                  <span>24/7 Travel Desk: +91 98941 16405</span>
+                  <span>24/7 Travel Desk: +91 96261 16405</span>
                 </a>
               </div>
 

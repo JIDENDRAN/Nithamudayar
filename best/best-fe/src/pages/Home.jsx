@@ -816,7 +816,7 @@ export default function HomePage({ onOpenBooking }) {
               Book Chauffeur Online
             </button>
             <a
-              href="https://wa.me/919894116405?text=Hello%2C%20I%20would%20like%20to%20plan%20a%20tour%20with%20Nithamudayar%20Travels"
+              href="https://wa.me/919626116405?text=Hello%2C%20I%20would%20like%20to%20plan%20a%20tour%20with%20Nithamudayar%20Travels"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto bg-[#10194E] text-white hover:bg-[#252c54] py-3 px-8 rounded-xl text-sm font-bold transition-all inline-flex items-center justify-center gap-2 border border-brand-gold/30"

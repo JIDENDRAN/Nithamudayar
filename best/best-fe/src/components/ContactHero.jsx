@@ -51,7 +51,7 @@ export default function ContactHero({ onOpenBooking }) {
             </button>
 
             <a
-              href="tel:+919894116405"
+              href="tel:+919626116405"
               className="px-4 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-black/60 hover:bg-black/80 border border-brand-gold/40 text-brand-gold hover:text-white transition-all backdrop-blur-sm flex items-center gap-2 shadow-md"
             >
               <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold" />

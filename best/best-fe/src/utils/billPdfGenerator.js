@@ -129,7 +129,7 @@ function renderBillDocument(d, billData, calculations, settings) {
 
   d.setTextColor(255, 230, 80);
   d.setFontSize(7.8);
-  d.text('24x7 Customer Care: +91 98941 16405 / +91 96261 16405', textLeftX, headerY + 25.5, { maxWidth: textMaxWidth });
+  d.text('24x7 Customer Care: +91 96261 16405 / +91 98941 16405', textLeftX, headerY + 25.5, { maxWidth: textMaxWidth });
 
   // 3. Build Items List to Determine Dynamic Row Count
   const items = [];
@@ -289,7 +289,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   const cardRowH = (cardsHeight - 8) / 4;
   const custLabels = [
     { label: 'Customer Name:', val: billData.customerName || 'Walk-in Guest' },
-    { label: 'Contact No:', val: billData.phone || '+91 98941 16405' },
+    { label: 'Contact No:', val: billData.phone || '+91 96261 16405' },
     { label: 'Pickup From:', val: (billData.fromLocation || 'Pickup Point').slice(0, 32) },
     { label: 'Drop / Route:', val: (billData.toLocation || 'Destination').slice(0, 32) }
   ];
@@ -460,7 +460,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.setTextColor(...navyDark);
   d.setFont('helvetica', 'bold');
   d.setFontSize(7.5);
-  d.text(billData.upiId || '9894116405@pthdfc', tableX + 6.5, summaryY + 25.5);
+  d.text(billData.upiId || '9626116405@pthdfc', tableX + 6.5, summaryY + 25.5);
 
   d.setTextColor(...grayText);
   d.setFont('helvetica', 'normal');
@@ -600,7 +600,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.setFont('helvetica', 'normal');
   d.setFontSize(6.8);
   d.setTextColor(...goldLight);
-  d.text('Computer Generated Travel Bill & Duty Slip • Customer Copy • 24x7 Customer Care: +91 98941 16405 / +91 96261 16405', 105, footerY + 10, { align: 'center' });
+  d.text('Computer Generated Travel Bill & Duty Slip • Customer Copy • 24x7 Customer Care: +91 96261 16405 / +91 98941 16405', 105, footerY + 10, { align: 'center' });
 }
 
 /**

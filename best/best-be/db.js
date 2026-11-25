@@ -183,14 +183,14 @@ export async function initDatabase() {
 
   // Seed default admin settings
   await pool.query("UPDATE admin_settings SET name = 'admin' WHERE name = 'Superadmin'");
-  await pool.query("UPDATE admin_settings SET phone = '9894116405', whatsapp = '9894116405' WHERE id = (SELECT MIN(id) FROM admin_settings)");
+  await pool.query("UPDATE admin_settings SET phone = '9626116405', whatsapp = '9626116405' WHERE id = (SELECT MIN(id) FROM admin_settings)");
 
   const adminCountRes = await pool.query('SELECT COUNT(*) as count FROM admin_settings');
   const adminCount = parseInt(adminCountRes.rows[0].count, 10);
   if (adminCount === 0) {
     await pool.query(
       'INSERT INTO admin_settings (name, phone, whatsapp, password) VALUES ($1, $2, $3, $4)',
-      ['admin', '9894116405', '9894116405', 'admin123']
+      ['admin', '9626116405', '9626116405', 'admin123']
     );
     console.log('Seeded default admin settings.');
   }

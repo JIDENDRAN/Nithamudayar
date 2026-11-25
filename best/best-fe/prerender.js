@@ -53,7 +53,7 @@ const routeMetadata = {
   },
   '/contact': {
     title: 'Contact Us | Nithamudayar Tours & Travels Pvt Ltd | 24/7 Concierge Booking',
-    description: 'Get in touch with Nithamudayar Tours & Travels Pvt Ltd. Call +91 98941 16405 or WhatsApp for 24/7 custom booking, outstation taxi reservations, and trip planning.'
+    description: 'Get in touch with Nithamudayar Tours & Travels Pvt Ltd. Call +91 96261 16405 or WhatsApp for 24/7 custom booking, outstation taxi reservations, and trip planning.'
   },
   '/privacy-policy': {
     title: 'Privacy Policy | Nithamudayar Tours & Travels Pvt Ltd',

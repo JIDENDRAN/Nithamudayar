@@ -146,7 +146,7 @@ initDatabase()
 async function dispatchAdminWhatsAppAlert(booking) {
   try {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
-    const targetPhone = admin ? admin.whatsapp : '9894116405';
+    const targetPhone = admin ? admin.whatsapp : '9626116405';
 
     const message = `🚨 *New Booking from Nithamudayar Tours & Travels Pvt Ltd* 🚨\n\n` +
       `👤 *Customer Name:* ${booking.name}\n` +
@@ -167,7 +167,7 @@ async function dispatchAdminWhatsAppAlert(booking) {
 async function dispatchContactWhatsAppAlert(messageData) {
   try {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
-    const targetPhone = admin ? admin.whatsapp : '9894116405';
+    const targetPhone = admin ? admin.whatsapp : '9626116405';
 
     const message = `✉️ *New Message received from Nithamudayar Tours & Travels Pvt Ltd* ✉️\n\n` +
       `👤 *Sender Name:* ${messageData.name}\n` +
@@ -547,7 +547,7 @@ app.post('/api/admin/whatsapp-disconnect', async (req, res) => {
 app.post('/api/admin/whatsapp-test', async (req, res) => {
   try {
     const admin = await db.get('SELECT * FROM admin_settings LIMIT 1');
-    const targetPhone = admin ? admin.whatsapp : '9894116405';
+    const targetPhone = admin ? admin.whatsapp : '9626116405';
 
     const message = `👋 *Test Message from Nithamudayar Tours & Travels Pvt Ltd* \n\nIf you are seeing this, your WhatsApp Notification Bot is successfully connected and ready to receive live booking alerts! ✅`;
 

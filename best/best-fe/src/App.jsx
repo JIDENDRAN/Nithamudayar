@@ -40,7 +40,7 @@ const AppContent = () => {
       '/fleet': 'Choose from our clean, sanitized commercial fleet: Maruti Suzuki Dzire, Toyota Innova Crysta, Force Tempo Traveller, and 36/49 seater luxury AC coach buses.',
       '/vehicles': 'Choose from our clean, sanitized commercial fleet: Maruti Suzuki Dzire, Toyota Innova Crysta, Force Tempo Traveller, and 36/49 seater luxury AC coach buses.',
       '/destinations': 'Discover the cultural and scenic hubs of TamilNadu: Thanjavur, Kumbakonam, Trichy, Madurai, Coimbatore, and Chennai with Nithamudayar Tours & Travels Pvt Ltd.',
-      '/contact': 'Contact Nithamudayar Tours & Travels Pvt Ltd 24/7. Call +91 98941 16405 or chat via WhatsApp for instant quotation and transparent booking confirmation.',
+      '/contact': 'Contact Nithamudayar Tours & Travels Pvt Ltd 24/7. Call +91 96261 16405 or chat via WhatsApp for instant quotation and transparent booking confirmation.',
       '/gallery': 'View travel memories, heritage monuments, and fleet journeys across TamilNadu with Nithamudayar Tours & Travels Pvt Ltd.',
       '/privacy-policy': 'Read the privacy policy of Nithamudayar Tours & Travels Pvt Ltd regarding customer information and trip enquiries.',
       '/terms-and-conditions': 'Review the terms and conditions for booking tourist cabs, tempo travellers, and bus charters with Nithamudayar Tours & Travels Pvt Ltd.',

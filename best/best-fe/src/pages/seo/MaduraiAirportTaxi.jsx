@@ -176,7 +176,7 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
             </button>
 
             <a
-              href="https://wa.me/919894116405?text=Hello%2C%20I%20need%20an%20airport%20taxi%20booking"
+              href="https://wa.me/919626116405?text=Hello%2C%20I%20need%20an%20airport%20taxi%20booking"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-sm transition-all inline-flex items-center gap-2"
@@ -411,11 +411,11 @@ export default function MaduraiAirportTaxi({ onOpenBooking }) {
               Book Chauffeur Online
             </button>
             <a
-              href="tel:+919894116405"
+              href="tel:+919626116405"
               className="w-full sm:w-auto px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all inline-flex items-center justify-center gap-2"
             >
               <PhoneCall className="w-4 h-4 text-brand-gold" />
-              <span>Call: +91 98941 16405</span>
+              <span>Call: +91 96261 16405</span>
             </a>
           </div>
         </div>

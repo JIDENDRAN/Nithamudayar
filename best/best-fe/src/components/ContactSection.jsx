@@ -22,7 +22,7 @@ export default function ContactSection() {
     const text = `*New Travel Enquiry - Nithamudayar Tours & Travels Pvt Ltd*%0A• Name: ${formData.name}%0A• Phone: ${formData.phone}%0A• Email: ${formData.email || 'N/A'}%0A• Pickup: ${formData.pickup}%0A• Destination: ${formData.destination}%0A• Travel Date: ${formData.date}%0A• Vehicle: ${formData.vehicle}%0A• Details: ${formData.message || 'Standard Trip'}`;
 
     setTimeout(() => {
-      window.open(`https://wa.me/919894116405?text=${text}`, '_blank');
+      window.open(`https://wa.me/919626116405?text=${text}`, '_blank');
       setSubmitted(false);
     }, 1000);
   };
@@ -204,11 +204,11 @@ export default function ContactSection() {
                   <div>
                     <p className="font-semibold text-neutral-900">Phone & Hotline</p>
                     <div className="flex flex-col gap-0.5 text-neutral-600 mt-0.5">
-                      <a href="tel:+919894116405" className="hover:text-brand-gold-dark transition-colors font-medium">
-                        +91 98941 16405
-                      </a>
                       <a href="tel:+919626116405" className="hover:text-brand-gold-dark transition-colors font-medium">
                         +91 96261 16405
+                      </a>
+                      <a href="tel:+919894116405" className="hover:text-brand-gold-dark transition-colors font-medium">
+                        +91 98941 16405
                       </a>
                     </div>
                   </div>

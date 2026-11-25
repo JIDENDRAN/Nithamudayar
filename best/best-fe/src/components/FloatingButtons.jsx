@@ -8,7 +8,7 @@ const WhatsAppIcon = ({ className }) => (
 );
 
 export default function FloatingButtons() {
-  const adminNumber = '9894116405';
+  const adminNumber = '9626116405';
   const whatsappUrl = `https://wa.me/91${adminNumber}?text=Hello%2C%20I%20want%20to%20book%20a%20trip%20with%20Nithamudayar%20Tours%20and%20Travels.`;
 
   return (

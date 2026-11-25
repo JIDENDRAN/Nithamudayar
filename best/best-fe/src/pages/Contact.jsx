@@ -73,7 +73,7 @@ export default function Contact({ onOpenBooking }) {
       `• Notes: ${formData.message || 'Standard Request'}`;
 
     setTimeout(() => {
-      window.open(`https://wa.me/919894116405?text=${text}`, '_blank');
+      window.open(`https://wa.me/919626116405?text=${text}`, '_blank');
       setSubmitted(false);
     }, 800);
   };
@@ -113,7 +113,7 @@ export default function Contact({ onOpenBooking }) {
             <div className="pt-2.5 sm:pt-4 mt-2 sm:mt-3 border-t border-neutral-100 flex items-center justify-between">
               <div className="flex flex-col gap-0.5">
                 <a
-                  href="tel:+919894116405"
+                  href="tel:+919626116405"
                   className="text-[10px] sm:text-xs font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1 transition-colors"
                 >
                   <span>98941 16405</span>
@@ -153,7 +153,7 @@ export default function Contact({ onOpenBooking }) {
             </div>
             <div className="pt-2.5 sm:pt-4 mt-2 sm:mt-3 border-t border-neutral-100 flex items-center justify-between">
               <a
-                href="https://wa.me/919894116405?text=Hello%20Nithamudayar%20Tours%20and%20Travels,%20I%20would%20like%20to%20enquire%20about%20a%20trip."
+                href="https://wa.me/919626116405?text=Hello%20Nithamudayar%20Tours%20and%20Travels,%20I%20would%20like%20to%20enquire%20about%20a%20trip."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[10px] sm:text-xs font-bold text-neutral-900 hover:text-brand-gold-dark flex items-center gap-1 transition-colors"
@@ -514,7 +514,7 @@ export default function Contact({ onOpenBooking }) {
                       <div>
                         <p className="font-bold text-white text-xs">Phone & WhatsApp Hotline</p>
                         <div className="flex flex-col sm:flex-row sm:gap-3 text-neutral-300 mt-0.5 font-semibold">
-                          <a href="tel:+919894116405" className="hover:text-brand-gold transition-colors">
+                          <a href="tel:+919626116405" className="hover:text-brand-gold transition-colors">
                             +91 98941 16405
                           </a>
                           <span className="hidden sm:inline text-neutral-500">•</span>
@@ -623,14 +623,14 @@ export default function Contact({ onOpenBooking }) {
 
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
-              href="tel:+919894116405"
+              href="tel:+919626116405"
               className="btn-gold py-3 px-6 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 shadow-xl hover:scale-105 transition-transform"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Call +91 98941 16405</span>
+              <span>Call +91 96261 16405</span>
             </a>
             <a
-              href="https://wa.me/919894116405?text=Hello%20Nithamudayar%20Travels,%20I%20need%20an%20urgent%20vehicle%20booking."
+              href="https://wa.me/919626116405?text=Hello%20Nithamudayar%20Travels,%20I%20need%20an%20urgent%20vehicle%20booking."
               target="_blank"
               rel="noopener noreferrer"
               className="py-3 px-5 rounded-xl text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors"

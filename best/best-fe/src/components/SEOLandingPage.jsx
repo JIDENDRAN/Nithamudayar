@@ -82,10 +82,10 @@ const SEOLandingPage = ({
                   <Navigation className="w-5 h-5 text-neutral-950" /> Book Your Ride Now
                 </button>
                 <a 
-                  href="tel:+919894116405" 
+                  href="tel:+919626116405" 
                   className="flex items-center gap-2.5 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-full transition-all text-sm uppercase tracking-wider backdrop-blur-md"
                 >
-                  <PhoneCall className="w-5 h-5" /> Call +91 98941 16405
+                  <PhoneCall className="w-5 h-5" /> Call +91 96261 16405
                 </a>
               </div>
             </motion.div>
@@ -178,10 +178,10 @@ const SEOLandingPage = ({
                 <p className="text-white/70 text-sm mb-8 relative z-10">Our travel experts are available 24/7 to assist you.</p>
                 
                 <div className="flex flex-col gap-4 relative z-10">
-                  <a href="tel:+919894116405" className="bg-white text-[#0f2420] hover:bg-gray-100 font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors">
-                    <PhoneCall className="w-5 h-5 text-[#d4951e]" /> +91 98941 16405
+                  <a href="tel:+919626116405" className="bg-white text-[#0f2420] hover:bg-gray-100 font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors">
+                    <PhoneCall className="w-5 h-5 text-[#d4951e]" /> +91 96261 16405
                   </a>
-                  <a href="https://wa.me/919894116405" target="_blank" rel="noreferrer" className="bg-[#25d366] text-white hover:bg-[#20b858] font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors">
+                  <a href="https://wa.me/919626116405" target="_blank" rel="noreferrer" className="bg-[#25d366] text-white hover:bg-[#20b858] font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors">
                     <MessageCircle className="w-5 h-5" /> WhatsApp Us
                   </a>
                 </div>
