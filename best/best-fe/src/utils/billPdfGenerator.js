@@ -122,7 +122,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.setTextColor(...goldPrimary);
   d.text('Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •', textLeftX, headerY + 13, { maxWidth: textMaxWidth });
 
-  d.setTextColor(255, 255, 255);
+  d.setTextColor(...goldPrimary);
   d.setFontSize(7);
   d.text('Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005', textLeftX, headerY + 18.5, { maxWidth: textMaxWidth });
 

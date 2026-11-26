@@ -1121,7 +1121,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 <p className="text-[9.5px] text-[#E8C148] font-bold tracking-tight leading-tight">
                                   Premium Luxury Fleets • Sedan • SUV • Innova Crysta • Force Tempo Traveller • Urbania •
                                 </p>
-                                <p className="text-[9px] text-neutral-100 font-semibold leading-tight">
+                                <p className="text-[9px] text-[#E8C148] font-semibold leading-tight">
                                   Melavasthachavadi, Abinaya Grand Air force, Pudukkottai Road, Thanjavur - 613005
                                 </p>
                                 <p className="text-[9.5px] text-[#E8C148] font-extrabold leading-tight">
