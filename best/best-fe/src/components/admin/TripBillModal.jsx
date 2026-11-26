@@ -77,7 +77,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
     permitAmt: "",
     advancePaid: "",
     paymentMode: 'UPI', // 'UPI' | 'Cash' | 'Bank'
-    upiId: '9626116405@pthdfc'
+    upiId: '9894116405@pthdfc'
   });
 
   // Automatically update bill data when booking changes
@@ -1029,7 +1029,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                         value={billData.upiId}
                         onChange={(e) => handleInputChange('upiId', e.target.value)}
                         className="w-full bg-[#0B1138] border border-white/15 rounded-lg px-2.5 py-2 text-white font-mono text-xs focus:border-[#E8C148] outline-none"
-                        placeholder="9626116405@pthdfc"
+                        placeholder="9894116405@pthdfc"
                       />
                     </div>
                   </div>
@@ -1404,7 +1404,7 @@ export default function TripBillModal({ isOpen, onClose, booking, settings, cars
                                 <div className="pt-0.5 text-[10px]">
                                   <span className="text-neutral-500 block">Official UPI ID for Payment:</span>
                                   <span className="font-mono font-bold text-[#10194E] bg-white px-2 py-0.5 rounded border border-[#edeae1] inline-block mt-0.5 text-[11px] shadow-sm">
-                                    {billData.upiId || '9626116405@pthdfc'}
+                                    {billData.upiId || '9894116405@pthdfc'}
                                   </span>
                                 </div>
                                 <span className="text-[8.5px] text-neutral-500 block">

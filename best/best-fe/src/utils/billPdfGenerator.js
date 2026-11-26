@@ -459,7 +459,7 @@ function renderBillDocument(d, billData, calculations, settings) {
   d.setTextColor(...navyDark);
   d.setFont('helvetica', 'bold');
   d.setFontSize(7.5);
-  d.text(billData.upiId || '9626116405@pthdfc', tableX + 6.5, summaryY + 25.5);
+  d.text(billData.upiId || '9894116405@pthdfc', tableX + 6.5, summaryY + 25.5);
 
   d.setTextColor(...grayText);
   d.setFont('helvetica', 'normal');
@@ -477,7 +477,7 @@ function renderBillDocument(d, billData, calculations, settings) {
 
   if (PAYMENT_QR_FULL_BASE64) {
     try {
-      d.addImage(PAYMENT_QR_FULL_BASE64, 'JPEG', qrBoxX + 1.5, qrBoxY + 1.5, 21, 21 * (614 / 686));
+      d.addImage(PAYMENT_QR_FULL_BASE64, 'PNG', qrBoxX + 2, qrBoxY + 2, 20, 20);
     } catch (e) {
       console.warn('QR image draw error:', e);
     }
@@ -699,7 +699,7 @@ function createCanvasRenderer(ctx, scale, logoImg, qrImg) {
       }
     },
     addImage(src, type, x, y, w, h) {
-      const imgToDraw = (src && (src === PAYMENT_QR_FULL_BASE64 || String(src).includes('image/jpeg'))) ? qrImg : logoImg;
+      const imgToDraw = (src && (src === PAYMENT_QR_FULL_BASE64 || src === PAYMENT_QR_CODE_BASE64 || String(src).includes('image/jpeg'))) ? qrImg : logoImg;
       if (imgToDraw && (imgToDraw.complete || imgToDraw.naturalWidth > 0)) {
         const dx = Math.round(x * s);
         const dy = Math.round(y * s);
