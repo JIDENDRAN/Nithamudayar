@@ -1325,9 +1325,13 @@ Driver Charge: ${data.dayDriver || ''}`;
                           {whatsappStatus.qrCode ? (
                             <div className="bg-white p-3 rounded-2xl inline-block shadow-md">
                               <img
-                                src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(whatsappStatus.qrCode)}`}
+                                src={
+                                  whatsappStatus.qrCode.startsWith('data:') || whatsappStatus.qrCode.startsWith('http')
+                                    ? whatsappStatus.qrCode
+                                    : `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(whatsappStatus.qrCode)}`
+                                }
                                 alt="WhatsApp QR Code"
-                                className="w-48 h-48 block mx-auto"
+                                className="w-52 h-52 block mx-auto rounded-lg shadow-xs"
                               />
                             </div>
                           ) : (

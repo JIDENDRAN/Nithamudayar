@@ -508,11 +508,15 @@ app.post('/api/admin/add', async (req, res) => {
 
 app.get('/api/admin/whatsapp-status', async (req, res) => {
   try {
-    const admin = await db.get('SELECT qr_code FROM admin_settings LIMIT 1');
-    const isConnected = getWhatsAppStatus();
+    const status = getWhatsAppStatus();
+    let qrCode = status.qrCode;
+    if (!status.isConnected && !qrCode) {
+      const admin = await db.get('SELECT qr_code FROM admin_settings LIMIT 1');
+      qrCode = admin ? admin.qr_code : null;
+    }
     res.status(200).json({
-      isConnected,
-      qrCode: isConnected ? null : (admin ? admin.qr_code : null)
+      isConnected: status.isConnected,
+      qrCode: status.isConnected ? null : qrCode
     });
   } catch (error) {
     console.error('Error fetching WhatsApp status:', error);
@@ -522,10 +526,7 @@ app.get('/api/admin/whatsapp-status', async (req, res) => {
 
 app.post('/api/admin/whatsapp-reconnect', async (req, res) => {
   try {
-    // Clear existing auth credentials and QR code to force a clean reconnect session
-    await db.run("DELETE FROM whatsapp_auth_state").catch(() => { });
-    await db.run("UPDATE admin_settings SET qr_code = NULL").catch(() => { });
-
+    await disconnectWhatsApp();
     connectToWhatsApp(db);
     res.status(200).json({ message: 'Reconnection sequence triggered' });
   } catch (error) {
